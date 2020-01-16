@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>rows</key>
+	<array>
+		<dict>
+			<key>imageUrl</key>
+			<string>http://00.minipic.eastday.com/20161129/20161129160127_a443d4afa187e5d6f677ee5f8cf5c2d8_2.jpeg</string>
+			<key>title</key>
+			<string>腿腿腿</string>
+		</dict>
+		<dict>
+			<key>imageUrl</key>
+			<string>http://c.hiphotos.baidu.com/zhidao/pic/item/ac4bd11373f08202009c2e8440fbfbedab641b7a.jpg</string>
+			<key>title</key>
+			<string>小恶魔</string>
+		</dict>
+		<dict>
+			<key>imageUrl</key>
+			<string>http://00.minipic.eastday.com/20170221/20170221213023_44f99b4322bb05580903970e75428f11_5.jpeg</string>
+			<key>title</key>
+			<string>半透明蕾丝</string>
+		</dict>
+		<dict>
+			<key>imageUrl</key>
+			<string>http://img.souutu.com/2015/0324/20150324063050255.jpg.260.343.jpg</string>
+			<key>title</key>
+			<string>打棒球</string>
+		</dict>
+		<dict>
+			<key>imageUrl</key>
+			<string>http://01.minipic.eastday.com/20170119/20170119102314_de9c13abad949518c38576d21fa2b8fc_2.jpeg</string>
+			<key>title</key>
+			<string>这张应该可以适配</string>
+		</dict>
+	</array>
+</dict>
+</plist>

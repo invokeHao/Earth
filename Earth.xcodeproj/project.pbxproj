@@ -1,0 +1,1201 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2CD1C4B1FFEA8182F60BEF17 /* libPods-EarthTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8077943148965DD1B7C6BA34 /* libPods-EarthTests.a */; };
+		4EB9B06CBE8768E2F907633A /* libPods-Earth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CD831C42EFAA5322E86D062 /* libPods-Earth.a */; };
+		6746D47C23B1D00800A46FC7 /* MFYCFToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D47B23B1D00800A46FC7 /* MFYCFToolView.m */; };
+		6746D47F23B4DE0700A46FC7 /* MFYCategoryListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D47E23B4DE0700A46FC7 /* MFYCategoryListVC.m */; };
+		6746D48223B4E54100A46FC7 /* MFYIndicatorBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D48123B4E54100A46FC7 /* MFYIndicatorBackgroundView.m */; };
+		6746D48723B4E77300A46FC7 /* UIColor+WHColorKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D48623B4E77300A46FC7 /* UIColor+WHColorKit.m */; };
+		6746D48B23B4EDC500A46FC7 /* MFYCategoryTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D48A23B4EDC500A46FC7 /* MFYCategoryTitleView.m */; };
+		6746D48F23B60E0A00A46FC7 /* MFYCategoryBackgroundTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D48E23B60E0A00A46FC7 /* MFYCategoryBackgroundTitleCell.m */; };
+		6746D49223B60E9700A46FC7 /* MFYCategoryBackgoundTitleCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D49123B60E9700A46FC7 /* MFYCategoryBackgoundTitleCellModel.m */; };
+		6746D49523B625E900A46FC7 /* MFYFlowListVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D49423B625E900A46FC7 /* MFYFlowListVM.m */; };
+		6746D49923B6267100A46FC7 /* MFYRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D49823B6267100A46FC7 /* MFYRow.m */; };
+		6746D49C23B62C2E00A46FC7 /* MFYFlowCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D49B23B62C2E00A46FC7 /* MFYFlowCardView.m */; };
+		6746D4A023B62E2000A46FC7 /* UIView+WHChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D49F23B62E2000A46FC7 /* UIView+WHChain.m */; };
+		6746D4A223B6349800A46FC7 /* coreFlowList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6746D4A123B6349800A46FC7 /* coreFlowList.plist */; };
+		6763D79023CEEE5B003D9E20 /* MFYHTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D78F23CEEE5B003D9E20 /* MFYHTTPManager.m */; };
+		6763D79323CEEFE1003D9E20 /* MFYResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D79223CEEFE1003D9E20 /* MFYResponseObject.m */; };
+		6763D79623CEF400003D9E20 /* MFYServiceURLConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D79523CEF400003D9E20 /* MFYServiceURLConfig.m */; };
+		6763D79923CEF4B4003D9E20 /* MFYServiceConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D79823CEF4B4003D9E20 /* MFYServiceConstant.m */; };
+		6763D79E23CF0375003D9E20 /* NSError+MFYHTTPError.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D79D23CF0375003D9E20 /* NSError+MFYHTTPError.m */; };
+		6763D7A523CF10A1003D9E20 /* MFYLoginVIewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D7A423CF10A1003D9E20 /* MFYLoginVIewController.m */; };
+		6763D7A823CF10C0003D9E20 /* MFYLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D7A723CF10C0003D9E20 /* MFYLoginManager.m */; };
+		6763D7AB23D057A2003D9E20 /* MFYTimerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D7AA23D057A1003D9E20 /* MFYTimerButton.m */; };
+		6763D7AF23D06944003D9E20 /* MFYLoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D7AE23D06944003D9E20 /* MFYLoginService.m */; };
+		6763D7B323D07B84003D9E20 /* MFYLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D7B223D07B84003D9E20 /* MFYLoginModel.m */; };
+		6779376723B0C29700D1B822 /* MFYCoreFlowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6779376623B0C29700D1B822 /* MFYCoreFlowVC.m */; };
+		678420BE23A7ABB3000F5BCE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 678420BD23A7ABB3000F5BCE /* AppDelegate.m */; };
+		67EFC32023C300C500F5BDB3 /* KSPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EFC31623C300C400F5BDB3 /* KSPhotoView.m */; };
+		67EFC32123C300C500F5BDB3 /* KSYYImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EFC31723C300C400F5BDB3 /* KSYYImageManager.m */; };
+		67EFC32223C300C500F5BDB3 /* KSProgressLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EFC31823C300C400F5BDB3 /* KSProgressLayer.m */; };
+		67EFC32323C300C500F5BDB3 /* KSPhotoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EFC31923C300C400F5BDB3 /* KSPhotoItem.m */; };
+		67EFC32423C300C500F5BDB3 /* KSPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EFC31A23C300C400F5BDB3 /* KSPhotoBrowser.m */; };
+		67EFC32723C3015C00F5BDB3 /* MFYCardSuduPicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EFC32623C3015C00F5BDB3 /* MFYCardSuduPicView.m */; };
+		67EFC32A23C30BFF00F5BDB3 /* UIView+WHUd.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EFC32923C30BFF00F5BDB3 /* UIView+WHUd.m */; };
+		67EFC32D23C310A200F5BDB3 /* UIView+WHRoundCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EFC32C23C310A200F5BDB3 /* UIView+WHRoundCorner.m */; };
+		67EFC33123C311A800F5BDB3 /* UIView+WHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EFC33023C311A800F5BDB3 /* UIView+WHExtension.m */; };
+		67EFC33523C3136800F5BDB3 /* WHAlertTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EFC33423C3136800F5BDB3 /* WHAlertTool.m */; };
+		67F097D323A785EA001DCEB4 /* EarthTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F097D223A785EA001DCEB4 /* EarthTests.m */; };
+		67F097DE23A785EA001DCEB4 /* EarthUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F097DD23A785EA001DCEB4 /* EarthUITests.m */; };
+		67F097FE23A78D56001DCEB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67F097F723A78D56001DCEB4 /* Assets.xcassets */; };
+		67F0980123A78EF0001DCEB4 /* MFYBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F0980023A78EF0001DCEB4 /* MFYBaseNavigationController.m */; };
+		67F0980423A7A063001DCEB4 /* MFYBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F0980323A7A063001DCEB4 /* MFYBaseViewController.m */; };
+		67F0980823A7A185001DCEB4 /* MFYNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F0980723A7A185001DCEB4 /* MFYNavigationBar.m */; };
+		67F0981023A7AAE7001DCEB4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F0980D23A7AAE6001DCEB4 /* main.m */; };
+		7AD7DC2B60CCB2CD828A85F5 /* libPods-EarthUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EABE641716F8167C445E2C55 /* libPods-EarthUITests.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		67F097CF23A785EA001DCEB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67F097AB23A785E6001DCEB4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67F097B223A785E6001DCEB4;
+			remoteInfo = Earth;
+		};
+		67F097DA23A785EA001DCEB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67F097AB23A785E6001DCEB4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67F097B223A785E6001DCEB4;
+			remoteInfo = Earth;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0E01BA0FF280F6B5DBA883DC /* Pods-Earth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Earth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Earth/Pods-Earth.debug.xcconfig"; sourceTree = "<group>"; };
+		3215E6FA30092520AD67D89C /* Pods-EarthUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EarthUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EarthUITests/Pods-EarthUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4C07D197B752148CF079BE0D /* Pods-EarthTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EarthTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EarthTests/Pods-EarthTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6746D47A23B1D00800A46FC7 /* MFYCFToolView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYCFToolView.h; sourceTree = "<group>"; };
+		6746D47B23B1D00800A46FC7 /* MFYCFToolView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYCFToolView.m; sourceTree = "<group>"; };
+		6746D47D23B4DE0700A46FC7 /* MFYCategoryListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYCategoryListVC.h; sourceTree = "<group>"; };
+		6746D47E23B4DE0700A46FC7 /* MFYCategoryListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYCategoryListVC.m; sourceTree = "<group>"; };
+		6746D48023B4E54100A46FC7 /* MFYIndicatorBackgroundView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYIndicatorBackgroundView.h; sourceTree = "<group>"; };
+		6746D48123B4E54100A46FC7 /* MFYIndicatorBackgroundView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYIndicatorBackgroundView.m; sourceTree = "<group>"; };
+		6746D48523B4E77300A46FC7 /* UIColor+WHColorKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+WHColorKit.h"; sourceTree = "<group>"; };
+		6746D48623B4E77300A46FC7 /* UIColor+WHColorKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WHColorKit.m"; sourceTree = "<group>"; };
+		6746D48823B4E84F00A46FC7 /* whKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = whKit.h; sourceTree = "<group>"; };
+		6746D48923B4EDC500A46FC7 /* MFYCategoryTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYCategoryTitleView.h; sourceTree = "<group>"; };
+		6746D48A23B4EDC500A46FC7 /* MFYCategoryTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYCategoryTitleView.m; sourceTree = "<group>"; };
+		6746D48D23B60E0A00A46FC7 /* MFYCategoryBackgroundTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYCategoryBackgroundTitleCell.h; sourceTree = "<group>"; };
+		6746D48E23B60E0A00A46FC7 /* MFYCategoryBackgroundTitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYCategoryBackgroundTitleCell.m; sourceTree = "<group>"; };
+		6746D49023B60E9700A46FC7 /* MFYCategoryBackgoundTitleCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYCategoryBackgoundTitleCellModel.h; sourceTree = "<group>"; };
+		6746D49123B60E9700A46FC7 /* MFYCategoryBackgoundTitleCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYCategoryBackgoundTitleCellModel.m; sourceTree = "<group>"; };
+		6746D49323B625E900A46FC7 /* MFYFlowListVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYFlowListVM.h; sourceTree = "<group>"; };
+		6746D49423B625E900A46FC7 /* MFYFlowListVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYFlowListVM.m; sourceTree = "<group>"; };
+		6746D49723B6267100A46FC7 /* MFYRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYRow.h; sourceTree = "<group>"; };
+		6746D49823B6267100A46FC7 /* MFYRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYRow.m; sourceTree = "<group>"; };
+		6746D49A23B62C2E00A46FC7 /* MFYFlowCardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYFlowCardView.h; sourceTree = "<group>"; };
+		6746D49B23B62C2E00A46FC7 /* MFYFlowCardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYFlowCardView.m; sourceTree = "<group>"; };
+		6746D49E23B62E2000A46FC7 /* UIView+WHChain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+WHChain.h"; sourceTree = "<group>"; };
+		6746D49F23B62E2000A46FC7 /* UIView+WHChain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+WHChain.m"; sourceTree = "<group>"; };
+		6746D4A123B6349800A46FC7 /* coreFlowList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = coreFlowList.plist; sourceTree = "<group>"; };
+		6763D78E23CEEE5B003D9E20 /* MFYHTTPManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYHTTPManager.h; sourceTree = "<group>"; };
+		6763D78F23CEEE5B003D9E20 /* MFYHTTPManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYHTTPManager.m; sourceTree = "<group>"; };
+		6763D79123CEEFE1003D9E20 /* MFYResponseObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYResponseObject.h; sourceTree = "<group>"; };
+		6763D79223CEEFE1003D9E20 /* MFYResponseObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYResponseObject.m; sourceTree = "<group>"; };
+		6763D79423CEF400003D9E20 /* MFYServiceURLConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYServiceURLConfig.h; sourceTree = "<group>"; };
+		6763D79523CEF400003D9E20 /* MFYServiceURLConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYServiceURLConfig.m; sourceTree = "<group>"; };
+		6763D79723CEF4B4003D9E20 /* MFYServiceConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYServiceConstant.h; sourceTree = "<group>"; };
+		6763D79823CEF4B4003D9E20 /* MFYServiceConstant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYServiceConstant.m; sourceTree = "<group>"; };
+		6763D79C23CF0375003D9E20 /* NSError+MFYHTTPError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSError+MFYHTTPError.h"; sourceTree = "<group>"; };
+		6763D79D23CF0375003D9E20 /* NSError+MFYHTTPError.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSError+MFYHTTPError.m"; sourceTree = "<group>"; };
+		6763D7A323CF10A1003D9E20 /* MFYLoginVIewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYLoginVIewController.h; sourceTree = "<group>"; };
+		6763D7A423CF10A1003D9E20 /* MFYLoginVIewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYLoginVIewController.m; sourceTree = "<group>"; };
+		6763D7A623CF10C0003D9E20 /* MFYLoginManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYLoginManager.h; sourceTree = "<group>"; };
+		6763D7A723CF10C0003D9E20 /* MFYLoginManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYLoginManager.m; sourceTree = "<group>"; };
+		6763D7A923D057A1003D9E20 /* MFYTimerButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYTimerButton.h; sourceTree = "<group>"; };
+		6763D7AA23D057A1003D9E20 /* MFYTimerButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYTimerButton.m; sourceTree = "<group>"; };
+		6763D7AD23D06944003D9E20 /* MFYLoginService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYLoginService.h; sourceTree = "<group>"; };
+		6763D7AE23D06944003D9E20 /* MFYLoginService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYLoginService.m; sourceTree = "<group>"; };
+		6763D7B123D07B84003D9E20 /* MFYLoginModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYLoginModel.h; sourceTree = "<group>"; };
+		6763D7B223D07B84003D9E20 /* MFYLoginModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYLoginModel.m; sourceTree = "<group>"; };
+		6779375D23B0B73C00D1B822 /* MFYLibraryMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYLibraryMacro.h; sourceTree = "<group>"; };
+		6779375E23B0BE7900D1B822 /* MFYColorMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYColorMacro.h; sourceTree = "<group>"; };
+		6779375F23B0BEA900D1B822 /* MFYDefineViewMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYDefineViewMacro.h; sourceTree = "<group>"; };
+		6779376523B0C29700D1B822 /* MFYCoreFlowVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYCoreFlowVC.h; sourceTree = "<group>"; };
+		6779376623B0C29700D1B822 /* MFYCoreFlowVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYCoreFlowVC.m; sourceTree = "<group>"; };
+		6779376823B0DE9A00D1B822 /* Earth.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Earth.entitlements; sourceTree = "<group>"; };
+		678420BC23A7ABB3000F5BCE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		678420BD23A7ABB3000F5BCE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		678420C423A87ACB000F5BCE /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
+		67EFC31523C300C400F5BDB3 /* KSImageManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSImageManagerProtocol.h; sourceTree = "<group>"; };
+		67EFC31623C300C400F5BDB3 /* KSPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPhotoView.m; sourceTree = "<group>"; };
+		67EFC31723C300C400F5BDB3 /* KSYYImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYYImageManager.m; sourceTree = "<group>"; };
+		67EFC31823C300C400F5BDB3 /* KSProgressLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSProgressLayer.m; sourceTree = "<group>"; };
+		67EFC31923C300C400F5BDB3 /* KSPhotoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPhotoItem.m; sourceTree = "<group>"; };
+		67EFC31A23C300C400F5BDB3 /* KSPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPhotoBrowser.m; sourceTree = "<group>"; };
+		67EFC31B23C300C400F5BDB3 /* KSYYImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYYImageManager.h; sourceTree = "<group>"; };
+		67EFC31C23C300C400F5BDB3 /* KSPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPhotoView.h; sourceTree = "<group>"; };
+		67EFC31D23C300C400F5BDB3 /* KSPhotoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPhotoItem.h; sourceTree = "<group>"; };
+		67EFC31E23C300C400F5BDB3 /* KSProgressLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSProgressLayer.h; sourceTree = "<group>"; };
+		67EFC31F23C300C400F5BDB3 /* KSPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPhotoBrowser.h; sourceTree = "<group>"; };
+		67EFC32523C3015C00F5BDB3 /* MFYCardSuduPicView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYCardSuduPicView.h; sourceTree = "<group>"; };
+		67EFC32623C3015C00F5BDB3 /* MFYCardSuduPicView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYCardSuduPicView.m; sourceTree = "<group>"; };
+		67EFC32823C30BFF00F5BDB3 /* UIView+WHUd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+WHUd.h"; sourceTree = "<group>"; };
+		67EFC32923C30BFF00F5BDB3 /* UIView+WHUd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+WHUd.m"; sourceTree = "<group>"; };
+		67EFC32B23C310A200F5BDB3 /* UIView+WHRoundCorner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+WHRoundCorner.h"; sourceTree = "<group>"; };
+		67EFC32C23C310A200F5BDB3 /* UIView+WHRoundCorner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+WHRoundCorner.m"; sourceTree = "<group>"; };
+		67EFC32F23C311A800F5BDB3 /* UIView+WHExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+WHExtension.h"; sourceTree = "<group>"; };
+		67EFC33023C311A800F5BDB3 /* UIView+WHExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+WHExtension.m"; sourceTree = "<group>"; };
+		67EFC33323C3136800F5BDB3 /* WHAlertTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHAlertTool.h; sourceTree = "<group>"; };
+		67EFC33423C3136800F5BDB3 /* WHAlertTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WHAlertTool.m; sourceTree = "<group>"; };
+		67F097B323A785E6001DCEB4 /* Earth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Earth.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		67F097CE23A785EA001DCEB4 /* EarthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EarthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		67F097D223A785EA001DCEB4 /* EarthTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EarthTests.m; sourceTree = "<group>"; };
+		67F097D423A785EA001DCEB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67F097D923A785EA001DCEB4 /* EarthUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EarthUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		67F097DD23A785EA001DCEB4 /* EarthUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EarthUITests.m; sourceTree = "<group>"; };
+		67F097DF23A785EA001DCEB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67F097F723A78D56001DCEB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		67F097FF23A78EF0001DCEB4 /* MFYBaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYBaseNavigationController.h; sourceTree = "<group>"; };
+		67F0980023A78EF0001DCEB4 /* MFYBaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYBaseNavigationController.m; sourceTree = "<group>"; };
+		67F0980223A7A063001DCEB4 /* MFYBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYBaseViewController.h; sourceTree = "<group>"; };
+		67F0980323A7A063001DCEB4 /* MFYBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYBaseViewController.m; sourceTree = "<group>"; };
+		67F0980623A7A185001DCEB4 /* MFYNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYNavigationBar.h; sourceTree = "<group>"; };
+		67F0980723A7A185001DCEB4 /* MFYNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYNavigationBar.m; sourceTree = "<group>"; };
+		67F0980A23A7A301001DCEB4 /* MFYPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYPrefixHeader.pch; sourceTree = "<group>"; };
+		67F0980B23A7A327001DCEB4 /* MFYMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYMacro.h; sourceTree = "<group>"; };
+		67F0980D23A7AAE6001DCEB4 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7670937B80E0D3ECA54F5B0F /* Pods-EarthTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EarthTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EarthTests/Pods-EarthTests.release.xcconfig"; sourceTree = "<group>"; };
+		8077943148965DD1B7C6BA34 /* libPods-EarthTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EarthTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CD831C42EFAA5322E86D062 /* libPods-Earth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Earth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D79A84E98803542EF27D02AC /* Pods-Earth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Earth.release.xcconfig"; path = "Pods/Target Support Files/Pods-Earth/Pods-Earth.release.xcconfig"; sourceTree = "<group>"; };
+		EABE641716F8167C445E2C55 /* libPods-EarthUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EarthUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F14EB8E407F5482BFB417E66 /* Pods-EarthUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EarthUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EarthUITests/Pods-EarthUITests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		67F097B023A785E6001DCEB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EB9B06CBE8768E2F907633A /* libPods-Earth.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67F097CB23A785EA001DCEB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CD1C4B1FFEA8182F60BEF17 /* libPods-EarthTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67F097D623A785EA001DCEB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AD7DC2B60CCB2CD828A85F5 /* libPods-EarthUITests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		38C7FF9D5F393D890F7926C7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0E01BA0FF280F6B5DBA883DC /* Pods-Earth.debug.xcconfig */,
+				D79A84E98803542EF27D02AC /* Pods-Earth.release.xcconfig */,
+				4C07D197B752148CF079BE0D /* Pods-EarthTests.debug.xcconfig */,
+				7670937B80E0D3ECA54F5B0F /* Pods-EarthTests.release.xcconfig */,
+				3215E6FA30092520AD67D89C /* Pods-EarthUITests.debug.xcconfig */,
+				F14EB8E407F5482BFB417E66 /* Pods-EarthUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6746D48323B4E73000A46FC7 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				6746D48423B4E73000A46FC7 /* UIColor */,
+				6746D49D23B62DE700A46FC7 /* UIView */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		6746D48423B4E73000A46FC7 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				6746D48523B4E77300A46FC7 /* UIColor+WHColorKit.h */,
+				6746D48623B4E77300A46FC7 /* UIColor+WHColorKit.m */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		6746D48C23B60DA500A46FC7 /* CategoryViews */ = {
+			isa = PBXGroup;
+			children = (
+				6746D48923B4EDC500A46FC7 /* MFYCategoryTitleView.h */,
+				6746D48A23B4EDC500A46FC7 /* MFYCategoryTitleView.m */,
+				6746D48023B4E54100A46FC7 /* MFYIndicatorBackgroundView.h */,
+				6746D48123B4E54100A46FC7 /* MFYIndicatorBackgroundView.m */,
+				6746D48D23B60E0A00A46FC7 /* MFYCategoryBackgroundTitleCell.h */,
+				6746D48E23B60E0A00A46FC7 /* MFYCategoryBackgroundTitleCell.m */,
+			);
+			path = CategoryViews;
+			sourceTree = "<group>";
+		};
+		6746D49623B6263D00A46FC7 /* CoreFlow */ = {
+			isa = PBXGroup;
+			children = (
+				6746D49723B6267100A46FC7 /* MFYRow.h */,
+				6746D49823B6267100A46FC7 /* MFYRow.m */,
+			);
+			path = CoreFlow;
+			sourceTree = "<group>";
+		};
+		6746D49D23B62DE700A46FC7 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				6746D49E23B62E2000A46FC7 /* UIView+WHChain.h */,
+				6746D49F23B62E2000A46FC7 /* UIView+WHChain.m */,
+				67EFC32823C30BFF00F5BDB3 /* UIView+WHUd.h */,
+				67EFC32923C30BFF00F5BDB3 /* UIView+WHUd.m */,
+				67EFC32B23C310A200F5BDB3 /* UIView+WHRoundCorner.h */,
+				67EFC32C23C310A200F5BDB3 /* UIView+WHRoundCorner.m */,
+				67EFC32F23C311A800F5BDB3 /* UIView+WHExtension.h */,
+				67EFC33023C311A800F5BDB3 /* UIView+WHExtension.m */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		6763D78D23CEEE17003D9E20 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				6763D78E23CEEE5B003D9E20 /* MFYHTTPManager.h */,
+				6763D78F23CEEE5B003D9E20 /* MFYHTTPManager.m */,
+				6763D79123CEEFE1003D9E20 /* MFYResponseObject.h */,
+				6763D79223CEEFE1003D9E20 /* MFYResponseObject.m */,
+				6763D79423CEF400003D9E20 /* MFYServiceURLConfig.h */,
+				6763D79523CEF400003D9E20 /* MFYServiceURLConfig.m */,
+				6763D79723CEF4B4003D9E20 /* MFYServiceConstant.h */,
+				6763D79823CEF4B4003D9E20 /* MFYServiceConstant.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		6763D79A23CF02F8003D9E20 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				6763D79B23CF02F8003D9E20 /* NSError */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		6763D79B23CF02F8003D9E20 /* NSError */ = {
+			isa = PBXGroup;
+			children = (
+				6763D79C23CF0375003D9E20 /* NSError+MFYHTTPError.h */,
+				6763D79D23CF0375003D9E20 /* NSError+MFYHTTPError.m */,
+			);
+			path = NSError;
+			sourceTree = "<group>";
+		};
+		6763D79F23CF0F7F003D9E20 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				6763D7A123CF1024003D9E20 /* Reactor */,
+				6763D7A223CF1024003D9E20 /* View */,
+				6763D7A023CF1024003D9E20 /* ViewController */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		6763D7A023CF1024003D9E20 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6763D7A323CF10A1003D9E20 /* MFYLoginVIewController.h */,
+				6763D7A423CF10A1003D9E20 /* MFYLoginVIewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		6763D7A123CF1024003D9E20 /* Reactor */ = {
+			isa = PBXGroup;
+			children = (
+				6763D7A623CF10C0003D9E20 /* MFYLoginManager.h */,
+				6763D7A723CF10C0003D9E20 /* MFYLoginManager.m */,
+			);
+			path = Reactor;
+			sourceTree = "<group>";
+		};
+		6763D7A223CF1024003D9E20 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6763D7A923D057A1003D9E20 /* MFYTimerButton.h */,
+				6763D7AA23D057A1003D9E20 /* MFYTimerButton.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6763D7AC23D068EA003D9E20 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				6763D7AD23D06944003D9E20 /* MFYLoginService.h */,
+				6763D7AE23D06944003D9E20 /* MFYLoginService.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		6763D7B023D06A48003D9E20 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				6763D7B123D07B84003D9E20 /* MFYLoginModel.h */,
+				6763D7B223D07B84003D9E20 /* MFYLoginModel.m */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
+		6779376023B0C22100D1B822 /* MainFlow */ = {
+			isa = PBXGroup;
+			children = (
+				6779376123B0C22100D1B822 /* FlowList */,
+			);
+			path = MainFlow;
+			sourceTree = "<group>";
+		};
+		6779376123B0C22100D1B822 /* FlowList */ = {
+			isa = PBXGroup;
+			children = (
+				6779376423B0C22100D1B822 /* Reactor */,
+				6779376223B0C22100D1B822 /* ViewController */,
+				6779376323B0C22100D1B822 /* Views */,
+			);
+			path = FlowList;
+			sourceTree = "<group>";
+		};
+		6779376223B0C22100D1B822 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6779376523B0C29700D1B822 /* MFYCoreFlowVC.h */,
+				6779376623B0C29700D1B822 /* MFYCoreFlowVC.m */,
+				6746D47D23B4DE0700A46FC7 /* MFYCategoryListVC.h */,
+				6746D47E23B4DE0700A46FC7 /* MFYCategoryListVC.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		6779376323B0C22100D1B822 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6746D48C23B60DA500A46FC7 /* CategoryViews */,
+				6746D47A23B1D00800A46FC7 /* MFYCFToolView.h */,
+				6746D47B23B1D00800A46FC7 /* MFYCFToolView.m */,
+				6746D49A23B62C2E00A46FC7 /* MFYFlowCardView.h */,
+				6746D49B23B62C2E00A46FC7 /* MFYFlowCardView.m */,
+				67EFC32523C3015C00F5BDB3 /* MFYCardSuduPicView.h */,
+				67EFC32623C3015C00F5BDB3 /* MFYCardSuduPicView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6779376423B0C22100D1B822 /* Reactor */ = {
+			isa = PBXGroup;
+			children = (
+				6746D49023B60E9700A46FC7 /* MFYCategoryBackgoundTitleCellModel.h */,
+				6746D49123B60E9700A46FC7 /* MFYCategoryBackgoundTitleCellModel.m */,
+				6746D49323B625E900A46FC7 /* MFYFlowListVM.h */,
+				6746D49423B625E900A46FC7 /* MFYFlowListVM.m */,
+			);
+			path = Reactor;
+			sourceTree = "<group>";
+		};
+		67EFC31423C300C400F5BDB3 /* KSPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				67EFC31523C300C400F5BDB3 /* KSImageManagerProtocol.h */,
+				67EFC31C23C300C400F5BDB3 /* KSPhotoView.h */,
+				67EFC31623C300C400F5BDB3 /* KSPhotoView.m */,
+				67EFC31B23C300C400F5BDB3 /* KSYYImageManager.h */,
+				67EFC31723C300C400F5BDB3 /* KSYYImageManager.m */,
+				67EFC31E23C300C400F5BDB3 /* KSProgressLayer.h */,
+				67EFC31823C300C400F5BDB3 /* KSProgressLayer.m */,
+				67EFC31D23C300C400F5BDB3 /* KSPhotoItem.h */,
+				67EFC31923C300C400F5BDB3 /* KSPhotoItem.m */,
+				67EFC31F23C300C400F5BDB3 /* KSPhotoBrowser.h */,
+				67EFC31A23C300C400F5BDB3 /* KSPhotoBrowser.m */,
+			);
+			path = KSPhotoBrowser;
+			sourceTree = "<group>";
+		};
+		67EFC33223C3134600F5BDB3 /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				67EFC33323C3136800F5BDB3 /* WHAlertTool.h */,
+				67EFC33423C3136800F5BDB3 /* WHAlertTool.m */,
+			);
+			path = AlertView;
+			sourceTree = "<group>";
+		};
+		67F097AA23A785E6001DCEB4 = {
+			isa = PBXGroup;
+			children = (
+				67F097B523A785E6001DCEB4 /* Earth */,
+				67F097D123A785EA001DCEB4 /* EarthTests */,
+				67F097DC23A785EA001DCEB4 /* EarthUITests */,
+				67F097B423A785E6001DCEB4 /* Products */,
+				38C7FF9D5F393D890F7926C7 /* Pods */,
+				EE95844D1746FBF60268A896 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		67F097B423A785E6001DCEB4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				67F097B323A785E6001DCEB4 /* Earth.app */,
+				67F097CE23A785EA001DCEB4 /* EarthTests.xctest */,
+				67F097D923A785EA001DCEB4 /* EarthUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		67F097B523A785E6001DCEB4 /* Earth */ = {
+			isa = PBXGroup;
+			children = (
+				6746D4A123B6349800A46FC7 /* coreFlowList.plist */,
+				6779376823B0DE9A00D1B822 /* Earth.entitlements */,
+				67F097F523A78D56001DCEB4 /* Base */,
+				67F097EE23A78D56001DCEB4 /* Bootstrap */,
+				67F097ED23A78D56001DCEB4 /* Categroy */,
+				67F097EB23A78D56001DCEB4 /* Constant */,
+				67F097F323A78D56001DCEB4 /* ContentView */,
+				67F097F423A78D56001DCEB4 /* Model */,
+				67F097EC23A78D56001DCEB4 /* Mudules */,
+				67F097F623A78D56001DCEB4 /* Resource */,
+				67F097F823A78D56001DCEB4 /* Service */,
+				67F097FA23A78D56001DCEB4 /* Unit */,
+				67F097F923A78D56001DCEB4 /* Vendors */,
+			);
+			path = Earth;
+			sourceTree = "<group>";
+		};
+		67F097D123A785EA001DCEB4 /* EarthTests */ = {
+			isa = PBXGroup;
+			children = (
+				67F097D223A785EA001DCEB4 /* EarthTests.m */,
+				67F097D423A785EA001DCEB4 /* Info.plist */,
+			);
+			path = EarthTests;
+			sourceTree = "<group>";
+		};
+		67F097DC23A785EA001DCEB4 /* EarthUITests */ = {
+			isa = PBXGroup;
+			children = (
+				67F097DD23A785EA001DCEB4 /* EarthUITests.m */,
+				67F097DF23A785EA001DCEB4 /* Info.plist */,
+			);
+			path = EarthUITests;
+			sourceTree = "<group>";
+		};
+		67F097EB23A78D56001DCEB4 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				67F0980B23A7A327001DCEB4 /* MFYMacro.h */,
+				6779375D23B0B73C00D1B822 /* MFYLibraryMacro.h */,
+				6779375E23B0BE7900D1B822 /* MFYColorMacro.h */,
+				6779375F23B0BEA900D1B822 /* MFYDefineViewMacro.h */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		67F097EC23A78D56001DCEB4 /* Mudules */ = {
+			isa = PBXGroup;
+			children = (
+				6779376023B0C22100D1B822 /* MainFlow */,
+				6763D79F23CF0F7F003D9E20 /* Login */,
+			);
+			path = Mudules;
+			sourceTree = "<group>";
+		};
+		67F097ED23A78D56001DCEB4 /* Categroy */ = {
+			isa = PBXGroup;
+			children = (
+				6746D48823B4E84F00A46FC7 /* whKit.h */,
+				6763D79A23CF02F8003D9E20 /* Foundation */,
+				6746D48323B4E73000A46FC7 /* UIKit */,
+			);
+			path = Categroy;
+			sourceTree = "<group>";
+		};
+		67F097EE23A78D56001DCEB4 /* Bootstrap */ = {
+			isa = PBXGroup;
+			children = (
+				67F0980D23A7AAE6001DCEB4 /* main.m */,
+				67F0980A23A7A301001DCEB4 /* MFYPrefixHeader.pch */,
+				678420BC23A7ABB3000F5BCE /* AppDelegate.h */,
+				678420BD23A7ABB3000F5BCE /* AppDelegate.m */,
+				678420C423A87ACB000F5BCE /* info.plist */,
+			);
+			path = Bootstrap;
+			sourceTree = "<group>";
+		};
+		67F097F323A78D56001DCEB4 /* ContentView */ = {
+			isa = PBXGroup;
+			children = (
+				67EFC33223C3134600F5BDB3 /* AlertView */,
+				67F0980523A7A160001DCEB4 /* NavigationBar */,
+			);
+			path = ContentView;
+			sourceTree = "<group>";
+		};
+		67F097F423A78D56001DCEB4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6763D7B023D06A48003D9E20 /* login */,
+				6746D49623B6263D00A46FC7 /* CoreFlow */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		67F097F523A78D56001DCEB4 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				67F097FF23A78EF0001DCEB4 /* MFYBaseNavigationController.h */,
+				67F0980023A78EF0001DCEB4 /* MFYBaseNavigationController.m */,
+				67F0980223A7A063001DCEB4 /* MFYBaseViewController.h */,
+				67F0980323A7A063001DCEB4 /* MFYBaseViewController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		67F097F623A78D56001DCEB4 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				67F097F723A78D56001DCEB4 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		67F097F823A78D56001DCEB4 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				6763D7AC23D068EA003D9E20 /* Login */,
+				6763D78D23CEEE17003D9E20 /* Network */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		67F097F923A78D56001DCEB4 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				67EFC31423C300C400F5BDB3 /* KSPhotoBrowser */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		67F097FA23A78D56001DCEB4 /* Unit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Unit;
+			sourceTree = "<group>";
+		};
+		67F0980523A7A160001DCEB4 /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				67F0980623A7A185001DCEB4 /* MFYNavigationBar.h */,
+				67F0980723A7A185001DCEB4 /* MFYNavigationBar.m */,
+			);
+			path = NavigationBar;
+			sourceTree = "<group>";
+		};
+		EE95844D1746FBF60268A896 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8CD831C42EFAA5322E86D062 /* libPods-Earth.a */,
+				8077943148965DD1B7C6BA34 /* libPods-EarthTests.a */,
+				EABE641716F8167C445E2C55 /* libPods-EarthUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		67F097B223A785E6001DCEB4 /* Earth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 67F097E223A785EA001DCEB4 /* Build configuration list for PBXNativeTarget "Earth" */;
+			buildPhases = (
+				8CB9A910682A901A0A1EA232 /* [CP] Check Pods Manifest.lock */,
+				67F097AF23A785E6001DCEB4 /* Sources */,
+				67F097B023A785E6001DCEB4 /* Frameworks */,
+				67F097B123A785E6001DCEB4 /* Resources */,
+				90C2367BA45FDAADEE3849C7 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Earth;
+			productName = Earth;
+			productReference = 67F097B323A785E6001DCEB4 /* Earth.app */;
+			productType = "com.apple.product-type.application";
+		};
+		67F097CD23A785EA001DCEB4 /* EarthTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 67F097E523A785EA001DCEB4 /* Build configuration list for PBXNativeTarget "EarthTests" */;
+			buildPhases = (
+				990BF9C79C95E9416762FA87 /* [CP] Check Pods Manifest.lock */,
+				67F097CA23A785EA001DCEB4 /* Sources */,
+				67F097CB23A785EA001DCEB4 /* Frameworks */,
+				67F097CC23A785EA001DCEB4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				67F097D023A785EA001DCEB4 /* PBXTargetDependency */,
+			);
+			name = EarthTests;
+			productName = EarthTests;
+			productReference = 67F097CE23A785EA001DCEB4 /* EarthTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		67F097D823A785EA001DCEB4 /* EarthUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 67F097E823A785EA001DCEB4 /* Build configuration list for PBXNativeTarget "EarthUITests" */;
+			buildPhases = (
+				BB447D6321BE937B92A16AA1 /* [CP] Check Pods Manifest.lock */,
+				67F097D523A785EA001DCEB4 /* Sources */,
+				67F097D623A785EA001DCEB4 /* Frameworks */,
+				67F097D723A785EA001DCEB4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				67F097DB23A785EA001DCEB4 /* PBXTargetDependency */,
+			);
+			name = EarthUITests;
+			productName = EarthUITests;
+			productReference = 67F097D923A785EA001DCEB4 /* EarthUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		67F097AB23A785E6001DCEB4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MFY;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = fuYin;
+				TargetAttributes = {
+					67F097B223A785E6001DCEB4 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+					67F097CD23A785EA001DCEB4 = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = 67F097B223A785E6001DCEB4;
+					};
+					67F097D823A785EA001DCEB4 = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = 67F097B223A785E6001DCEB4;
+					};
+				};
+			};
+			buildConfigurationList = 67F097AE23A785E6001DCEB4 /* Build configuration list for PBXProject "Earth" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 67F097AA23A785E6001DCEB4;
+			productRefGroup = 67F097B423A785E6001DCEB4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				67F097B223A785E6001DCEB4 /* Earth */,
+				67F097CD23A785EA001DCEB4 /* EarthTests */,
+				67F097D823A785EA001DCEB4 /* EarthUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		67F097B123A785E6001DCEB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67F097FE23A78D56001DCEB4 /* Assets.xcassets in Resources */,
+				6746D4A223B6349800A46FC7 /* coreFlowList.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67F097CC23A785EA001DCEB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67F097D723A785EA001DCEB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8CB9A910682A901A0A1EA232 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Earth-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		90C2367BA45FDAADEE3849C7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Earth/Pods-Earth-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Earth/Pods-Earth-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		990BF9C79C95E9416762FA87 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EarthTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB447D6321BE937B92A16AA1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EarthUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		67F097AF23A785E6001DCEB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67EFC32223C300C500F5BDB3 /* KSProgressLayer.m in Sources */,
+				67F0980423A7A063001DCEB4 /* MFYBaseViewController.m in Sources */,
+				6763D7A823CF10C0003D9E20 /* MFYLoginManager.m in Sources */,
+				67EFC32023C300C500F5BDB3 /* KSPhotoView.m in Sources */,
+				67EFC32D23C310A200F5BDB3 /* UIView+WHRoundCorner.m in Sources */,
+				6746D49523B625E900A46FC7 /* MFYFlowListVM.m in Sources */,
+				6746D48723B4E77300A46FC7 /* UIColor+WHColorKit.m in Sources */,
+				6746D48F23B60E0A00A46FC7 /* MFYCategoryBackgroundTitleCell.m in Sources */,
+				67EFC33123C311A800F5BDB3 /* UIView+WHExtension.m in Sources */,
+				67F0980823A7A185001DCEB4 /* MFYNavigationBar.m in Sources */,
+				6763D7B323D07B84003D9E20 /* MFYLoginModel.m in Sources */,
+				67EFC32423C300C500F5BDB3 /* KSPhotoBrowser.m in Sources */,
+				6763D79623CEF400003D9E20 /* MFYServiceURLConfig.m in Sources */,
+				6746D49C23B62C2E00A46FC7 /* MFYFlowCardView.m in Sources */,
+				67F0981023A7AAE7001DCEB4 /* main.m in Sources */,
+				6746D48B23B4EDC500A46FC7 /* MFYCategoryTitleView.m in Sources */,
+				6763D79923CEF4B4003D9E20 /* MFYServiceConstant.m in Sources */,
+				67EFC32123C300C500F5BDB3 /* KSYYImageManager.m in Sources */,
+				67EFC32A23C30BFF00F5BDB3 /* UIView+WHUd.m in Sources */,
+				6746D4A023B62E2000A46FC7 /* UIView+WHChain.m in Sources */,
+				6763D7A523CF10A1003D9E20 /* MFYLoginVIewController.m in Sources */,
+				67F0980123A78EF0001DCEB4 /* MFYBaseNavigationController.m in Sources */,
+				67EFC32323C300C500F5BDB3 /* KSPhotoItem.m in Sources */,
+				6779376723B0C29700D1B822 /* MFYCoreFlowVC.m in Sources */,
+				6746D49923B6267100A46FC7 /* MFYRow.m in Sources */,
+				6746D47F23B4DE0700A46FC7 /* MFYCategoryListVC.m in Sources */,
+				6763D7AB23D057A2003D9E20 /* MFYTimerButton.m in Sources */,
+				6763D79323CEEFE1003D9E20 /* MFYResponseObject.m in Sources */,
+				678420BE23A7ABB3000F5BCE /* AppDelegate.m in Sources */,
+				6763D79023CEEE5B003D9E20 /* MFYHTTPManager.m in Sources */,
+				67EFC33523C3136800F5BDB3 /* WHAlertTool.m in Sources */,
+				6746D48223B4E54100A46FC7 /* MFYIndicatorBackgroundView.m in Sources */,
+				67EFC32723C3015C00F5BDB3 /* MFYCardSuduPicView.m in Sources */,
+				6763D79E23CF0375003D9E20 /* NSError+MFYHTTPError.m in Sources */,
+				6746D49223B60E9700A46FC7 /* MFYCategoryBackgoundTitleCellModel.m in Sources */,
+				6763D7AF23D06944003D9E20 /* MFYLoginService.m in Sources */,
+				6746D47C23B1D00800A46FC7 /* MFYCFToolView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67F097CA23A785EA001DCEB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67F097D323A785EA001DCEB4 /* EarthTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67F097D523A785EA001DCEB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67F097DE23A785EA001DCEB4 /* EarthUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		67F097D023A785EA001DCEB4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 67F097B223A785E6001DCEB4 /* Earth */;
+			targetProxy = 67F097CF23A785EA001DCEB4 /* PBXContainerItemProxy */;
+		};
+		67F097DB23A785EA001DCEB4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 67F097B223A785E6001DCEB4 /* Earth */;
+			targetProxy = 67F097DA23A785EA001DCEB4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		67F097E023A785EA001DCEB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		67F097E123A785EA001DCEB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		67F097E323A785EA001DCEB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E01BA0FF280F6B5DBA883DC /* Pods-Earth.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Earth/Earth.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MYYDS5WA57;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Earth/Bootstrap/MFYPrefixHeader.pch;
+				INFOPLIST_FILE = Earth/Bootstrap/info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fuYinEarth;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		67F097E423A785EA001DCEB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D79A84E98803542EF27D02AC /* Pods-Earth.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Earth/Earth.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GN6QQLVWP7;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Earth/Bootstrap/MFYPrefixHeader.pch;
+				INFOPLIST_FILE = Earth/Bootstrap/info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fuYinEarth;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		67F097E623A785EA001DCEB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C07D197B752148CF079BE0D /* Pods-EarthTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GN6QQLVWP7;
+				INFOPLIST_FILE = EarthTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fuYin.EarthTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Earth.app/Earth";
+			};
+			name = Debug;
+		};
+		67F097E723A785EA001DCEB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7670937B80E0D3ECA54F5B0F /* Pods-EarthTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GN6QQLVWP7;
+				INFOPLIST_FILE = EarthTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fuYin.EarthTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Earth.app/Earth";
+			};
+			name = Release;
+		};
+		67F097E923A785EA001DCEB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3215E6FA30092520AD67D89C /* Pods-EarthUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GN6QQLVWP7;
+				INFOPLIST_FILE = EarthUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fuYin.EarthUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Earth;
+			};
+			name = Debug;
+		};
+		67F097EA23A785EA001DCEB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F14EB8E407F5482BFB417E66 /* Pods-EarthUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GN6QQLVWP7;
+				INFOPLIST_FILE = EarthUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fuYin.EarthUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Earth;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		67F097AE23A785E6001DCEB4 /* Build configuration list for PBXProject "Earth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67F097E023A785EA001DCEB4 /* Debug */,
+				67F097E123A785EA001DCEB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		67F097E223A785EA001DCEB4 /* Build configuration list for PBXNativeTarget "Earth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67F097E323A785EA001DCEB4 /* Debug */,
+				67F097E423A785EA001DCEB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		67F097E523A785EA001DCEB4 /* Build configuration list for PBXNativeTarget "EarthTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67F097E623A785EA001DCEB4 /* Debug */,
+				67F097E723A785EA001DCEB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		67F097E823A785EA001DCEB4 /* Build configuration list for PBXNativeTarget "EarthUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67F097E923A785EA001DCEB4 /* Debug */,
+				67F097EA23A785EA001DCEB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 67F097AB23A785E6001DCEB4 /* Project object */;
+}

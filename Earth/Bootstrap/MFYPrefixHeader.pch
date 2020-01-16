@@ -1,0 +1,17 @@
+//
+//  MFYPrefixHeader.pch
+//  Earth
+//
+//  Created by colr on 2019/12/16.
+//  Copyright © 2019 fuYin. All rights reserved.
+//
+
+#ifndef MFYPrefixHeader_pch
+#define MFYPrefixHeader_pch
+
+#import "MFYMacro.h"
+#import "MFYLibraryMacro.h"
+#import "MFYColorMacro.h"
+#import "MFYDefineViewMacro.h"
+
+#endif
