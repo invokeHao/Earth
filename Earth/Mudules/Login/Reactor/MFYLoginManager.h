@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MFYLoginModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 + (void)jumpToLoginWithCompletion:(void (^)(void))completion ;
+
++ (void)saveTheLoginModel:(MFYLoginModel*)model;
 
 @end
 

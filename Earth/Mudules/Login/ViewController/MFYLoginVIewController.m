@@ -177,6 +177,7 @@ typedef enum : NSUInteger {
     [self.view showActivityView];
     [MFYLoginService loginWithPhoneNum:num verifyCode:code completion:^(MFYLoginModel * _Nonnull loginModel, NSError * _Nonnull error) {
         [self.view hideActivityView];
+        [MFYLoginManager saveTheLoginModel:loginModel];
         [self dismissViewControllerAnimated:YES completion:^{
             [[WHAlertTool WHTopViewController].view showString:@"登录成功"];
         }];

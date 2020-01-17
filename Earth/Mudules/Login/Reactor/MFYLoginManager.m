@@ -9,6 +9,8 @@
 #import "MFYLoginManager.h"
 #import "MFYLoginVIewController.h"
 
+NSString *const kUserTabelName = @"userModel";
+
 @implementation MFYLoginManager
 
 + (instancetype)sharedManager {
@@ -35,10 +37,24 @@
     [VC presentViewController:[MFYLoginVIewController new] animated:YES completion:NULL];
 }
 
+#pragma mark- 数据库管理
+
++ (void)saveTheLoginModel:(MFYLoginModel *)model {
+    model.bg_tableName = kUserTabelName;
+    [model bg_coverAsync:^(BOOL isSuccess) {
+        if (isSuccess) {
+            WHLog(@"存储success");
+        }
+    }];
+}
+
++ (MFYLoginModel *)getTheLoginMode {
+    return [MFYLoginModel bg_firstObjet:kUserTabelName];
+}
 
 
 + (NSString *)token {
-    return @"access-token-test";
+    return [MFYLoginManager getTheLoginMode].token;
 }
 
 @end

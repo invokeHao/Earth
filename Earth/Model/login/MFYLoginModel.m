@@ -13,12 +13,18 @@ NSString *const kResultToken = @"token";
 
 #import "MFYLoginModel.h"
 
+
 @implementation MFYLoginModel
 
 
 /**
  * Instantiate the instance using the passed dictionary values to set the properties values
  */
+
++ (NSArray *)bg_uniqueKeys {
+    return @[@"token"];
+}
+
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary
 {

@@ -24,6 +24,7 @@ def shared_pods
     pod 'ReactiveCocoa', :git => 'https://github.com/zhao0/ReactiveCocoa.git', :tag => '2.5.2'
     pod 'YHDragContainer'
     pod 'JXCategoryView'
+    pod 'BGFMDB'
 
     post_install do |installer|
     installer.pods_project.targets.each do |target|

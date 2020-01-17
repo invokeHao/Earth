@@ -13,6 +13,7 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [self initialization];
     [self loadCustomViewControllers];
     return YES;
 }
@@ -28,6 +29,10 @@
     navigationController.navigationBarHidden = YES;
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
+}
+
+- (void)initialization {
+    WHLog(@"%@",[MFYLoginManager token]);
 }
 
 

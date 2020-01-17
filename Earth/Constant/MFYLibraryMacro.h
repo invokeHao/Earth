@@ -18,6 +18,7 @@
 #import <MJRefresh.h>
 #import <YHDragCardContainer.h>
 #import <JXCategoryView.h>
+#import <BGFMDB.h>
 
 #import "whKit.h"
 #import "KSPhotoBrowser.h"
