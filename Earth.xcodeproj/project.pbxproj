@@ -12,6 +12,7 @@
 		672503FB23D421A800716842 /* MFYOpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 672503FA23D421A800716842 /* MFYOpenUDID.m */; };
 		672503FE23D4229A00716842 /* UDIDWithKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 672503FD23D4229A00716842 /* UDIDWithKeyChain.m */; };
 		6725040A23D433B600716842 /* MFYPublicImageCardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6725040923D433B600716842 /* MFYPublicImageCardVC.m */; };
+		6725041023D5873200716842 /* MFYVideoAndImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6725040F23D5873200716842 /* MFYVideoAndImageView.m */; };
 		6746D47C23B1D00800A46FC7 /* MFYCFToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D47B23B1D00800A46FC7 /* MFYCFToolView.m */; };
 		6746D47F23B4DE0700A46FC7 /* MFYCategoryListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D47E23B4DE0700A46FC7 /* MFYCategoryListVC.m */; };
 		6746D48223B4E54100A46FC7 /* MFYIndicatorBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D48123B4E54100A46FC7 /* MFYIndicatorBackgroundView.m */; };
@@ -86,6 +87,8 @@
 		672503FD23D4229A00716842 /* UDIDWithKeyChain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UDIDWithKeyChain.m; sourceTree = "<group>"; };
 		6725040823D433B600716842 /* MFYPublicImageCardVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYPublicImageCardVC.h; sourceTree = "<group>"; };
 		6725040923D433B600716842 /* MFYPublicImageCardVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYPublicImageCardVC.m; sourceTree = "<group>"; };
+		6725040E23D5873200716842 /* MFYVideoAndImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYVideoAndImageView.h; sourceTree = "<group>"; };
+		6725040F23D5873200716842 /* MFYVideoAndImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYVideoAndImageView.m; sourceTree = "<group>"; };
 		6746D47A23B1D00800A46FC7 /* MFYCFToolView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYCFToolView.h; sourceTree = "<group>"; };
 		6746D47B23B1D00800A46FC7 /* MFYCFToolView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYCFToolView.m; sourceTree = "<group>"; };
 		6746D47D23B4DE0700A46FC7 /* MFYCategoryListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYCategoryListVC.h; sourceTree = "<group>"; };
@@ -255,6 +258,8 @@
 		6725040123D4333A00716842 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6725040E23D5873200716842 /* MFYVideoAndImageView.h */,
+				6725040F23D5873200716842 /* MFYVideoAndImageView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -981,6 +986,7 @@
 				67EFC32423C300C500F5BDB3 /* KSPhotoBrowser.m in Sources */,
 				67D28B8623D1B2B400543D22 /* MFYCoreflowService.m in Sources */,
 				672503FE23D4229A00716842 /* UDIDWithKeyChain.m in Sources */,
+				6725041023D5873200716842 /* MFYVideoAndImageView.m in Sources */,
 				67D28B7F23D1908300543D22 /* MFYProfile.m in Sources */,
 				6763D79623CEF400003D9E20 /* MFYServiceURLConfig.m in Sources */,
 				6746D49C23B62C2E00A46FC7 /* MFYFlowCardView.m in Sources */,
