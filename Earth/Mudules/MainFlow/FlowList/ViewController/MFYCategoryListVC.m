@@ -52,8 +52,8 @@
 
 - (UIView *)dragCard:(YHDragCardContainer *)dragCard indexOfCard:(int)index {
     MFYFlowCardView * cardView = [[MFYFlowCardView alloc]initWithFrame:dragCard.bounds];
-    MFYRow * row = self.viewModel.dataList[index];
-    [cardView setModel:row];
+    MFYArticle * article = self.viewModel.dataList[index];
+    [cardView setModel:article];
     return cardView;
 }
 

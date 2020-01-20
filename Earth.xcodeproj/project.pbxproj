@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2CD1C4B1FFEA8182F60BEF17 /* libPods-EarthTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8077943148965DD1B7C6BA34 /* libPods-EarthTests.a */; };
 		4EB9B06CBE8768E2F907633A /* libPods-Earth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CD831C42EFAA5322E86D062 /* libPods-Earth.a */; };
+		672503FB23D421A800716842 /* MFYOpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 672503FA23D421A800716842 /* MFYOpenUDID.m */; };
+		672503FE23D4229A00716842 /* UDIDWithKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 672503FD23D4229A00716842 /* UDIDWithKeyChain.m */; };
+		6725040A23D433B600716842 /* MFYPublicImageCardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6725040923D433B600716842 /* MFYPublicImageCardVC.m */; };
 		6746D47C23B1D00800A46FC7 /* MFYCFToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D47B23B1D00800A46FC7 /* MFYCFToolView.m */; };
 		6746D47F23B4DE0700A46FC7 /* MFYCategoryListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D47E23B4DE0700A46FC7 /* MFYCategoryListVC.m */; };
 		6746D48223B4E54100A46FC7 /* MFYIndicatorBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D48123B4E54100A46FC7 /* MFYIndicatorBackgroundView.m */; };
@@ -17,10 +20,8 @@
 		6746D48F23B60E0A00A46FC7 /* MFYCategoryBackgroundTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D48E23B60E0A00A46FC7 /* MFYCategoryBackgroundTitleCell.m */; };
 		6746D49223B60E9700A46FC7 /* MFYCategoryBackgoundTitleCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D49123B60E9700A46FC7 /* MFYCategoryBackgoundTitleCellModel.m */; };
 		6746D49523B625E900A46FC7 /* MFYFlowListVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D49423B625E900A46FC7 /* MFYFlowListVM.m */; };
-		6746D49923B6267100A46FC7 /* MFYRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D49823B6267100A46FC7 /* MFYRow.m */; };
 		6746D49C23B62C2E00A46FC7 /* MFYFlowCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D49B23B62C2E00A46FC7 /* MFYFlowCardView.m */; };
 		6746D4A023B62E2000A46FC7 /* UIView+WHChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D49F23B62E2000A46FC7 /* UIView+WHChain.m */; };
-		6746D4A223B6349800A46FC7 /* coreFlowList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6746D4A123B6349800A46FC7 /* coreFlowList.plist */; };
 		6763D79023CEEE5B003D9E20 /* MFYHTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D78F23CEEE5B003D9E20 /* MFYHTTPManager.m */; };
 		6763D79323CEEFE1003D9E20 /* MFYResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D79223CEEFE1003D9E20 /* MFYResponseObject.m */; };
 		6763D79623CEF400003D9E20 /* MFYServiceURLConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D79523CEF400003D9E20 /* MFYServiceURLConfig.m */; };
@@ -33,6 +34,11 @@
 		6763D7B323D07B84003D9E20 /* MFYLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D7B223D07B84003D9E20 /* MFYLoginModel.m */; };
 		6779376723B0C29700D1B822 /* MFYCoreFlowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6779376623B0C29700D1B822 /* MFYCoreFlowVC.m */; };
 		678420BE23A7ABB3000F5BCE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 678420BD23A7ABB3000F5BCE /* AppDelegate.m */; };
+		67D28B7523D18FC500543D22 /* MFYArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7423D18FC500543D22 /* MFYArticle.m */; };
+		67D28B7823D1902D00543D22 /* MFYMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7723D1902D00543D22 /* MFYMedia.m */; };
+		67D28B7F23D1908300543D22 /* MFYProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7E23D1908300543D22 /* MFYProfile.m */; };
+		67D28B8223D191EF00543D22 /* MFYGender.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B8123D191EF00543D22 /* MFYGender.m */; };
+		67D28B8623D1B2B400543D22 /* MFYCoreflowService.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B8523D1B2B400543D22 /* MFYCoreflowService.m */; };
 		67EFC32023C300C500F5BDB3 /* KSPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EFC31623C300C400F5BDB3 /* KSPhotoView.m */; };
 		67EFC32123C300C500F5BDB3 /* KSYYImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EFC31723C300C400F5BDB3 /* KSYYImageManager.m */; };
 		67EFC32223C300C500F5BDB3 /* KSProgressLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EFC31823C300C400F5BDB3 /* KSProgressLayer.m */; };
@@ -74,6 +80,12 @@
 		0E01BA0FF280F6B5DBA883DC /* Pods-Earth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Earth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Earth/Pods-Earth.debug.xcconfig"; sourceTree = "<group>"; };
 		3215E6FA30092520AD67D89C /* Pods-EarthUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EarthUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EarthUITests/Pods-EarthUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4C07D197B752148CF079BE0D /* Pods-EarthTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EarthTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EarthTests/Pods-EarthTests.debug.xcconfig"; sourceTree = "<group>"; };
+		672503F923D421A800716842 /* MFYOpenUDID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYOpenUDID.h; sourceTree = "<group>"; };
+		672503FA23D421A800716842 /* MFYOpenUDID.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYOpenUDID.m; sourceTree = "<group>"; };
+		672503FC23D4229A00716842 /* UDIDWithKeyChain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UDIDWithKeyChain.h; sourceTree = "<group>"; };
+		672503FD23D4229A00716842 /* UDIDWithKeyChain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UDIDWithKeyChain.m; sourceTree = "<group>"; };
+		6725040823D433B600716842 /* MFYPublicImageCardVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYPublicImageCardVC.h; sourceTree = "<group>"; };
+		6725040923D433B600716842 /* MFYPublicImageCardVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYPublicImageCardVC.m; sourceTree = "<group>"; };
 		6746D47A23B1D00800A46FC7 /* MFYCFToolView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYCFToolView.h; sourceTree = "<group>"; };
 		6746D47B23B1D00800A46FC7 /* MFYCFToolView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYCFToolView.m; sourceTree = "<group>"; };
 		6746D47D23B4DE0700A46FC7 /* MFYCategoryListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYCategoryListVC.h; sourceTree = "<group>"; };
@@ -91,13 +103,10 @@
 		6746D49123B60E9700A46FC7 /* MFYCategoryBackgoundTitleCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYCategoryBackgoundTitleCellModel.m; sourceTree = "<group>"; };
 		6746D49323B625E900A46FC7 /* MFYFlowListVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYFlowListVM.h; sourceTree = "<group>"; };
 		6746D49423B625E900A46FC7 /* MFYFlowListVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYFlowListVM.m; sourceTree = "<group>"; };
-		6746D49723B6267100A46FC7 /* MFYRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYRow.h; sourceTree = "<group>"; };
-		6746D49823B6267100A46FC7 /* MFYRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYRow.m; sourceTree = "<group>"; };
 		6746D49A23B62C2E00A46FC7 /* MFYFlowCardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYFlowCardView.h; sourceTree = "<group>"; };
 		6746D49B23B62C2E00A46FC7 /* MFYFlowCardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYFlowCardView.m; sourceTree = "<group>"; };
 		6746D49E23B62E2000A46FC7 /* UIView+WHChain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+WHChain.h"; sourceTree = "<group>"; };
 		6746D49F23B62E2000A46FC7 /* UIView+WHChain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+WHChain.m"; sourceTree = "<group>"; };
-		6746D4A123B6349800A46FC7 /* coreFlowList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = coreFlowList.plist; sourceTree = "<group>"; };
 		6763D78E23CEEE5B003D9E20 /* MFYHTTPManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYHTTPManager.h; sourceTree = "<group>"; };
 		6763D78F23CEEE5B003D9E20 /* MFYHTTPManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYHTTPManager.m; sourceTree = "<group>"; };
 		6763D79123CEEFE1003D9E20 /* MFYResponseObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYResponseObject.h; sourceTree = "<group>"; };
@@ -127,6 +136,16 @@
 		678420BC23A7ABB3000F5BCE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		678420BD23A7ABB3000F5BCE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		678420C423A87ACB000F5BCE /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
+		67D28B7323D18FC500543D22 /* MFYArticle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYArticle.h; sourceTree = "<group>"; };
+		67D28B7423D18FC500543D22 /* MFYArticle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYArticle.m; sourceTree = "<group>"; };
+		67D28B7623D1902D00543D22 /* MFYMedia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYMedia.h; sourceTree = "<group>"; };
+		67D28B7723D1902D00543D22 /* MFYMedia.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYMedia.m; sourceTree = "<group>"; };
+		67D28B7D23D1908300543D22 /* MFYProfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYProfile.h; sourceTree = "<group>"; };
+		67D28B7E23D1908300543D22 /* MFYProfile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYProfile.m; sourceTree = "<group>"; };
+		67D28B8023D191EF00543D22 /* MFYGender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYGender.h; sourceTree = "<group>"; };
+		67D28B8123D191EF00543D22 /* MFYGender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYGender.m; sourceTree = "<group>"; };
+		67D28B8423D1B2B400543D22 /* MFYCoreflowService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYCoreflowService.h; sourceTree = "<group>"; };
+		67D28B8523D1B2B400543D22 /* MFYCoreflowService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYCoreflowService.m; sourceTree = "<group>"; };
 		67EFC31523C300C400F5BDB3 /* KSImageManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSImageManagerProtocol.h; sourceTree = "<group>"; };
 		67EFC31623C300C400F5BDB3 /* KSPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPhotoView.m; sourceTree = "<group>"; };
 		67EFC31723C300C400F5BDB3 /* KSYYImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYYImageManager.m; sourceTree = "<group>"; };
@@ -214,6 +233,79 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		672503FF23D4333A00716842 /* ContentCreator */ = {
+			isa = PBXGroup;
+			children = (
+				6725040023D4333A00716842 /* ImageCard */,
+				6725040423D4333A00716842 /* AudioCard */,
+			);
+			path = ContentCreator;
+			sourceTree = "<group>";
+		};
+		6725040023D4333A00716842 /* ImageCard */ = {
+			isa = PBXGroup;
+			children = (
+				6725040323D4333A00716842 /* Reactor */,
+				6725040223D4333A00716842 /* ViewController */,
+				6725040123D4333A00716842 /* View */,
+			);
+			path = ImageCard;
+			sourceTree = "<group>";
+		};
+		6725040123D4333A00716842 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6725040223D4333A00716842 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6725040823D433B600716842 /* MFYPublicImageCardVC.h */,
+				6725040923D433B600716842 /* MFYPublicImageCardVC.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		6725040323D4333A00716842 /* Reactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Reactor;
+			sourceTree = "<group>";
+		};
+		6725040423D4333A00716842 /* AudioCard */ = {
+			isa = PBXGroup;
+			children = (
+				6725040523D4333A00716842 /* View */,
+				6725040623D4333A00716842 /* ViewController */,
+				6725040723D4333A00716842 /* Reactor */,
+			);
+			path = AudioCard;
+			sourceTree = "<group>";
+		};
+		6725040523D4333A00716842 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6725040623D4333A00716842 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		6725040723D4333A00716842 /* Reactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Reactor;
+			sourceTree = "<group>";
+		};
 		6746D48323B4E73000A46FC7 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,8 +340,10 @@
 		6746D49623B6263D00A46FC7 /* CoreFlow */ = {
 			isa = PBXGroup;
 			children = (
-				6746D49723B6267100A46FC7 /* MFYRow.h */,
-				6746D49823B6267100A46FC7 /* MFYRow.m */,
+				67D28B7323D18FC500543D22 /* MFYArticle.h */,
+				67D28B7423D18FC500543D22 /* MFYArticle.m */,
+				67D28B7623D1902D00543D22 /* MFYMedia.h */,
+				67D28B7723D1902D00543D22 /* MFYMedia.m */,
 			);
 			path = CoreFlow;
 			sourceTree = "<group>";
@@ -410,6 +504,26 @@
 			path = Reactor;
 			sourceTree = "<group>";
 		};
+		67D28B7C23D1907800543D22 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				67D28B7D23D1908300543D22 /* MFYProfile.h */,
+				67D28B7E23D1908300543D22 /* MFYProfile.m */,
+				67D28B8023D191EF00543D22 /* MFYGender.h */,
+				67D28B8123D191EF00543D22 /* MFYGender.m */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		67D28B8323D1B26900543D22 /* coreflow */ = {
+			isa = PBXGroup;
+			children = (
+				67D28B8423D1B2B400543D22 /* MFYCoreflowService.h */,
+				67D28B8523D1B2B400543D22 /* MFYCoreflowService.m */,
+			);
+			path = coreflow;
+			sourceTree = "<group>";
+		};
 		67EFC31423C300C400F5BDB3 /* KSPhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
@@ -462,7 +576,6 @@
 		67F097B523A785E6001DCEB4 /* Earth */ = {
 			isa = PBXGroup;
 			children = (
-				6746D4A123B6349800A46FC7 /* coreFlowList.plist */,
 				6779376823B0DE9A00D1B822 /* Earth.entitlements */,
 				67F097F523A78D56001DCEB4 /* Base */,
 				67F097EE23A78D56001DCEB4 /* Bootstrap */,
@@ -511,6 +624,7 @@
 		67F097EC23A78D56001DCEB4 /* Mudules */ = {
 			isa = PBXGroup;
 			children = (
+				672503FF23D4333A00716842 /* ContentCreator */,
 				6779376023B0C22100D1B822 /* MainFlow */,
 				6763D79F23CF0F7F003D9E20 /* Login */,
 			);
@@ -551,6 +665,7 @@
 		67F097F423A78D56001DCEB4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				67D28B7C23D1907800543D22 /* User */,
 				6763D7B023D06A48003D9E20 /* login */,
 				6746D49623B6263D00A46FC7 /* CoreFlow */,
 			);
@@ -579,6 +694,7 @@
 		67F097F823A78D56001DCEB4 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				67D28B8323D1B26900543D22 /* coreflow */,
 				6763D7AC23D068EA003D9E20 /* Login */,
 				6763D78D23CEEE17003D9E20 /* Network */,
 			);
@@ -596,6 +712,10 @@
 		67F097FA23A78D56001DCEB4 /* Unit */ = {
 			isa = PBXGroup;
 			children = (
+				672503F923D421A800716842 /* MFYOpenUDID.h */,
+				672503FA23D421A800716842 /* MFYOpenUDID.m */,
+				672503FC23D4229A00716842 /* UDIDWithKeyChain.h */,
+				672503FD23D4229A00716842 /* UDIDWithKeyChain.m */,
 			);
 			path = Unit;
 			sourceTree = "<group>";
@@ -728,7 +848,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				67F097FE23A78D56001DCEB4 /* Assets.xcassets in Resources */,
-				6746D4A223B6349800A46FC7 /* coreFlowList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -846,6 +965,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67D28B8223D191EF00543D22 /* MFYGender.m in Sources */,
 				67EFC32223C300C500F5BDB3 /* KSProgressLayer.m in Sources */,
 				67F0980423A7A063001DCEB4 /* MFYBaseViewController.m in Sources */,
 				6763D7A823CF10C0003D9E20 /* MFYLoginManager.m in Sources */,
@@ -856,11 +976,16 @@
 				6746D48F23B60E0A00A46FC7 /* MFYCategoryBackgroundTitleCell.m in Sources */,
 				67EFC33123C311A800F5BDB3 /* UIView+WHExtension.m in Sources */,
 				67F0980823A7A185001DCEB4 /* MFYNavigationBar.m in Sources */,
+				672503FB23D421A800716842 /* MFYOpenUDID.m in Sources */,
 				6763D7B323D07B84003D9E20 /* MFYLoginModel.m in Sources */,
 				67EFC32423C300C500F5BDB3 /* KSPhotoBrowser.m in Sources */,
+				67D28B8623D1B2B400543D22 /* MFYCoreflowService.m in Sources */,
+				672503FE23D4229A00716842 /* UDIDWithKeyChain.m in Sources */,
+				67D28B7F23D1908300543D22 /* MFYProfile.m in Sources */,
 				6763D79623CEF400003D9E20 /* MFYServiceURLConfig.m in Sources */,
 				6746D49C23B62C2E00A46FC7 /* MFYFlowCardView.m in Sources */,
 				67F0981023A7AAE7001DCEB4 /* main.m in Sources */,
+				67D28B7523D18FC500543D22 /* MFYArticle.m in Sources */,
 				6746D48B23B4EDC500A46FC7 /* MFYCategoryTitleView.m in Sources */,
 				6763D79923CEF4B4003D9E20 /* MFYServiceConstant.m in Sources */,
 				67EFC32123C300C500F5BDB3 /* KSYYImageManager.m in Sources */,
@@ -870,18 +995,19 @@
 				67F0980123A78EF0001DCEB4 /* MFYBaseNavigationController.m in Sources */,
 				67EFC32323C300C500F5BDB3 /* KSPhotoItem.m in Sources */,
 				6779376723B0C29700D1B822 /* MFYCoreFlowVC.m in Sources */,
-				6746D49923B6267100A46FC7 /* MFYRow.m in Sources */,
 				6746D47F23B4DE0700A46FC7 /* MFYCategoryListVC.m in Sources */,
 				6763D7AB23D057A2003D9E20 /* MFYTimerButton.m in Sources */,
 				6763D79323CEEFE1003D9E20 /* MFYResponseObject.m in Sources */,
 				678420BE23A7ABB3000F5BCE /* AppDelegate.m in Sources */,
 				6763D79023CEEE5B003D9E20 /* MFYHTTPManager.m in Sources */,
+				67D28B7823D1902D00543D22 /* MFYMedia.m in Sources */,
 				67EFC33523C3136800F5BDB3 /* WHAlertTool.m in Sources */,
 				6746D48223B4E54100A46FC7 /* MFYIndicatorBackgroundView.m in Sources */,
 				67EFC32723C3015C00F5BDB3 /* MFYCardSuduPicView.m in Sources */,
 				6763D79E23CF0375003D9E20 /* NSError+MFYHTTPError.m in Sources */,
 				6746D49223B60E9700A46FC7 /* MFYCategoryBackgoundTitleCellModel.m in Sources */,
 				6763D7AF23D06944003D9E20 /* MFYLoginService.m in Sources */,
+				6725040A23D433B600716842 /* MFYPublicImageCardVC.m in Sources */,
 				6746D47C23B1D00800A46FC7 /* MFYCFToolView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

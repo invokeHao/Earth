@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MFYRow.h"
 #import "MFYCardSuduPicView.h"
+#import "MFYArticle.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UILabel * titleLabel;
 
-@property (nonatomic, strong) MFYRow * model;
+@property (nonatomic, strong) MFYArticle * model;
 
 @end
 

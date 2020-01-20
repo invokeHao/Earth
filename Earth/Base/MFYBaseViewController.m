@@ -22,6 +22,11 @@
     [self _bindEvents];
 }
 
+- (UIModalPresentationStyle)modalPresentationStyle{
+    return UIModalPresentationFullScreen;
+}
+
+
 - (void)_bindEvents {
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [backButton setImage:[UIImage imageNamed:@"ico_back"] forState:UIControlStateNormal];

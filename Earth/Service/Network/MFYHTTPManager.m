@@ -56,12 +56,12 @@ static dispatch_once_t onceToken;
                                   progress:nil
                                    success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                                        dispatch_async(dispatch_get_main_queue(), ^{
-                                           MFYResponseObject *cmsResponse = [MFYResponseObject yy_modelWithJSON:responseObject];
-                                           if (cmsResponse.errorId == 0) {
-                                               success(task, cmsResponse);
+                                           MFYResponseObject *resp = [MFYResponseObject yy_modelWithJSON:responseObject];
+                                           if (resp.errorId == 0) {
+                                               success(task, resp);
                                            } else {
-                                               NSError *error = [NSError errorWithDomain:cmsResponse.errorDesc
-                                                                                    code:cmsResponse.code
+                                               NSError *error = [NSError errorWithDomain:resp.errorDesc
+                                                                                    code:resp.code
                                                                                 userInfo:nil];
                                                failure(task, error);
                                            }
@@ -198,7 +198,7 @@ static dispatch_once_t onceToken;
 
 - (void)cms_configHttpHeaderField {
     [[self requestSerializer] setValue:[MFYLoginManager token] forHTTPHeaderField:@"x-token"];
-    [[self requestSerializer] setValue:@"ecypc8htcxr8lq7a" forHTTPHeaderField:@"x-app-id"];
+    [[self requestSerializer] setValue:[MFYLoginManager deviceID] forHTTPHeaderField:@"x-app-id"];
     [[self requestSerializer] setValue:@"colr.ios.phone" forHTTPHeaderField:@"x-site-code"];
     [[self requestSerializer] setValue:@"appstore" forHTTPHeaderField:@"x-channel"];
 }

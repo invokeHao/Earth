@@ -42,11 +42,11 @@
     }];
 }
 
-- (void)setModel:(MFYRow *)model {
-    if(!model){return;}
-    self.titleLabel.text = model.title;
+- (void)setModel:(MFYArticle *)model {
+    if (model) {
+        self.titleLabel.text = model.title;
+    }
 }
-
 
 - (MFYCardSuduPicView *)suduView {
     if (!_suduView) {

@@ -33,7 +33,6 @@
 
 - (void)setupViews {
     self.navBar.backgroundColor = wh_colorWithHexString(@"#FF3F70");
-    self.view.backgroundColor = [UIColor whiteColor];
     self.myCategoryView.listContainer = self.listContainerView;
     self.myCategoryView.delegate = self;
     [self.view addSubview:self.myCategoryView];

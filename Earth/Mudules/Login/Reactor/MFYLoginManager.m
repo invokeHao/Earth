@@ -8,6 +8,7 @@
 
 #import "MFYLoginManager.h"
 #import "MFYLoginVIewController.h"
+#import "UDIDWithKeyChain.h"
 
 NSString *const kUserTabelName = @"userModel";
 
@@ -55,6 +56,11 @@ NSString *const kUserTabelName = @"userModel";
 
 + (NSString *)token {
     return [MFYLoginManager getTheLoginMode].token;
+}
+
++ (NSString *)deviceID {
+    WHLog(@"%@",[UDIDWithKeyChain getUUID]);
+    return [UDIDWithKeyChain getUUID];
 }
 
 @end

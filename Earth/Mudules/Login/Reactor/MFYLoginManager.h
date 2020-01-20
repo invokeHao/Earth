@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)token;
 
++ (NSString *)deviceID;
+
 
 + (void)jumpToLoginWithCompletion:(void (^)(void))completion ;
 

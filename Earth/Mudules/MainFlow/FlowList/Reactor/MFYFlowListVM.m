@@ -10,7 +10,9 @@
 
 @interface MFYFlowListVM()
 
-@property (nonatomic, strong) NSMutableArray<MFYRow *> * dataList;
+@property (nonatomic, strong) NSMutableArray<MFYArticle *> * dataList;
+
+@property (nonatomic, assign) NSInteger NewDataCount;
 
 @end
 
@@ -25,17 +27,16 @@
 }
 
 -(void)setupData {
-    NSBundle *bundle = [NSBundle mainBundle];
-    NSString *path = [bundle pathForResource:@"coreFlowList" ofType:@"plist"];
-    NSDictionary * dic  = [NSDictionary dictionaryWithContentsOfFile:path];
-    NSArray * resultArr = dic[@"rows"];
-    for (NSDictionary * dic in resultArr) {
-        MFYRow * row = [[MFYRow alloc]initWithDictionary:dic];
-        [self.dataList addObject:row];
-    }
+    [MFYCoreflowService getTheImageCardWithFlowType:MFYCoreflowImageAllType completion:^(NSArray<MFYArticle *> * _Nonnull articleList, NSError * _Nonnull error) {
+        WHLog(@"%@",[articleList firstObject]);
+        self.NewDataCount = articleList.count;
+        if (articleList.count > 0) {
+            self.dataList = [articleList copy];
+        }
+    }];
 }
 
-- (NSMutableArray<MFYRow *> *)dataList {
+- (NSMutableArray<MFYArticle *> *)dataList {
     if (!_dataList) {
         _dataList = [NSMutableArray arrayWithCapacity:0];
     }

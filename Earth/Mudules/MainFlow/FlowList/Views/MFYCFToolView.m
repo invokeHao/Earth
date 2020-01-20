@@ -7,6 +7,8 @@
 //
 
 #import "MFYCFToolView.h"
+#import "MFYBaseNavigationController.h"
+#import "MFYPublicImageCardVC.h"
 
 @implementation MFYCFToolView
 
@@ -29,12 +31,17 @@
 }
 
 - (void)bindEvents {
-    @weakify(self)
+    
     [[self.beforeBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        @strongify(self)
         [MFYLoginManager jumpToLoginWithCompletion:^{
             WHLog(@"success");
         }];
+    }];
+    
+    [[self.publicBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        UIViewController * vc = [WHAlertTool WHTopViewController];
+        MFYBaseNavigationController * Nav = [[MFYBaseNavigationController alloc]initWithRootViewController:[MFYPublicImageCardVC new]];
+        [vc presentViewController:Nav animated:YES completion:NULL];
     }];
 }
 
