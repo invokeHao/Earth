@@ -28,7 +28,7 @@
 
 -(void)setupData {
     [MFYCoreflowService getTheImageCardWithFlowType:MFYCoreflowImageAllType completion:^(NSArray<MFYArticle *> * _Nonnull articleList, NSError * _Nonnull error) {
-        WHLog(@"%@",[articleList firstObject]);
+        WHLog(@"帖子内容%@",[articleList firstObject]);
         self.NewDataCount = articleList.count;
         if (articleList.count > 0) {
             self.dataList = [articleList copy];

@@ -8,8 +8,11 @@
 
 #import "MFYPublicImageCardVC.h"
 #import "MFYVideoAndImageView.h"
+#import "MFYPublicImageCardDetailVC.h"
 
 @interface MFYPublicImageCardVC ()
+
+@property (nonatomic, strong)UIButton * publicBtn;
 
 @property (nonatomic, strong)UIScrollView * mainScroll;
 
@@ -40,6 +43,7 @@
 - (void)setupViews {
     self.navBar.titleLabel.text = @"颜控";
     self.navBar.backgroundColor = wh_colorWithHexString(@"#FF3F70");
+    [self.navBar setRightButton:self.publicBtn];
     [self.navBar.leftButton setImage:WHImageNamed(@"ico_arrow_back") forState:UIControlStateNormal];
     
     [self.view addSubview:self.mainScroll];
@@ -83,13 +87,29 @@
         make.height.mas_equalTo(1);
     }];
     
-    CGFloat itemW = ( VERTICAL_SCREEN_WIDTH - 25) / 3;
+    CGFloat itemW = ( VERTICAL_SCREEN_WIDTH - 27) / 3;
     CGFloat itemH = itemW * 4 / 3;
     
     [self.backView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.lineView.mas_bottom).offset(20);
         make.left.right.equalTo(self.lineView);
-        make.height.mas_equalTo(2 * itemH);
+        make.height.mas_equalTo(2 * itemH + 3);
+    }];
+    
+    [self.bigView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.mas_equalTo(self.backView).offset(1);
+        make.size.mas_equalTo(CGSizeMake(itemW * 2, itemH * 2 + 1));
+    }];
+    
+    [self.topSmallView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.backView).offset(1);
+        make.right.mas_equalTo(self.backView).offset(-1);
+        make.size.mas_equalTo(CGSizeMake(itemW, itemH));
+    }];
+    
+    [self.bottomSmallView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.bottom.mas_equalTo(self.backView).offset(-1);
+        make.size.mas_equalTo(CGSizeMake(itemW, itemH));
     }];
 }
 
@@ -115,10 +135,11 @@
 - (UITextField *)titleField {
     if (!_titleField) {
         _titleField = [[UITextField alloc]init];
-        NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:@"请输入自我介绍" attributes:@{NSForegroundColorAttributeName:wh_colorWithHexString(@"##939499"),
+        NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:@"请输入自我介绍" attributes:@{NSForegroundColorAttributeName:wh_colorWithHexString(@"#939499"),
                NSFontAttributeName:WHFont(16)
                }];
         _titleField.attributedPlaceholder = attrString;
+        _titleField.textColor = wh_colorWithHexString(@"333333");
         _titleField.tintColor = wh_colorWithHexString(@"333333");
     }
     return _titleField;
@@ -143,6 +164,12 @@
 - (MFYVideoAndImageView *)bigView {
     if (!_bigView) {
         _bigView = [[MFYVideoAndImageView alloc]initWithType:MFYVideoAndImageViewBigType];
+        @weakify(self);
+        _bigView.tapAddBlock = ^{
+            @strongify(self)
+            MFYPublicImageCardDetailVC * detailVC = [[MFYPublicImageCardDetailVC alloc]init];
+            [self.navigationController pushViewController:detailVC animated:YES];
+        };
     }
     return _bigView;
 }
@@ -159,6 +186,13 @@
         _bottomSmallView = [[MFYVideoAndImageView alloc]initWithType:MFYVideoAndImageViewSmallType];
     }
     return _bottomSmallView;
+}
+
+- (UIButton *)publicBtn {
+    if (!_publicBtn) {
+        _publicBtn = UIButton.button.WH_setTitle_forState(@"发布",UIControlStateNormal).WH_setTitleColor_forState([UIColor whiteColor],UIControlStateNormal);
+    }
+    return _publicBtn;
 }
 
 

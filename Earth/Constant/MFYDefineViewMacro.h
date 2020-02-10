@@ -12,6 +12,7 @@
 #import "WHAlertTool.h"
 #import "MFYLoginManager.h"
 #import "MFYHTTPManager.h"
+#import "WHHud.h"
 
 
 #endif /* MFYDefineViewMacro_h */

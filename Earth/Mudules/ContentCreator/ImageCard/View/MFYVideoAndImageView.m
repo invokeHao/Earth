@@ -33,11 +33,24 @@
 - (void)setupViews {
     [self addSubview:self.coverImageV];
     [self addSubview:self.addbutton];
-    
+}
+
+- (void)setImageData:(MFYAssetModel *)model {
+    if (model) {
+        if (model.type == CMSAssetMediaTypePhoto) {
+            [self.coverImageV setImage:model.thumbImage];
+        }else if(model.type == CMSAssetMediaTypeVideo){
+            
+        }
+    }
 }
 
 - (void)bindEvents {
-    
+    [[self.addbutton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        if (self.tapAddBlock) {
+            self.tapAddBlock();
+        }
+    }];
 }
 
 - (void)layoutSubviews {

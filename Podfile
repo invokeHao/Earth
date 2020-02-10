@@ -25,6 +25,7 @@ def shared_pods
     pod 'YHDragContainer'
     pod 'JXCategoryView'
     pod 'BGFMDB'
+    pod 'Qiniu'
 
     post_install do |installer|
     installer.pods_project.targets.each do |target|
