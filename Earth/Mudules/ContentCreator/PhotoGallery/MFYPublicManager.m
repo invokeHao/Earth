@@ -161,11 +161,15 @@
         if (notificationModel.isNeedDownload) {
             [WHHud showString:@"正在下载iCloud视频,请稍后..."];
         } else {
-            if (self.singleVideoModel.videoDuration > 30) {
+            if (self.singleVideoModel.fileSize > 40) {
 //                [self pushToVideoEditVC:self.singleVideoModel];
-                [WHHud showString:@"视频超过30s，请重新选择"];
+                [WHHud showString:@"视频超过40M，请重新选择"];
             } else {
-                WHLogSuccess(@"30s内视频");
+                WHLogSuccess(@"40M内视频");
+                if (self.successB) {
+                    self.successB(self.singleVideoModel);
+                }
+                [[WHAlertTool WHTopViewController] dismissViewControllerAnimated:YES completion:NULL];
 //                CMSPublishViewController *publishPhotoVC = [[CMSPublishViewController alloc] initWithModels:@[self.singleVideoModel]];
 //                MFYBaseNavigationController *nav = [[MFYBaseNavigationController alloc] initWithRootViewController:publishPhotoVC];
 //                if (self.fromViewController.presentedViewController) {
@@ -187,10 +191,10 @@
 - (void)photoLibraryController:(MOPhotoLibraryController *)picker
         didFinishPickingPhotos:(NSArray<YYImage *> *)photos
                   sourceAssets:(NSArray<MOAssetModel *> *)assetList {
-    NSArray<MFYAssetModel *> *cmsAssetList = [MOPhotoToMFYTransformer wh_assetListTransformer:assetList];
-    [MFYPhotosManager sharedManager].selectedList = [cmsAssetList mutableCopy];
+    NSArray<MFYAssetModel *> *mfyAssetList = [MOPhotoToMFYTransformer wh_assetListTransformer:assetList];
+    [MFYPhotosManager sharedManager].selectedList = [mfyAssetList mutableCopy];
     if (self.successB) {
-        self.successB(cmsAssetList.firstObject);
+        self.successB(mfyAssetList.firstObject);
     }
     [picker dismissViewControllerAnimated:YES completion:NULL];
 
@@ -210,11 +214,11 @@
 }
 
 - (void)photoLibraryController:(MOPhotoLibraryController *)picker didFinishVideoAssets:(MOAssetModel *)asset {
-    WHLog(@"视频%d",asset.type);
-//    self.singleVideoModel = [MOPhotoToCMSTransformer cms_assetTransformer:asset];
-//    if (!asset.isDownloadFinish) {
-//        [CMSHud showString:@"正在下载iCloud视频,请稍后..."];
-//    }
+    self.singleVideoModel = [MOPhotoToMFYTransformer wh_assetTransformer:asset];
+    WHLog(@"视频%@",self.singleVideoModel);
+    if (!asset.isDownloadFinish) {
+        [WHHud showString:@"正在下载iCloud视频,请稍后..."];
+    }
 }
 
 

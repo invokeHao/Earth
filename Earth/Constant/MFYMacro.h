@@ -49,4 +49,6 @@
 #define WHLogError(fmt, ...) NSLog((@"❌ " fmt), ##__VA_ARGS__)
 #define WHLogSuccess(fmt, ...) NSLog((@"🚀 " fmt), ##__VA_ARGS__)
 
+#define MFYNotificationPublishSuccess @"MFYNotificationPublishSuccess" //发帖成功
+
 #endif /* MFYMacro_h */

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MFYMedia.h"
 #import "MFYProfile.h"
+#import "MFYItem.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,12 +18,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString * articleId;
 @property (nonatomic, strong) NSString * bodyText;
 @property (nonatomic, strong) NSString * createDate;
-@property (nonatomic, strong) NSArray * embeddedArticles;
+@property (nonatomic, strong) NSArray<MFYItem *> * embeddedArticles;
 @property (nonatomic, assign) NSInteger formatType;
 @property (nonatomic, assign) NSInteger functionType;
 @property (nonatomic, strong) MFYMedia * media;
 @property (nonatomic, assign) NSInteger postType;
-@property (nonatomic, assign) NSInteger priceAmount;
+@property (nonatomic, assign) CGFloat priceAmount;
 @property (nonatomic, strong) MFYProfile * profile;
 @property (nonatomic, strong) NSString * subtitle;
 @property (nonatomic, strong) NSString * title;

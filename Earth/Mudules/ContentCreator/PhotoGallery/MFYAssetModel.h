@@ -69,6 +69,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isDownloadFinish;
 @property (nonatomic, assign) double progress;
 
+@property (nonatomic, assign) CGFloat fileSize;
+
+- (void)getVideoCoverImageCompletion:(void(^)(UIImage * image))completion;
 
 @end
 

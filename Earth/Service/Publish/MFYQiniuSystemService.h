@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 //获取token
 
-+ (void)getQiniuUploadTockenSuccess:(void(^)(id model))success failure:(void(^)(void))faulure;
++ (void)getQiniuUploadTockenSuccess:(void(^)(id model))success failure:(void(^)(NSError* error))failure;
 
 /// 上传音频
 + (void)uploadAudio:(NSString *)filePath progress:(QNUpProgressHandler)progress success:(void (^)(NSDictionary *resp))success failure:(void (^)(void))failure;

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MFYPublishItemModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,11 +17,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic)NSString * topicId;
 
+@property (strong, nonatomic)NSString * title;
+
 @property (copy, nonatomic)NSArray * extraMedias;
 
 
+@property (strong, nonatomic)MFYPublishItemModel * bigitem;
 
+@property (strong, nonatomic)MFYPublishItemModel * smallTopItem;
 
+@property (strong, nonatomic)MFYPublishItemModel * smallBottomItem;
+
+- (BOOL)unVerify;
+
+- (NSDictionary *)toDictionary;
 
 @end
 

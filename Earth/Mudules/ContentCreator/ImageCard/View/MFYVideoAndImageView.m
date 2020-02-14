@@ -39,8 +39,12 @@
     if (model) {
         if (model.type == CMSAssetMediaTypePhoto) {
             [self.coverImageV setImage:model.thumbImage];
+            [self.addbutton setImage:WHImageNamed(@"public_smallAdd") forState:UIControlStateNormal];
         }else if(model.type == CMSAssetMediaTypeVideo){
-            
+            [model getVideoCoverImageCompletion:^(UIImage * _Nonnull image) {
+                [self.coverImageV setImage:image];
+                [self.addbutton setImage:WHImageNamed(@"video_tag") forState:UIControlStateNormal];
+            }];
         }
     }
 }

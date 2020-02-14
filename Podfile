@@ -26,6 +26,9 @@ def shared_pods
     pod 'JXCategoryView'
     pod 'BGFMDB'
     pod 'Qiniu'
+    pod 'JPVideoPlayer'
+    pod 'JPNavigationController', '~> 2.1.3'
+    pod 'KTVHTTPCache', '~> 1.1.5'
 
     post_install do |installer|
     installer.pods_project.targets.each do |target|

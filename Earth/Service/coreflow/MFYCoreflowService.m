@@ -33,6 +33,29 @@
 
 }
 
++(void)getTheImageCardWithTopicId:(NSString *)topicId completion:(void (^)(NSArray<MFYArticle *> * , NSError * ))completion {
+    NSString * path = FORMAT(@"/api/article/image/next/%@",topicId);
+    [[MFYHTTPManager sharedManager] GET:path parameters:@[] success:^(NSURLSessionDataTask * _Nonnull task, MFYResponseObject * _Nonnull cmsResponse) {
+        MFYResponseObject * resp = cmsResponse;
+        if (resp.code == 1) {
+            NSMutableArray * ArticleArr = [NSMutableArray arrayWithCapacity:0];
+            NSArray * arr = resp.result;
+            [arr enumerateObjectsUsingBlock:^(NSDictionary * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                MFYArticle * article = [[MFYArticle alloc]initWithDictionary:obj];
+                [ArticleArr addObject:article];
+            }];
+            completion(ArticleArr.copy,nil);
+            
+        }else {
+            completion(nil,[NSError errorWithCode:resp.code desc:resp.errorDesc]);
+        }
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        completion(nil, error);
+    }];
+
+}
+
+
 + (NSString *)typeStrWithType:(MFYCoreFlowType)type {
     switch (type) {
             case MFYCoreflowImageAllType:

@@ -7,10 +7,17 @@
 //
 
 #import "MFYBaseViewController.h"
+#import "MFYPublishItemModel.h"
+
+typedef void(^publishBlock)(MFYPublishItemModel * _Nullable itemModel);
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MFYPublicImageCardDetailVC : MFYBaseViewController
+
+@property (assign, nonatomic)BOOL isBig;
+
+@property (strong, nonatomic)publishBlock publishB;
 
 @end
 

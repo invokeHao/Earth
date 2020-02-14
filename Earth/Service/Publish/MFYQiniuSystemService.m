@@ -9,12 +9,21 @@
 #import "MFYQiniuSystemService.h"
 #import "MFYAssetModel.h"
 #import "MFYVideoManager.h"
+#import "MFYQiNiuModel.h"
+#import "MFYPhotosManager.h"
+#import "MOMacro.h"
 
 @implementation MFYQiniuSystemService
 
-+ (void)getQiniuUploadTockenSuccess:(void (^)(id _Nonnull))success failure:(void (^)(void))faulure {
-    [[MFYHTTPManager sharedManager] POST:@"/api/misc/config/upload/token" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, MFYResponseObject * _Nonnull responseObject) {
-        WHLog(@"%@",responseObject);
++ (void)getQiniuUploadTockenSuccess:(void (^)(id _Nonnull))success failure:(void(^)(NSError*))failure {
+    [[MFYHTTPManager sharedManager] POST:@"/api/misc/config/upload/token" parameters:@[] success:^(NSURLSessionDataTask * _Nonnull task, MFYResponseObject * _Nonnull responseObject) {
+        if (responseObject.result) {
+            MFYQiNiuModel *qiniuModel = [MFYQiNiuModel yy_modelWithDictionary:responseObject.result];
+            return success(qiniuModel);
+        } else {
+            NSError * error = [NSError errorWithCode:responseObject.code desc:responseObject.errorDesc];
+            return failure(error);
+        }
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         
     }];
@@ -76,20 +85,20 @@
                     failure();
                 }
             } else {
-//                CGFloat aspectRatio = (CGFloat)assetModel.asset.pixelHeight / (CGFloat)assetModel.asset.pixelWidth;
-//                [[CMSPhotosManager sharedManager] requestPhotoWithTargetSize:CGSizeMake(High_PHOTOWIDTH, High_PHOTOWIDTH*aspectRatio)
-//                                                                       asset:assetModel.asset
-//                                                                  resizeMode:PHImageRequestOptionsResizeModeFast
-//                                                                  completion:^(UIImage *photo, NSDictionary *info, BOOL isDegraded) {
-//                                                                      if (!isDegraded) {
-//                                                                          data = UIImageJPEGRepresentation(photo, 0.7);
-//                                                                          if (data.length) {
-//                                                                              [manager putData:data key:fileName token:[CMSDynamicConfig shared].qiniuTocken complete:block option:option];
-//                                                                          } else {
-//                                                                              failure();
-//                                                                          }
-//                                                                      }
-//                                                                  }];
+                CGFloat aspectRatio = (CGFloat)assetModel.asset.pixelHeight / (CGFloat)assetModel.asset.pixelWidth;
+                [[MFYPhotosManager sharedManager] requestPhotoWithTargetSize:CGSizeMake(High_PHOTOWIDTH, High_PHOTOWIDTH*aspectRatio)
+                                                                       asset:assetModel.asset
+                                                                  resizeMode:PHImageRequestOptionsResizeModeFast
+                                                                  completion:^(UIImage *photo, NSDictionary *info, BOOL isDegraded) {
+                                                                      if (!isDegraded) {
+                                                                          data = UIImageJPEGRepresentation(photo, 0.7);
+                                                                          if (data.length) {
+                                                                              [manager putData:data key:fileName token:[MFYDynamicManager sharedManager].qiniuTocken complete:block option:option];
+                                                                          } else {
+                                                                              failure();
+                                                                          }
+                                                                      }
+                                                                  }];
             }
         }
             break;

@@ -80,7 +80,7 @@ UIColor *wh_colorWithHexString(NSString *str) {
     return [UIColor wh_colorWithHexString:str];
 }
 
-UIColor *mb_colorWithHexAndAlpha(NSString *str, CGFloat alpha) {
+UIColor *wh_colorWithHexAndAlpha(NSString *str, CGFloat alpha) {
     return [UIColor wh_colorWithHexString:str alpha:alpha];
 }
 

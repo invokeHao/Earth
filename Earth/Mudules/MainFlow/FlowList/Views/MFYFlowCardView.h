@@ -20,6 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) MFYArticle * model;
 
+- (void)mfy_stopPlay;
+
+- (void)mfy_startPlay;
+
 @end
 
 NS_ASSUME_NONNULL_END

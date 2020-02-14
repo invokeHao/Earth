@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign, readonly) NSInteger NewDataCount;
 
+- (instancetype)initWithTopicId:(NSString *)topicId;
+
+-(void)refreshData;
 
 @end
 

@@ -19,11 +19,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (assign, nonatomic)NSInteger fileType;
 
-@property (assign, nonatomic)NSInteger priceAmount;
+@property (assign, nonatomic)float priceAmount;
 
 @property (strong, nonatomic)MFYAssetModel * assetModel;
 
-- (NSDictionary *)ModelToDictionarty;
+- (NSDictionary *)toDictionary;
+
++ (NSInteger)qiNiuMimeTypeChangeMfy:(NSString*)mimeType;
 
 @end
 

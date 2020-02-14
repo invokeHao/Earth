@@ -14,25 +14,38 @@
 
 @property (nonatomic, assign) NSInteger NewDataCount;
 
+@property (nonatomic, strong) NSString * topicId;
+
 @end
 
 @implementation MFYFlowListVM
 
--(instancetype)init {
+-(instancetype)initWithTopicId:(NSString *)topicId {
     self = [super init];
     if (self) {
+        _topicId = topicId;
         [self setupData];
+        [self bindData];
     }
     return self;
 }
 
+- (void)bindData {
+    
+}
+
+- (void)refreshData {
+    [self setupData];
+}
+
 -(void)setupData {
-    [MFYCoreflowService getTheImageCardWithFlowType:MFYCoreflowImageAllType completion:^(NSArray<MFYArticle *> * _Nonnull articleList, NSError * _Nonnull error) {
-        WHLog(@"帖子内容%@",[articleList firstObject]);
+    @weakify(self)
+    [MFYCoreflowService getTheImageCardWithTopicId:self.topicId completion:^(NSArray<MFYArticle *> * _Nonnull articleList, NSError * _Nonnull error) {
+        @strongify(self)
         self.NewDataCount = articleList.count;
-        if (articleList.count > 0) {
-            self.dataList = [articleList copy];
-        }
+         if (articleList.count > 0) {
+             self.dataList = [articleList copy];
+         }
     }];
 }
 

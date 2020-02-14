@@ -333,9 +333,9 @@
     }
     if (model.type == CMSAssetMediaTypeVideo) {
         //视频时长需要在10秒到30min之间，视频大小500k到100m
-//        if (model.videoDuration < 10 || model.videoDuration >= 30 * 60) { //小于10秒
-//            return @"视频时长在10秒到30分钟之间，且大小不超过100M的视频才可以上传哦╮(╯▽╰)╭";
-//        }
+        if (model.videoDuration < 10 || model.videoDuration >= 30 * 60) { //小于10秒
+            return @"视频时长在10秒到30分钟之间，且大小不超过100M的视频才可以上传哦╮(╯▽╰)╭";
+        }
     } else if (model.type == CMSAssetMediaTypePhoto || model.type == CMSAssetMediaTypeLivePhoto || model.type == CMSAssetMediaTypeGif) {
         if (model.asset.representsBurst) {
             return @"不支持连拍的照片格式";

@@ -81,6 +81,17 @@
 		67CC30F523F14F7E002E6E2B /* MOPhotoToMFYTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC30F423F14F7E002E6E2B /* MOPhotoToMFYTransformer.m */; };
 		67CC30F823F15D8C002E6E2B /* MFYPublishModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC30F723F15D8C002E6E2B /* MFYPublishModel.m */; };
 		67CC30FB23F1605E002E6E2B /* MFYPublishItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC30FA23F1605E002E6E2B /* MFYPublishItemModel.m */; };
+		67CC30FE23F2845D002E6E2B /* MFYPublishService.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC30FD23F2845D002E6E2B /* MFYPublishService.m */; };
+		67CC310423F29754002E6E2B /* MFYItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC310323F29754002E6E2B /* MFYItem.m */; };
+		67CC310723F39C4F002E6E2B /* MFYCoreflowTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC310623F39C4F002E6E2B /* MFYCoreflowTag.m */; };
+		67CC310A23F39D56002E6E2B /* MFYTopicTagService.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC310923F39D56002E6E2B /* MFYTopicTagService.m */; };
+		67CC310D23F3B202002E6E2B /* UIImage+WHMosaic.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC310C23F3B202002E6E2B /* UIImage+WHMosaic.m */; };
+		67CC311123F3E91A002E6E2B /* NSString+WHExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC311023F3E91A002E6E2B /* NSString+WHExtention.m */; };
+		67CC311823F4F9F5002E6E2B /* MFYImageDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC311723F4F9F5002E6E2B /* MFYImageDetailVC.m */; };
+		67CC311B23F4FB19002E6E2B /* MFYRedPacketView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC311A23F4FB19002E6E2B /* MFYRedPacketView.m */; };
+		67CC311F23F644DB002E6E2B /* MFYHTTPCacheService.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC311E23F644DB002E6E2B /* MFYHTTPCacheService.m */; };
+		67CC312323F6821D002E6E2B /* MFYVideoProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC312223F6821D002E6E2B /* MFYVideoProgressView.m */; };
+		67CC312623F6A550002E6E2B /* MFYVideoDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC312523F6A550002E6E2B /* MFYVideoDetailVC.m */; };
 		67D28B7523D18FC500543D22 /* MFYArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7423D18FC500543D22 /* MFYArticle.m */; };
 		67D28B7823D1902D00543D22 /* MFYMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7723D1902D00543D22 /* MFYMedia.m */; };
 		67D28B7F23D1908300543D22 /* MFYProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7E23D1908300543D22 /* MFYProfile.m */; };
@@ -278,6 +289,28 @@
 		67CC30F723F15D8C002E6E2B /* MFYPublishModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYPublishModel.m; sourceTree = "<group>"; };
 		67CC30F923F1605E002E6E2B /* MFYPublishItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYPublishItemModel.h; sourceTree = "<group>"; };
 		67CC30FA23F1605E002E6E2B /* MFYPublishItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYPublishItemModel.m; sourceTree = "<group>"; };
+		67CC30FC23F2845D002E6E2B /* MFYPublishService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYPublishService.h; sourceTree = "<group>"; };
+		67CC30FD23F2845D002E6E2B /* MFYPublishService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYPublishService.m; sourceTree = "<group>"; };
+		67CC310223F29754002E6E2B /* MFYItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYItem.h; sourceTree = "<group>"; };
+		67CC310323F29754002E6E2B /* MFYItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYItem.m; sourceTree = "<group>"; };
+		67CC310523F39C4F002E6E2B /* MFYCoreflowTag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYCoreflowTag.h; sourceTree = "<group>"; };
+		67CC310623F39C4F002E6E2B /* MFYCoreflowTag.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYCoreflowTag.m; sourceTree = "<group>"; };
+		67CC310823F39D56002E6E2B /* MFYTopicTagService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYTopicTagService.h; sourceTree = "<group>"; };
+		67CC310923F39D56002E6E2B /* MFYTopicTagService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYTopicTagService.m; sourceTree = "<group>"; };
+		67CC310B23F3B202002E6E2B /* UIImage+WHMosaic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+WHMosaic.h"; sourceTree = "<group>"; };
+		67CC310C23F3B202002E6E2B /* UIImage+WHMosaic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WHMosaic.m"; sourceTree = "<group>"; };
+		67CC310F23F3E91A002E6E2B /* NSString+WHExtention.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+WHExtention.h"; sourceTree = "<group>"; };
+		67CC311023F3E91A002E6E2B /* NSString+WHExtention.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+WHExtention.m"; sourceTree = "<group>"; };
+		67CC311623F4F9F5002E6E2B /* MFYImageDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYImageDetailVC.h; sourceTree = "<group>"; };
+		67CC311723F4F9F5002E6E2B /* MFYImageDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYImageDetailVC.m; sourceTree = "<group>"; };
+		67CC311923F4FB19002E6E2B /* MFYRedPacketView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYRedPacketView.h; sourceTree = "<group>"; };
+		67CC311A23F4FB19002E6E2B /* MFYRedPacketView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYRedPacketView.m; sourceTree = "<group>"; };
+		67CC311D23F644DB002E6E2B /* MFYHTTPCacheService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYHTTPCacheService.h; sourceTree = "<group>"; };
+		67CC311E23F644DB002E6E2B /* MFYHTTPCacheService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYHTTPCacheService.m; sourceTree = "<group>"; };
+		67CC312123F6821D002E6E2B /* MFYVideoProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYVideoProgressView.h; sourceTree = "<group>"; };
+		67CC312223F6821D002E6E2B /* MFYVideoProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYVideoProgressView.m; sourceTree = "<group>"; };
+		67CC312423F6A550002E6E2B /* MFYVideoDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYVideoDetailVC.h; sourceTree = "<group>"; };
+		67CC312523F6A550002E6E2B /* MFYVideoDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYVideoDetailVC.m; sourceTree = "<group>"; };
 		67D28B7323D18FC500543D22 /* MFYArticle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYArticle.h; sourceTree = "<group>"; };
 		67D28B7423D18FC500543D22 /* MFYArticle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYArticle.m; sourceTree = "<group>"; };
 		67D28B7623D1902D00543D22 /* MFYMedia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYMedia.h; sourceTree = "<group>"; };
@@ -503,6 +536,10 @@
 				67D28B7423D18FC500543D22 /* MFYArticle.m */,
 				67D28B7623D1902D00543D22 /* MFYMedia.h */,
 				67D28B7723D1902D00543D22 /* MFYMedia.m */,
+				67CC310223F29754002E6E2B /* MFYItem.h */,
+				67CC310323F29754002E6E2B /* MFYItem.m */,
+				67CC310523F39C4F002E6E2B /* MFYCoreflowTag.h */,
+				67CC310623F39C4F002E6E2B /* MFYCoreflowTag.m */,
 			);
 			path = CoreFlow;
 			sourceTree = "<group>";
@@ -540,6 +577,7 @@
 		6763D79A23CF02F8003D9E20 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				67CC310E23F3E8FC002E6E2B /* NSString */,
 				6763D79B23CF02F8003D9E20 /* NSError */,
 			);
 			path = Foundation;
@@ -613,6 +651,7 @@
 			isa = PBXGroup;
 			children = (
 				6779376123B0C22100D1B822 /* FlowList */,
+				67CC311223F4F9A7002E6E2B /* FlowDetail */,
 			);
 			path = MainFlow;
 			sourceTree = "<group>";
@@ -641,6 +680,7 @@
 		6779376323B0C22100D1B822 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				67CC312023F681FE002E6E2B /* MFYVideoViews */,
 				6746D48C23B60DA500A46FC7 /* CategoryViews */,
 				6746D47A23B1D00800A46FC7 /* MFYCFToolView.h */,
 				6746D47B23B1D00800A46FC7 /* MFYCFToolView.m */,
@@ -823,6 +863,8 @@
 			children = (
 				67CC30E923F14847002E6E2B /* MFYQiniuSystemService.h */,
 				67CC30EA23F14847002E6E2B /* MFYQiniuSystemService.m */,
+				67CC30FC23F2845D002E6E2B /* MFYPublishService.h */,
+				67CC30FD23F2845D002E6E2B /* MFYPublishService.m */,
 			);
 			path = Publish;
 			sourceTree = "<group>";
@@ -832,8 +874,74 @@
 			children = (
 				67CC30F023F14D2E002E6E2B /* UIImage+WHCompress.h */,
 				67CC30F123F14D2E002E6E2B /* UIImage+WHCompress.m */,
+				67CC310B23F3B202002E6E2B /* UIImage+WHMosaic.h */,
+				67CC310C23F3B202002E6E2B /* UIImage+WHMosaic.m */,
 			);
 			path = UIImage;
+			sourceTree = "<group>";
+		};
+		67CC310E23F3E8FC002E6E2B /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				67CC310F23F3E91A002E6E2B /* NSString+WHExtention.h */,
+				67CC311023F3E91A002E6E2B /* NSString+WHExtention.m */,
+			);
+			path = NSString;
+			sourceTree = "<group>";
+		};
+		67CC311223F4F9A7002E6E2B /* FlowDetail */ = {
+			isa = PBXGroup;
+			children = (
+				67CC311523F4F9A7002E6E2B /* Reactor */,
+				67CC311323F4F9A7002E6E2B /* ViewController */,
+				67CC311423F4F9A7002E6E2B /* Views */,
+			);
+			path = FlowDetail;
+			sourceTree = "<group>";
+		};
+		67CC311323F4F9A7002E6E2B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67CC311623F4F9F5002E6E2B /* MFYImageDetailVC.h */,
+				67CC311723F4F9F5002E6E2B /* MFYImageDetailVC.m */,
+				67CC312423F6A550002E6E2B /* MFYVideoDetailVC.h */,
+				67CC312523F6A550002E6E2B /* MFYVideoDetailVC.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		67CC311423F4F9A7002E6E2B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				67CC311923F4FB19002E6E2B /* MFYRedPacketView.h */,
+				67CC311A23F4FB19002E6E2B /* MFYRedPacketView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		67CC311523F4F9A7002E6E2B /* Reactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Reactor;
+			sourceTree = "<group>";
+		};
+		67CC311C23F644C3002E6E2B /* MFYHttpKTVCache */ = {
+			isa = PBXGroup;
+			children = (
+				67CC311D23F644DB002E6E2B /* MFYHTTPCacheService.h */,
+				67CC311E23F644DB002E6E2B /* MFYHTTPCacheService.m */,
+			);
+			path = MFYHttpKTVCache;
+			sourceTree = "<group>";
+		};
+		67CC312023F681FE002E6E2B /* MFYVideoViews */ = {
+			isa = PBXGroup;
+			children = (
+				67CC312123F6821D002E6E2B /* MFYVideoProgressView.h */,
+				67CC312223F6821D002E6E2B /* MFYVideoProgressView.m */,
+			);
+			path = MFYVideoViews;
 			sourceTree = "<group>";
 		};
 		67D28B7C23D1907800543D22 /* User */ = {
@@ -852,6 +960,8 @@
 			children = (
 				67D28B8423D1B2B400543D22 /* MFYCoreflowService.h */,
 				67D28B8523D1B2B400543D22 /* MFYCoreflowService.m */,
+				67CC310823F39D56002E6E2B /* MFYTopicTagService.h */,
+				67CC310923F39D56002E6E2B /* MFYTopicTagService.m */,
 			);
 			path = coreflow;
 			sourceTree = "<group>";
@@ -1051,6 +1161,7 @@
 		67F097FA23A78D56001DCEB4 /* Unit */ = {
 			isa = PBXGroup;
 			children = (
+				67CC311C23F644C3002E6E2B /* MFYHttpKTVCache */,
 				672503F923D421A800716842 /* MFYOpenUDID.h */,
 				672503FA23D421A800716842 /* MFYOpenUDID.m */,
 				672503FC23D4229A00716842 /* UDIDWithKeyChain.h */,
@@ -1241,6 +1352,8 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Earth/Pods-Earth-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/JPNavigationController/JPNavigationController/JPNavigationController.bundle",
+				"${PODS_ROOT}/JPVideoPlayer/JPVideoPlayer/JPVideoPlayer.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1248,6 +1361,8 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/JPNavigationController.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/JPVideoPlayer.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1306,8 +1421,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67CC311123F3E91A002E6E2B /* NSString+WHExtention.m in Sources */,
 				67D28B8223D191EF00543D22 /* MFYGender.m in Sources */,
 				679A02E923F107620041A012 /* MOPhotoPreviewNavigationBar.m in Sources */,
+				67CC310423F29754002E6E2B /* MFYItem.m in Sources */,
 				67EFC32223C300C500F5BDB3 /* KSProgressLayer.m in Sources */,
 				67F0980423A7A063001DCEB4 /* MFYBaseViewController.m in Sources */,
 				67CC30E723F14776002E6E2B /* MFYDynamicManager.m in Sources */,
@@ -1324,6 +1441,7 @@
 				6746D48F23B60E0A00A46FC7 /* MFYCategoryBackgroundTitleCell.m in Sources */,
 				67EFC33123C311A800F5BDB3 /* UIView+WHExtension.m in Sources */,
 				67F0980823A7A185001DCEB4 /* MFYNavigationBar.m in Sources */,
+				67CC311823F4F9F5002E6E2B /* MFYImageDetailVC.m in Sources */,
 				672503FB23D421A800716842 /* MFYOpenUDID.m in Sources */,
 				679A02D723F107620041A012 /* UIView+MOExtension.m in Sources */,
 				679A02ED23F107620041A012 /* MOProgressView.m in Sources */,
@@ -1337,12 +1455,17 @@
 				67D28B8623D1B2B400543D22 /* MFYCoreflowService.m in Sources */,
 				679A02E123F107620041A012 /* MOAlbumModel.m in Sources */,
 				672503FE23D4229A00716842 /* UDIDWithKeyChain.m in Sources */,
+				67CC311B23F4FB19002E6E2B /* MFYRedPacketView.m in Sources */,
+				67CC310A23F39D56002E6E2B /* MFYTopicTagService.m in Sources */,
+				67CC312623F6A550002E6E2B /* MFYVideoDetailVC.m in Sources */,
 				679A02DD23F107620041A012 /* MOPhotoLibraryExportCenter.m in Sources */,
 				6725041023D5873200716842 /* MFYVideoAndImageView.m in Sources */,
+				67CC312323F6821D002E6E2B /* MFYVideoProgressView.m in Sources */,
 				67D28B7F23D1908300543D22 /* MFYProfile.m in Sources */,
 				6763D79623CEF400003D9E20 /* MFYServiceURLConfig.m in Sources */,
 				6746D49C23B62C2E00A46FC7 /* MFYFlowCardView.m in Sources */,
 				679A02E023F107620041A012 /* MOAssetCollectionInfoModel.m in Sources */,
+				67CC310723F39C4F002E6E2B /* MFYCoreflowTag.m in Sources */,
 				679A029323F104520041A012 /* MFYPublicManager.m in Sources */,
 				67F0981023A7AAE7001DCEB4 /* main.m in Sources */,
 				679A02EE23F107620041A012 /* MOPhotoLibraryNavigationBar.m in Sources */,
@@ -1355,6 +1478,7 @@
 				679A02E223F107620041A012 /* MODownloadNotificationModel.m in Sources */,
 				67EFC32123C300C500F5BDB3 /* KSYYImageManager.m in Sources */,
 				6725041323D6AAAA00716842 /* MFYPublicImageCardDetailVC.m in Sources */,
+				67CC310D23F3B202002E6E2B /* UIImage+WHMosaic.m in Sources */,
 				67EFC32A23C30BFF00F5BDB3 /* UIView+WHUd.m in Sources */,
 				6725041923D6E43E00716842 /* MFYBaseTableViewCell.m in Sources */,
 				6746D4A023B62E2000A46FC7 /* UIView+WHChain.m in Sources */,
@@ -1384,9 +1508,11 @@
 				6746D48223B4E54100A46FC7 /* MFYIndicatorBackgroundView.m in Sources */,
 				67EFC32723C3015C00F5BDB3 /* MFYCardSuduPicView.m in Sources */,
 				67CC30F823F15D8C002E6E2B /* MFYPublishModel.m in Sources */,
+				67CC30FE23F2845D002E6E2B /* MFYPublishService.m in Sources */,
 				6763D79E23CF0375003D9E20 /* NSError+MFYHTTPError.m in Sources */,
 				6746D49223B60E9700A46FC7 /* MFYCategoryBackgoundTitleCellModel.m in Sources */,
 				6763D7AF23D06944003D9E20 /* MFYLoginService.m in Sources */,
+				67CC311F23F644DB002E6E2B /* MFYHTTPCacheService.m in Sources */,
 				6725040A23D433B600716842 /* MFYPublicImageCardVC.m in Sources */,
 				679A02E623F107620041A012 /* MOIndicatorButton.m in Sources */,
 				679A02F023F107620041A012 /* MOPhotoLibraryController.m in Sources */,
@@ -1574,7 +1700,7 @@
 				CODE_SIGN_ENTITLEMENTS = Earth/Earth.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GN6QQLVWP7;
+				DEVELOPMENT_TEAM = MYYDS5WA57;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Earth/Bootstrap/MFYPrefixHeader.pch;
 				INFOPLIST_FILE = Earth/Bootstrap/info.plist;

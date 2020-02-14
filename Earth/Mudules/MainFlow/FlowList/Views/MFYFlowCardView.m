@@ -44,8 +44,17 @@
 
 - (void)setModel:(MFYArticle *)model {
     if (model) {
-        self.titleLabel.text = model.title;
+        [self.suduView setArticle:model];
+        [self.titleLabel setText:model.title];
     }
+}
+
+-(void)mfy_stopPlay {
+    [self.suduView stopPlay];
+}
+
+- (void)mfy_startPlay {
+    [self.suduView startPlay];
 }
 
 - (MFYCardSuduPicView *)suduView {

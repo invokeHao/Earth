@@ -12,11 +12,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MFYQiNiuResponse : NSObject
 
-@property (nonatomic, strong) NSString * extStr01;
-@property (nonatomic, strong) NSString * extStr02;
-@property (nonatomic, strong) NSString * itemNo;
+@property (nonatomic, strong) NSString * bucket;
+@property (nonatomic, strong) NSString * endUser;
+@property (nonatomic ,assign) NSInteger fsize;
+@property (nonatomic, strong) NSString * qiniuHash;
 @property (nonatomic, strong) NSString * mimeType;
 @property (nonatomic, strong) NSString * storeId;
+
+- (instancetype)initWithDictionary:(NSDictionary* )dic;
 
 @end
 

@@ -10,6 +10,7 @@
 #import "MFYCategoryListVC.h"
 #import "MFYIndicatorBackgroundView.h"
 #import "MFYCategoryTitleView.h"
+#import "MFYTopicTagService.h"
 
 @interface MFYCoreFlowVC ()<JXCategoryViewDelegate,JXCategoryListContainerViewDelegate>
 {
@@ -20,7 +21,9 @@
 @property (nonatomic, assign) YHDragCardDirectionType awayDirection;
 @property (nonatomic, strong) MFYCategoryTitleView * myCategoryView;
 @property (nonatomic, strong) JXCategoryListContainerView * listContainerView;
-
+@property (nonatomic, strong) NSArray * tagArray;
+@property (nonatomic, strong) UIButton * MineBtn;
+@property (nonatomic, strong) UIButton * messageBtn;
 
 @end
 
@@ -28,17 +31,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupViews];
+    [self setupData];
 }
 
 - (void)setupViews {
     self.navBar.backgroundColor = wh_colorWithHexString(@"#FF3F70");
+    self.navBar.leftButton = self.MineBtn;
+    self.navBar.rightButton = self.messageBtn;
     self.myCategoryView.listContainer = self.listContainerView;
     self.myCategoryView.delegate = self;
     [self.view addSubview:self.myCategoryView];
     [self.view addSubview:self.listContainerView];
-    NSArray * array = @[@"全部", @"颜控", @"人气", @"活跃", @"朋友"];
-    self.myCategoryView.titles = array;
+    NSMutableArray * titleArr = [NSMutableArray array];
+    for (MFYCoreflowTag * tag in self.tagArray) {
+        [titleArr addObject:tag.value];
+    }
+    self.myCategoryView.titles = titleArr;
     MFYIndicatorBackgroundView *lineView = [[MFYIndicatorBackgroundView alloc] init];
     self.myCategoryView.indicators = @[lineView];
     
@@ -65,12 +73,28 @@
 #pragma mark- JXCategoryListContentViewDelegate
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index{
     MFYCategoryListVC * vc = [[MFYCategoryListVC alloc]init];
-    WHLogSuccess(@"%@",vc);
+    MFYCoreflowTag * tag =self.tagArray[index];
+    vc.topicId = tag.idField;
     return vc;
 }
 
 -(NSInteger)numberOfListsInlistContainerView:(JXCategoryListContainerView *)listContainerView {
     return 5;
+}
+
+#pragma mark- 获取标签
+
+- (void)setupData {
+    @weakify(self)
+    [MFYTopicTagService getTheImageTopicTagsCompletion:^(NSArray<MFYCoreflowTag *> * _Nonnull array, NSError * _Nonnull error) {
+        @strongify(self)
+        if (!error) {
+            self.tagArray = array;
+            [self setupViews];
+        }else{
+            [WHHud showString:error.descriptionFromServer];
+        }
+    }];
 }
 
 
@@ -84,8 +108,25 @@
 -(JXCategoryListContainerView *)listContainerView {
     if (!_listContainerView) {
         _listContainerView = [[JXCategoryListContainerView alloc]initWithType:JXCategoryListContainerType_ScrollView delegate:self];
+        _listContainerView.scrollView.scrollEnabled = NO;
     }
     return _listContainerView;
+}
+
+- (UIButton *)MineBtn {
+    if (!_MineBtn) {
+        _MineBtn = UIButton.button;
+        [_MineBtn setImage:WHImageNamed(@"core_mine") forState:UIControlStateNormal];
+    }
+    return _MineBtn;
+}
+
+- (UIButton *)messageBtn {
+    if (!_messageBtn) {
+        _messageBtn = UIButton.button;
+        [_messageBtn setImage:WHImageNamed(@"core_notification") forState:UIControlStateNormal];
+    }
+    return _messageBtn;
 }
 
 

@@ -9,8 +9,10 @@
 #import "MFYPublicImageCardVC.h"
 #import "MFYVideoAndImageView.h"
 #import "MFYPublicImageCardDetailVC.h"
+#import "MFYPublishModel.h"
+#import "MFYDynamicManager.h"
 
-@interface MFYPublicImageCardVC ()
+@interface MFYPublicImageCardVC ()<UITextFieldDelegate>
 
 @property (nonatomic, strong)UIButton * publicBtn;
 
@@ -30,6 +32,9 @@
 
 @property (nonatomic, strong)MFYVideoAndImageView * bottomSmallView;
 
+@property (nonatomic, strong)MFYPublishModel * publishModel;
+
+
 @end
 
 @implementation MFYPublicImageCardVC
@@ -38,6 +43,9 @@
     [super viewDidLoad];
     [self setupViews];
     [self setupConstraint];
+    [self bindEvents];
+    
+    self.topicId = @"abcdefg";
 }
 
 - (void)setupViews {
@@ -65,7 +73,7 @@
 - (void)setupConstraint {
     [self.mainScroll mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(NAVIGATION_BAR_HEIGHT);
-        make.leading.trailing.mas_equalTo(0);
+        make.left.right.mas_equalTo(0);
         make.bottom.mas_equalTo(-HOME_INDICATOR_HEIGHT);
     }];
     
@@ -113,14 +121,54 @@
     }];
 }
 
+- (void)bindEvents {
+    @weakify(self)
+    [[self.publicBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self)
+        if (self.titleField.text.length < 1) {
+            [self.view showString:@"请输入描述"];
+            return ;
+        }
+        if ([self.publishModel unVerify]) {
+            [self.view showString:@"请至少上传一张图片"];
+            return;
+        }
+        self.publishModel.title = self.titleField.text;
+        self.publishModel.topicId = self.topicId;
+        [MFYDynamicManager publishTheArticle:self.publishModel completion:^(MFYArticle * article, NSError * error) {
+            if (article != nil) {
+                //发布成功的通知
+                [[NSNotificationCenter defaultCenter] postNotificationName:MFYNotificationPublishSuccess object:nil];
+                [self dismissViewControllerAnimated:YES completion:NULL];
+            }
+        }];
+    
+    }];
+}
 
 - (void)backButtonAction:(UIButton *)button {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textField:(UITextField *) textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (textField == self.titleField) {
+        NSUInteger oldLength = [textField.text length];
+        NSUInteger replacementLength = [string length];
+        NSUInteger rangeLength = range.length;
+        NSUInteger newLength = oldLength - rangeLength + replacementLength;
+        BOOL returnKey = [string rangeOfString: @"\n"].location != NSNotFound;
+        return newLength <= 20 || returnKey;
+    }
+    return NO;
+}
+
+
 - (UIScrollView *)mainScroll {
     if (!_mainScroll) {
         _mainScroll = [[UIScrollView alloc]init];
+        _mainScroll.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     }
     return _mainScroll;
 }
@@ -141,6 +189,7 @@
         _titleField.attributedPlaceholder = attrString;
         _titleField.textColor = wh_colorWithHexString(@"333333");
         _titleField.tintColor = wh_colorWithHexString(@"333333");
+        _titleField.delegate = self;
     }
     return _titleField;
 }
@@ -168,6 +217,11 @@
         _bigView.tapAddBlock = ^{
             @strongify(self)
             MFYPublicImageCardDetailVC * detailVC = [[MFYPublicImageCardDetailVC alloc]init];
+            detailVC.isBig = YES;
+            detailVC.publishB = ^(MFYPublishItemModel * _Nullable itemModel) {
+                self.publishModel.bigitem = itemModel;
+                [self.bigView setImageData:itemModel.assetModel];
+            };
             [self.navigationController pushViewController:detailVC animated:YES];
         };
     }
@@ -177,6 +231,16 @@
 - (MFYVideoAndImageView *)topSmallView {
     if (!_topSmallView) {
         _topSmallView = [[MFYVideoAndImageView alloc]initWithType:MFYVideoAndImageViewSmallType];
+        @weakify(self)
+        _topSmallView.tapAddBlock = ^{
+            @strongify(self)
+            MFYPublicImageCardDetailVC * detailVC = [[MFYPublicImageCardDetailVC alloc]init];
+              detailVC.publishB = ^(MFYPublishItemModel * _Nullable itemModel) {
+                  self.publishModel.smallTopItem = itemModel;
+                  [self.topSmallView setImageData:itemModel.assetModel];
+              };
+              [self.navigationController pushViewController:detailVC animated:YES];
+        };
     }
     return _topSmallView;
 }
@@ -184,6 +248,16 @@
 - (MFYVideoAndImageView *)bottomSmallView {
     if (!_bottomSmallView) {
         _bottomSmallView = [[MFYVideoAndImageView alloc]initWithType:MFYVideoAndImageViewSmallType];
+        @weakify(self)
+        _bottomSmallView.tapAddBlock = ^{
+            @strongify(self)
+            MFYPublicImageCardDetailVC * detailVC = [[MFYPublicImageCardDetailVC alloc]init];
+              detailVC.publishB = ^(MFYPublishItemModel * _Nullable itemModel) {
+                  self.publishModel.smallBottomItem = itemModel;
+                  [self.bottomSmallView setImageData:itemModel.assetModel];
+              };
+              [self.navigationController pushViewController:detailVC animated:YES];
+        };
     }
     return _bottomSmallView;
 }
@@ -195,8 +269,12 @@
     return _publicBtn;
 }
 
-
-
+- (MFYPublishModel *)publishModel {
+    if (!_publishModel) {
+        _publishModel = [[MFYPublishModel alloc]init];
+    }
+    return _publishModel;
+}
 
 
 @end

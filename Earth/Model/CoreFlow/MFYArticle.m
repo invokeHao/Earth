@@ -40,8 +40,20 @@ NSString *const kMFYArticleTitle = @"title";
     if(![dictionary[kMFYArticleCreateDate] isKindOfClass:[NSNull class]]){
         self.createDate = dictionary[kMFYArticleCreateDate];
     }
+    
+    if(dictionary[kMFYArticleEmbeddedArticles] != nil && [dictionary[kMFYArticleEmbeddedArticles] isKindOfClass:[NSArray class]]){
+        NSArray * EmbeddedArticlesDictionaries = dictionary[kMFYArticleEmbeddedArticles];
+        NSMutableArray * EmbeddedArticlesItems = [NSMutableArray array];
+        for(NSDictionary * EmbeddedArticlesDictionary in EmbeddedArticlesDictionaries){
+            MFYItem * EmbeddedArticlesItem = [[MFYItem alloc] initWithDictionary:EmbeddedArticlesDictionary];
+            [EmbeddedArticlesItems addObject:EmbeddedArticlesItem];
+        }
+        self.embeddedArticles = EmbeddedArticlesItems;
+    }
+
     if(![dictionary[kMFYArticleEmbeddedArticles] isKindOfClass:[NSNull class]]){
         self.embeddedArticles = dictionary[kMFYArticleEmbeddedArticles];
+        
     }
     if(![dictionary[kMFYArticleFormatType] isKindOfClass:[NSNull class]]){
         self.formatType = [dictionary[kMFYArticleFormatType] integerValue];
@@ -60,7 +72,7 @@ NSString *const kMFYArticleTitle = @"title";
     }
 
     if(![dictionary[kMFYArticlePriceAmount] isKindOfClass:[NSNull class]]){
-        self.priceAmount = [dictionary[kMFYArticlePriceAmount] integerValue];
+        self.priceAmount = [dictionary[kMFYArticlePriceAmount] floatValue];
     }
 
     if(![dictionary[kMFYArticleProfile] isKindOfClass:[NSNull class]]){
@@ -164,7 +176,7 @@ NSString *const kMFYArticleTitle = @"title";
     self.functionType = [[aDecoder decodeObjectForKey:kMFYArticleFunctionType] integerValue];
     self.media = [aDecoder decodeObjectForKey:kMFYArticleMedia];
     self.postType = [[aDecoder decodeObjectForKey:kMFYArticlePostType] integerValue];
-    self.priceAmount = [[aDecoder decodeObjectForKey:kMFYArticlePriceAmount] integerValue];
+    self.priceAmount = [[aDecoder decodeObjectForKey:kMFYArticlePriceAmount] floatValue];
     self.profile = [aDecoder decodeObjectForKey:kMFYArticleProfile];
     self.subtitle = [aDecoder decodeObjectForKey:kMFYArticleSubtitle];
     self.title = [aDecoder decodeObjectForKey:kMFYArticleTitle];

@@ -10,8 +10,9 @@
 #import "MFYBaseTableView.h"
 #import "MFYPrivacyOptionCell.h"
 #import "MFYPublicManager.h"
-#import "MFYPublishItemModel.h"
 #import "MFYDynamicManager.h"
+#import "MFYQiNiuModel.h"
+#import "MFYResponseObject.h"
 
 
 typedef enum : NSUInteger {
@@ -30,6 +31,10 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong)MFYPublicManager * publicManager;
 
 @property (nonatomic, strong)MFYPublishItemModel * itemModel;
+
+@property (nonatomic, strong)UITextField * redField;
+
+@property (nonatomic, strong)UITextField * descField;
 
 @end
 
@@ -67,10 +72,26 @@ typedef enum : NSUInteger {
         [self.view showString:@"图片不能为空"];
         return;
     }
-    [MFYDynamicManager getQiniuUploadTockenSuccess:^(id model) {
-        
-    } failure:^(NSError *error) {
-        
+    self.itemModel.priceAmount = [self.redField.text floatValue];
+    self.itemModel.fileDesc = self.descField.text;
+    if (self.viewType == MFYCardPrivacyType && self.itemModel.priceAmount <= 0) {
+        [self.view showString:@"设置为隐私后，别忘记设置金额呦"];
+        return;
+    }
+    @weakify(self)
+    [WHHud showActivityView];
+    [MFYDynamicManager UploadTheAssetModel:self.itemModel.assetModel completion:^(MFYQiNiuResponse * model, NSError * error) {
+        WHLog(@"%@",model);
+        @strongify(self)
+        if (model) {
+            self.itemModel.fileId = model.storeId;
+            self.itemModel.fileType = [MFYPublishItemModel qiNiuMimeTypeChangeMfy:model.mimeType];
+            if (self.publishB) {
+                self.publishB(self.itemModel);
+            }
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        [WHHud hideActivityView];
     }];
 }
 
@@ -136,6 +157,10 @@ typedef enum : NSUInteger {
             @weakify(self)
             privacyCell.checkBtnBlock = ^{
                 @strongify(self)
+                if (self.isBig) {
+                    [WHHud showString:@"大图不可以设置为私密"];
+                    return ;
+                }
                 if (self.viewType == MFYCardPublicType) {
                     self.viewType = MFYCardPrivacyType;
                     [self.mainTable reloadData];
@@ -172,6 +197,7 @@ typedef enum : NSUInteger {
                 return titleCell;
             }else{
                 MFYPrivacyOptionCell * redCell = [MFYPrivacyOptionCell mfy_cellWithTableView:tableView type:MFYPrivacyOptionRedEnvelopeType];
+                self.redField = redCell.redField;
                 return  redCell;
             }
         }
@@ -182,6 +208,7 @@ typedef enum : NSUInteger {
             return titleCell;
         }else {
             MFYPrivacyOptionCell * titleFieldCell = [MFYPrivacyOptionCell mfy_cellWithTableView:tableView type:MFYPrivacyOptionTitleType];
+            self.descField = titleFieldCell.titleField;
             return titleFieldCell;
         }
     }else{
@@ -191,7 +218,19 @@ typedef enum : NSUInteger {
              return titleCell;
          }else{
              MFYPrivacyOptionCell * videoCell = [MFYPrivacyOptionCell mfy_cellWithTableView:tableView type:MFYPrivacyOptionImageType];
-             
+             @weakify(self)
+             @weakify(videoCell)
+             [videoCell setAddPhotoBlock:^{
+                 @strongify(self)
+                 [self.publicManager publishPhotoFromVC:self publishType:mfyPublicTypeNull completion:^(MFYAssetModel * _Nullable model) {
+                     @strongify(videoCell)
+                     if (model) {
+                         self.itemModel.assetModel = model;
+                         [videoCell.videoView setImageData:model];
+                     }
+                 }];
+             }];
+
              return videoCell;
          }
     }

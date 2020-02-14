@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MFYPublicImageCardVC : MFYBaseViewController
 
+@property (nonatomic, strong)NSString * topicId;
+
 @end
 
 NS_ASSUME_NONNULL_END

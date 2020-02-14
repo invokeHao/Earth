@@ -16,5 +16,7 @@
 #import "UIView+WHRoundCorner.h"
 #import "NSError+MFYHTTPError.h"
 #import "UIImage+WHCompress.h"
+#import "UIImage+WHMosaic.h"
+#import "NSString+WHExtention.h"
 
 #endif /* whKit_h */

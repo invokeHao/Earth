@@ -34,6 +34,24 @@
     return self.asset.duration;
 }
 
+- (CGFloat)fileSize {
+    PHAssetResource *resource = [[PHAssetResource assetResourcesForAsset:self.asset] firstObject];
+    long long size = [[resource valueForKey:@"fileSize"] longLongValue];
+    CGFloat mSize = (CGFloat)size/(1024 *1024);
+    return mSize;
+}
+
+- (void)getVideoCoverImageCompletion:(void (^)(UIImage * ))completion{
+    PHImageRequestOptions *option = [[PHImageRequestOptions alloc] init];
+    option.resizeMode = PHImageRequestOptionsResizeModeFast;
+    
+    [[PHImageManager defaultManager] requestImageForAsset:self.asset targetSize:CGSizeMake(240, 320) contentMode:PHImageContentModeDefault options:option resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+        if (result) {
+            completion(result);
+        }
+    }];
+}
+
 - (BOOL)isEqual:(id)object {
     if ([object isKindOfClass:[self class]]) {
         MFYAssetModel *temp = (MFYAssetModel *)object;
