@@ -104,6 +104,8 @@
 		67CC314723F9534E002E6E2B /* MFYTagDisplayLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC314623F9534E002E6E2B /* MFYTagDisplayLayout.m */; };
 		67CC314A23F95806002E6E2B /* WHTimeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC314923F95806002E6E2B /* WHTimeUtil.m */; };
 		67CC314D23FA3770002E6E2B /* MFYAudioPublishView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC314C23FA3770002E6E2B /* MFYAudioPublishView.m */; };
+		67CC315023FA668D002E6E2B /* MFYVoiceRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC314F23FA668D002E6E2B /* MFYVoiceRecorder.m */; };
+		67CC315323FA674C002E6E2B /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CC315223FA674C002E6E2B /* libmp3lame.a */; };
 		67D28B7523D18FC500543D22 /* MFYArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7423D18FC500543D22 /* MFYArticle.m */; };
 		67D28B7823D1902D00543D22 /* MFYMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7723D1902D00543D22 /* MFYMedia.m */; };
 		67D28B7F23D1908300543D22 /* MFYProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7E23D1908300543D22 /* MFYProfile.m */; };
@@ -347,6 +349,10 @@
 		67CC314923F95806002E6E2B /* WHTimeUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WHTimeUtil.m; sourceTree = "<group>"; };
 		67CC314B23FA3770002E6E2B /* MFYAudioPublishView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYAudioPublishView.h; sourceTree = "<group>"; };
 		67CC314C23FA3770002E6E2B /* MFYAudioPublishView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYAudioPublishView.m; sourceTree = "<group>"; };
+		67CC314E23FA668D002E6E2B /* MFYVoiceRecorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYVoiceRecorder.h; sourceTree = "<group>"; };
+		67CC314F23FA668D002E6E2B /* MFYVoiceRecorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYVoiceRecorder.m; sourceTree = "<group>"; };
+		67CC315223FA674C002E6E2B /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
+		67CC315423FA675F002E6E2B /* lame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
 		67D28B7323D18FC500543D22 /* MFYArticle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYArticle.h; sourceTree = "<group>"; };
 		67D28B7423D18FC500543D22 /* MFYArticle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYArticle.m; sourceTree = "<group>"; };
 		67D28B7623D1902D00543D22 /* MFYMedia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYMedia.h; sourceTree = "<group>"; };
@@ -409,6 +415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EB9B06CBE8768E2F907633A /* libPods-Earth.a in Frameworks */,
+				67CC315323FA674C002E6E2B /* libmp3lame.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +529,8 @@
 		6725040723D4333A00716842 /* Reactor */ = {
 			isa = PBXGroup;
 			children = (
+				67CC314E23FA668D002E6E2B /* MFYVoiceRecorder.h */,
+				67CC314F23FA668D002E6E2B /* MFYVoiceRecorder.m */,
 			);
 			path = Reactor;
 			sourceTree = "<group>";
@@ -1023,6 +1032,15 @@
 			path = MFYTagDisplayView;
 			sourceTree = "<group>";
 		};
+		67CC315123FA674C002E6E2B /* LameLib */ = {
+			isa = PBXGroup;
+			children = (
+				67CC315223FA674C002E6E2B /* libmp3lame.a */,
+				67CC315423FA675F002E6E2B /* lame.h */,
+			);
+			path = LameLib;
+			sourceTree = "<group>";
+		};
 		67D28B7C23D1907800543D22 /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -1233,6 +1251,7 @@
 		67F097F923A78D56001DCEB4 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				67CC315123FA674C002E6E2B /* LameLib */,
 				67CC313E23F94ED5002E6E2B /* MFYTagDisplayView */,
 				679A029523F107620041A012 /* PhotoLibraryKit */,
 				67EFC31423C300C400F5BDB3 /* KSPhotoBrowser */,
@@ -1548,6 +1567,7 @@
 				67CC312323F6821D002E6E2B /* MFYVideoProgressView.m in Sources */,
 				67D28B7F23D1908300543D22 /* MFYProfile.m in Sources */,
 				6763D79623CEF400003D9E20 /* MFYServiceURLConfig.m in Sources */,
+				67CC315023FA668D002E6E2B /* MFYVoiceRecorder.m in Sources */,
 				67CC314123F94F70002E6E2B /* MFYTagDisplayView.m in Sources */,
 				6746D49C23B62C2E00A46FC7 /* MFYFlowCardView.m in Sources */,
 				679A02E023F107620041A012 /* MOAssetCollectionInfoModel.m in Sources */,
@@ -1781,6 +1801,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Earth/Vendors/LameLib",
+				);
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fuYinEarth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1804,6 +1828,10 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Earth/Vendors/LameLib",
 				);
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fuYinEarth;
