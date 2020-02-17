@@ -6,20 +6,27 @@
 //  Copyright © 2020 fuYin. All rights reserved.
 //
 
+
 #import "MFYProfile.h"
 
 NSString *const kMFYProfileAge = @"age";
+NSString *const kMFYProfileAllowSearch = @"allowSearch";
 NSString *const kMFYProfileCreateDate = @"createDate";
 NSString *const kMFYProfileGender = @"gender";
-NSString *const kMFYProfileHeadIconId = @"headIconId";
 NSString *const kMFYProfileHeadIconUrl = @"headIconUrl";
+NSString *const kMFYProfileImId = @"imId";
 NSString *const kMFYProfileNickname = @"nickname";
-NSString *const kMFYProfileProfileDesc = @"profileDesc";
 NSString *const kMFYProfileProfileDomainItems = @"profileDomainItems";
 NSString *const kMFYProfileProfileUpdated = @"profileUpdated";
+NSString *const kMFYProfileTags = @"tags";
 NSString *const kMFYProfileUserId = @"userId";
 
+@interface MFYProfile ()
+@end
 @implementation MFYProfile
+
+
+
 
 /**
  * Instantiate the instance using the passed dictionary values to set the properties values
@@ -32,24 +39,26 @@ NSString *const kMFYProfileUserId = @"userId";
         self.age = [dictionary[kMFYProfileAge] integerValue];
     }
 
-    if(![dictionary[kMFYProfileCreateDate] isKindOfClass:[NSNull class]]){
-        self.createDate = dictionary[kMFYProfileCreateDate];
+    if(![dictionary[kMFYProfileAllowSearch] isKindOfClass:[NSNull class]]){
+        self.allowSearch = [dictionary[kMFYProfileAllowSearch] boolValue];
     }
+
+    if(![dictionary[kMFYProfileCreateDate] isKindOfClass:[NSNull class]]){
+        self.createDate = [dictionary[kMFYProfileCreateDate] integerValue];
+    }
+
     if(![dictionary[kMFYProfileGender] isKindOfClass:[NSNull class]]){
         self.gender = [[MFYGender alloc] initWithDictionary:dictionary[kMFYProfileGender]];
     }
 
-    if(![dictionary[kMFYProfileHeadIconId] isKindOfClass:[NSNull class]]){
-        self.headIconId = dictionary[kMFYProfileHeadIconId];
-    }
     if(![dictionary[kMFYProfileHeadIconUrl] isKindOfClass:[NSNull class]]){
         self.headIconUrl = dictionary[kMFYProfileHeadIconUrl];
     }
+    if(![dictionary[kMFYProfileImId] isKindOfClass:[NSNull class]]){
+        self.imId = dictionary[kMFYProfileImId];
+    }
     if(![dictionary[kMFYProfileNickname] isKindOfClass:[NSNull class]]){
         self.nickname = dictionary[kMFYProfileNickname];
-    }
-    if(![dictionary[kMFYProfileProfileDesc] isKindOfClass:[NSNull class]]){
-        self.profileDesc = dictionary[kMFYProfileProfileDesc];
     }
     if(dictionary[kMFYProfileProfileDomainItems] != nil && [dictionary[kMFYProfileProfileDomainItems] isKindOfClass:[NSArray class]]){
         NSArray * profileDomainItemsDictionaries = dictionary[kMFYProfileProfileDomainItems];
@@ -64,6 +73,9 @@ NSString *const kMFYProfileUserId = @"userId";
         self.profileUpdated = [dictionary[kMFYProfileProfileUpdated] boolValue];
     }
 
+    if(![dictionary[kMFYProfileTags] isKindOfClass:[NSNull class]]){
+        self.tags = dictionary[kMFYProfileTags];
+    }
     if(![dictionary[kMFYProfileUserId] isKindOfClass:[NSNull class]]){
         self.userId = dictionary[kMFYProfileUserId];
     }
@@ -78,23 +90,19 @@ NSString *const kMFYProfileUserId = @"userId";
 {
     NSMutableDictionary * dictionary = [NSMutableDictionary dictionary];
     dictionary[kMFYProfileAge] = @(self.age);
-    if(self.createDate != nil){
-        dictionary[kMFYProfileCreateDate] = self.createDate;
-    }
+    dictionary[kMFYProfileAllowSearch] = @(self.allowSearch);
+    dictionary[kMFYProfileCreateDate] = @(self.createDate);
     if(self.gender != nil){
         dictionary[kMFYProfileGender] = [self.gender toDictionary];
-    }
-    if(self.headIconId != nil){
-        dictionary[kMFYProfileHeadIconId] = self.headIconId;
     }
     if(self.headIconUrl != nil){
         dictionary[kMFYProfileHeadIconUrl] = self.headIconUrl;
     }
+    if(self.imId != nil){
+        dictionary[kMFYProfileImId] = self.imId;
+    }
     if(self.nickname != nil){
         dictionary[kMFYProfileNickname] = self.nickname;
-    }
-    if(self.profileDesc != nil){
-        dictionary[kMFYProfileProfileDesc] = self.profileDesc;
     }
     if(self.profileDomainItems != nil){
         NSMutableArray * dictionaryElements = [NSMutableArray array];
@@ -104,6 +112,9 @@ NSString *const kMFYProfileUserId = @"userId";
         dictionary[kMFYProfileProfileDomainItems] = dictionaryElements;
     }
     dictionary[kMFYProfileProfileUpdated] = @(self.profileUpdated);
+    if(self.tags != nil){
+        dictionary[kMFYProfileTags] = self.tags;
+    }
     if(self.userId != nil){
         dictionary[kMFYProfileUserId] = self.userId;
     }
@@ -119,28 +130,25 @@ NSString *const kMFYProfileUserId = @"userId";
  */
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder encodeObject:@(self.age) forKey:kMFYProfileAge];    if(self.createDate != nil){
-        [aCoder encodeObject:self.createDate forKey:kMFYProfileCreateDate];
-    }
-    if(self.gender != nil){
+    [aCoder encodeObject:@(self.age) forKey:kMFYProfileAge];    [aCoder encodeObject:@(self.allowSearch) forKey:kMFYProfileAllowSearch];    [aCoder encodeObject:@(self.createDate) forKey:kMFYProfileCreateDate];    if(self.gender != nil){
         [aCoder encodeObject:self.gender forKey:kMFYProfileGender];
-    }
-    if(self.headIconId != nil){
-        [aCoder encodeObject:self.headIconId forKey:kMFYProfileHeadIconId];
     }
     if(self.headIconUrl != nil){
         [aCoder encodeObject:self.headIconUrl forKey:kMFYProfileHeadIconUrl];
     }
+    if(self.imId != nil){
+        [aCoder encodeObject:self.imId forKey:kMFYProfileImId];
+    }
     if(self.nickname != nil){
         [aCoder encodeObject:self.nickname forKey:kMFYProfileNickname];
-    }
-    if(self.profileDesc != nil){
-        [aCoder encodeObject:self.profileDesc forKey:kMFYProfileProfileDesc];
     }
     if(self.profileDomainItems != nil){
         [aCoder encodeObject:self.profileDomainItems forKey:kMFYProfileProfileDomainItems];
     }
-    [aCoder encodeObject:@(self.profileUpdated) forKey:kMFYProfileProfileUpdated];    if(self.userId != nil){
+    [aCoder encodeObject:@(self.profileUpdated) forKey:kMFYProfileProfileUpdated];    if(self.tags != nil){
+        [aCoder encodeObject:self.tags forKey:kMFYProfileTags];
+    }
+    if(self.userId != nil){
         [aCoder encodeObject:self.userId forKey:kMFYProfileUserId];
     }
 
@@ -153,14 +161,15 @@ NSString *const kMFYProfileUserId = @"userId";
 {
     self = [super init];
     self.age = [[aDecoder decodeObjectForKey:kMFYProfileAge] integerValue];
-    self.createDate = [aDecoder decodeObjectForKey:kMFYProfileCreateDate];
+    self.allowSearch = [[aDecoder decodeObjectForKey:kMFYProfileAllowSearch] boolValue];
+    self.createDate = [[aDecoder decodeObjectForKey:kMFYProfileCreateDate] integerValue];
     self.gender = [aDecoder decodeObjectForKey:kMFYProfileGender];
-    self.headIconId = [aDecoder decodeObjectForKey:kMFYProfileHeadIconId];
     self.headIconUrl = [aDecoder decodeObjectForKey:kMFYProfileHeadIconUrl];
+    self.imId = [aDecoder decodeObjectForKey:kMFYProfileImId];
     self.nickname = [aDecoder decodeObjectForKey:kMFYProfileNickname];
-    self.profileDesc = [aDecoder decodeObjectForKey:kMFYProfileProfileDesc];
     self.profileDomainItems = [aDecoder decodeObjectForKey:kMFYProfileProfileDomainItems];
     self.profileUpdated = [[aDecoder decodeObjectForKey:kMFYProfileProfileUpdated] boolValue];
+    self.tags = [aDecoder decodeObjectForKey:kMFYProfileTags];
     self.userId = [aDecoder decodeObjectForKey:kMFYProfileUserId];
     return self;
 
@@ -174,17 +183,17 @@ NSString *const kMFYProfileUserId = @"userId";
     MFYProfile *copy = [MFYProfile new];
 
     copy.age = self.age;
-    copy.createDate = [self.createDate copy];
+    copy.allowSearch = self.allowSearch;
+    copy.createDate = self.createDate;
     copy.gender = [self.gender copy];
-    copy.headIconId = [self.headIconId copy];
     copy.headIconUrl = [self.headIconUrl copy];
+    copy.imId = [self.imId copy];
     copy.nickname = [self.nickname copy];
-    copy.profileDesc = [self.profileDesc copy];
     copy.profileDomainItems = [self.profileDomainItems copy];
     copy.profileUpdated = self.profileUpdated;
+    copy.tags = [self.tags copy];
     copy.userId = [self.userId copy];
 
     return copy;
 }
-
 @end

@@ -1,23 +1,16 @@
 //
-//  MFYCategoryBackgoundTitleCellModel.h
+//  MFYNavCategoryTitleView.h
 //  Earth
 //
-//  Created by colr on 2019/12/27.
-//  Copyright © 2019 fuYin. All rights reserved.
+//  Created by colr on 2020/2/16.
+//  Copyright © 2020 fuYin. All rights reserved.
 //
 
-#import "JXCategoryTitleCellModel.h"
-
-
-typedef NS_ENUM(NSInteger, MFYTittleCellType) {
-    MFYTittleCellRoundType = 0,
-    MFYTittleCellNavLeftType,
-    MFYTittleCellNavRIghtType
-};
+#import "JXCategoryTitleView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MFYCategoryBackgoundTitleCellModel : JXCategoryTitleCellModel
+@interface MFYNavCategoryTitleView : JXCategoryTitleView
 
 @property (nonatomic, strong) UIColor *normalBackgroundColor;
 @property (nonatomic, strong) UIColor *normalBorderColor;
@@ -27,8 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat backgroundCornerRadius;
 @property (nonatomic, assign) CGFloat backgroundWidth;
 @property (nonatomic, assign) CGFloat backgroundHeight;
-
-@property (nonatomic, assign) MFYTittleCellType MfyCellType;
 
 @end
 

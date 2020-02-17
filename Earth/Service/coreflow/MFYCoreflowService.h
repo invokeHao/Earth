@@ -13,9 +13,9 @@ typedef enum : NSUInteger {
     MFYCoreflowImageAllType,
     MFYCoreflowImageFriendsType,
     MFYCoreflowImageTopType,
-    MFYCoreflowAutoAllType,
-    MFYCoreflowAutoFriendsType,
-    MFYCoreflowAutoTopType
+    MFYCoreflowAudioAllType,
+    MFYCoreflowAudioFriendsType,
+    MFYCoreflowAudioTopType
 } MFYCoreFlowType;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -30,6 +30,13 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark- 根据topicId获取颜值卡片列表
 
 + (void)getTheImageCardWithTopicId:(NSString *)topicId completion:(void(^)(NSArray<MFYArticle *> *articleList, NSError * error))completion;
+
+
+#pragma mark- 声控卡片
+
+//根据topicId获取声控卡片列表
+
++ (void)getTheAudioCardWithTopicId:(NSString *)topicId completion:(void(^)(NSArray<MFYArticle*> *aritlceList, NSError * error))completion;
 
 @end
 

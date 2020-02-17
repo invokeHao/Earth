@@ -6,22 +6,27 @@
 //  Copyright © 2019 fuYin. All rights reserved.
 //
 
-#import "MFYCategoryListVC.h"
+#import "MFYImageFlowVC.h"
 #import "MFYFlowListVM.h"
 #import "MFYFlowCardView.h"
 #import "MFYCFToolView.h"
+#import "MFYCoreflowTag.h"
+#import "MFYCategoryTitleView.h"
+#import "MFYIndicatorBackgroundView.h"
 
-@interface MFYCategoryListVC ()<YHDragCardDelegate,YHDragCardDataSource>
+@interface MFYImageFlowVC ()<YHDragCardDelegate,YHDragCardDataSource,JXCategoryViewDelegate>
 
 @property (nonatomic, assign) YHDragCardDirectionType awayDirection;
 @property (nonatomic, strong) YHDragCardContainer *card;
 @property (nonatomic, strong) MFYFlowListVM * viewModel;
 @property (nonatomic, strong) MFYCFToolView * toolView;
 @property (nonatomic, strong) MFYFlowCardView * currentCard;
+@property (nonatomic, strong) MFYCategoryTitleView * myCategoryView;
+
 
 @end
 
-@implementation MFYCategoryListVC
+@implementation MFYImageFlowVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,7 +35,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self setupViews];
     [self startPlayVideo];
 }
 
@@ -42,15 +46,41 @@
 - (void)setupViews {
     [self.view addSubview:self.card];
     [self.view addSubview:self.toolView];
+    
+    [self.view addSubview:self.myCategoryView];
+
+    NSMutableArray * titleArr = [NSMutableArray array];
+    for (MFYCoreflowTag * tag in self.imageTagArray) {
+        [titleArr addObject:tag.value];
+    }
+    self.myCategoryView.titles = titleArr;
+    MFYIndicatorBackgroundView *lineView = [[MFYIndicatorBackgroundView alloc] init];
+    self.myCategoryView.indicators = @[lineView];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    [self.myCategoryView setFrame:CGRectMake(0, 10, VERTICAL_SCREEN_WIDTH, 50)];
 }
 
 - (void)bindData {
-    self.viewModel = [[MFYFlowListVM alloc]initWithTopicId:self.topicId];
+    @weakify(self)
+    RACSignal * tagObserve = RACObserve(self, imageTagArray);
+    [[tagObserve skipUntilBlock:^BOOL(id x) {
+        @strongify(self)
+        return self.imageTagArray.count > 0;
+    }] subscribeNext:^(id x) {
+        @strongify(self)
+        MFYCoreflowTag * tag = [self.imageTagArray firstObject];
+        self.viewModel = [[MFYFlowListVM alloc]initWithTopicId:tag.idField];
+        [self setupViews];
+    }];
     
     RACSignal * dataObserve = RACObserve(self, viewModel.dataList);
-    @weakify(self)
+    
     [[[dataObserve skipUntilBlock:^BOOL(id x) {
-        return [x isKindOfClass:[NSArray class]];
+        @strongify(self)
+        return self.viewModel.dataList.count > 0;
     }] deliverOnMainThread] subscribeNext:^(id x) {
         @strongify(self)
         [self.card reloadData:NO];
@@ -108,7 +138,7 @@
 }
 
 - (void)dragCard:(YHDragCardContainer *)dragCard didFinishRemoveLastCard:(UIView *)card{
-//    WHLog(@"最后一张卡片滑出去了");
+    WHLog(@"最后一张卡片滑出去了");
 
 }
 
@@ -136,10 +166,22 @@
     }
 }
 
+#pragma mark - JXCategoryViewDelegate
+
+- (void)categoryView:(JXCategoryBaseView *)categoryView didSelectedItemAtIndex:(NSInteger)index {
+
+    WHLog(@"%d",index);
+}
+
+- (void)categoryView:(JXCategoryBaseView *)categoryView didScrollSelectedItemAtIndex:(NSInteger)index {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+}
+
+
 #pragma mark Getter
 - (YHDragCardContainer *)card{
     if (!_card) {
-        _card = [[YHDragCardContainer alloc] initWithFrame:CGRectMake(12, 20, VERTICAL_SCREEN_WIDTH -24, H_SCALE(400))];
+        _card = [[YHDragCardContainer alloc] initWithFrame:CGRectMake(12, 70, VERTICAL_SCREEN_WIDTH -24, H_SCALE(400))];
         _card.minScale = 0.9;
         _card.delegate = self;
         _card.dataSource = self;
@@ -154,6 +196,14 @@
         _toolView = [[MFYCFToolView alloc]initWithFrame:CGRectMake(18, self.card.wh_bottom + 30, VERTICAL_SCREEN_WIDTH - 36, 60)];
     }
     return _toolView;
+}
+
+-(JXCategoryTitleView *)myCategoryView {
+    if (!_myCategoryView) {
+        _myCategoryView = [[MFYCategoryTitleView alloc]init];
+        _myCategoryView.delegate = self;
+    }
+    return _myCategoryView;
 }
 
 

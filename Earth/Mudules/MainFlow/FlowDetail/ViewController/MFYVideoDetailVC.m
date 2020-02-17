@@ -26,8 +26,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // 使用 `JPNavigationController` 处理 pop 手势导致 `AVPlayer` 播放器播放视频卡顿.
-    self.navigationController.jp_useCustomPopAnimationForCurrentViewController = YES;
+    // 使用 `JPNavigationController` 处理 pop 手势导致 `AVPlayer` 播放器播放视频卡顿.如果需要使用，需要修改Appdelegate的navigationcontroller
+//    self.navigationController.jp_useCustomPopAnimationForCurrentViewController = YES;
     [self setupView];
 }
 

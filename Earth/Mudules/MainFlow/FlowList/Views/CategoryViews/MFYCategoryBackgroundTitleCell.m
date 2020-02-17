@@ -50,13 +50,35 @@
     [CATransaction begin];
     [CATransaction setDisableActions:YES];
     self.bgLayer.borderWidth = myCellModel.borderLineWidth;
-    self.bgLayer.cornerRadius = myCellModel.backgroundCornerRadius;
     if (myCellModel.isSelected) {
         self.bgLayer.backgroundColor = myCellModel.selectedBackgroundColor.CGColor;
         self.bgLayer.borderColor = myCellModel.selectedBorderColor.CGColor;
     }else {
         self.bgLayer.backgroundColor = myCellModel.normalBackgroundColor.CGColor;
         self.bgLayer.borderColor = myCellModel.normalBorderColor.CGColor;
+    }
+    switch (myCellModel.MfyCellType) {
+        case MFYTittleCellRoundType:
+            self.bgLayer.cornerRadius = myCellModel.backgroundCornerRadius;
+            break;
+        case MFYTittleCellNavLeftType:
+            if (@available(iOS 11.0, *)) {
+                self.bgLayer.cornerRadius = myCellModel.backgroundCornerRadius;
+                self.bgLayer.maskedCorners = kCALayerMinXMinYCorner | kCALayerMinXMaxYCorner;
+            } else {
+                
+            }
+            break;
+        case MFYTittleCellNavRIghtType:
+            if (@available(iOS 11.0, *)) {
+                self.bgLayer.cornerRadius = myCellModel.backgroundCornerRadius;
+                self.bgLayer.maskedCorners = kCALayerMaxXMinYCorner | kCALayerMaxXMaxYCorner;
+            } else {
+                
+            }
+            break;
+        default:
+            break;
     }
     [CATransaction commit];
 }

@@ -10,9 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MFYCategoryListVC : UIViewController<JXCategoryListContentViewDelegate>
+@interface MFYImageFlowVC : UIViewController<JXCategoryListContentViewDelegate>
 
-@property (nonatomic, strong)NSString * topicId;
+@property (nonatomic, strong)NSArray * imageTagArray;
 
 @end
 

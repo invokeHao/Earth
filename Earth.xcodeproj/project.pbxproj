@@ -18,7 +18,7 @@
 		6725041923D6E43E00716842 /* MFYBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6725041823D6E43E00716842 /* MFYBaseTableViewCell.m */; };
 		6725042023D6E5F900716842 /* MFYPrivacyOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6725041F23D6E5F900716842 /* MFYPrivacyOptionCell.m */; };
 		6746D47C23B1D00800A46FC7 /* MFYCFToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D47B23B1D00800A46FC7 /* MFYCFToolView.m */; };
-		6746D47F23B4DE0700A46FC7 /* MFYCategoryListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D47E23B4DE0700A46FC7 /* MFYCategoryListVC.m */; };
+		6746D47F23B4DE0700A46FC7 /* MFYImageFlowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D47E23B4DE0700A46FC7 /* MFYImageFlowVC.m */; };
 		6746D48223B4E54100A46FC7 /* MFYIndicatorBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D48123B4E54100A46FC7 /* MFYIndicatorBackgroundView.m */; };
 		6746D48723B4E77300A46FC7 /* UIColor+WHColorKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D48623B4E77300A46FC7 /* UIColor+WHColorKit.m */; };
 		6746D48B23B4EDC500A46FC7 /* MFYCategoryTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D48A23B4EDC500A46FC7 /* MFYCategoryTitleView.m */; };
@@ -92,6 +92,17 @@
 		67CC311F23F644DB002E6E2B /* MFYHTTPCacheService.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC311E23F644DB002E6E2B /* MFYHTTPCacheService.m */; };
 		67CC312323F6821D002E6E2B /* MFYVideoProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC312223F6821D002E6E2B /* MFYVideoProgressView.m */; };
 		67CC312623F6A550002E6E2B /* MFYVideoDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC312523F6A550002E6E2B /* MFYVideoDetailVC.m */; };
+		67CC312923F8E28E002E6E2B /* MFYNavCategoryTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC312823F8E28E002E6E2B /* MFYNavCategoryTitleView.m */; };
+		67CC312C23F915D3002E6E2B /* MFYAudioFLowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC312B23F915D3002E6E2B /* MFYAudioFLowVC.m */; };
+		67CC313123F9244B002E6E2B /* MFYAudioDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC313023F9244B002E6E2B /* MFYAudioDisplayView.m */; };
+		67CC313423F92671002E6E2B /* MFYAudioFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC313323F92671002E6E2B /* MFYAudioFlowLayout.m */; };
+		67CC313723F926D6002E6E2B /* MFYAudioPlayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC313623F926D6002E6E2B /* MFYAudioPlayCell.m */; };
+		67CC313A23F927D1002E6E2B /* MFYBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC313923F927D1002E6E2B /* MFYBaseCollectionViewCell.m */; };
+		67CC313D23F92E0B002E6E2B /* MFYAudioListVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC313C23F92E0B002E6E2B /* MFYAudioListVM.m */; };
+		67CC314123F94F70002E6E2B /* MFYTagDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC314023F94F70002E6E2B /* MFYTagDisplayView.m */; };
+		67CC314423F9506D002E6E2B /* MFYTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC314323F9506D002E6E2B /* MFYTagCell.m */; };
+		67CC314723F9534E002E6E2B /* MFYTagDisplayLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC314623F9534E002E6E2B /* MFYTagDisplayLayout.m */; };
+		67CC314A23F95806002E6E2B /* WHTimeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC314923F95806002E6E2B /* WHTimeUtil.m */; };
 		67D28B7523D18FC500543D22 /* MFYArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7423D18FC500543D22 /* MFYArticle.m */; };
 		67D28B7823D1902D00543D22 /* MFYMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7723D1902D00543D22 /* MFYMedia.m */; };
 		67D28B7F23D1908300543D22 /* MFYProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7E23D1908300543D22 /* MFYProfile.m */; };
@@ -156,8 +167,8 @@
 		6725041F23D6E5F900716842 /* MFYPrivacyOptionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYPrivacyOptionCell.m; sourceTree = "<group>"; };
 		6746D47A23B1D00800A46FC7 /* MFYCFToolView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYCFToolView.h; sourceTree = "<group>"; };
 		6746D47B23B1D00800A46FC7 /* MFYCFToolView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYCFToolView.m; sourceTree = "<group>"; };
-		6746D47D23B4DE0700A46FC7 /* MFYCategoryListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYCategoryListVC.h; sourceTree = "<group>"; };
-		6746D47E23B4DE0700A46FC7 /* MFYCategoryListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYCategoryListVC.m; sourceTree = "<group>"; };
+		6746D47D23B4DE0700A46FC7 /* MFYImageFlowVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYImageFlowVC.h; sourceTree = "<group>"; };
+		6746D47E23B4DE0700A46FC7 /* MFYImageFlowVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYImageFlowVC.m; sourceTree = "<group>"; };
 		6746D48023B4E54100A46FC7 /* MFYIndicatorBackgroundView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYIndicatorBackgroundView.h; sourceTree = "<group>"; };
 		6746D48123B4E54100A46FC7 /* MFYIndicatorBackgroundView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYIndicatorBackgroundView.m; sourceTree = "<group>"; };
 		6746D48523B4E77300A46FC7 /* UIColor+WHColorKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+WHColorKit.h"; sourceTree = "<group>"; };
@@ -311,6 +322,28 @@
 		67CC312223F6821D002E6E2B /* MFYVideoProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYVideoProgressView.m; sourceTree = "<group>"; };
 		67CC312423F6A550002E6E2B /* MFYVideoDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYVideoDetailVC.h; sourceTree = "<group>"; };
 		67CC312523F6A550002E6E2B /* MFYVideoDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYVideoDetailVC.m; sourceTree = "<group>"; };
+		67CC312723F8E28E002E6E2B /* MFYNavCategoryTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYNavCategoryTitleView.h; sourceTree = "<group>"; };
+		67CC312823F8E28E002E6E2B /* MFYNavCategoryTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYNavCategoryTitleView.m; sourceTree = "<group>"; };
+		67CC312A23F915D3002E6E2B /* MFYAudioFLowVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYAudioFLowVC.h; sourceTree = "<group>"; };
+		67CC312B23F915D3002E6E2B /* MFYAudioFLowVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYAudioFLowVC.m; sourceTree = "<group>"; };
+		67CC312F23F9244B002E6E2B /* MFYAudioDisplayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYAudioDisplayView.h; sourceTree = "<group>"; };
+		67CC313023F9244B002E6E2B /* MFYAudioDisplayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYAudioDisplayView.m; sourceTree = "<group>"; };
+		67CC313223F92671002E6E2B /* MFYAudioFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYAudioFlowLayout.h; sourceTree = "<group>"; };
+		67CC313323F92671002E6E2B /* MFYAudioFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYAudioFlowLayout.m; sourceTree = "<group>"; };
+		67CC313523F926D6002E6E2B /* MFYAudioPlayCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYAudioPlayCell.h; sourceTree = "<group>"; };
+		67CC313623F926D6002E6E2B /* MFYAudioPlayCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYAudioPlayCell.m; sourceTree = "<group>"; };
+		67CC313823F927D1002E6E2B /* MFYBaseCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYBaseCollectionViewCell.h; sourceTree = "<group>"; };
+		67CC313923F927D1002E6E2B /* MFYBaseCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYBaseCollectionViewCell.m; sourceTree = "<group>"; };
+		67CC313B23F92E0B002E6E2B /* MFYAudioListVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYAudioListVM.h; sourceTree = "<group>"; };
+		67CC313C23F92E0B002E6E2B /* MFYAudioListVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYAudioListVM.m; sourceTree = "<group>"; };
+		67CC313F23F94F70002E6E2B /* MFYTagDisplayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYTagDisplayView.h; sourceTree = "<group>"; };
+		67CC314023F94F70002E6E2B /* MFYTagDisplayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYTagDisplayView.m; sourceTree = "<group>"; };
+		67CC314223F9506D002E6E2B /* MFYTagCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYTagCell.h; sourceTree = "<group>"; };
+		67CC314323F9506D002E6E2B /* MFYTagCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYTagCell.m; sourceTree = "<group>"; };
+		67CC314523F9534E002E6E2B /* MFYTagDisplayLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYTagDisplayLayout.h; sourceTree = "<group>"; };
+		67CC314623F9534E002E6E2B /* MFYTagDisplayLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYTagDisplayLayout.m; sourceTree = "<group>"; };
+		67CC314823F95806002E6E2B /* WHTimeUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHTimeUtil.h; sourceTree = "<group>"; };
+		67CC314923F95806002E6E2B /* WHTimeUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WHTimeUtil.m; sourceTree = "<group>"; };
 		67D28B7323D18FC500543D22 /* MFYArticle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYArticle.h; sourceTree = "<group>"; };
 		67D28B7423D18FC500543D22 /* MFYArticle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYArticle.m; sourceTree = "<group>"; };
 		67D28B7623D1902D00543D22 /* MFYMedia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYMedia.h; sourceTree = "<group>"; };
@@ -519,6 +552,8 @@
 		6746D48C23B60DA500A46FC7 /* CategoryViews */ = {
 			isa = PBXGroup;
 			children = (
+				67CC312723F8E28E002E6E2B /* MFYNavCategoryTitleView.h */,
+				67CC312823F8E28E002E6E2B /* MFYNavCategoryTitleView.m */,
 				6746D48923B4EDC500A46FC7 /* MFYCategoryTitleView.h */,
 				6746D48A23B4EDC500A46FC7 /* MFYCategoryTitleView.m */,
 				6746D48023B4E54100A46FC7 /* MFYIndicatorBackgroundView.h */,
@@ -671,8 +706,10 @@
 			children = (
 				6779376523B0C29700D1B822 /* MFYCoreFlowVC.h */,
 				6779376623B0C29700D1B822 /* MFYCoreFlowVC.m */,
-				6746D47D23B4DE0700A46FC7 /* MFYCategoryListVC.h */,
-				6746D47E23B4DE0700A46FC7 /* MFYCategoryListVC.m */,
+				6746D47D23B4DE0700A46FC7 /* MFYImageFlowVC.h */,
+				6746D47E23B4DE0700A46FC7 /* MFYImageFlowVC.m */,
+				67CC312A23F915D3002E6E2B /* MFYAudioFLowVC.h */,
+				67CC312B23F915D3002E6E2B /* MFYAudioFLowVC.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -680,14 +717,10 @@
 		6779376323B0C22100D1B822 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				67CC312E23F9240F002E6E2B /* ImageView */,
+				67CC312D23F92405002E6E2B /* AudioView */,
 				67CC312023F681FE002E6E2B /* MFYVideoViews */,
 				6746D48C23B60DA500A46FC7 /* CategoryViews */,
-				6746D47A23B1D00800A46FC7 /* MFYCFToolView.h */,
-				6746D47B23B1D00800A46FC7 /* MFYCFToolView.m */,
-				6746D49A23B62C2E00A46FC7 /* MFYFlowCardView.h */,
-				6746D49B23B62C2E00A46FC7 /* MFYFlowCardView.m */,
-				67EFC32523C3015C00F5BDB3 /* MFYCardSuduPicView.h */,
-				67EFC32623C3015C00F5BDB3 /* MFYCardSuduPicView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -699,6 +732,8 @@
 				6746D49123B60E9700A46FC7 /* MFYCategoryBackgoundTitleCellModel.m */,
 				6746D49323B625E900A46FC7 /* MFYFlowListVM.h */,
 				6746D49423B625E900A46FC7 /* MFYFlowListVM.m */,
+				67CC313B23F92E0B002E6E2B /* MFYAudioListVM.h */,
+				67CC313C23F92E0B002E6E2B /* MFYAudioListVM.m */,
 			);
 			path = Reactor;
 			sourceTree = "<group>";
@@ -944,6 +979,45 @@
 			path = MFYVideoViews;
 			sourceTree = "<group>";
 		};
+		67CC312D23F92405002E6E2B /* AudioView */ = {
+			isa = PBXGroup;
+			children = (
+				67CC312F23F9244B002E6E2B /* MFYAudioDisplayView.h */,
+				67CC313023F9244B002E6E2B /* MFYAudioDisplayView.m */,
+				67CC313223F92671002E6E2B /* MFYAudioFlowLayout.h */,
+				67CC313323F92671002E6E2B /* MFYAudioFlowLayout.m */,
+				67CC313523F926D6002E6E2B /* MFYAudioPlayCell.h */,
+				67CC313623F926D6002E6E2B /* MFYAudioPlayCell.m */,
+			);
+			path = AudioView;
+			sourceTree = "<group>";
+		};
+		67CC312E23F9240F002E6E2B /* ImageView */ = {
+			isa = PBXGroup;
+			children = (
+				6746D47A23B1D00800A46FC7 /* MFYCFToolView.h */,
+				6746D47B23B1D00800A46FC7 /* MFYCFToolView.m */,
+				6746D49A23B62C2E00A46FC7 /* MFYFlowCardView.h */,
+				6746D49B23B62C2E00A46FC7 /* MFYFlowCardView.m */,
+				67EFC32523C3015C00F5BDB3 /* MFYCardSuduPicView.h */,
+				67EFC32623C3015C00F5BDB3 /* MFYCardSuduPicView.m */,
+			);
+			path = ImageView;
+			sourceTree = "<group>";
+		};
+		67CC313E23F94ED5002E6E2B /* MFYTagDisplayView */ = {
+			isa = PBXGroup;
+			children = (
+				67CC314523F9534E002E6E2B /* MFYTagDisplayLayout.h */,
+				67CC314623F9534E002E6E2B /* MFYTagDisplayLayout.m */,
+				67CC313F23F94F70002E6E2B /* MFYTagDisplayView.h */,
+				67CC314023F94F70002E6E2B /* MFYTagDisplayView.m */,
+				67CC314223F9506D002E6E2B /* MFYTagCell.h */,
+				67CC314323F9506D002E6E2B /* MFYTagCell.m */,
+			);
+			path = MFYTagDisplayView;
+			sourceTree = "<group>";
+		};
 		67D28B7C23D1907800543D22 /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -1126,6 +1200,8 @@
 				6725041523D6ABB900716842 /* MFYBaseTableView.m */,
 				6725041723D6E43E00716842 /* MFYBaseTableViewCell.h */,
 				6725041823D6E43E00716842 /* MFYBaseTableViewCell.m */,
+				67CC313823F927D1002E6E2B /* MFYBaseCollectionViewCell.h */,
+				67CC313923F927D1002E6E2B /* MFYBaseCollectionViewCell.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1152,6 +1228,7 @@
 		67F097F923A78D56001DCEB4 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				67CC313E23F94ED5002E6E2B /* MFYTagDisplayView */,
 				679A029523F107620041A012 /* PhotoLibraryKit */,
 				67EFC31423C300C400F5BDB3 /* KSPhotoBrowser */,
 			);
@@ -1168,6 +1245,8 @@
 				672503FD23D4229A00716842 /* UDIDWithKeyChain.m */,
 				67CC30EC23F14C57002E6E2B /* MFYVideoManager.h */,
 				67CC30ED23F14C57002E6E2B /* MFYVideoManager.m */,
+				67CC314823F95806002E6E2B /* WHTimeUtil.h */,
+				67CC314923F95806002E6E2B /* WHTimeUtil.m */,
 			);
 			path = Unit;
 			sourceTree = "<group>";
@@ -1431,6 +1510,7 @@
 				679A02DA23F107620041A012 /* MOPhotoLibraryConfiguration.m in Sources */,
 				679A02E723F107620041A012 /* MOProgressHUD.m in Sources */,
 				6763D7A823CF10C0003D9E20 /* MFYLoginManager.m in Sources */,
+				67CC312C23F915D3002E6E2B /* MFYAudioFLowVC.m in Sources */,
 				67EFC32023C300C500F5BDB3 /* KSPhotoView.m in Sources */,
 				67EFC32D23C310A200F5BDB3 /* UIView+WHRoundCorner.m in Sources */,
 				679A02F323F108FC0041A012 /* MFYPhotosManager.m in Sources */,
@@ -1463,14 +1543,18 @@
 				67CC312323F6821D002E6E2B /* MFYVideoProgressView.m in Sources */,
 				67D28B7F23D1908300543D22 /* MFYProfile.m in Sources */,
 				6763D79623CEF400003D9E20 /* MFYServiceURLConfig.m in Sources */,
+				67CC314123F94F70002E6E2B /* MFYTagDisplayView.m in Sources */,
 				6746D49C23B62C2E00A46FC7 /* MFYFlowCardView.m in Sources */,
 				679A02E023F107620041A012 /* MOAssetCollectionInfoModel.m in Sources */,
 				67CC310723F39C4F002E6E2B /* MFYCoreflowTag.m in Sources */,
 				679A029323F104520041A012 /* MFYPublicManager.m in Sources */,
+				67CC313423F92671002E6E2B /* MFYAudioFlowLayout.m in Sources */,
 				67F0981023A7AAE7001DCEB4 /* main.m in Sources */,
+				67CC314423F9506D002E6E2B /* MFYTagCell.m in Sources */,
 				679A02EE23F107620041A012 /* MOPhotoLibraryNavigationBar.m in Sources */,
 				679A02D523F107620041A012 /* UIView+MOHud.m in Sources */,
 				67D28B7523D18FC500543D22 /* MFYArticle.m in Sources */,
+				67CC312923F8E28E002E6E2B /* MFYNavCategoryTitleView.m in Sources */,
 				6746D48B23B4EDC500A46FC7 /* MFYCategoryTitleView.m in Sources */,
 				67CC30EB23F14847002E6E2B /* MFYQiniuSystemService.m in Sources */,
 				6763D79923CEF4B4003D9E20 /* MFYServiceConstant.m in Sources */,
@@ -1493,7 +1577,8 @@
 				679A02E423F107620041A012 /* MOSelectedButton.m in Sources */,
 				679A02F923F126580041A012 /* MFYAssetModel.m in Sources */,
 				679A02F623F125FE0041A012 /* MFYAlbumModel.m in Sources */,
-				6746D47F23B4DE0700A46FC7 /* MFYCategoryListVC.m in Sources */,
+				6746D47F23B4DE0700A46FC7 /* MFYImageFlowVC.m in Sources */,
+				67CC314A23F95806002E6E2B /* WHTimeUtil.m in Sources */,
 				679A02EF23F107620041A012 /* MOPhotoPreviewViewController.m in Sources */,
 				6763D7AB23D057A2003D9E20 /* MFYTimerButton.m in Sources */,
 				6763D79323CEEFE1003D9E20 /* MFYResponseObject.m in Sources */,
@@ -1501,8 +1586,11 @@
 				678420BE23A7ABB3000F5BCE /* AppDelegate.m in Sources */,
 				6763D79023CEEE5B003D9E20 /* MFYHTTPManager.m in Sources */,
 				679A02E523F107620041A012 /* MONotHighlightButton.m in Sources */,
+				67CC313123F9244B002E6E2B /* MFYAudioDisplayView.m in Sources */,
+				67CC313A23F927D1002E6E2B /* MFYBaseCollectionViewCell.m in Sources */,
 				67D28B7823D1902D00543D22 /* MFYMedia.m in Sources */,
 				67EFC33523C3136800F5BDB3 /* WHAlertTool.m in Sources */,
+				67CC313D23F92E0B002E6E2B /* MFYAudioListVM.m in Sources */,
 				679A02FD23F12A1C0041A012 /* WHHud.m in Sources */,
 				67CC30FB23F1605E002E6E2B /* MFYPublishItemModel.m in Sources */,
 				6746D48223B4E54100A46FC7 /* MFYIndicatorBackgroundView.m in Sources */,
@@ -1513,6 +1601,7 @@
 				6746D49223B60E9700A46FC7 /* MFYCategoryBackgoundTitleCellModel.m in Sources */,
 				6763D7AF23D06944003D9E20 /* MFYLoginService.m in Sources */,
 				67CC311F23F644DB002E6E2B /* MFYHTTPCacheService.m in Sources */,
+				67CC313723F926D6002E6E2B /* MFYAudioPlayCell.m in Sources */,
 				6725040A23D433B600716842 /* MFYPublicImageCardVC.m in Sources */,
 				679A02E623F107620041A012 /* MOIndicatorButton.m in Sources */,
 				679A02F023F107620041A012 /* MOPhotoLibraryController.m in Sources */,
@@ -1520,6 +1609,7 @@
 				679A02EB23F107620041A012 /* MOPhotoListCell.m in Sources */,
 				6746D47C23B1D00800A46FC7 /* MFYCFToolView.m in Sources */,
 				679A02DC23F107620041A012 /* MOAssetDownloadManager.m in Sources */,
+				67CC314723F9534E002E6E2B /* MFYTagDisplayLayout.m in Sources */,
 				67CC30F223F14D2E002E6E2B /* UIImage+WHCompress.m in Sources */,
 				67CC30F523F14F7E002E6E2B /* MOPhotoToMFYTransformer.m in Sources */,
 				6725041623D6ABB900716842 /* MFYBaseTableView.m in Sources */,

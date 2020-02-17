@@ -32,7 +32,7 @@
 
 + (void)getTheaudioTopicTagsCompletion:(void (^)(NSArray<MFYCoreflowTag *> * , NSError *))completion {
     
-    [[MFYHTTPManager sharedManager] GET:@"" parameters:@[] success:^(NSURLSessionDataTask * _Nonnull task, MFYResponseObject * _Nonnull cmsResponse) {
+    [[MFYHTTPManager sharedManager] GET:@"/api/misc/config/audio/topics" parameters:@[] success:^(NSURLSessionDataTask * _Nonnull task, MFYResponseObject * _Nonnull cmsResponse) {
         if (cmsResponse.code == 1) {
             NSMutableArray * tagArr = [NSMutableArray arrayWithCapacity:0];
             for (NSDictionary * itemDic in cmsResponse.result) {
