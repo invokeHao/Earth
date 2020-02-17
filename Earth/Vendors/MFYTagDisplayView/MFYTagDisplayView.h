@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MFYTagDisplayView : UICollectionView
 
-@property (nonatomic, copy) void (^shouldUpdateHeight)(CGFloat width);
+@property (nonatomic, copy) void (^shouldUpdateHeight)(CGFloat height);
 
 @property (nonatomic, strong) NSArray *tags;
 

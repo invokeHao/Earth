@@ -194,13 +194,14 @@
         _tagView.backgroundColor = [UIColor clearColor];
         _tagView.bounces = NO;
         @weakify(self);
-        [_tagView setShouldUpdateHeight:^(CGFloat width){
+        [_tagView setShouldUpdateHeight:^(CGFloat height){
             @strongify(self);
-            if (width > VERTICAL_SCREEN_WIDTH - 44) {
-                width = VERTICAL_SCREEN_WIDTH - 44;
+            WHLog(@"%f",height);
+            if (height > 50) {
+                height = 50;
             }
             [self.tagView mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.width.mas_equalTo(width);
+                make.height.mas_equalTo(height);
             }];
         }];
     }

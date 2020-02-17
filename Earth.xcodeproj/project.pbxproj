@@ -103,6 +103,7 @@
 		67CC314423F9506D002E6E2B /* MFYTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC314323F9506D002E6E2B /* MFYTagCell.m */; };
 		67CC314723F9534E002E6E2B /* MFYTagDisplayLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC314623F9534E002E6E2B /* MFYTagDisplayLayout.m */; };
 		67CC314A23F95806002E6E2B /* WHTimeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC314923F95806002E6E2B /* WHTimeUtil.m */; };
+		67CC314D23FA3770002E6E2B /* MFYAudioPublishView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC314C23FA3770002E6E2B /* MFYAudioPublishView.m */; };
 		67D28B7523D18FC500543D22 /* MFYArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7423D18FC500543D22 /* MFYArticle.m */; };
 		67D28B7823D1902D00543D22 /* MFYMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7723D1902D00543D22 /* MFYMedia.m */; };
 		67D28B7F23D1908300543D22 /* MFYProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7E23D1908300543D22 /* MFYProfile.m */; };
@@ -344,6 +345,8 @@
 		67CC314623F9534E002E6E2B /* MFYTagDisplayLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYTagDisplayLayout.m; sourceTree = "<group>"; };
 		67CC314823F95806002E6E2B /* WHTimeUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHTimeUtil.h; sourceTree = "<group>"; };
 		67CC314923F95806002E6E2B /* WHTimeUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WHTimeUtil.m; sourceTree = "<group>"; };
+		67CC314B23FA3770002E6E2B /* MFYAudioPublishView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYAudioPublishView.h; sourceTree = "<group>"; };
+		67CC314C23FA3770002E6E2B /* MFYAudioPublishView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYAudioPublishView.m; sourceTree = "<group>"; };
 		67D28B7323D18FC500543D22 /* MFYArticle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYArticle.h; sourceTree = "<group>"; };
 		67D28B7423D18FC500543D22 /* MFYArticle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYArticle.m; sourceTree = "<group>"; };
 		67D28B7623D1902D00543D22 /* MFYMedia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYMedia.h; sourceTree = "<group>"; };
@@ -493,9 +496,9 @@
 		6725040423D4333A00716842 /* AudioCard */ = {
 			isa = PBXGroup;
 			children = (
+				6725040723D4333A00716842 /* Reactor */,
 				6725040523D4333A00716842 /* View */,
 				6725040623D4333A00716842 /* ViewController */,
-				6725040723D4333A00716842 /* Reactor */,
 			);
 			path = AudioCard;
 			sourceTree = "<group>";
@@ -503,6 +506,8 @@
 		6725040523D4333A00716842 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				67CC314B23FA3770002E6E2B /* MFYAudioPublishView.h */,
+				67CC314C23FA3770002E6E2B /* MFYAudioPublishView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1568,6 +1573,7 @@
 				6746D4A023B62E2000A46FC7 /* UIView+WHChain.m in Sources */,
 				679A02D823F107620041A012 /* MOPhotoTransformer.m in Sources */,
 				67CC30E423F14711002E6E2B /* MFYQiNiuResponse.m in Sources */,
+				67CC314D23FA3770002E6E2B /* MFYAudioPublishView.m in Sources */,
 				6763D7A523CF10A1003D9E20 /* MFYLoginVIewController.m in Sources */,
 				67F0980123A78EF0001DCEB4 /* MFYBaseNavigationController.m in Sources */,
 				67EFC32323C300C500F5BDB3 /* KSPhotoItem.m in Sources */,
