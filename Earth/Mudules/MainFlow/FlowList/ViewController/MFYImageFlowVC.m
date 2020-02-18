@@ -86,12 +86,12 @@
         [self.card reloadData:NO];
     }];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTheArticleList:) name:MFYNotificationPublishSuccess object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTheArticleList:) name:MFYNotificationPublishImageSuccess object:nil];
 
 }
 
 -(void)refreshTheArticleList:(NSNotification *)notification {
-    if ([notification.name isEqualToString:MFYNotificationPublishSuccess]) {
+    if ([notification.name isEqualToString:MFYNotificationPublishImageSuccess]) {
         [self.viewModel refreshData];
     }
 }

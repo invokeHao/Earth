@@ -40,6 +40,10 @@
         [dictionaryElements addObject:[self.smallBottomItem toDictionary]];
     }
     publishDic[@"extraMedias"] = dictionaryElements;
+    
+    if (self.audioItem != nil) {
+        publishDic[@"audio"] = [self.audioItem toDictionary];
+    }
     return publishDic;
 }
 

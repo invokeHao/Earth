@@ -10,8 +10,9 @@
 #import "MFYTagDisplayView.h"
 #import "MFYTagDisplayLayout.h"
 #import "WHTimeUtil.h"
+#import <AVFoundation/AVFoundation.h>
 
-@interface MFYAudioPlayCell ()
+@interface MFYAudioPlayCell ()<AVAudioPlayerDelegate>
 
 @property (strong, nonatomic)YYAnimatedImageView * headIcon;
 
@@ -37,6 +38,8 @@
 
 @property (strong, nonatomic)UIButton * shareBtn;
 
+@property (nonatomic, strong)AVAudioPlayer *audioPlayer;
+
 @end
 
 @implementation MFYAudioPlayCell
@@ -45,6 +48,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setupViews];
+        [self bindEvents];
     }
     return self;
 }
@@ -94,7 +98,6 @@
         make.top.mas_equalTo(self.nameLabel.mas_bottom).offset(12);
         make.left.mas_equalTo(22);
         make.right.mas_equalTo(-22);
-        make.height.mas_equalTo(22);
     }];
     
     [self.playBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -136,24 +139,80 @@
         make.bottom.mas_equalTo(self.reportBtn);
         make.size.mas_equalTo(CGSizeMake(19, 20));
     }];
-    
-    [self layoutIfNeeded];
+}
+
+- (void)bindEvents {
+    @weakify(self)
+    [[self.playBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self)
+        if (self.audioPlayer.isPlaying) {
+            [self pauseTheAudio];
+        }else {
+            [self playTheAudio];
+        }
+    }];
 }
 
 - (void)setModel:(MFYArticle *)model {
     if (model != nil) {
+        _model = model;
         MFYProfile * profile = model.profile;
         [self.headIcon yy_setImageWithURL:[NSURL URLWithString:profile.headIconUrl] placeholder:WHImageNamed(@"default_user")];
         [self.nameLabel setText:profile.nickname];
         [self.tagView setTags: profile.tags];
         [self.timeLabel setText:[WHTimeUtil articleCardDateStringByTimeStamp:[model.createDate integerValue]]];
+        [self configTheAudio];
     }
 }
+
+- (void)configTheAudio {
+    MFYMedia * media = self.model.media;
+    if (media.mediaType == 2 & media.mediaUrl.length > 0 ) {
+        NSData *voiceData = [NSData dataWithContentsOfURL:[NSURL URLWithString:media.mediaUrl]];
+        self.audioPlayer = [[AVAudioPlayer alloc]initWithData:voiceData error:nil];
+        self.audioPlayer.delegate = self;
+        [self.audioPlayer prepareToPlay];
+    }
+}
+
+- (void)playTheAudio {
+    if (self.audioPlayer == nil) {
+        [self configTheAudio];
+    }
+    [self.audioPlayer play];
+    [self.playBtn setImage:WHImageNamed(@"audio_stop") forState:UIControlStateNormal];
+}
+
+- (void)pauseTheAudio {
+    [self.audioPlayer pause];
+    [self.playBtn setImage:WHImageNamed(@"audio_play") forState:UIControlStateNormal];
+}
+
+- (void)stopTheAudio {
+    [self.audioPlayer stop];
+    self.audioPlayer = nil;
+    [self.playBtn setImage:WHImageNamed(@"audio_play") forState:UIControlStateNormal];
+}
+
+#pragma mark- audioDeleagate
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+    if (flag) {
+        [self stopTheAudio];
+    }
+}
+
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    self.audioPlayer = nil;
+}
+
 
 - (YYAnimatedImageView *)audioBack {
     if (!_audioBack) {
         _audioBack = [[YYAnimatedImageView alloc]init];
         [_audioBack setImage:WHImageNamed(@"audio_back")];
+        _audioBack.userInteractionEnabled = YES;
     }
     return _audioBack;
 }
@@ -187,8 +246,7 @@
 - (MFYTagDisplayView *)tagView {
     if (!_tagView) {
         MFYTagDisplayLayout *layout = [[MFYTagDisplayLayout alloc] initWthType:AlignWithLeft];
-        layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 12);
-        layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 2);
         _tagView = [[MFYTagDisplayView alloc] initWithFrame:CGRectZero
                                         collectionViewLayout:layout];
         _tagView.backgroundColor = [UIColor clearColor];
@@ -196,9 +254,8 @@
         @weakify(self);
         [_tagView setShouldUpdateHeight:^(CGFloat height){
             @strongify(self);
-            WHLog(@"%f",height);
-            if (height > 50) {
-                height = 50;
+            if (height > 54) {
+                height = 54;
             }
             [self.tagView mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.height.mas_equalTo(height);

@@ -49,6 +49,23 @@
 #define WHLogError(fmt, ...) NSLog((@"❌ " fmt), ##__VA_ARGS__)
 #define WHLogSuccess(fmt, ...) NSLog((@"🚀 " fmt), ##__VA_ARGS__)
 
-#define MFYNotificationPublishSuccess @"MFYNotificationPublishSuccess" //发帖成功
+// GCD related
+#define wh_dispatch_time(seconds) dispatch_time(DISPATCH_TIME_NOW, (int64_t)((seconds) * NSEC_PER_SEC))
+
+#define wh_dispatch_after(seconds, block) do { \
+dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((seconds) * NSEC_PER_SEC)), dispatch_get_main_queue(), block);\
+} while(0)
+
+#define wh_dispatch_main_async(block) do { \
+dispatch_async(dispatch_get_main_queue(), block); \
+} while(0)
+
+#define wh_dispath_background_async(block) do { \
+dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), block); \
+} while(0)
+
+
+#define MFYNotificationPublishImageSuccess @"MFYNotificationPublishImageSuccess" //发帖颜值贴成功
+#define MFYNotificationPublishAudioSuccess @"MFYNotificationPublishAudioSuccess" //发帖声控贴成功
 
 #endif /* MFYMacro_h */

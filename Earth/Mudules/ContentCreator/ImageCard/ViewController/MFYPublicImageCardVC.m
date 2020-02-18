@@ -138,7 +138,7 @@
         [MFYDynamicManager publishTheArticle:self.publishModel completion:^(MFYArticle * article, NSError * error) {
             if (article != nil) {
                 //发布成功的通知
-                [[NSNotificationCenter defaultCenter] postNotificationName:MFYNotificationPublishSuccess object:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:MFYNotificationPublishImageSuccess object:nil];
                 [self dismissViewControllerAnimated:YES completion:NULL];
             }
         }];

@@ -28,6 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic)MFYPublishItemModel * smallBottomItem;
 
+@property (strong, nonatomic)MFYPublishItemModel * audioItem;
+
+
 - (BOOL)unVerify;
 
 - (NSDictionary *)toDictionary;

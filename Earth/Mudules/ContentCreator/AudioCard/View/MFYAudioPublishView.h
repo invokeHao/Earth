@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MFYAudioPublishView : UIView
 
+- (void)showInView;
+
 @end
 
 NS_ASSUME_NONNULL_END

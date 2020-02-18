@@ -13,6 +13,7 @@
 #import "MFYCoreflowTag.h"
 #import "MFYAudioDisplayView.h"
 #import "MFYAudioListVM.h"
+#import "MFYAudioPublishView.h"
 
 @interface MFYAudioFLowVC ()<JXCategoryViewDelegate>
 
@@ -24,6 +25,8 @@
 
 @property (nonatomic, strong) UIButton * publishBtn;
 
+@property (nonatomic, strong) MFYAudioPublishView * publishView;
+
 @end
 
 @implementation MFYAudioFLowVC
@@ -32,6 +35,17 @@
     [super viewDidLoad];
     [self bindEvents];
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.displayView playTheAudio];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.displayView stopTheAudio];
+}
+
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
@@ -60,6 +74,10 @@
     }];
 }
 
+- (UIView *)listView {
+    return self.view;
+}
+
 - (void)bindEvents {
     @weakify(self)
     RACSignal * tagObserve = RACObserve(self, audioTagArray);
@@ -82,12 +100,20 @@
         @strongify(self)
         [self.displayView reloadDataWithArray:self.viewModel.dataList];
     }];
+    
+    [[self.publishBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+       @strongify(self)
+        [self.publishView showInView];
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTheArticleList:) name:MFYNotificationPublishAudioSuccess object:nil];
 }
 
-- (UIView *)listView {
-    return self.view;
+-(void)refreshTheArticleList:(NSNotification *)notification {
+    if ([notification.name isEqualToString:MFYNotificationPublishAudioSuccess]) {
+        [self.viewModel refreshData];
+    }
 }
-
 
 #pragma mark - JXCategoryViewDelegate
 
@@ -122,5 +148,12 @@
         [_publishBtn setImage:WHImageNamed(@"audio_publish") forState:UIControlStateNormal];
     }
     return _publishBtn;
+}
+
+- (MFYAudioPublishView *)publishView {
+    if (!_publishView) {
+        _publishView = [[MFYAudioPublishView alloc]initWithFrame:CGRectMake(0, 0, VERTICAL_SCREEN_WIDTH, VERTICAL_SCREEN_HEIGHT)];
+    }
+    return _publishView;
 }
 @end

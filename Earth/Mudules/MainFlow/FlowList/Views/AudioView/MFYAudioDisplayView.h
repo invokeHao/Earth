@@ -14,6 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)reloadDataWithArray:(NSArray*)arr;
 
+- (void)playTheAudio;
+
+- (void)stopTheAudio;
+
 @end
 
 NS_ASSUME_NONNULL_END

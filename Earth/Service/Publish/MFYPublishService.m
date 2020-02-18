@@ -24,4 +24,19 @@
     }];
 }
 
++ (void)publishTheAudioArticleParam:(NSDictionary *)dic completion:(void(^)(MFYArticle * article, NSError * error))completion {
+    [[MFYHTTPManager sharedManager] POST:@"/api/article/audio/post" HTTPBody:dic success:^(NSURLSessionDataTask * _Nonnull task, MFYResponseObject * _Nonnull responseObject) {
+        if (responseObject.code == 1) {
+            MFYArticle * article = [MFYArticle yy_modelWithDictionary:responseObject.result];
+            completion(article, nil);
+        }else{
+            NSError * error = [NSError errorWithCode:responseObject.code desc:responseObject.errorDesc];
+            completion(nil,error);
+        }
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        completion(nil,error);
+    }];
+
+}
+
 @end

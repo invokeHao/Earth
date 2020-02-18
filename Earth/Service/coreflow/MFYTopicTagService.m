@@ -36,7 +36,7 @@
         if (cmsResponse.code == 1) {
             NSMutableArray * tagArr = [NSMutableArray arrayWithCapacity:0];
             for (NSDictionary * itemDic in cmsResponse.result) {
-                MFYCoreflowTag * tag = [MFYCoreflowTag yy_modelWithDictionary:itemDic];
+                MFYCoreflowTag * tag = [[MFYCoreflowTag alloc]initWithDictionary:itemDic];
                 [tagArr addObject:tag];
             }
             completion([tagArr copy], nil);

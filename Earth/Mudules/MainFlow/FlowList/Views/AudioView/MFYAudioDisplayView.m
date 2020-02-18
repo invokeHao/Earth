@@ -38,6 +38,7 @@
 }
 
 -(void)setupViews{
+    _currentIndex = 0;
     [self addSubview:self.mainCollection];
 }
 
@@ -45,9 +46,27 @@
     if (arr.count > 0) {
         self.dataList = arr;
         [self.mainCollection reloadData];
+        [self.mainCollection layoutIfNeeded];
+        @weakify(self)
+        wh_dispatch_main_async(^{
+            @strongify(self)
+            [self playTheAudio];
+        });
     }else {
         return;
     }
+}
+
+- (void)playTheAudio {
+    NSIndexPath * indexPath = [NSIndexPath indexPathForItem:self.currentIndex inSection:0];
+    MFYAudioPlayCell * cell = (MFYAudioPlayCell *) [self.mainCollection cellForItemAtIndexPath:indexPath];
+    [cell playTheAudio];
+}
+
+- (void)stopTheAudio {
+    NSIndexPath * indexPath = [NSIndexPath indexPathForItem:self.currentIndex inSection:0];
+    MFYAudioPlayCell * cell = (MFYAudioPlayCell *) [self.mainCollection cellForItemAtIndexPath:indexPath];
+    [cell stopTheAudio];
 }
 
 #pragma mark- CollectionView dataSource && delegate
@@ -63,6 +82,8 @@
     return cell;
 }
 
+
+
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
 //    _pageControl.currentPage = indexPath.row;
 }
@@ -73,16 +94,27 @@
 }
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-//    int index = (scrollView.contentOffset.x+self.bounds.size.width/2)/cellWidth;
-//    CGFloat X = index * (cellWidth + itemSpacing);
-    NSLog(@"index==%d",index);
-    NSLog(@"contentOffSet==%f",scrollView.contentOffset.x);
+    int index = (scrollView.contentOffset.x+self.bounds.size.width/2)/cellWidth;
+    WHLog(@"WillBeginDragging==%d",index);
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     
     //滑动结束时显示
-//    int index = (scrollView.contentOffset.x+self.bounds.size.width/2)/(cellWidth+itemSpacing);
+    int index = (scrollView.contentOffset.x+self.bounds.size.width/2)/(cellWidth+itemSpacing);
+    if (index != _currentIndex) {
+        //上一个cell
+        NSIndexPath * lastIndex = [NSIndexPath indexPathForItem:_currentIndex inSection:0];
+        MFYAudioPlayCell * lastCell = (MFYAudioPlayCell *) [self.mainCollection cellForItemAtIndexPath:lastIndex];
+        [lastCell stopTheAudio];
+        //下一个cell
+        NSIndexPath * nextIndex = [NSIndexPath indexPathForItem:index inSection:0];
+        MFYAudioPlayCell * nextCell = (MFYAudioPlayCell *) [self.mainCollection cellForItemAtIndexPath:nextIndex];
+        [nextCell playTheAudio];
+
+        _currentIndex = index;
+    }
+    WHLog(@"EndDecelerating==%d",index);
     
 }
 

@@ -106,6 +106,7 @@
 		67CC314D23FA3770002E6E2B /* MFYAudioPublishView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC314C23FA3770002E6E2B /* MFYAudioPublishView.m */; };
 		67CC315023FA668D002E6E2B /* MFYVoiceRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC314F23FA668D002E6E2B /* MFYVoiceRecorder.m */; };
 		67CC315323FA674C002E6E2B /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CC315223FA674C002E6E2B /* libmp3lame.a */; };
+		67CC315723FA6F1D002E6E2B /* MFYRecorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC315623FA6F1D002E6E2B /* MFYRecorderView.m */; };
 		67D28B7523D18FC500543D22 /* MFYArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7423D18FC500543D22 /* MFYArticle.m */; };
 		67D28B7823D1902D00543D22 /* MFYMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7723D1902D00543D22 /* MFYMedia.m */; };
 		67D28B7F23D1908300543D22 /* MFYProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7E23D1908300543D22 /* MFYProfile.m */; };
@@ -353,6 +354,8 @@
 		67CC314F23FA668D002E6E2B /* MFYVoiceRecorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYVoiceRecorder.m; sourceTree = "<group>"; };
 		67CC315223FA674C002E6E2B /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
 		67CC315423FA675F002E6E2B /* lame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
+		67CC315523FA6F1D002E6E2B /* MFYRecorderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYRecorderView.h; sourceTree = "<group>"; };
+		67CC315623FA6F1D002E6E2B /* MFYRecorderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYRecorderView.m; sourceTree = "<group>"; };
 		67D28B7323D18FC500543D22 /* MFYArticle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYArticle.h; sourceTree = "<group>"; };
 		67D28B7423D18FC500543D22 /* MFYArticle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYArticle.m; sourceTree = "<group>"; };
 		67D28B7623D1902D00543D22 /* MFYMedia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYMedia.h; sourceTree = "<group>"; };
@@ -515,6 +518,8 @@
 			children = (
 				67CC314B23FA3770002E6E2B /* MFYAudioPublishView.h */,
 				67CC314C23FA3770002E6E2B /* MFYAudioPublishView.m */,
+				67CC315523FA6F1D002E6E2B /* MFYRecorderView.h */,
+				67CC315623FA6F1D002E6E2B /* MFYRecorderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1525,6 +1530,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				67CC311123F3E91A002E6E2B /* NSString+WHExtention.m in Sources */,
+				67CC315723FA6F1D002E6E2B /* MFYRecorderView.m in Sources */,
 				67D28B8223D191EF00543D22 /* MFYGender.m in Sources */,
 				679A02E923F107620041A012 /* MOPhotoPreviewNavigationBar.m in Sources */,
 				67CC310423F29754002E6E2B /* MFYItem.m in Sources */,

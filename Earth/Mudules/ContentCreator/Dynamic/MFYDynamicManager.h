@@ -28,8 +28,15 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark- 上传素材到七牛
 + (void)UploadTheAssetModel:(MFYAssetModel*)model completion:(void(^)(MFYQiNiuResponse* resp, NSError * error))completion;
 
-#pragma mark- 上传帖子
+#pragma mark- 上传音频到七牛
+
++ (void)UploadToQiniuAudio:(NSString *)audioPath completion:(void(^)(MFYQiNiuResponse* resp, NSError * error))completion ;
+
+#pragma mark- 上传颜值帖子
 + (void)publishTheArticle:(MFYPublishModel*)model completion:(void(^)(MFYArticle* article, NSError * error))completion;
+
+#pragma mark- 上传声控帖子
++ (void)publishTheAudioArticle:(NSString *)audioPath  completion:(void(^)(MFYArticle* article, NSError * error))completion;
 
 @end
 
