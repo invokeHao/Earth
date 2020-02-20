@@ -42,6 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 // 大图
 @property (strong, nonatomic) UIImage *highImage;
+
 @property (strong, nonatomic) NSData *imageData;
 
 ///

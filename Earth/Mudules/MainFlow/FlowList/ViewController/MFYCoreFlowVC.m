@@ -13,6 +13,7 @@
 #import "MFYCategoryTitleView.h"
 #import "MFYNavCategoryTitleView.h"
 #import "MFYTopicTagService.h"
+#import "MFYMineHomePageVC.h"
 
 @interface MFYCoreFlowVC ()<JXCategoryListContainerViewDelegate>
 {
@@ -60,6 +61,12 @@
          @strongify(self)
          [self setupViews];
      }];
+    
+    [[self.MineBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self)
+        MFYMineHomePageVC * mineVC = [[MFYMineHomePageVC alloc]init];
+        [self.navigationController pushViewController:mineVC animated:YES];
+    }];
 
 }
 

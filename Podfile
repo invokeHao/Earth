@@ -29,6 +29,11 @@ def shared_pods
     pod 'JPVideoPlayer'
     pod 'JPNavigationController', '~> 2.1.3'
     pod 'KTVHTTPCache', '~> 1.1.5'
+    pod 'IQKeyboardManager'
+    pod 'UMCCommon'
+    pod 'UMCPush'
+    pod 'UMCSecurityPlugins'
+    pod 'UMCAnalytics'
 
     post_install do |installer|
     installer.pods_project.targets.each do |target|

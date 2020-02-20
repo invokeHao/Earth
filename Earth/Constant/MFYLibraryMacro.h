@@ -19,6 +19,8 @@
 #import <YHDragCardContainer.h>
 #import <JXCategoryView.h>
 #import <BGFMDB.h>
+#import <IQKeyboardManager.h>
+#import <UMCommon/UMCommon.h>
 
 #import "whKit.h"
 #import "KSPhotoBrowser.h"

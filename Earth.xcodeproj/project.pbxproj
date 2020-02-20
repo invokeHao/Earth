@@ -107,6 +107,14 @@
 		67CC315023FA668D002E6E2B /* MFYVoiceRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC314F23FA668D002E6E2B /* MFYVoiceRecorder.m */; };
 		67CC315323FA674C002E6E2B /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CC315223FA674C002E6E2B /* libmp3lame.a */; };
 		67CC315723FA6F1D002E6E2B /* MFYRecorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC315623FA6F1D002E6E2B /* MFYRecorderView.m */; };
+		67CC315F23FCD7AC002E6E2B /* MFYMineHomePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC315E23FCD7AC002E6E2B /* MFYMineHomePageVC.m */; };
+		67CC316223FCDCC9002E6E2B /* MFYHomeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC316123FCDCC9002E6E2B /* MFYHomeItemView.m */; };
+		67CC316623FCE929002E6E2B /* MFYMineItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC316523FCE929002E6E2B /* MFYMineItemModel.m */; };
+		67CC316923FD17E7002E6E2B /* MFYMineHpVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC316823FD17E7002E6E2B /* MFYMineHpVM.m */; };
+		67CC316D23FD1925002E6E2B /* MFYMineService.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC316C23FD1925002E6E2B /* MFYMineService.m */; };
+		67CC317023FD2B38002E6E2B /* MFYInfoSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC316F23FD2B38002E6E2B /* MFYInfoSelectView.m */; };
+		67CC317323FEBAE5002E6E2B /* MFYPhotoCropVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC317223FEBAE5002E6E2B /* MFYPhotoCropVC.m */; };
+		67CC317723FEBC39002E6E2B /* TKImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC317623FEBC39002E6E2B /* TKImageView.m */; };
 		67D28B7523D18FC500543D22 /* MFYArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7423D18FC500543D22 /* MFYArticle.m */; };
 		67D28B7823D1902D00543D22 /* MFYMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7723D1902D00543D22 /* MFYMedia.m */; };
 		67D28B7F23D1908300543D22 /* MFYProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7E23D1908300543D22 /* MFYProfile.m */; };
@@ -356,6 +364,22 @@
 		67CC315423FA675F002E6E2B /* lame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
 		67CC315523FA6F1D002E6E2B /* MFYRecorderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYRecorderView.h; sourceTree = "<group>"; };
 		67CC315623FA6F1D002E6E2B /* MFYRecorderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYRecorderView.m; sourceTree = "<group>"; };
+		67CC315D23FCD7AC002E6E2B /* MFYMineHomePageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYMineHomePageVC.h; sourceTree = "<group>"; };
+		67CC315E23FCD7AC002E6E2B /* MFYMineHomePageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYMineHomePageVC.m; sourceTree = "<group>"; };
+		67CC316023FCDCC9002E6E2B /* MFYHomeItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYHomeItemView.h; sourceTree = "<group>"; };
+		67CC316123FCDCC9002E6E2B /* MFYHomeItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYHomeItemView.m; sourceTree = "<group>"; };
+		67CC316423FCE929002E6E2B /* MFYMineItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYMineItemModel.h; sourceTree = "<group>"; };
+		67CC316523FCE929002E6E2B /* MFYMineItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYMineItemModel.m; sourceTree = "<group>"; };
+		67CC316723FD17E7002E6E2B /* MFYMineHpVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYMineHpVM.h; sourceTree = "<group>"; };
+		67CC316823FD17E7002E6E2B /* MFYMineHpVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYMineHpVM.m; sourceTree = "<group>"; };
+		67CC316B23FD1925002E6E2B /* MFYMineService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYMineService.h; sourceTree = "<group>"; };
+		67CC316C23FD1925002E6E2B /* MFYMineService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYMineService.m; sourceTree = "<group>"; };
+		67CC316E23FD2B38002E6E2B /* MFYInfoSelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYInfoSelectView.h; sourceTree = "<group>"; };
+		67CC316F23FD2B38002E6E2B /* MFYInfoSelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYInfoSelectView.m; sourceTree = "<group>"; };
+		67CC317123FEBAE5002E6E2B /* MFYPhotoCropVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYPhotoCropVC.h; sourceTree = "<group>"; };
+		67CC317223FEBAE5002E6E2B /* MFYPhotoCropVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYPhotoCropVC.m; sourceTree = "<group>"; };
+		67CC317523FEBC39002E6E2B /* TKImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKImageView.h; sourceTree = "<group>"; };
+		67CC317623FEBC39002E6E2B /* TKImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKImageView.m; sourceTree = "<group>"; };
 		67D28B7323D18FC500543D22 /* MFYArticle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYArticle.h; sourceTree = "<group>"; };
 		67D28B7423D18FC500543D22 /* MFYArticle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYArticle.m; sourceTree = "<group>"; };
 		67D28B7623D1902D00543D22 /* MFYMedia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYMedia.h; sourceTree = "<group>"; };
@@ -492,6 +516,8 @@
 				6725040923D433B600716842 /* MFYPublicImageCardVC.m */,
 				6725041123D6AAAA00716842 /* MFYPublicImageCardDetailVC.h */,
 				6725041223D6AAAA00716842 /* MFYPublicImageCardDetailVC.m */,
+				67CC317123FEBAE5002E6E2B /* MFYPhotoCropVC.h */,
+				67CC317223FEBAE5002E6E2B /* MFYPhotoCropVC.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1046,6 +1072,80 @@
 			path = LameLib;
 			sourceTree = "<group>";
 		};
+		67CC315823FCD778002E6E2B /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				67CC315923FCD778002E6E2B /* MineHomePage */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		67CC315923FCD778002E6E2B /* MineHomePage */ = {
+			isa = PBXGroup;
+			children = (
+				67CC315C23FCD779002E6E2B /* Reactor */,
+				67CC315B23FCD778002E6E2B /* ViewController */,
+				67CC315A23FCD778002E6E2B /* View */,
+			);
+			path = MineHomePage;
+			sourceTree = "<group>";
+		};
+		67CC315A23FCD778002E6E2B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				67CC316023FCDCC9002E6E2B /* MFYHomeItemView.h */,
+				67CC316123FCDCC9002E6E2B /* MFYHomeItemView.m */,
+				67CC316E23FD2B38002E6E2B /* MFYInfoSelectView.h */,
+				67CC316F23FD2B38002E6E2B /* MFYInfoSelectView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		67CC315B23FCD778002E6E2B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67CC315D23FCD7AC002E6E2B /* MFYMineHomePageVC.h */,
+				67CC315E23FCD7AC002E6E2B /* MFYMineHomePageVC.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		67CC315C23FCD779002E6E2B /* Reactor */ = {
+			isa = PBXGroup;
+			children = (
+				67CC316723FD17E7002E6E2B /* MFYMineHpVM.h */,
+				67CC316823FD17E7002E6E2B /* MFYMineHpVM.m */,
+			);
+			path = Reactor;
+			sourceTree = "<group>";
+		};
+		67CC316323FCE911002E6E2B /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				67CC316423FCE929002E6E2B /* MFYMineItemModel.h */,
+				67CC316523FCE929002E6E2B /* MFYMineItemModel.m */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		67CC316A23FD190D002E6E2B /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				67CC316B23FD1925002E6E2B /* MFYMineService.h */,
+				67CC316C23FD1925002E6E2B /* MFYMineService.m */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		67CC317423FEBBA2002E6E2B /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				67CC317523FEBC39002E6E2B /* TKImageView.h */,
+				67CC317623FEBC39002E6E2B /* TKImageView.m */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
 		67D28B7C23D1907800543D22 /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -1170,6 +1270,7 @@
 			children = (
 				672503FF23D4333A00716842 /* ContentCreator */,
 				6779376023B0C22100D1B822 /* MainFlow */,
+				67CC315823FCD778002E6E2B /* Mine */,
 				6763D79F23CF0F7F003D9E20 /* Login */,
 			);
 			path = Mudules;
@@ -1200,6 +1301,7 @@
 		67F097F323A78D56001DCEB4 /* ContentView */ = {
 			isa = PBXGroup;
 			children = (
+				67CC317423FEBBA2002E6E2B /* Controls */,
 				679A02FA23F129F60041A012 /* Hud */,
 				67EFC33223C3134600F5BDB3 /* AlertView */,
 				67F0980523A7A160001DCEB4 /* NavigationBar */,
@@ -1210,6 +1312,7 @@
 		67F097F423A78D56001DCEB4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				67CC316323FCE911002E6E2B /* Mine */,
 				67D28B7C23D1907800543D22 /* User */,
 				6763D7B023D06A48003D9E20 /* login */,
 				6746D49623B6263D00A46FC7 /* CoreFlow */,
@@ -1245,6 +1348,7 @@
 		67F097F823A78D56001DCEB4 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				67CC316A23FD190D002E6E2B /* Mine */,
 				67CC30E823F14809002E6E2B /* Publish */,
 				67D28B8323D1B26900543D22 /* coreflow */,
 				6763D7AC23D068EA003D9E20 /* Login */,
@@ -1557,6 +1661,8 @@
 				679A02ED23F107620041A012 /* MOProgressView.m in Sources */,
 				679A02DF23F107620041A012 /* MOAssetModel.m in Sources */,
 				6763D7B323D07B84003D9E20 /* MFYLoginModel.m in Sources */,
+				67CC315F23FCD7AC002E6E2B /* MFYMineHomePageVC.m in Sources */,
+				67CC316223FCDCC9002E6E2B /* MFYHomeItemView.m in Sources */,
 				679A02DB23F107620041A012 /* MOPhotoLibraryManager.m in Sources */,
 				679A02D923F107620041A012 /* MOPhotoUtil.m in Sources */,
 				6725042023D6E5F900716842 /* MFYPrivacyOptionCell.m in Sources */,
@@ -1576,6 +1682,7 @@
 				67CC315023FA668D002E6E2B /* MFYVoiceRecorder.m in Sources */,
 				67CC314123F94F70002E6E2B /* MFYTagDisplayView.m in Sources */,
 				6746D49C23B62C2E00A46FC7 /* MFYFlowCardView.m in Sources */,
+				67CC316D23FD1925002E6E2B /* MFYMineService.m in Sources */,
 				679A02E023F107620041A012 /* MOAssetCollectionInfoModel.m in Sources */,
 				67CC310723F39C4F002E6E2B /* MFYCoreflowTag.m in Sources */,
 				679A029323F104520041A012 /* MFYPublicManager.m in Sources */,
@@ -1591,6 +1698,7 @@
 				6763D79923CEF4B4003D9E20 /* MFYServiceConstant.m in Sources */,
 				67CC30E123F146ED002E6E2B /* MFYQiNiuModel.m in Sources */,
 				679A02E223F107620041A012 /* MODownloadNotificationModel.m in Sources */,
+				67CC316923FD17E7002E6E2B /* MFYMineHpVM.m in Sources */,
 				67EFC32123C300C500F5BDB3 /* KSYYImageManager.m in Sources */,
 				6725041323D6AAAA00716842 /* MFYPublicImageCardDetailVC.m in Sources */,
 				67CC310D23F3B202002E6E2B /* UIImage+WHMosaic.m in Sources */,
@@ -1606,11 +1714,15 @@
 				679A02EC23F107620041A012 /* MOHud.m in Sources */,
 				679A02DE23F107620041A012 /* MODownloadCacheModel.m in Sources */,
 				6779376723B0C29700D1B822 /* MFYCoreFlowVC.m in Sources */,
+				67CC317323FEBAE5002E6E2B /* MFYPhotoCropVC.m in Sources */,
 				679A02E423F107620041A012 /* MOSelectedButton.m in Sources */,
 				679A02F923F126580041A012 /* MFYAssetModel.m in Sources */,
 				679A02F623F125FE0041A012 /* MFYAlbumModel.m in Sources */,
+				67CC317723FEBC39002E6E2B /* TKImageView.m in Sources */,
+				67CC316623FCE929002E6E2B /* MFYMineItemModel.m in Sources */,
 				6746D47F23B4DE0700A46FC7 /* MFYImageFlowVC.m in Sources */,
 				67CC314A23F95806002E6E2B /* WHTimeUtil.m in Sources */,
+				67CC317023FD2B38002E6E2B /* MFYInfoSelectView.m in Sources */,
 				679A02EF23F107620041A012 /* MOPhotoPreviewViewController.m in Sources */,
 				6763D7AB23D057A2003D9E20 /* MFYTimerButton.m in Sources */,
 				6763D79323CEEFE1003D9E20 /* MFYResponseObject.m in Sources */,
