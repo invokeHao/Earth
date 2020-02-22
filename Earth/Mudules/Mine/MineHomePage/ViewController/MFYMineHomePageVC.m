@@ -7,9 +7,14 @@
 //
 
 #import "MFYMineHomePageVC.h"
+#import "MFYSettingListVC.h"
 #import "MFYHomeItemView.h"
 #import "MFYMineHpVM.h"
 #import "MFYInfoSelectView.h"
+#import "MFYPublicManager.h"
+#import "MFYDynamicManager.h"
+#import "MFYMineService.h"
+#import "MFYMyLikeListVC.h"
 
 @interface MFYMineHomePageVC ()
 
@@ -25,6 +30,7 @@
 @property (nonatomic, strong) MFYHomeItemView * settingCell;
 
 @property (nonatomic, strong) MFYMineHpVM * viewModel;
+@property (nonatomic, strong) MFYPublicManager * publicManager;
 
 @end
 
@@ -124,7 +130,9 @@
 - (void)bindEvents {
     @weakify(self)
     [self.myLikeCell setSelectB:^(BOOL isTap) {
-        
+        @strongify(self)
+        MFYMyLikeListVC * listVC = [[MFYMyLikeListVC alloc]init];
+        [self.navigationController pushViewController:listVC animated:YES];
     }];
     [self.myNoteCell setSelectB:^(BOOL isTap) {
         
@@ -133,7 +141,18 @@
         
     }];
     [self.myIconCell setSelectB:^(BOOL isTap) {
-        
+        @strongify(self)
+        [self.publicManager publishPhotoFromVC:self publishType:MFYPublicTypeImage completion:^(MFYAssetModel * _Nullable model) {
+            [WHHud showActivityView];
+            [MFYDynamicManager UploadTheAssetModel:model completion:^(MFYQiNiuResponse * _Nonnull resp, NSError * _Nonnull error) {
+                NSString * fileId = resp.storeId;
+                [MFYMineService postModifyIcon:fileId Completion:^(BOOL isSuccess, NSError * _Nonnull error) {
+                    @strongify(self)
+                    [self.viewModel refreshData];
+                    [WHHud hideActivityView];
+                }];
+            }];
+        }];
     }];
     [self.myNickNameCell setSelectB:^(BOOL isTap) {
         [MFYInfoSelectView showWithType:MFYInfoNameType completion:^(BOOL needRefresh) {
@@ -154,7 +173,10 @@
         }];
     }];
     [self.settingCell setSelectB:^(BOOL isTap) {
-        
+        @strongify(self)
+        MFYSettingListVC * settingVC = [[MFYSettingListVC alloc]init];
+        settingVC.profileModel = self.viewModel.profile;
+        [self.navigationController pushViewController:settingVC animated:YES];
     }];
 }
 
@@ -250,5 +272,11 @@
     return _settingCell;
 }
 
+- (MFYPublicManager *)publicManager {
+    if (!_publicManager) {
+        _publicManager = [[MFYPublicManager alloc]init];
+    }
+    return _publicManager;
+}
 
 @end

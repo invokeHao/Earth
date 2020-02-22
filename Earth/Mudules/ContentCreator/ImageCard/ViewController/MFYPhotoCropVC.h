@@ -8,12 +8,17 @@
 
 #import "MFYBaseViewController.h"
 
+typedef NS_ENUM(NSUInteger, MFYCropType) {
+    MFYImageCardType,
+    MFYUserIconType,
+};
+
 NS_ASSUME_NONNULL_BEGIN
 
 @class MFYAssetModel;
 @interface MFYPhotoCropVC : MFYBaseViewController
 
-- (instancetype)initWithModel:(MFYAssetModel *)model didCropedImage:(void (^)(UIImage *cropedImage))dismissAction;
+- (instancetype)initWithModel:(MFYAssetModel *)model cropType:(MFYCropType)type didCropedImage:(void (^)(MFYAssetModel *asset))dismissAction;
 
 @end
 

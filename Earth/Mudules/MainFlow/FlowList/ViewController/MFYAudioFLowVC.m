@@ -33,6 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupViews];
     [self bindEvents];
 }
 
@@ -59,6 +60,15 @@
     [self.view addSubview:self.displayView];
     [self.view addSubview:self.publishBtn];
     
+    
+    [self.publishBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(self.view);
+        make.bottom.mas_equalTo(-(HOME_INDICATOR_HEIGHT + 10 ));
+        make.size.mas_equalTo(CGSizeMake(W_SCALE(90), W_SCALE(90)));
+    }];
+}
+
+- (void)setupTitleView {
     NSMutableArray * titleArr = [NSMutableArray array];
     for (MFYCoreflowTag * tag in self.audioTagArray) {
         [titleArr addObject:tag.value];
@@ -66,12 +76,6 @@
     self.myCategoryView.titles = titleArr;
     MFYIndicatorBackgroundView *lineView = [[MFYIndicatorBackgroundView alloc] init];
     self.myCategoryView.indicators = @[lineView];
-    
-    [self.publishBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.mas_equalTo(self.view);
-        make.bottom.mas_equalTo(-(HOME_INDICATOR_HEIGHT + 10 ));
-        make.size.mas_equalTo(CGSizeMake(W_SCALE(90), W_SCALE(90)));
-    }];
 }
 
 - (UIView *)listView {
@@ -88,7 +92,7 @@
         @strongify(self)
         MFYCoreflowTag * tag = [self.audioTagArray firstObject];
         self.viewModel = [[MFYAudioListVM alloc]initWithTopicId:tag.idField];
-        [self setupViews];
+        [self setupTitleView];
     }];
     
     RACSignal * dataObserve = RACObserve(self, viewModel.dataList);

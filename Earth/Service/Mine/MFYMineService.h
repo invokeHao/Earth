@@ -36,6 +36,9 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark- 修改年龄
 + (void)postModifyAge:(NSInteger)age Completion:(void(^)(BOOL isSuccess, NSError * error))completion;
 
+#pragma mark- 修改头像
++ (void)postModifyIcon:(NSString *)iconId Completion:(void(^)(BOOL isSuccess, NSError * error))completion;
+
 @end
 
 NS_ASSUME_NONNULL_END

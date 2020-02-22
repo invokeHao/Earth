@@ -17,16 +17,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString * articleId;
 @property (nonatomic, strong) NSString * bodyText;
+@property (nonatomic, assign) NSInteger commentTimes;
 @property (nonatomic, strong) NSString * createDate;
 @property (nonatomic, strong) NSArray<MFYItem *> * embeddedArticles;
 @property (nonatomic, assign) NSInteger formatType;
 @property (nonatomic, assign) NSInteger functionType;
+@property (nonatomic, assign) NSInteger likeTimes;
+@property (nonatomic, assign) BOOL liked;
 @property (nonatomic, strong) MFYMedia * media;
 @property (nonatomic, assign) NSInteger postType;
-@property (nonatomic, assign) CGFloat priceAmount;
+@property (nonatomic, assign) NSInteger priceAmount;
 @property (nonatomic, strong) MFYProfile * profile;
+@property (nonatomic, assign) BOOL purchased;
 @property (nonatomic, strong) NSString * subtitle;
 @property (nonatomic, strong) NSString * title;
+@property (nonatomic, assign) BOOL unliked;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

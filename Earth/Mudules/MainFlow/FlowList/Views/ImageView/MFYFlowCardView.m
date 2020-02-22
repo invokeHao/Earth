@@ -44,6 +44,7 @@
 
 - (void)setModel:(MFYArticle *)model {
     if (model) {
+        _model = model;
         [self.suduView setArticle:model];
         [self.titleLabel setText:model.title];
     }

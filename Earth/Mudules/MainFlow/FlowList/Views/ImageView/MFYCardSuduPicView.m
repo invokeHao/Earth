@@ -74,9 +74,8 @@
     if (article) {
         _article = article;
         @weakify(self)
-        [article.embeddedArticles enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [article.embeddedArticles enumerateObjectsUsingBlock:^(MFYItem * item, NSUInteger idx, BOOL * _Nonnull stop) {
             @strongify(self)
-            MFYItem * item = [[MFYItem alloc]initWithDictionary:obj];
             if (idx == 0) {
                 item.isbig = YES;
             }

@@ -43,6 +43,20 @@
         MFYBaseNavigationController * Nav = [[MFYBaseNavigationController alloc]initWithRootViewController:[MFYPublicImageCardVC new]];
         [vc presentViewController:Nav animated:YES completion:NULL];
     }];
+    @weakify(self)
+    [[self.likeBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self)
+        if (self.tapLikeBlock) {
+            self.tapLikeBlock(YES);
+        }
+    }];
+    
+    [[self.dislikeBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+       @strongify(self)
+        if (self.tapLikeBlock) {
+            self.tapLikeBlock(NO);
+        }
+    }];
 }
 
 - (void)likeBtnAction {

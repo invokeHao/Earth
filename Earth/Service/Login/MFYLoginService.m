@@ -26,8 +26,18 @@
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         completion(nil,error);
     }];
-    
-    
+}
+
++ (void)singOutCompletion:(void (^)(BOOL, NSError *))completion {
+    [[MFYHTTPManager sharedManager] POST:@"/api/auth/signoff" parameters:@[] success:^(NSURLSessionDataTask * _Nonnull task, MFYResponseObject * _Nonnull responseObject) {
+        if (responseObject.code ==  1) {
+            completion(YES,nil);
+        }else{
+            completion(NO,[NSError errorWithCode:responseObject.code desc:responseObject.errorDesc]);
+        }
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        completion(NO,error);
+    }];
 }
 
 

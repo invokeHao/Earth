@@ -13,10 +13,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MFYLoginService : NSObject
 
+
+#pragma mark- 验证码登录
 + (void)loginWithPhoneNum:(NSString *)phoneNum
                verifyCode:(NSString *)verifyCode
                completion:(void(^)(MFYLoginModel * loginModel, NSError * error))completion;
 
+#pragma mark- 退出登录
++ (void)singOutCompletion:(void(^)(BOOL success, NSError * error))completion;
 
 @end
 

@@ -226,16 +226,16 @@ CGFloat const INTER_TIME = 0.1;
         self.recordTime = 60.0;
         [self endRecorder];
     }
-    self.tipsLabel.text = FORMAT(@"%.1f“",self.recordTime);
+    self.tipsLabel.text = FORMAT(@"%.1f″",self.recordTime);
 }
 
 - (void)playingAction {
     if (!self.isPlaying) {return;}
     self.playTime -= 0.1;
-    self.tipsLabel.text = FORMAT(@"%.1f“",self.playTime);
+    self.tipsLabel.text = FORMAT(@"%.1f″",self.playTime);
     if (self.playTime < 0) {
         self.playTime = 0;
-        self.tipsLabel.text = FORMAT(@"%.1f“",self.playTime);
+        self.tipsLabel.text = FORMAT(@"%.1f″",self.playTime);
         [self stopTheAudio];
     }
 }
@@ -340,7 +340,7 @@ CGFloat const INTER_TIME = 0.1;
 - (void)configTheRecoingView {
     self.centerImage.image =  WHImageNamed(@"audio_pb_circle");
     self.redoBtn.hidden = self.finishBtn.hidden = YES;
-    self.tipsLabel.text = FORMAT(@"%.1f“",self.recordTime);
+    self.tipsLabel.text = FORMAT(@"%.1f″",self.recordTime);
 }
 
 - (void)configThePlayingView {
@@ -351,7 +351,7 @@ CGFloat const INTER_TIME = 0.1;
 - (void)configTheFinishView {
     self.centerImage.image = WHImageNamed(@"audio_pb_stop");
     self.redoBtn.hidden = self.finishBtn.hidden = NO;
-    self.tipsLabel.text = FORMAT(@"%.1f“",self.recordTime);
+    self.tipsLabel.text = FORMAT(@"%.1f″",self.recordTime);
 }
 
 #pragma mark- audioPlayDelegate
@@ -423,6 +423,7 @@ CGFloat const INTER_TIME = 0.1;
     if (!_centerImage) {
         _centerImage = UIImageView.imageView;
         _centerImage.image = WHImageNamed(@"audio_pb_circle");
+        _centerImage.contentMode = UIViewContentModeCenter;
     }
     return _centerImage;
 }

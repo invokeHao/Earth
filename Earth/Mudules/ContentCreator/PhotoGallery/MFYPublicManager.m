@@ -12,7 +12,7 @@
 #import "MFYBaseNavigationController.h"
 #import "MFYPhotosManager.h"
 #import "MOPhotoToMFYTransformer.h"
-//#import "CMSPublishViewController.h"
+#import "MFYPhotoCropVC.h"
 #import "MOPhotoLibraryManager.h"
 #import "MOAssetDownloadManager.h"
 #import "MODownloadNotificationModel.h"
@@ -191,26 +191,22 @@
 - (void)photoLibraryController:(MOPhotoLibraryController *)picker
         didFinishPickingPhotos:(NSArray<YYImage *> *)photos
                   sourceAssets:(NSArray<MOAssetModel *> *)assetList {
+    
     NSArray<MFYAssetModel *> *mfyAssetList = [MOPhotoToMFYTransformer wh_assetListTransformer:assetList];
     [MFYPhotosManager sharedManager].selectedList = [mfyAssetList mutableCopy];
-    if (self.successB) {
-        self.successB(mfyAssetList.firstObject);
-    }
-    [picker dismissViewControllerAnimated:YES completion:NULL];
-
+    MFYAssetModel * asset = [mfyAssetList firstObject];
+    MFYCropType type = self.publishType == mfyPublicTypeNull ? MFYImageCardType : MFYUserIconType;
+    MFYPhotoCropVC * cropVC = [[MFYPhotoCropVC alloc]initWithModel:asset cropType:type didCropedImage:^(MFYAssetModel * _Nonnull asset) {
+        WHLog(@"裁切成功");
+        if (self.successB) {
+            self.successB(asset);
+        }
+    }];
+    [picker dismissViewControllerAnimated:NO completion:^{
+        [self.fromViewController presentViewController:cropVC animated:YES completion:^{
+        }];
+    }];
     
-//    [MFYPhotosManager sharedManager].selectedList = [cmsAssetList mutableCopy];
-//    if ([MFYPhotosManager sharedManager].selectedAlbumsType == CMSAlbumsSelectedTypePhoto) {
-//        CMSPublishViewController *publishPhotoVC = [[CMSPublishViewController alloc] initWithModels:[MFYPhotosManager sharedManager].selectedList];
-//        MFYBaseNavigationController *nav = [[MFYBaseNavigationController alloc] initWithRootViewController:publishPhotoVC];
-//        @weakify(self);
-//        [picker.navigationController dismissViewControllerAnimated:NO completion:^{
-//            @strongify(self);
-//            [self.fromViewController presentViewController:nav animated:YES completion:nil];
-//        }];
-//    } else {
-//        CMSLogError(@"发布类型错误");
-//    }
 }
 
 - (void)photoLibraryController:(MOPhotoLibraryController *)picker didFinishVideoAssets:(MOAssetModel *)asset {

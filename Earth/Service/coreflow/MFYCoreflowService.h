@@ -38,6 +38,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)getTheAudioCardWithTopicId:(NSString *)topicId completion:(void(^)(NSArray<MFYArticle*> *aritlceList, NSError * error))completion;
 
+
+
+#pragma mark- 我喜欢的卡片列表
+
++ (void)getMyLikeCardListWithPage:(NSInteger)page completion:(void(^)(NSArray<MFYArticle*> *aritlceList, NSError * error))completion;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

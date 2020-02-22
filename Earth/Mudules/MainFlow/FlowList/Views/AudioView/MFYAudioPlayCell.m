@@ -11,6 +11,7 @@
 #import "MFYTagDisplayLayout.h"
 #import "WHTimeUtil.h"
 #import <AVFoundation/AVFoundation.h>
+#import "MFYArticleService.h"
 
 @interface MFYAudioPlayCell ()<AVAudioPlayerDelegate>
 
@@ -151,6 +152,16 @@
             [self playTheAudio];
         }
     }];
+    
+    [[self.likeBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * btn) {
+       @strongify(self)
+        BOOL like = !btn.selected;
+        [MFYArticleService postLikeArticle:self.model.articleId isLike:like Completion:^(BOOL isSuccess, NSError * _Nonnull error) {
+            if (!error) {
+                [btn setSelected:like];
+            }
+        }];
+    }];
 }
 
 - (void)setModel:(MFYArticle *)model {
@@ -161,6 +172,9 @@
         [self.nameLabel setText:profile.nickname];
         [self.tagView setTags: profile.tags];
         [self.timeLabel setText:[WHTimeUtil articleCardDateStringByTimeStamp:[model.createDate integerValue]]];
+        self.likeBtn.selected = model.liked;
+        self.likeLabel.text = model.likeTimes > 0 ? FORMAT(@"%ld人喜欢",model.likeTimes) : @"喜欢";
+        self.replayLabel.text = model.commentTimes > 0 ? FORMAT(@"%ld条回复",model.commentTimes) : @"回复";
         [self configTheAudio];
     }
 }
@@ -276,7 +290,7 @@
     if (!_likeBtn) {
         _likeBtn = UIButton.button;
         _likeBtn.WH_setImage_forState(WHImageNamed(@"audio_dislike"),UIControlStateNormal);
-//        _likeBtn.WH_setImage_forState(WHImageNamed(@"audio_like"),UIControlStateNormal);
+        _likeBtn.WH_setImage_forState(WHImageNamed(@"audio_like"),UIControlStateSelected);
     }
     return _likeBtn;
 }

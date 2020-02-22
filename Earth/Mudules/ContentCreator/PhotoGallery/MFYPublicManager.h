@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "MFYAssetModel.h"
+#import "MFYPhotoCropVC.h"
 
 typedef NS_ENUM(NSInteger, MFYPublicType) {
     mfyPublicTypeNull = 0,
     MFYPublicTypeImage,
     MFYPublicTypeVideo
 };
+
 
 typedef void(^successBlock)(MFYAssetModel* _Nullable model);
 

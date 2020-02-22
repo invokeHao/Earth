@@ -13,6 +13,7 @@
 #import "MFYCoreflowTag.h"
 #import "MFYCategoryTitleView.h"
 #import "MFYIndicatorBackgroundView.h"
+#import "MFYArticleService.h"
 
 @interface MFYImageFlowVC ()<YHDragCardDelegate,YHDragCardDataSource,JXCategoryViewDelegate>
 
@@ -31,6 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self bindData];
+    [self bindEvents];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -87,7 +89,21 @@
     }];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTheArticleList:) name:MFYNotificationPublishImageSuccess object:nil];
+}
 
+- (void)bindEvents {
+    @weakify(self)
+    [self.toolView setTapLikeBlock:^(BOOL like) {
+        @strongify(self)
+        NSString * articleId = self.currentCard.model.articleId;
+        [MFYArticleService postLikeArticle:articleId isLike:like Completion:^(BOOL isSuccess, NSError * _Nonnull error) {
+            if (error) {
+                [WHHud showString:error.descriptionFromServer];
+            }
+        }];
+        YHDragCardDirectionType direction = like ? YHDragCardDirectionTypeRight : YHDragCardDirectionTypeLeft;
+        [self.card nextCard:direction];
+    }];
 }
 
 -(void)refreshTheArticleList:(NSNotification *)notification {
@@ -143,13 +159,18 @@
 }
 
 - (void)dragCard:(YHDragCardContainer *)dragCard currentCard:(UIView *)card withIndex:(int)index currentCardDirection:(YHDragCardDirection *)direction canRemove:(BOOL)canRemove{
-//    CGFloat ratio = ABS(direction.horizontalRatio) * 0.2 + 1.0;
-//    self.stateView.transform = CGAffineTransformMakeScale(ratio, ratio);
-//    if (direction.horizontal > 0) {
-//        self.awayDirection = direction.horizontal;
-//    }
+    if (direction.horizontal > 0) {
+        self.awayDirection = direction.horizontal;
+    }
+    CGFloat ratio = ABS(direction.horizontalRatio) * 0.3 + 1.0;
+    //左滑不喜欢，右滑喜欢
+    if (self.awayDirection == YHDragCardDirectionTypeLeft) {
+        self.toolView.dislikeBtn.transform = CGAffineTransformMakeScale(ratio, ratio);
+    }
+    if (self.awayDirection == YHDragCardDirectionTypeRight) {
+        self.toolView.likeBtn.transform = CGAffineTransformMakeScale(ratio, ratio);
+    }
 //    WHLog(@"%ld", self.awayDirection);
-    
 }
 
 #pragma mark- 视频控制

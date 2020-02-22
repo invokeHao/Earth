@@ -15,7 +15,7 @@
 @property (nonatomic, assign) BOOL oldNavigationBarHiddenStatus;
 
 @property (nonatomic, strong) MFYAssetModel *model;
-@property (nonatomic, copy) void (^didCropedImageCallback)(UIImage *cropedImage);
+@property (nonatomic, copy) void (^didCropedImageCallback)(MFYAssetModel *asset);
 @property (nonatomic, strong) MFYAssetModel *currentModel;
 
 @property (nonatomic, strong) TKImageView *cropingImageView;
@@ -23,13 +23,15 @@
 @property (nonatomic, strong) UIButton *cancelButton;
 @property (nonatomic, strong) UIButton *okButton;
 
+@property (nonatomic, assign) MFYCropType cropType;
 @end
 
 @implementation MFYPhotoCropVC
 
-- (instancetype)initWithModel:(MFYAssetModel *)model didCropedImage:(void (^)(UIImage *cropedImage))didCropedImageCallback {
+- (instancetype)initWithModel:(MFYAssetModel *)model cropType:(MFYCropType)type didCropedImage:(void (^)(MFYAssetModel *asset))didCropedImageCallback {
     if (self = [super init]) {
         _model = model;
+        _cropType = type;
         if (didCropedImageCallback) {
             _didCropedImageCallback = [didCropedImageCallback copy];
         }
@@ -46,7 +48,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.oldNavigationBarHiddenStatus = self.navigationController.navigationBarHidden;
-//    [self.navigationController setNavigationBarHidden:YES];
+    self.navBar.hidden = YES;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -91,13 +93,14 @@
 #pragma mark - Action
 
 - (void)cancelButtonClicked {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (void)okButtonClicked {
     UIImage *image = [self.cropingImageView currentCroppedImage];
-    self.didCropedImageCallback(image);
-    [self.navigationController popViewControllerAnimated:YES];
+    self.model.resizeImage = image;
+    self.didCropedImageCallback(self.model);
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 #pragma mark - Getter Setter
@@ -122,7 +125,7 @@
         _cropingImageView.cropAreaCrossLineColor = [UIColor whiteColor];
         _cropingImageView.cropAreaCrossLineWidth = 1;
         _cropingImageView.initialScaleFactor = 1;
-        _cropingImageView.cropAspectRatio = 1;
+        _cropingImageView.cropAspectRatio = _cropType == MFYImageCardType ? 0.7 : 1;
         [self.view addSubview:_cropingImageView];
         [_cropingImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.view).offset(45);
@@ -138,7 +141,8 @@
         _bottomBarView = [[UIView alloc] init];
         [self.view addSubview:_bottomBarView];
         [_bottomBarView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.bottom.equalTo(self.view);
+            make.left.right.equalTo(self.view);
+            make.bottom.mas_equalTo(- HOME_INDICATOR_HEIGHT);
             make.height.equalTo(@(45));
         }];
     }
@@ -164,8 +168,8 @@
 - (UIButton *)okButton {
     if (_okButton == nil) {
         _okButton = [[UIButton alloc] init];
-        [_okButton setTitle:@"选取" forState:UIControlStateNormal];
-        [_okButton setTitleColor:[UIColor wh_colorWithHexString:@"7D95FF"] forState:UIControlStateNormal];
+        [_okButton setTitle:@"确定" forState:UIControlStateNormal];
+        [_okButton setTitleColor:[UIColor wh_colorWithHexString:@"FFFFFF"] forState:UIControlStateNormal];
         _okButton.titleLabel.font = [UIFont systemFontOfSize:17];
         [_okButton addTarget:self action:@selector(okButtonClicked) forControlEvents:UIControlEventTouchUpInside];
         [self.bottomBarView addSubview:_okButton];

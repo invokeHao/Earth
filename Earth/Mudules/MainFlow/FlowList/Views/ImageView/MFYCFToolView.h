@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong)UIButton * publicBtn;
 
-
+@property (nonatomic, strong)void(^tapLikeBlock)(BOOL like);
 
 @end
 

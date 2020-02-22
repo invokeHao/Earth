@@ -115,6 +115,14 @@
 		67CC317023FD2B38002E6E2B /* MFYInfoSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC316F23FD2B38002E6E2B /* MFYInfoSelectView.m */; };
 		67CC317323FEBAE5002E6E2B /* MFYPhotoCropVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC317223FEBAE5002E6E2B /* MFYPhotoCropVC.m */; };
 		67CC317723FEBC39002E6E2B /* TKImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC317623FEBC39002E6E2B /* TKImageView.m */; };
+		67CC317E23FFA738002E6E2B /* MFYSettingListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC317D23FFA738002E6E2B /* MFYSettingListVC.m */; };
+		67CC318423FFA815002E6E2B /* MFYAllowSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC318323FFA815002E6E2B /* MFYAllowSearchView.m */; };
+		67CC318723FFB612002E6E2B /* MFYSettingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC318623FFB612002E6E2B /* MFYSettingService.m */; };
+		67CC318D23FFB96E002E6E2B /* MFYModifyPhoneVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC318C23FFB96E002E6E2B /* MFYModifyPhoneVC.m */; };
+		67CC3190240014E2002E6E2B /* MFYAboutUsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC318F240014E2002E6E2B /* MFYAboutUsVC.m */; };
+		67CC31932401105C002E6E2B /* MFYArticleService.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC31922401105C002E6E2B /* MFYArticleService.m */; };
+		67CC319B24012D91002E6E2B /* MFYMyLikeVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC319A24012D91002E6E2B /* MFYMyLikeVM.m */; };
+		67CC319E24012E9B002E6E2B /* MFYMyLikeListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC319D24012E9B002E6E2B /* MFYMyLikeListVC.m */; };
 		67D28B7523D18FC500543D22 /* MFYArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7423D18FC500543D22 /* MFYArticle.m */; };
 		67D28B7823D1902D00543D22 /* MFYMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7723D1902D00543D22 /* MFYMedia.m */; };
 		67D28B7F23D1908300543D22 /* MFYProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7E23D1908300543D22 /* MFYProfile.m */; };
@@ -380,6 +388,22 @@
 		67CC317223FEBAE5002E6E2B /* MFYPhotoCropVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYPhotoCropVC.m; sourceTree = "<group>"; };
 		67CC317523FEBC39002E6E2B /* TKImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKImageView.h; sourceTree = "<group>"; };
 		67CC317623FEBC39002E6E2B /* TKImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKImageView.m; sourceTree = "<group>"; };
+		67CC317C23FFA738002E6E2B /* MFYSettingListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYSettingListVC.h; sourceTree = "<group>"; };
+		67CC317D23FFA738002E6E2B /* MFYSettingListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYSettingListVC.m; sourceTree = "<group>"; };
+		67CC318223FFA815002E6E2B /* MFYAllowSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYAllowSearchView.h; sourceTree = "<group>"; };
+		67CC318323FFA815002E6E2B /* MFYAllowSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYAllowSearchView.m; sourceTree = "<group>"; };
+		67CC318523FFB612002E6E2B /* MFYSettingService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYSettingService.h; sourceTree = "<group>"; };
+		67CC318623FFB612002E6E2B /* MFYSettingService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYSettingService.m; sourceTree = "<group>"; };
+		67CC318B23FFB96E002E6E2B /* MFYModifyPhoneVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYModifyPhoneVC.h; sourceTree = "<group>"; };
+		67CC318C23FFB96E002E6E2B /* MFYModifyPhoneVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYModifyPhoneVC.m; sourceTree = "<group>"; };
+		67CC318E240014E2002E6E2B /* MFYAboutUsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYAboutUsVC.h; sourceTree = "<group>"; };
+		67CC318F240014E2002E6E2B /* MFYAboutUsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYAboutUsVC.m; sourceTree = "<group>"; };
+		67CC31912401105C002E6E2B /* MFYArticleService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYArticleService.h; sourceTree = "<group>"; };
+		67CC31922401105C002E6E2B /* MFYArticleService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYArticleService.m; sourceTree = "<group>"; };
+		67CC319924012D91002E6E2B /* MFYMyLikeVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYMyLikeVM.h; sourceTree = "<group>"; };
+		67CC319A24012D91002E6E2B /* MFYMyLikeVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYMyLikeVM.m; sourceTree = "<group>"; };
+		67CC319C24012E9B002E6E2B /* MFYMyLikeListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYMyLikeListVC.h; sourceTree = "<group>"; };
+		67CC319D24012E9B002E6E2B /* MFYMyLikeListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYMyLikeListVC.m; sourceTree = "<group>"; };
 		67D28B7323D18FC500543D22 /* MFYArticle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYArticle.h; sourceTree = "<group>"; };
 		67D28B7423D18FC500543D22 /* MFYArticle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYArticle.m; sourceTree = "<group>"; };
 		67D28B7623D1902D00543D22 /* MFYMedia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYMedia.h; sourceTree = "<group>"; };
@@ -533,8 +557,8 @@
 			isa = PBXGroup;
 			children = (
 				6725040723D4333A00716842 /* Reactor */,
-				6725040523D4333A00716842 /* View */,
 				6725040623D4333A00716842 /* ViewController */,
+				6725040523D4333A00716842 /* View */,
 			);
 			path = AudioCard;
 			sourceTree = "<group>";
@@ -1075,7 +1099,9 @@
 		67CC315823FCD778002E6E2B /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				67CC319524012CA9002E6E2B /* MyLike */,
 				67CC315923FCD778002E6E2B /* MineHomePage */,
+				67CC317823FFA706002E6E2B /* MineSettingVC */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -1133,6 +1159,8 @@
 			children = (
 				67CC316B23FD1925002E6E2B /* MFYMineService.h */,
 				67CC316C23FD1925002E6E2B /* MFYMineService.m */,
+				67CC318523FFB612002E6E2B /* MFYSettingService.h */,
+				67CC318623FFB612002E6E2B /* MFYSettingService.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -1144,6 +1172,80 @@
 				67CC317623FEBC39002E6E2B /* TKImageView.m */,
 			);
 			path = Controls;
+			sourceTree = "<group>";
+		};
+		67CC317823FFA706002E6E2B /* MineSettingVC */ = {
+			isa = PBXGroup;
+			children = (
+				67CC317B23FFA706002E6E2B /* Reactor */,
+				67CC317A23FFA706002E6E2B /* ViewController */,
+				67CC317923FFA706002E6E2B /* View */,
+			);
+			path = MineSettingVC;
+			sourceTree = "<group>";
+		};
+		67CC317923FFA706002E6E2B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				67CC318223FFA815002E6E2B /* MFYAllowSearchView.h */,
+				67CC318323FFA815002E6E2B /* MFYAllowSearchView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		67CC317A23FFA706002E6E2B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67CC317C23FFA738002E6E2B /* MFYSettingListVC.h */,
+				67CC317D23FFA738002E6E2B /* MFYSettingListVC.m */,
+				67CC318B23FFB96E002E6E2B /* MFYModifyPhoneVC.h */,
+				67CC318C23FFB96E002E6E2B /* MFYModifyPhoneVC.m */,
+				67CC318E240014E2002E6E2B /* MFYAboutUsVC.h */,
+				67CC318F240014E2002E6E2B /* MFYAboutUsVC.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		67CC317B23FFA706002E6E2B /* Reactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Reactor;
+			sourceTree = "<group>";
+		};
+		67CC319524012CA9002E6E2B /* MyLike */ = {
+			isa = PBXGroup;
+			children = (
+				67CC319824012CA9002E6E2B /* Reactor */,
+				67CC319724012CA9002E6E2B /* ViewController */,
+				67CC319624012CA9002E6E2B /* View */,
+			);
+			path = MyLike;
+			sourceTree = "<group>";
+		};
+		67CC319624012CA9002E6E2B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		67CC319724012CA9002E6E2B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67CC319C24012E9B002E6E2B /* MFYMyLikeListVC.h */,
+				67CC319D24012E9B002E6E2B /* MFYMyLikeListVC.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		67CC319824012CA9002E6E2B /* Reactor */ = {
+			isa = PBXGroup;
+			children = (
+				67CC319924012D91002E6E2B /* MFYMyLikeVM.h */,
+				67CC319A24012D91002E6E2B /* MFYMyLikeVM.m */,
+			);
+			path = Reactor;
 			sourceTree = "<group>";
 		};
 		67D28B7C23D1907800543D22 /* User */ = {
@@ -1164,6 +1266,8 @@
 				67D28B8523D1B2B400543D22 /* MFYCoreflowService.m */,
 				67CC310823F39D56002E6E2B /* MFYTopicTagService.h */,
 				67CC310923F39D56002E6E2B /* MFYTopicTagService.m */,
+				67CC31912401105C002E6E2B /* MFYArticleService.h */,
+				67CC31922401105C002E6E2B /* MFYArticleService.m */,
 			);
 			path = coreflow;
 			sourceTree = "<group>";
@@ -1653,9 +1757,11 @@
 				6746D49523B625E900A46FC7 /* MFYFlowListVM.m in Sources */,
 				6746D48723B4E77300A46FC7 /* UIColor+WHColorKit.m in Sources */,
 				6746D48F23B60E0A00A46FC7 /* MFYCategoryBackgroundTitleCell.m in Sources */,
+				67CC318D23FFB96E002E6E2B /* MFYModifyPhoneVC.m in Sources */,
 				67EFC33123C311A800F5BDB3 /* UIView+WHExtension.m in Sources */,
 				67F0980823A7A185001DCEB4 /* MFYNavigationBar.m in Sources */,
 				67CC311823F4F9F5002E6E2B /* MFYImageDetailVC.m in Sources */,
+				67CC317E23FFA738002E6E2B /* MFYSettingListVC.m in Sources */,
 				672503FB23D421A800716842 /* MFYOpenUDID.m in Sources */,
 				679A02D723F107620041A012 /* UIView+MOExtension.m in Sources */,
 				679A02ED23F107620041A012 /* MOProgressView.m in Sources */,
@@ -1693,16 +1799,19 @@
 				679A02D523F107620041A012 /* UIView+MOHud.m in Sources */,
 				67D28B7523D18FC500543D22 /* MFYArticle.m in Sources */,
 				67CC312923F8E28E002E6E2B /* MFYNavCategoryTitleView.m in Sources */,
+				67CC3190240014E2002E6E2B /* MFYAboutUsVC.m in Sources */,
 				6746D48B23B4EDC500A46FC7 /* MFYCategoryTitleView.m in Sources */,
 				67CC30EB23F14847002E6E2B /* MFYQiniuSystemService.m in Sources */,
 				6763D79923CEF4B4003D9E20 /* MFYServiceConstant.m in Sources */,
 				67CC30E123F146ED002E6E2B /* MFYQiNiuModel.m in Sources */,
 				679A02E223F107620041A012 /* MODownloadNotificationModel.m in Sources */,
 				67CC316923FD17E7002E6E2B /* MFYMineHpVM.m in Sources */,
+				67CC318423FFA815002E6E2B /* MFYAllowSearchView.m in Sources */,
 				67EFC32123C300C500F5BDB3 /* KSYYImageManager.m in Sources */,
 				6725041323D6AAAA00716842 /* MFYPublicImageCardDetailVC.m in Sources */,
 				67CC310D23F3B202002E6E2B /* UIImage+WHMosaic.m in Sources */,
 				67EFC32A23C30BFF00F5BDB3 /* UIView+WHUd.m in Sources */,
+				67CC318723FFB612002E6E2B /* MFYSettingService.m in Sources */,
 				6725041923D6E43E00716842 /* MFYBaseTableViewCell.m in Sources */,
 				6746D4A023B62E2000A46FC7 /* UIView+WHChain.m in Sources */,
 				679A02D823F107620041A012 /* MOPhotoTransformer.m in Sources */,
@@ -1721,6 +1830,7 @@
 				67CC317723FEBC39002E6E2B /* TKImageView.m in Sources */,
 				67CC316623FCE929002E6E2B /* MFYMineItemModel.m in Sources */,
 				6746D47F23B4DE0700A46FC7 /* MFYImageFlowVC.m in Sources */,
+				67CC319B24012D91002E6E2B /* MFYMyLikeVM.m in Sources */,
 				67CC314A23F95806002E6E2B /* WHTimeUtil.m in Sources */,
 				67CC317023FD2B38002E6E2B /* MFYInfoSelectView.m in Sources */,
 				679A02EF23F107620041A012 /* MOPhotoPreviewViewController.m in Sources */,
@@ -1735,6 +1845,7 @@
 				67D28B7823D1902D00543D22 /* MFYMedia.m in Sources */,
 				67EFC33523C3136800F5BDB3 /* WHAlertTool.m in Sources */,
 				67CC313D23F92E0B002E6E2B /* MFYAudioListVM.m in Sources */,
+				67CC31932401105C002E6E2B /* MFYArticleService.m in Sources */,
 				679A02FD23F12A1C0041A012 /* WHHud.m in Sources */,
 				67CC30FB23F1605E002E6E2B /* MFYPublishItemModel.m in Sources */,
 				6746D48223B4E54100A46FC7 /* MFYIndicatorBackgroundView.m in Sources */,
@@ -1746,6 +1857,7 @@
 				6763D7AF23D06944003D9E20 /* MFYLoginService.m in Sources */,
 				67CC311F23F644DB002E6E2B /* MFYHTTPCacheService.m in Sources */,
 				67CC313723F926D6002E6E2B /* MFYAudioPlayCell.m in Sources */,
+				67CC319E24012E9B002E6E2B /* MFYMyLikeListVC.m in Sources */,
 				6725040A23D433B600716842 /* MFYPublicImageCardVC.m in Sources */,
 				679A02E623F107620041A012 /* MOIndicatorButton.m in Sources */,
 				679A02F023F107620041A012 /* MOPhotoLibraryController.m in Sources */,

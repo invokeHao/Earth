@@ -77,7 +77,7 @@
     self.userIconView.hidden = self.type != MFYHomeItemIconType;
     self.iconView.hidden = self.type != MFYHomeItemLikeType;
     self.moreView.hidden = self.type == MFYHomeItemIconType;
-    if (self.iconView.hidden == YES) {
+    if (self.type != MFYHomeItemLikeType) {
         [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(12);
         }];
