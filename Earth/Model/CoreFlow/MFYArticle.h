@@ -11,6 +11,12 @@
 #import "MFYProfile.h"
 #import "MFYItem.h"
 
+typedef NS_ENUM(NSUInteger, MFYArticleType) {
+    MFYArticleTypeImage = 1,
+    MFYArticleTypeAudio,
+    MFYArticleTypeVideo,
+};
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MFYArticle : NSObject
@@ -36,6 +42,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 -(NSDictionary *)toDictionary;
+
+-(MFYArticleType)MFYmediaType;
 
 @end
 

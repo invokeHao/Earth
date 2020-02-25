@@ -45,6 +45,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)getMyLikeCardListWithPage:(NSInteger)page completion:(void(^)(NSArray<MFYArticle*> *aritlceList, NSError * error))completion;
 
 
+#pragma mark- 我发布的卡片列表
+
++ (void)getMyPostCardListWithPage:(NSInteger)page completion:(void(^)(NSArray<MFYArticle*> *aritlceList, NSError * error))completion;
+
 @end
 
 NS_ASSUME_NONNULL_END

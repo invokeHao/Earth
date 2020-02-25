@@ -58,6 +58,29 @@ NSTimeInterval const OneWeek = 604800;
     return dateString;
 }
 
++ (NSString *)getHourDateByTimeStamp:(NSTimeInterval)timeStamp {
+    NSTimeInterval inputStamp = timeStamp / 1000;
+    NSDate * date = [NSDate dateWithTimeIntervalSince1970:inputStamp];
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"HH:mm"];
+    NSString * hourStr = [format stringFromDate:date];
+    return hourStr;
+}
+
++ (NSString *)getMonthAndDayByTimeStamp:(NSTimeInterval)timeStamp {
+    NSTimeInterval inputStamp = timeStamp / 1000;
+    NSDate * date = [NSDate dateWithTimeIntervalSince1970:inputStamp];
+    NSDateComponents *components = [[NSCalendar currentCalendar] components: NSCalendarUnitMonth | NSCalendarUnitDay fromDate:date];
+    NSString *dateString = @"";
+    if (components.month > 0) {
+        dateString = [[dateString stringByAppendingString:[@(components.month) stringValue]] stringByAppendingString:@"-"];
+    }
+    if (components.day > 0) {
+        dateString = [dateString stringByAppendingString:[@(components.day) stringValue]];
+    }
+    return dateString;
+}
+
 + (NSInteger)currentYear {
     NSDate *date =[NSDate date];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];

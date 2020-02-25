@@ -35,6 +35,14 @@
     }];
 }
 
+- (void)setThemeColor:(UIColor *)themeColor {
+    if (themeColor) {
+        _themeColor = themeColor;
+        self.contentView.layer.borderColor = themeColor.CGColor;
+        self.tagLabel.textColor = themeColor;
+    }
+}
+
 - (UILabel *)tagLabel {
     if (!_tagLabel) {
         _tagLabel = UILabel.label.WH_font(WHFont(15.0)).WH_textColor([UIColor whiteColor]);

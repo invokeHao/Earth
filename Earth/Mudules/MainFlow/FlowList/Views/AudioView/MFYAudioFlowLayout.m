@@ -52,7 +52,7 @@
     for (UICollectionViewLayoutAttributes *atts in attsArray) {
         // cell的中心点x 和 屏幕中心点 的距离
         CGFloat space = ABS(atts.center.x - centerX);
-        CGFloat scale = 1 - (space/self.collectionView.frame.size.width/5);
+        CGFloat scale = 1 - (space/self.collectionView.frame.size.width/8);
         atts.transform = CGAffineTransformMakeScale(scale, scale);
     }
     return attsArray;

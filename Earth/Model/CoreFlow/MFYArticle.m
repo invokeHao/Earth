@@ -245,4 +245,25 @@ NSString *const kMFYArticleUnliked = @"unliked";
 
     return copy;
 }
+
+- (MFYArticleType)MFYmediaType {
+    if (self.postType == 1) {
+        if (self.media.mediaType == 2) {
+            return MFYArticleTypeAudio;
+        }else {
+            return MFYArticleTypeImage;
+        }
+    }else{
+        if (self.embeddedArticles.count > 0) {
+            MFYItem * item = [self.embeddedArticles firstObject];
+            if (item.media.mediaType == 3) {
+                return MFYArticleTypeVideo;
+            }else {
+                return MFYArticleTypeImage;
+            }
+        }else {
+            return MFYArticleTypeImage;
+        }
+    }
+}
 @end

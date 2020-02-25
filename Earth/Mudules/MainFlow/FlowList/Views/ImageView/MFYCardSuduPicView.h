@@ -31,6 +31,8 @@ typedef NS_ENUM(NSInteger, MFYPicItemType) {
 
 @property (nonatomic, assign)MFYPicItemType itemType;
 
+@property (strong, nonatomic)NSURL * playUrl;
+
 
 - (instancetype)initWithItemType:(MFYPicItemType)itemType;
 
@@ -41,6 +43,8 @@ typedef NS_ENUM(NSInteger, MFYPicItemType) {
 - (void)pauseTheVideo;
 
 - (void)stopTheVideo;
+
+- (void)resetVideo;
 
 @end
 

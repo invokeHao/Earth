@@ -123,6 +123,12 @@
 		67CC31932401105C002E6E2B /* MFYArticleService.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC31922401105C002E6E2B /* MFYArticleService.m */; };
 		67CC319B24012D91002E6E2B /* MFYMyLikeVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC319A24012D91002E6E2B /* MFYMyLikeVM.m */; };
 		67CC319E24012E9B002E6E2B /* MFYMyLikeListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC319D24012E9B002E6E2B /* MFYMyLikeListVC.m */; };
+		67CC31A12403710F002E6E2B /* MFYImageCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC31A02403710F002E6E2B /* MFYImageCardCell.m */; };
+		67CC31A424037267002E6E2B /* MFYMyLikeDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC31A324037267002E6E2B /* MFYMyLikeDisplayView.m */; };
+		67CC31AB2403BF00002E6E2B /* MFYMyNoteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC31AA2403BF00002E6E2B /* MFYMyNoteVC.m */; };
+		67CC31AE2403BF74002E6E2B /* MFYMyNoteVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC31AD2403BF74002E6E2B /* MFYMyNoteVM.m */; };
+		67CC31B12403E041002E6E2B /* MFYTimeLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC31B02403E041002E6E2B /* MFYTimeLineView.m */; };
+		67CC31B42403E176002E6E2B /* MFYDateItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC31B32403E176002E6E2B /* MFYDateItemView.m */; };
 		67D28B7523D18FC500543D22 /* MFYArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7423D18FC500543D22 /* MFYArticle.m */; };
 		67D28B7823D1902D00543D22 /* MFYMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7723D1902D00543D22 /* MFYMedia.m */; };
 		67D28B7F23D1908300543D22 /* MFYProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7E23D1908300543D22 /* MFYProfile.m */; };
@@ -404,6 +410,18 @@
 		67CC319A24012D91002E6E2B /* MFYMyLikeVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYMyLikeVM.m; sourceTree = "<group>"; };
 		67CC319C24012E9B002E6E2B /* MFYMyLikeListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYMyLikeListVC.h; sourceTree = "<group>"; };
 		67CC319D24012E9B002E6E2B /* MFYMyLikeListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYMyLikeListVC.m; sourceTree = "<group>"; };
+		67CC319F2403710F002E6E2B /* MFYImageCardCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYImageCardCell.h; sourceTree = "<group>"; };
+		67CC31A02403710F002E6E2B /* MFYImageCardCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYImageCardCell.m; sourceTree = "<group>"; };
+		67CC31A224037267002E6E2B /* MFYMyLikeDisplayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYMyLikeDisplayView.h; sourceTree = "<group>"; };
+		67CC31A324037267002E6E2B /* MFYMyLikeDisplayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYMyLikeDisplayView.m; sourceTree = "<group>"; };
+		67CC31A92403BF00002E6E2B /* MFYMyNoteVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYMyNoteVC.h; sourceTree = "<group>"; };
+		67CC31AA2403BF00002E6E2B /* MFYMyNoteVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYMyNoteVC.m; sourceTree = "<group>"; };
+		67CC31AC2403BF74002E6E2B /* MFYMyNoteVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYMyNoteVM.h; sourceTree = "<group>"; };
+		67CC31AD2403BF74002E6E2B /* MFYMyNoteVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYMyNoteVM.m; sourceTree = "<group>"; };
+		67CC31AF2403E041002E6E2B /* MFYTimeLineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYTimeLineView.h; sourceTree = "<group>"; };
+		67CC31B02403E041002E6E2B /* MFYTimeLineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYTimeLineView.m; sourceTree = "<group>"; };
+		67CC31B22403E176002E6E2B /* MFYDateItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYDateItemView.h; sourceTree = "<group>"; };
+		67CC31B32403E176002E6E2B /* MFYDateItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYDateItemView.m; sourceTree = "<group>"; };
 		67D28B7323D18FC500543D22 /* MFYArticle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYArticle.h; sourceTree = "<group>"; };
 		67D28B7423D18FC500543D22 /* MFYArticle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYArticle.m; sourceTree = "<group>"; };
 		67D28B7623D1902D00543D22 /* MFYMedia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYMedia.h; sourceTree = "<group>"; };
@@ -1099,8 +1117,9 @@
 		67CC315823FCD778002E6E2B /* Mine */ = {
 			isa = PBXGroup;
 			children = (
-				67CC319524012CA9002E6E2B /* MyLike */,
 				67CC315923FCD778002E6E2B /* MineHomePage */,
+				67CC31A52403BA1A002E6E2B /* MyNote */,
+				67CC319524012CA9002E6E2B /* MyLike */,
 				67CC317823FFA706002E6E2B /* MineSettingVC */,
 			);
 			path = Mine;
@@ -1226,6 +1245,10 @@
 		67CC319624012CA9002E6E2B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				67CC31A224037267002E6E2B /* MFYMyLikeDisplayView.h */,
+				67CC31A324037267002E6E2B /* MFYMyLikeDisplayView.m */,
+				67CC319F2403710F002E6E2B /* MFYImageCardCell.h */,
+				67CC31A02403710F002E6E2B /* MFYImageCardCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1244,6 +1267,45 @@
 			children = (
 				67CC319924012D91002E6E2B /* MFYMyLikeVM.h */,
 				67CC319A24012D91002E6E2B /* MFYMyLikeVM.m */,
+			);
+			path = Reactor;
+			sourceTree = "<group>";
+		};
+		67CC31A52403BA1A002E6E2B /* MyNote */ = {
+			isa = PBXGroup;
+			children = (
+				67CC31A82403BA1A002E6E2B /* Reactor */,
+				67CC31A72403BA1A002E6E2B /* ViewController */,
+				67CC31A62403BA1A002E6E2B /* View */,
+			);
+			path = MyNote;
+			sourceTree = "<group>";
+		};
+		67CC31A62403BA1A002E6E2B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				67CC31AF2403E041002E6E2B /* MFYTimeLineView.h */,
+				67CC31B02403E041002E6E2B /* MFYTimeLineView.m */,
+				67CC31B22403E176002E6E2B /* MFYDateItemView.h */,
+				67CC31B32403E176002E6E2B /* MFYDateItemView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		67CC31A72403BA1A002E6E2B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67CC31A92403BF00002E6E2B /* MFYMyNoteVC.h */,
+				67CC31AA2403BF00002E6E2B /* MFYMyNoteVC.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		67CC31A82403BA1A002E6E2B /* Reactor */ = {
+			isa = PBXGroup;
+			children = (
+				67CC31AC2403BF74002E6E2B /* MFYMyNoteVM.h */,
+				67CC31AD2403BF74002E6E2B /* MFYMyNoteVM.m */,
 			);
 			path = Reactor;
 			sourceTree = "<group>";
@@ -1740,6 +1802,7 @@
 				67CC311123F3E91A002E6E2B /* NSString+WHExtention.m in Sources */,
 				67CC315723FA6F1D002E6E2B /* MFYRecorderView.m in Sources */,
 				67D28B8223D191EF00543D22 /* MFYGender.m in Sources */,
+				67CC31AE2403BF74002E6E2B /* MFYMyNoteVM.m in Sources */,
 				679A02E923F107620041A012 /* MOPhotoPreviewNavigationBar.m in Sources */,
 				67CC310423F29754002E6E2B /* MFYItem.m in Sources */,
 				67EFC32223C300C500F5BDB3 /* KSProgressLayer.m in Sources */,
@@ -1765,6 +1828,7 @@
 				672503FB23D421A800716842 /* MFYOpenUDID.m in Sources */,
 				679A02D723F107620041A012 /* UIView+MOExtension.m in Sources */,
 				679A02ED23F107620041A012 /* MOProgressView.m in Sources */,
+				67CC31B12403E041002E6E2B /* MFYTimeLineView.m in Sources */,
 				679A02DF23F107620041A012 /* MOAssetModel.m in Sources */,
 				6763D7B323D07B84003D9E20 /* MFYLoginModel.m in Sources */,
 				67CC315F23FCD7AC002E6E2B /* MFYMineHomePageVC.m in Sources */,
@@ -1777,6 +1841,7 @@
 				67D28B8623D1B2B400543D22 /* MFYCoreflowService.m in Sources */,
 				679A02E123F107620041A012 /* MOAlbumModel.m in Sources */,
 				672503FE23D4229A00716842 /* UDIDWithKeyChain.m in Sources */,
+				67CC31AB2403BF00002E6E2B /* MFYMyNoteVC.m in Sources */,
 				67CC311B23F4FB19002E6E2B /* MFYRedPacketView.m in Sources */,
 				67CC310A23F39D56002E6E2B /* MFYTopicTagService.m in Sources */,
 				67CC312623F6A550002E6E2B /* MFYVideoDetailVC.m in Sources */,
@@ -1802,7 +1867,9 @@
 				67CC3190240014E2002E6E2B /* MFYAboutUsVC.m in Sources */,
 				6746D48B23B4EDC500A46FC7 /* MFYCategoryTitleView.m in Sources */,
 				67CC30EB23F14847002E6E2B /* MFYQiniuSystemService.m in Sources */,
+				67CC31B42403E176002E6E2B /* MFYDateItemView.m in Sources */,
 				6763D79923CEF4B4003D9E20 /* MFYServiceConstant.m in Sources */,
+				67CC31A12403710F002E6E2B /* MFYImageCardCell.m in Sources */,
 				67CC30E123F146ED002E6E2B /* MFYQiNiuModel.m in Sources */,
 				679A02E223F107620041A012 /* MODownloadNotificationModel.m in Sources */,
 				67CC316923FD17E7002E6E2B /* MFYMineHpVM.m in Sources */,
@@ -1855,6 +1922,7 @@
 				6763D79E23CF0375003D9E20 /* NSError+MFYHTTPError.m in Sources */,
 				6746D49223B60E9700A46FC7 /* MFYCategoryBackgoundTitleCellModel.m in Sources */,
 				6763D7AF23D06944003D9E20 /* MFYLoginService.m in Sources */,
+				67CC31A424037267002E6E2B /* MFYMyLikeDisplayView.m in Sources */,
 				67CC311F23F644DB002E6E2B /* MFYHTTPCacheService.m in Sources */,
 				67CC313723F926D6002E6E2B /* MFYAudioPlayCell.m in Sources */,
 				67CC319E24012E9B002E6E2B /* MFYMyLikeListVC.m in Sources */,

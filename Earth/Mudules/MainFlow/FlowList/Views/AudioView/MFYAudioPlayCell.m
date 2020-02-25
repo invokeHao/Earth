@@ -149,7 +149,7 @@
         if (self.audioPlayer.isPlaying) {
             [self pauseTheAudio];
         }else {
-            [self playTheAudio];
+            [self mfy_startPlay];
         }
     }];
     
@@ -173,8 +173,8 @@
         [self.tagView setTags: profile.tags];
         [self.timeLabel setText:[WHTimeUtil articleCardDateStringByTimeStamp:[model.createDate integerValue]]];
         self.likeBtn.selected = model.liked;
-        self.likeLabel.text = model.likeTimes > 0 ? FORMAT(@"%ld人喜欢",model.likeTimes) : @"喜欢";
-        self.replayLabel.text = model.commentTimes > 0 ? FORMAT(@"%ld条回复",model.commentTimes) : @"回复";
+        self.likeLabel.text = model.likeTimes > 0 ? FORMAT(@"%ld人喜欢",(long)model.likeTimes) : @"喜欢";
+        self.replayLabel.text = model.commentTimes > 0 ? FORMAT(@"%ld条回复",(long)model.commentTimes) : @"回复";
         [self configTheAudio];
     }
 }
@@ -189,7 +189,7 @@
     }
 }
 
-- (void)playTheAudio {
+- (void)mfy_startPlay {
     if (self.audioPlayer == nil) {
         [self configTheAudio];
     }
@@ -202,7 +202,7 @@
     [self.playBtn setImage:WHImageNamed(@"audio_play") forState:UIControlStateNormal];
 }
 
-- (void)stopTheAudio {
+- (void)mfy_stopPlay {
     [self.audioPlayer stop];
     self.audioPlayer = nil;
     [self.playBtn setImage:WHImageNamed(@"audio_play") forState:UIControlStateNormal];
@@ -212,7 +212,7 @@
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
     if (flag) {
-        [self stopTheAudio];
+        [self mfy_stopPlay];
     }
 }
 
@@ -276,7 +276,8 @@
             }];
         }];
     }
-    return _tagView;}
+    return _tagView;
+}
 
 - (UIButton *)playBtn {
     if (!_playBtn) {

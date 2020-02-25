@@ -15,6 +15,7 @@
 #import "MFYDynamicManager.h"
 #import "MFYMineService.h"
 #import "MFYMyLikeListVC.h"
+#import "MFYMyNoteVC.h"
 
 @interface MFYMineHomePageVC ()
 
@@ -135,7 +136,9 @@
         [self.navigationController pushViewController:listVC animated:YES];
     }];
     [self.myNoteCell setSelectB:^(BOOL isTap) {
-        
+        @strongify(self)
+        MFYMyNoteVC * noteVC = [[MFYMyNoteVC alloc]init];
+        [self.navigationController pushViewController:noteVC animated:YES];
     }];
     [self.myPayedCell setSelectB:^(BOOL isTap) {
         

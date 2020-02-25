@@ -141,7 +141,6 @@
 
 @property (strong, nonatomic)UIImageView * playView;
 
-@property (strong, nonatomic)NSURL * playUrl;
 
 @end
 
@@ -283,6 +282,13 @@
     }
     self.playView.hidden = NO;
     [self.picImageV jp_stopPlay];
+}
+
+- (void)resetVideo {
+    if (self.playUrl) {
+        self.playUrl = nil;
+        [self.picImageV jp_stopPlay];
+    }
 }
 
 

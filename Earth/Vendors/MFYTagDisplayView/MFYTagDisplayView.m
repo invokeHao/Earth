@@ -39,6 +39,7 @@
                                                                  forIndexPath:indexPath];
     NSString *tagStr = self.tags[indexPath.row];
     cell.tagLabel.text = tagStr;
+    cell.themeColor = self.tagColor;
     return cell;
 }
 
@@ -51,13 +52,21 @@
     return size;
 }
 
+
+- (UIColor *)tagColor {
+    if (!_tagColor) {
+        _tagColor = [UIColor whiteColor];
+    }
+    return _tagColor;
+}
+
 - (void)setTags:(NSArray* )tags {
     _tags = tags;
     [self reloadData];
     [self layoutIfNeeded];
     dispatch_async(dispatch_get_main_queue(),^{
         if (self.shouldUpdateHeight) {
-            self.shouldUpdateHeight(self.collectionViewLayout.collectionViewContentSize.height);
+            self.shouldUpdateHeight(self.collectionViewLayout.collectionViewContentSize.width);
         }
     });
 }

@@ -99,6 +99,29 @@
     }];
 }
 
++ (void)getMyPostCardListWithPage:(NSInteger)page completion:(void (^)(NSArray<MFYArticle *> * , NSError * ))completion {
+    NSMutableDictionary * dic = [[NSMutableDictionary alloc]initWithCapacity:0];
+       dic[@"page"] = @(page);
+       dic[@"size"] = @(20);
+       [[MFYHTTPManager sharedManager] GET:@"/api/self/post" parameters:dic success:^(NSURLSessionDataTask * _Nonnull task, MFYResponseObject * _Nonnull cmsResponse) {
+           MFYResponseObject * resp = cmsResponse;
+           if (resp.code == 1) {
+               NSMutableArray * ArticleArr = [NSMutableArray arrayWithCapacity:0];
+               NSArray * arr = resp.result[@"rows"];
+               [arr enumerateObjectsUsingBlock:^(NSDictionary * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                   MFYArticle * article = [[MFYArticle alloc]initWithDictionary:obj];
+                   [ArticleArr addObject:article];
+               }];
+               completion(ArticleArr.copy,nil);
+               
+           }else {
+               completion(nil,[NSError errorWithCode:resp.code desc:resp.errorDesc]);
+           }
+       } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+           completion(nil, error);
+       }];
+}
+
 
 + (NSString *)typeStrWithType:(MFYCoreFlowType)type {
     switch (type) {

@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) UILabel *tagLabel;
 
+@property (strong, nonatomic) UIColor * themeColor;
+
 @end
 
 NS_ASSUME_NONNULL_END

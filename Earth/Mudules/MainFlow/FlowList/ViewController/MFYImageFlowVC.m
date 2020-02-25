@@ -227,6 +227,4 @@
     return _myCategoryView;
 }
 
-
-
 @end

@@ -14,6 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)articleCardDateStringByTimeStamp:(NSTimeInterval)timeStamp;
 
+//获取月和日
++ (NSString *)getMonthAndDayByTimeStamp:(NSTimeInterval)timeStamp;
+
+//获取小时和分钟
++ (NSString *)getHourDateByTimeStamp:(NSTimeInterval)timeStamp;
+
 @end
 
 NS_ASSUME_NONNULL_END

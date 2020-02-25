@@ -21,6 +21,11 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)reuseID;
 
 + (NSString *)identifer;
+
+- (void)mfy_stopPlay;
+
+- (void)mfy_startPlay;
+
 @end
 
 NS_ASSUME_NONNULL_END

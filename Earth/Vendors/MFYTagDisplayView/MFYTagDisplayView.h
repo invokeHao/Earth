@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSArray *tags;
 
+@property (nonatomic, strong) UIColor * tagColor;
+
 
 @end
 
