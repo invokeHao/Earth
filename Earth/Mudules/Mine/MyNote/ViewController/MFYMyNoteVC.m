@@ -12,6 +12,8 @@
 #import "MFYTagDisplayView.h"
 #import "MFYTimeLineView.h"
 #import "MFYTagDisplayLayout.h"
+#import "MFYMineService.h"
+#import "MFYAddTagView.h"
 
 @interface MFYMyNoteVC ()
 
@@ -85,9 +87,26 @@
 }
 
 - (void)bindEvents {
-    NSArray * tagArr = @[@"美女",@"条纹控",@"喜欢怪蜀黍",@"爱吃红烧肉",@"skr",@"00后黄金一代"];
-    [self.tagView setTags:tagArr];
+    @weakify(self)
+    [self.timelineView setItemBlock:^(NSInteger index) {
+        @strongify(self)
+        [self.displayView mfy_scrollToItem:index];
+    }];
     
+    [self.displayView setScrollBlock:^(NSInteger index) {
+       @strongify(self)
+        [self.timelineView mfy_didScrollToItem:index];
+    }];
+    
+    [self.tagView setAddTagBlock:^{
+       @strongify(self)
+        [self mfy_addTag];
+    }];
+    
+    [self.tagView setDeleteTagBlock:^(NSString * _Nonnull tagStr) {
+        @strongify(self)
+        [self mfy_deleteTag:tagStr];
+    }];
 }
 
 - (void)bindData {
@@ -102,6 +121,17 @@
         [self.displayView reloadDataWithArray:self.viewModel.dataList];
         [self.timelineView setArticleArr:self.viewModel.dataList];
     }];
+    
+    RACSignal * tagObserve = RACObserve(self, viewModel.tagList);
+    
+    [[[tagObserve skipUntilBlock:^BOOL(id x) {
+        return YES;
+    }] deliverOnMainThread] subscribeNext:^(id x) {
+        @strongify(self)
+        NSMutableArray * arr = [NSMutableArray arrayWithArray:self.viewModel.tagList];
+        [arr addObject:MFYTagAddSingal];
+        [self.tagView setTags:[arr copy]];
+    }];
 }
 
 - (void)startPlayVideo {
@@ -110,6 +140,31 @@
 
 - (void)stopVideoPlay {
     [self.displayView stopTheMedia];
+}
+
+- (void)mfy_addTag {
+    @weakify(self)
+    [MFYAddTagView showWithCompletion:^(BOOL needRefreshTag) {
+        if (needRefreshTag) {
+            @strongify(self)
+            [self.viewModel refreshTheTag];
+        }
+    }];
+}
+
+- (void)mfy_deleteTag:(NSString *)tagStr {
+    @weakify(self)
+    [[WHAlertTool shareInstance] showAlterViewDeleteWithTitle:@"提示" message:FORMAT(@"是否删除标签“%@”",tagStr) deleteBlock:^(UIAlertAction * _Nonnull action) {
+        [MFYMineService postModifyTag:tagStr isremove:YES Completion:^(BOOL isSuccess, NSError * _Nonnull error) {
+            if (isSuccess) {
+                @strongify(self)
+                [self.viewModel refreshTheTag];
+            }else {
+                [WHHud showString:error.descriptionFromServer];
+            }
+        }];
+    }];
+
 }
 
 - (MFYMyLikeDisplayView *)displayView {
@@ -140,16 +195,6 @@
         _tagView.tagColor = wh_colorWithHexString(@"#FF3F70");
         _tagView.backgroundColor = [UIColor clearColor];
         _tagView.bounces = NO;
-        @weakify(self);
-        [_tagView setShouldUpdateHeight:^(CGFloat width){
-            @strongify(self);
-            if (width > 28) {
-                width = 28;
-            }
-            [self.tagView mas_updateConstraints:^(MASConstraintMaker *make) {
-
-            }];
-        }];
     }
     return _tagView;
 }

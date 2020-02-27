@@ -39,6 +39,9 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark- 修改头像
 + (void)postModifyIcon:(NSString *)iconId Completion:(void(^)(BOOL isSuccess, NSError * error))completion;
 
+#pragma mark- 添加/删除标签
++ (void)postModifyTag:(NSString *)tagStr isremove:(BOOL)isRemove Completion:(void(^)(BOOL isSuccess, NSError * error))completion;
+
 @end
 
 NS_ASSUME_NONNULL_END

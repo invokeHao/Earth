@@ -16,6 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) UIColor * themeColor;
 
+@property (strong, nonatomic) UIImageView * addImageV;
+
+@property (strong, nonatomic) NSString * titleStr;
+
+- (void)setTitleStr:(NSString * _Nonnull)titleStr;
+
 @end
 
 NS_ASSUME_NONNULL_END

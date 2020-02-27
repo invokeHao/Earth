@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)itemDidSelected;
 
+- (void)itemCancelSelected;
+
 @end
 
 NS_ASSUME_NONNULL_END

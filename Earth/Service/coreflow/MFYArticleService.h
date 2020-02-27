@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark- 喜欢/不喜欢卡片
 + (void)postLikeArticle:(NSString *)articleId isLike:(BOOL)like Completion:(void(^)(BOOL isSuccess, NSError * error))completion;
 
+#pragma mark- 删除卡片
++ (void)deleteArticle:(NSString *)articleId Completion:(void(^)(BOOL isSuccess, NSError * error))completion;
+
 @end
 
 NS_ASSUME_NONNULL_END

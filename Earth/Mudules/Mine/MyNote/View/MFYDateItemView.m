@@ -64,7 +64,17 @@
 
 
 - (void)itemDidSelected {
-    
+    self.circleBgLayer.fillColor = wh_colorWithHexString(@"#FF3F70").CGColor;
+    self.topLabel.textColor = wh_colorWithHexString(@"FFFFFF");
+    self.bottomLabel.textColor = wh_colorWithHexString(@"FFFFFF");
+    self.circleLayer.hidden = YES;
+}
+
+- (void)itemCancelSelected {
+    self.circleBgLayer.fillColor = wh_colorWithHexString(@"#FFFFFF").CGColor;
+    self.topLabel.textColor = wh_colorWithHexString(@"939399");
+    self.bottomLabel.textColor = wh_colorWithHexString(@"ABACB3");
+    self.circleLayer.hidden = NO;
 }
 
 - (CAShapeLayer *)circleLayer {
@@ -81,8 +91,7 @@
                                                         startAngle:-M_PI_2
                                                           endAngle:1.5 * M_PI
                                                          clockwise:YES];
-//        CGFloat lengths[2] = {3, 1};
-//        [path setLineDash:lengths count:2 phase:0];
+
         _circleLayer.path = path.CGPath;
         _circleLayer.strokeStart = 0.0;
         _circleLayer.strokeEnd = 1.0;
@@ -95,7 +104,6 @@
         _circleBgLayer = [CAShapeLayer layer];
         _circleBgLayer.lineWidth = 1;
         _circleBgLayer.strokeColor = [UIColor clearColor].CGColor;
-//        _circleBgLayer.fillColor = wh_colorWithHexString(@"#FF3F70").CGColor;
         _circleBgLayer.fillColor = wh_colorWithHexString(@"#FFFFFF").CGColor;
         
         UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(circleRadio, circleRadio)

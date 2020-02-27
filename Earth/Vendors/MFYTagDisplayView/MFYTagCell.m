@@ -24,6 +24,7 @@
     self.contentView.layer.borderColor = [UIColor whiteColor].CGColor;
     self.contentView.layer.borderWidth = 1;
     [self.contentView addSubview:self.tagLabel];
+    [self.contentView addSubview:self.addImageV];
 }
 
 - (void)layoutSubviews {
@@ -32,6 +33,11 @@
     [self.tagLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.mas_equalTo(self.contentView);
         make.height.mas_equalTo(16);
+    }];
+    
+    [self.addImageV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.mas_equalTo(self.contentView);
+        make.size.mas_equalTo(CGSizeMake(14, 14));
     }];
 }
 
@@ -43,11 +49,33 @@
     }
 }
 
+- (void)setTitleStr:(NSString *)titleStr {
+    _titleStr = titleStr;
+    if ([titleStr isEqualToString:MFYTagAddSingal]) {
+        self.contentView.backgroundColor = wh_colorWithHexString(@"#FF3F70");
+        self.addImageV.hidden = NO;
+        self.tagLabel.text = @"";
+    }else {
+        self.tagLabel.text = titleStr;
+        self.contentView.backgroundColor = [UIColor clearColor];
+        self.addImageV.hidden = YES;
+    }
+}
+
 - (UILabel *)tagLabel {
     if (!_tagLabel) {
         _tagLabel = UILabel.label.WH_font(WHFont(15.0)).WH_textColor([UIColor whiteColor]);
     }
     return _tagLabel;
+}
+
+- (UIImageView *)addImageV {
+    if (!_addImageV) {
+        _addImageV = UIImageView.imageView;
+        _addImageV.image = WHImageNamed(@"add_tag");
+        _addImageV.hidden = YES;
+    }
+    return _addImageV;
 }
 
 

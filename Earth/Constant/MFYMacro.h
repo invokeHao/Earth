@@ -68,4 +68,6 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
 #define MFYNotificationPublishImageSuccess @"MFYNotificationPublishImageSuccess" //发帖颜值贴成功
 #define MFYNotificationPublishAudioSuccess @"MFYNotificationPublishAudioSuccess" //发帖声控贴成功
 
+#define MFYTagAddSingal @"MFYTAGADDSINGAL"  //判断为添加按钮
+
 #endif /* MFYMacro_h */

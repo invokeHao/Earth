@@ -15,9 +15,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong,readonly) NSMutableArray<MFYArticle *> * dataList;
 
+@property (nonatomic, strong,readonly) NSMutableArray * tagList;
+
 @property (nonatomic, assign, readonly) NSInteger NewDataCount;
 
 -(void)refreshData;
+
+- (void)refreshTheTag;
 
 
 @end

@@ -41,6 +41,8 @@
 
 @property (nonatomic, strong)AVAudioPlayer *audioPlayer;
 
+@property (nonatomic, assign)CGFloat tagViewHeight;
+
 @end
 
 @implementation MFYAudioPlayCell
@@ -50,6 +52,7 @@
     if (self) {
         [self setupViews];
         [self bindEvents];
+        [self configTheTagViewHeight];
     }
     return self;
 }
@@ -99,6 +102,7 @@
         make.top.mas_equalTo(self.nameLabel.mas_bottom).offset(12);
         make.left.mas_equalTo(22);
         make.right.mas_equalTo(-22);
+        make.height.mas_equalTo(self.tagViewHeight);
     }];
     
     [self.playBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -142,6 +146,20 @@
     }];
 }
 
+- (void)configTheTagViewHeight {
+    CGFloat tagViewH = (H_SCALE(440)/2 - (H_SCALE(97)/2) - 110);
+    CGFloat H = 0;
+    for (int i = 1; i < 10; i++) {
+        H = i * 22 + (i - 1) * 10;
+        if (H < tagViewH) {
+            continue;
+        }else {
+            break;
+        }
+    }
+    self.tagViewHeight = H - 32;
+}
+
 - (void)bindEvents {
     @weakify(self)
     [[self.playBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
@@ -162,6 +180,17 @@
             }
         }];
     }];
+    
+    UILongPressGestureRecognizer * longPress = [[UILongPressGestureRecognizer alloc]init];
+    
+    [[longPress rac_gestureSignal] subscribeNext:^(UILongPressGestureRecognizer * longPress) {
+        @strongify(self)
+        if (self.longPressBlock) {
+            self.longPressBlock();
+        }
+    }];
+    [self addGestureRecognizer:longPress];
+
 }
 
 - (void)setModel:(MFYArticle *)model {
@@ -265,16 +294,18 @@
                                         collectionViewLayout:layout];
         _tagView.backgroundColor = [UIColor clearColor];
         _tagView.bounces = NO;
-        @weakify(self);
-        [_tagView setShouldUpdateHeight:^(CGFloat height){
-            @strongify(self);
-            if (height > 54) {
-                height = 54;
-            }
-            [self.tagView mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.height.mas_equalTo(height);
-            }];
-        }];
+//        @weakify(self);
+//        [_tagView setShouldUpdateHeight:^(CGFloat height){
+//            @strongify(self);
+//            WHLog(@"height== %f",height);
+//            WHLog(@"tagMax== %f", self.tagViewHeight);
+//            if (height > TagMaxHeight) {
+//                height = TagMaxHeight;
+//            }
+//            [self.tagView mas_updateConstraints:^(MASConstraintMaker *make) {
+//                make.height.mas_equalTo(height);
+//            }];
+//        }];
     }
     return _tagView;
 }

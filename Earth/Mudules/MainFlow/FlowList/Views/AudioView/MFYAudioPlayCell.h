@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) MFYArticle * model;
 
+@property (copy, nonatomic)void(^longPressBlock)(void);
+
 
 @end
 

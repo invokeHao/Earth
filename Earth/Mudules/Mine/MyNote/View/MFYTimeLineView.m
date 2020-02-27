@@ -16,6 +16,8 @@ const CGFloat itemWidth = 54;
 
 @property (nonatomic, strong)UIView * lineView;
 
+@property (nonatomic, assign)NSInteger currentIndex;
+
 @end
 
 @implementation MFYTimeLineView
@@ -54,24 +56,52 @@ const CGFloat itemWidth = 54;
     return size;
 }
 
-//- (void)setTags:(NSArray* )tags {
-//    _tags = tags;
-//    [self reloadData];
-//    [self layoutIfNeeded];
-//    dispatch_async(dispatch_get_main_queue(),^{
-//        if (self.shouldUpdateHeight) {
-//            self.shouldUpdateHeight(self.collectionViewLayout.collectionViewContentSize.width);
-//        }
-//    });
-//}
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    MFYDateItemView * cell = (MFYDateItemView *) [collectionView cellForItemAtIndexPath:indexPath];
+    [cell itemCancelSelected];
+}
 
-- (void)setArticleArr:(NSArray<MFYArticle *> *)articleArr {
-    if (articleArr.count > 0) {
-        _articleArr = articleArr;
-        [self reloadData];
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [self configTheCellStatus:indexPath.item];
+    //需要与上方互动
+    if (self.itemBlock) {
+        self.itemBlock(indexPath.item);
     }
 }
 
 
+#pragma mark- public
+- (void)setArticleArr:(NSArray<MFYArticle *> *)articleArr {
+    if (articleArr.count > 0) {
+        _articleArr = articleArr;
+        _currentIndex = 0;
+        [self reloadData];
+        [self layoutIfNeeded];
+        dispatch_async(dispatch_get_main_queue(),^{
+            NSIndexPath * currentPath = [NSIndexPath indexPathForItem:self.currentIndex inSection:0];
+            MFYDateItemView * currentCell = (MFYDateItemView *) [self cellForItemAtIndexPath:currentPath];
+            [currentCell itemDidSelected];
+        });
+    }
+}
+
+- (void)mfy_didScrollToItem:(NSInteger)index {
+    NSIndexPath * path = [NSIndexPath indexPathForItem:index inSection:0];
+    [self scrollToItemAtIndexPath:path atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+    [self configTheCellStatus:index];
+}
+
+- (void)configTheCellStatus:(NSInteger )index {
+    if (self.currentIndex == index) {
+        return;
+    }
+    NSIndexPath * path = [NSIndexPath indexPathForItem:index inSection:0];
+    MFYDateItemView * cell = (MFYDateItemView *) [self cellForItemAtIndexPath:path];
+    [cell itemDidSelected];
+    NSIndexPath * currentPath = [NSIndexPath indexPathForItem:self.currentIndex inSection:0];
+    MFYDateItemView * currentCell = (MFYDateItemView *) [self cellForItemAtIndexPath:currentPath];
+    [currentCell itemCancelSelected];
+    self.currentIndex = index;
+}
 
 @end

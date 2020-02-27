@@ -10,6 +10,7 @@
 #import "MFYAudioFlowLayout.h"
 #import "MFYAudioPlayCell.h"
 #import "MFYImageCardCell.h"
+#import "MFYArticleService.h"
 
 
 #define cellWidth W_SCALE(325)
@@ -44,6 +45,8 @@
     [self addSubview:self.mainCollection];
 }
 
+#pragma mark- public
+
 -(void)reloadDataWithArray:(NSArray<MFYArticle *> *)arr{
     if (arr.count > 0) {
         self.dataList = arr;
@@ -71,6 +74,12 @@
     [cell mfy_stopPlay];
 }
 
+- (void)mfy_scrollToItem:(NSInteger)item {
+    NSIndexPath * path = [NSIndexPath indexPathForItem:item inSection:0];
+    [self.mainCollection scrollToItemAtIndexPath:path atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+}
+
+
 #pragma mark- CollectionView dataSource && delegate
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -84,11 +93,30 @@
         [collectionView registerClass:[MFYAudioPlayCell class] forCellWithReuseIdentifier:[MFYAudioPlayCell reuseID]];
         MFYAudioPlayCell *audioCell = [collectionView dequeueReusableCellWithReuseIdentifier:[MFYAudioPlayCell reuseID] forIndexPath:indexPath];
         [audioCell setModel:article];
+        @weakify(self)
+        [audioCell setLongPressBlock:^{
+            @strongify(self)
+            //弹出是否删除
+            [[WHAlertTool shareInstance] showAlterViewWithMessage:@"是否删除此动态" andDoneBlock:^(UIAlertAction * _Nonnull action) {
+                @strongify(self);
+                [self deleteItemByArticleid:article.articleId atIndexPath:indexPath];
+            }];
+
+        }];
         return audioCell;
     }else {
         [collectionView registerClass:[MFYImageCardCell class] forCellWithReuseIdentifier:[MFYImageCardCell reuseID]];
         MFYImageCardCell * imageCell = [collectionView dequeueReusableCellWithReuseIdentifier:[MFYImageCardCell reuseID] forIndexPath:indexPath];
         [imageCell setArticle:article];
+        @weakify(self)
+        [imageCell setLongPressBlock:^{
+            @strongify(self)
+            //弹出是否删除
+            [[WHAlertTool shareInstance] showAlterViewWithMessage:@"是否删除此动态" andDoneBlock:^(UIAlertAction * _Nonnull action) {
+                @strongify(self);
+                [self deleteItemByArticleid:article.articleId atIndexPath:indexPath];
+            }];
+        }];
         return imageCell;
     }
 }
@@ -125,8 +153,32 @@
 
         _currentIndex = index;
     }
-    WHLog(@"EndDecelerating==%d",index);
-    
+    if (self.scrollBlock) {
+        self.scrollBlock(index);
+    }
+//    WHLog(@"EndDecelerating==%d",index);
+}
+
+#pragma mark- 删除帖子
+- (void)deleteItemByArticleid:(NSString*)articleId atIndexPath:(NSIndexPath *)indexpath {
+    @weakify(self)
+    [MFYArticleService deleteArticle:articleId Completion:^(BOOL isSuccess, NSError * _Nonnull error) {
+        if (isSuccess) {
+            @strongify(self)
+            [self stopTheMedia];
+            NSMutableArray *mutableCoreFlowArray = [self.dataList mutableCopy];
+            [mutableCoreFlowArray removeObjectAtIndex:indexpath.item];
+            self.dataList = [mutableCoreFlowArray copy];
+            self.currentIndex = MIN(self.currentIndex, self.dataList.count - 1);
+            [self.mainCollection performBatchUpdates:^{
+                [self.mainCollection deleteItemsAtIndexPaths:@[indexpath]];
+            } completion:^(BOOL finished) {
+                [self.mainCollection reloadData];
+            }];
+        }else {
+            [WHHud showString:error.descriptionFromServer];
+        }
+    }];
 }
 
 - (UICollectionView *)mainCollection {

@@ -10,6 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^scrollItemBlock)(NSInteger index);
+
 @class MFYArticle;
 @interface MFYMyLikeDisplayView : UIView
 
@@ -18,6 +20,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)playTheMedia;
 
 - (void)stopTheMedia;
+
+//配合timeline做滚动
+- (void)mfy_scrollToItem:(NSInteger)item;
+
+@property (nonatomic, strong)scrollItemBlock scrollBlock;
 
 @end
 

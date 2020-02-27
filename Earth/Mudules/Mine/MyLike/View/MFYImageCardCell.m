@@ -21,12 +21,26 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setupViews];
+        [self bindEvents];
     }
     return self;
 }
 
 - (void)setupViews {
     [self.contentView addSubview:self.cardView];
+}
+
+- (void)bindEvents {
+    @weakify(self)
+    UILongPressGestureRecognizer * longPress = [[UILongPressGestureRecognizer alloc]init];
+    
+    [[longPress rac_gestureSignal] subscribeNext:^(UILongPressGestureRecognizer * longPress) {
+        @strongify(self)
+        if (self.longPressBlock) {
+            self.longPressBlock();
+        }
+    }];
+    [self.cardView addGestureRecognizer:longPress];
 }
 
 - (void)mfy_startPlay {

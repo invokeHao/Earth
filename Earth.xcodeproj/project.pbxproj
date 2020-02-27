@@ -129,6 +129,8 @@
 		67CC31AE2403BF74002E6E2B /* MFYMyNoteVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC31AD2403BF74002E6E2B /* MFYMyNoteVM.m */; };
 		67CC31B12403E041002E6E2B /* MFYTimeLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC31B02403E041002E6E2B /* MFYTimeLineView.m */; };
 		67CC31B42403E176002E6E2B /* MFYDateItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC31B32403E176002E6E2B /* MFYDateItemView.m */; };
+		67CC31B8240549F4002E6E2B /* UIScrollView+RefreshAble.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC31B7240549F4002E6E2B /* UIScrollView+RefreshAble.m */; };
+		67CC31BB24079891002E6E2B /* MFYAddTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC31BA24079891002E6E2B /* MFYAddTagView.m */; };
 		67D28B7523D18FC500543D22 /* MFYArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7423D18FC500543D22 /* MFYArticle.m */; };
 		67D28B7823D1902D00543D22 /* MFYMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7723D1902D00543D22 /* MFYMedia.m */; };
 		67D28B7F23D1908300543D22 /* MFYProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7E23D1908300543D22 /* MFYProfile.m */; };
@@ -422,6 +424,10 @@
 		67CC31B02403E041002E6E2B /* MFYTimeLineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYTimeLineView.m; sourceTree = "<group>"; };
 		67CC31B22403E176002E6E2B /* MFYDateItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYDateItemView.h; sourceTree = "<group>"; };
 		67CC31B32403E176002E6E2B /* MFYDateItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYDateItemView.m; sourceTree = "<group>"; };
+		67CC31B6240549F4002E6E2B /* UIScrollView+RefreshAble.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+RefreshAble.h"; sourceTree = "<group>"; };
+		67CC31B7240549F4002E6E2B /* UIScrollView+RefreshAble.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+RefreshAble.m"; sourceTree = "<group>"; };
+		67CC31B924079891002E6E2B /* MFYAddTagView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYAddTagView.h; sourceTree = "<group>"; };
+		67CC31BA24079891002E6E2B /* MFYAddTagView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYAddTagView.m; sourceTree = "<group>"; };
 		67D28B7323D18FC500543D22 /* MFYArticle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYArticle.h; sourceTree = "<group>"; };
 		67D28B7423D18FC500543D22 /* MFYArticle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYArticle.m; sourceTree = "<group>"; };
 		67D28B7623D1902D00543D22 /* MFYMedia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYMedia.h; sourceTree = "<group>"; };
@@ -620,6 +626,7 @@
 		6746D48323B4E73000A46FC7 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				67CC31B5240549BC002E6E2B /* UIScrollView */,
 				67CC30EF23F14D12002E6E2B /* UIImage */,
 				6746D48423B4E73000A46FC7 /* UIColor */,
 				6746D49D23B62DE700A46FC7 /* UIView */,
@@ -1288,6 +1295,8 @@
 				67CC31B02403E041002E6E2B /* MFYTimeLineView.m */,
 				67CC31B22403E176002E6E2B /* MFYDateItemView.h */,
 				67CC31B32403E176002E6E2B /* MFYDateItemView.m */,
+				67CC31B924079891002E6E2B /* MFYAddTagView.h */,
+				67CC31BA24079891002E6E2B /* MFYAddTagView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1308,6 +1317,15 @@
 				67CC31AD2403BF74002E6E2B /* MFYMyNoteVM.m */,
 			);
 			path = Reactor;
+			sourceTree = "<group>";
+		};
+		67CC31B5240549BC002E6E2B /* UIScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				67CC31B6240549F4002E6E2B /* UIScrollView+RefreshAble.h */,
+				67CC31B7240549F4002E6E2B /* UIScrollView+RefreshAble.m */,
+			);
+			path = UIScrollView;
 			sourceTree = "<group>";
 		};
 		67D28B7C23D1907800543D22 /* User */ = {
@@ -1896,6 +1914,7 @@
 				679A02F623F125FE0041A012 /* MFYAlbumModel.m in Sources */,
 				67CC317723FEBC39002E6E2B /* TKImageView.m in Sources */,
 				67CC316623FCE929002E6E2B /* MFYMineItemModel.m in Sources */,
+				67CC31B8240549F4002E6E2B /* UIScrollView+RefreshAble.m in Sources */,
 				6746D47F23B4DE0700A46FC7 /* MFYImageFlowVC.m in Sources */,
 				67CC319B24012D91002E6E2B /* MFYMyLikeVM.m in Sources */,
 				67CC314A23F95806002E6E2B /* WHTimeUtil.m in Sources */,
@@ -1912,6 +1931,7 @@
 				67D28B7823D1902D00543D22 /* MFYMedia.m in Sources */,
 				67EFC33523C3136800F5BDB3 /* WHAlertTool.m in Sources */,
 				67CC313D23F92E0B002E6E2B /* MFYAudioListVM.m in Sources */,
+				67CC31BB24079891002E6E2B /* MFYAddTagView.m in Sources */,
 				67CC31932401105C002E6E2B /* MFYArticleService.m in Sources */,
 				679A02FD23F12A1C0041A012 /* WHHud.m in Sources */,
 				67CC30FB23F1605E002E6E2B /* MFYPublishItemModel.m in Sources */,

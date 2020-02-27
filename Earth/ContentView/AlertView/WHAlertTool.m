@@ -22,11 +22,14 @@
 
 //警告框确定和取消
 -(void)showAlterViewWithMessage:(NSString*)message andDoneBlock:(void(^)(UIAlertAction * _Nonnull action))doneBlock{
+    if ([[WHAlertTool WHTopViewController] isKindOfClass:[UIAlertController class]]) {
+        return;
+    }
     UIAlertController * alterC = [UIAlertController alertControllerWithTitle:nil message: message preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"hadShow"];
     }];
-    UIAlertAction * doneAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:doneBlock];
+    UIAlertAction * doneAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:doneBlock];
     [alterC addAction:cancelAction];
     [alterC addAction:doneAction];
     @try {

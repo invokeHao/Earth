@@ -38,7 +38,7 @@
     MFYTagCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[MFYTagCell reuseID]
                                                                  forIndexPath:indexPath];
     NSString *tagStr = self.tags[indexPath.row];
-    cell.tagLabel.text = tagStr;
+    [cell setTitleStr:tagStr];
     cell.themeColor = self.tagColor;
     return cell;
 }
@@ -49,7 +49,23 @@
     CGFloat tagWidth = textSize.width + 10;
     CGFloat tagHeight = 22;
     CGSize size = CGSizeMake(tagWidth, tagHeight);
+    if ([tagStr isEqualToString:MFYTagAddSingal]) {
+        size = CGSizeMake(49, 22);
+    }
     return size;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *tagStr = self.tags[indexPath.row];
+    if ([tagStr isEqualToString:MFYTagAddSingal]) {
+        if (self.addTagBlock) {
+            self.addTagBlock();
+        }
+    }else {
+        if (self.deleteTagBlock) {
+            self.deleteTagBlock(tagStr);
+        }
+    }
 }
 
 
@@ -66,7 +82,7 @@
     [self layoutIfNeeded];
     dispatch_async(dispatch_get_main_queue(),^{
         if (self.shouldUpdateHeight) {
-            self.shouldUpdateHeight(self.collectionViewLayout.collectionViewContentSize.width);
+            self.shouldUpdateHeight(self.collectionViewLayout.collectionViewContentSize.height);
         }
     });
 }

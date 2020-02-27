@@ -14,6 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) void (^shouldUpdateHeight)(CGFloat height);
 
+@property (nonatomic, copy) void (^addTagBlock)(void);
+
+@property (nonatomic, copy) void (^deleteTagBlock)(NSString * tagStr);
+
 @property (nonatomic, strong) NSArray *tags;
 
 @property (nonatomic, strong) UIColor * tagColor;

@@ -8,7 +8,7 @@
 
 #import "MFYNavigationBar.h"
 
-const CGFloat navButtonWidth = 60.0f;
+CGFloat const navButtonWidth = 60.0f;
 
 @interface MFYNavigationBar ()
 

@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic)MFYArticle * article;
 
+@property (copy, nonatomic)void(^longPressBlock)(void);
+
 - (void)mfy_stopPlay;
 
 - (void)mfy_startPlay;
