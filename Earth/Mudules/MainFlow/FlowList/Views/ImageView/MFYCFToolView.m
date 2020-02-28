@@ -57,11 +57,15 @@
             self.tapLikeBlock(NO);
         }
     }];
+    
+    [[self.messageBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+       @strongify(self)
+        if (self.tapMessageBlock) {
+            self.tapMessageBlock(YES);
+        }
+    }];
 }
 
-- (void)likeBtnAction {
-    
-}
 
 - (void)layoutSubviews {
     [super layoutSubviews];

@@ -70,4 +70,27 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
 
 #define MFYTagAddSingal @"MFYTAGADDSINGAL"  //判断为添加按钮
 
+//JChat相关
+
+#define JMESSAGE_APPKEY @"e4d5daa38a8022d73d435949"
+
+#define kuserName @"userName"
+#define klastLoginUserName @"lastUserName"
+#define kBADGE @"badge"
+
+#define kPassword @"password"
+#define kLogin_NotifiCation @"loginNotification"
+#define kFirstLogin @"firstLogin"
+#define kHaveLogin @"haveLogin"
+
+#define kimgKey @"imgKey"
+#define kmessageKey @"messageKey"
+#define kupdateUserInfo @"updateUserInfo"
+#define KNull @"(null)"
+#define KApnsNotification @"apnsNotification"
+
+#define kDBMigrateStartNotification @"DBMigrateStartNotification"
+#define kDBMigrateFinishNotification @"DBMigrateFinishNotification"
+#define JCHATMAINTHREAD(block) dispatch_async(dispatch_get_main_queue(), block)
+
 #endif /* MFYMacro_h */

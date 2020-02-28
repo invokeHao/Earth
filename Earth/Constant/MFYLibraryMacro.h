@@ -21,8 +21,10 @@
 #import <BGFMDB.h>
 #import <IQKeyboardManager.h>
 #import <UMCommon/UMCommon.h>
+#import <JMessage/JMessage.h>
 
 #import "whKit.h"
 #import "KSPhotoBrowser.h"
+#import "JCHATFileManager.h"
 
 #endif /* MFYLibraryMacro_h */

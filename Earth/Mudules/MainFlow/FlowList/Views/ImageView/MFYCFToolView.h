@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong)void(^tapLikeBlock)(BOOL like);
 
+@property (nonatomic, strong)void(^tapMessageBlock)(BOOL tap);
+
 @end
 
 NS_ASSUME_NONNULL_END

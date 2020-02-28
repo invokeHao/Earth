@@ -14,6 +14,7 @@
 #import "MFYCategoryTitleView.h"
 #import "MFYIndicatorBackgroundView.h"
 #import "MFYArticleService.h"
+#import "MFYSingleChatVC.h"
 
 @interface MFYImageFlowVC ()<YHDragCardDelegate,YHDragCardDataSource,JXCategoryViewDelegate>
 
@@ -104,6 +105,23 @@
         YHDragCardDirectionType direction = like ? YHDragCardDirectionTypeRight : YHDragCardDirectionTypeLeft;
         [self.card nextCard:direction];
     }];
+    
+    [self.toolView setTapMessageBlock:^(BOOL tap) {
+        @strongify(self)
+        MFYSingleChatVC * chatVC = [[MFYSingleChatVC alloc]init];
+        [JMSGConversation createSingleConversationWithUsername:self.currentCard.model.profile.imId appKey:JMESSAGE_APPKEY completionHandler:^(id resultObject, NSError *error) {
+            @strongify(self)
+            if (error == nil) {
+                chatVC.conversation = resultObject;
+                JCHATMAINTHREAD(^{
+                    [self.navigationController pushViewController:chatVC animated:YES];
+                });
+            } else {
+                WHLogError(@"createSingleConversationWithUsername");
+            }
+        }];
+    }];
+
 }
 
 -(void)refreshTheArticleList:(NSNotification *)notification {

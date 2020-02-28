@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (assign, nonatomic)BOOL isDBMigrating;
+
 @end
 
 NS_ASSUME_NONNULL_END

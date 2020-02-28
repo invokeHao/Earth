@@ -131,6 +131,10 @@
 		67CC31B42403E176002E6E2B /* MFYDateItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC31B32403E176002E6E2B /* MFYDateItemView.m */; };
 		67CC31B8240549F4002E6E2B /* UIScrollView+RefreshAble.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC31B7240549F4002E6E2B /* UIScrollView+RefreshAble.m */; };
 		67CC31BB24079891002E6E2B /* MFYAddTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC31BA24079891002E6E2B /* MFYAddTagView.m */; };
+		67CC31BF2408BC39002E6E2B /* AppDelegate+MFYCustomConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC31BE2408BC39002E6E2B /* AppDelegate+MFYCustomConfig.m */; };
+		67CC31C22408BCA4002E6E2B /* AppDelegate+MFYJGIM.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC31C12408BCA4002E6E2B /* AppDelegate+MFYJGIM.m */; };
+		67CC31C62408BFD9002E6E2B /* JCHATFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC31C52408BFD9002E6E2B /* JCHATFileManager.m */; };
+		67CC31CE2408E6FB002E6E2B /* MFYSingleChatVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC31CD2408E6FB002E6E2B /* MFYSingleChatVC.m */; };
 		67D28B7523D18FC500543D22 /* MFYArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7423D18FC500543D22 /* MFYArticle.m */; };
 		67D28B7823D1902D00543D22 /* MFYMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7723D1902D00543D22 /* MFYMedia.m */; };
 		67D28B7F23D1908300543D22 /* MFYProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7E23D1908300543D22 /* MFYProfile.m */; };
@@ -428,6 +432,14 @@
 		67CC31B7240549F4002E6E2B /* UIScrollView+RefreshAble.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+RefreshAble.m"; sourceTree = "<group>"; };
 		67CC31B924079891002E6E2B /* MFYAddTagView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYAddTagView.h; sourceTree = "<group>"; };
 		67CC31BA24079891002E6E2B /* MFYAddTagView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYAddTagView.m; sourceTree = "<group>"; };
+		67CC31BD2408BC39002E6E2B /* AppDelegate+MFYCustomConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+MFYCustomConfig.h"; sourceTree = "<group>"; };
+		67CC31BE2408BC39002E6E2B /* AppDelegate+MFYCustomConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+MFYCustomConfig.m"; sourceTree = "<group>"; };
+		67CC31C02408BCA4002E6E2B /* AppDelegate+MFYJGIM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+MFYJGIM.h"; sourceTree = "<group>"; };
+		67CC31C12408BCA4002E6E2B /* AppDelegate+MFYJGIM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+MFYJGIM.m"; sourceTree = "<group>"; };
+		67CC31C42408BFD9002E6E2B /* JCHATFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCHATFileManager.h; sourceTree = "<group>"; };
+		67CC31C52408BFD9002E6E2B /* JCHATFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCHATFileManager.m; sourceTree = "<group>"; };
+		67CC31CC2408E6FB002E6E2B /* MFYSingleChatVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYSingleChatVC.h; sourceTree = "<group>"; };
+		67CC31CD2408E6FB002E6E2B /* MFYSingleChatVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYSingleChatVC.m; sourceTree = "<group>"; };
 		67D28B7323D18FC500543D22 /* MFYArticle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYArticle.h; sourceTree = "<group>"; };
 		67D28B7423D18FC500543D22 /* MFYArticle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYArticle.m; sourceTree = "<group>"; };
 		67D28B7623D1902D00543D22 /* MFYMedia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYMedia.h; sourceTree = "<group>"; };
@@ -706,6 +718,7 @@
 		6763D79A23CF02F8003D9E20 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				67CC31BC2408BC08002E6E2B /* AppDelegate */,
 				67CC310E23F3E8FC002E6E2B /* NSString */,
 				6763D79B23CF02F8003D9E20 /* NSError */,
 			);
@@ -1328,6 +1341,67 @@
 			path = UIScrollView;
 			sourceTree = "<group>";
 		};
+		67CC31BC2408BC08002E6E2B /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				67CC31BD2408BC39002E6E2B /* AppDelegate+MFYCustomConfig.h */,
+				67CC31BE2408BC39002E6E2B /* AppDelegate+MFYCustomConfig.m */,
+				67CC31C02408BCA4002E6E2B /* AppDelegate+MFYJGIM.h */,
+				67CC31C12408BCA4002E6E2B /* AppDelegate+MFYJGIM.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		67CC31C32408BFC3002E6E2B /* JChatCustom */ = {
+			isa = PBXGroup;
+			children = (
+				67CC31C42408BFD9002E6E2B /* JCHATFileManager.h */,
+				67CC31C52408BFD9002E6E2B /* JCHATFileManager.m */,
+			);
+			path = JChatCustom;
+			sourceTree = "<group>";
+		};
+		67CC31C72408E6DF002E6E2B /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				67CC31C82408E6DF002E6E2B /* SingleChat */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		67CC31C82408E6DF002E6E2B /* SingleChat */ = {
+			isa = PBXGroup;
+			children = (
+				67CC31CB2408E6DF002E6E2B /* Reactor */,
+				67CC31C92408E6DF002E6E2B /* ViewController */,
+				67CC31CA2408E6DF002E6E2B /* Views */,
+			);
+			path = SingleChat;
+			sourceTree = "<group>";
+		};
+		67CC31C92408E6DF002E6E2B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67CC31CC2408E6FB002E6E2B /* MFYSingleChatVC.h */,
+				67CC31CD2408E6FB002E6E2B /* MFYSingleChatVC.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		67CC31CA2408E6DF002E6E2B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		67CC31CB2408E6DF002E6E2B /* Reactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Reactor;
+			sourceTree = "<group>";
+		};
 		67D28B7C23D1907800543D22 /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -1452,6 +1526,7 @@
 		67F097EC23A78D56001DCEB4 /* Mudules */ = {
 			isa = PBXGroup;
 			children = (
+				67CC31C72408E6DF002E6E2B /* Chat */,
 				672503FF23D4333A00716842 /* ContentCreator */,
 				6779376023B0C22100D1B822 /* MainFlow */,
 				67CC315823FCD778002E6E2B /* Mine */,
@@ -1544,6 +1619,7 @@
 		67F097F923A78D56001DCEB4 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				67CC31C32408BFC3002E6E2B /* JChatCustom */,
 				67CC315123FA674C002E6E2B /* LameLib */,
 				67CC313E23F94ED5002E6E2B /* MFYTagDisplayView */,
 				679A029523F107620041A012 /* PhotoLibraryKit */,
@@ -1824,6 +1900,7 @@
 				679A02E923F107620041A012 /* MOPhotoPreviewNavigationBar.m in Sources */,
 				67CC310423F29754002E6E2B /* MFYItem.m in Sources */,
 				67EFC32223C300C500F5BDB3 /* KSProgressLayer.m in Sources */,
+				67CC31BF2408BC39002E6E2B /* AppDelegate+MFYCustomConfig.m in Sources */,
 				67F0980423A7A063001DCEB4 /* MFYBaseViewController.m in Sources */,
 				67CC30E723F14776002E6E2B /* MFYDynamicManager.m in Sources */,
 				679A02DA23F107620041A012 /* MOPhotoLibraryConfiguration.m in Sources */,
@@ -1862,6 +1939,7 @@
 				67CC31AB2403BF00002E6E2B /* MFYMyNoteVC.m in Sources */,
 				67CC311B23F4FB19002E6E2B /* MFYRedPacketView.m in Sources */,
 				67CC310A23F39D56002E6E2B /* MFYTopicTagService.m in Sources */,
+				67CC31C22408BCA4002E6E2B /* AppDelegate+MFYJGIM.m in Sources */,
 				67CC312623F6A550002E6E2B /* MFYVideoDetailVC.m in Sources */,
 				679A02DD23F107620041A012 /* MOPhotoLibraryExportCenter.m in Sources */,
 				6725041023D5873200716842 /* MFYVideoAndImageView.m in Sources */,
@@ -1898,6 +1976,7 @@
 				67EFC32A23C30BFF00F5BDB3 /* UIView+WHUd.m in Sources */,
 				67CC318723FFB612002E6E2B /* MFYSettingService.m in Sources */,
 				6725041923D6E43E00716842 /* MFYBaseTableViewCell.m in Sources */,
+				67CC31CE2408E6FB002E6E2B /* MFYSingleChatVC.m in Sources */,
 				6746D4A023B62E2000A46FC7 /* UIView+WHChain.m in Sources */,
 				679A02D823F107620041A012 /* MOPhotoTransformer.m in Sources */,
 				67CC30E423F14711002E6E2B /* MFYQiNiuResponse.m in Sources */,
@@ -1930,6 +2009,7 @@
 				67CC313A23F927D1002E6E2B /* MFYBaseCollectionViewCell.m in Sources */,
 				67D28B7823D1902D00543D22 /* MFYMedia.m in Sources */,
 				67EFC33523C3136800F5BDB3 /* WHAlertTool.m in Sources */,
+				67CC31C62408BFD9002E6E2B /* JCHATFileManager.m in Sources */,
 				67CC313D23F92E0B002E6E2B /* MFYAudioListVM.m in Sources */,
 				67CC31BB24079891002E6E2B /* MFYAddTagView.m in Sources */,
 				67CC31932401105C002E6E2B /* MFYArticleService.m in Sources */,

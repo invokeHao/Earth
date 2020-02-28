@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "AppDelegate+MFYCustomConfig.h"
+#import "AppDelegate+MFYJGIM.h"
 #import "MFYBaseNavigationController.h"
 #import "MFYCoreFlowVC.h"
 
@@ -15,6 +17,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self initialization];
     [self loadCustomViewControllers];
+    [self initJGIMWithLaunchOptions:launchOptions];
     return YES;
 }
 
@@ -31,21 +34,17 @@
     [self.window makeKeyAndVisible];
 }
 
-- (void)initialization {
-    [self setupIQKeyboardManager];
-    [self configTheUmeng];
-    WHLog(@"%@",[MFYLoginManager token]);
+#pragma mark- JMSGDBMigrateDelegate
+
+- (void)onDBMigrateStart {
+    NSLog(@"onDBmigrateStart in appdelegate");
+    _isDBMigrating = YES;
 }
 
-
-- (void)setupIQKeyboardManager {
-    [IQKeyboardManager sharedManager].enable = YES;
-    [IQKeyboardManager sharedManager].enableAutoToolbar = NO;
-    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
-}
-
-- (void)configTheUmeng {
-    [UMConfigure initWithAppkey:@"5e4e8cc67ba7e954e9f6a577" channel:@"APP Store"];
+- (void)onDBMigrateFinishedWithError:(NSError *)error {
+    NSLog(@"onDBmigrateFinish in appdelegate");
+    _isDBMigrating = NO;
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDBMigrateFinishNotification object:nil];
 }
 
 

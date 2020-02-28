@@ -34,6 +34,7 @@ def shared_pods
     pod 'UMCPush'
     pod 'UMCSecurityPlugins'
     pod 'UMCAnalytics'
+    pod 'JMessage'
 
     post_install do |installer|
     installer.pods_project.targets.each do |target|
