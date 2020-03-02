@@ -9,6 +9,8 @@
 #ifndef MFYMacro_h
 #define MFYMacro_h
 
+#import <Foundation/Foundation.h>
+
 #define VERTICAL_SCREEN_HEIGHT MAX([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)
 #define VERTICAL_SCREEN_WIDTH  MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)
 #define WINTH_SCALE VERTICAL_SCREEN_WIDTH / 375.0
@@ -72,7 +74,11 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
 
 //JChat相关
 
-#define JMESSAGE_APPKEY @"e4d5daa38a8022d73d435949"
+//生产环境
+//#define JMESSAGE_APPKEY @"e4d5daa38a8022d73d435949"
+
+//测试环境
+#define JMESSAGE_APPKEY @"523bc28832ea519679af3884"
 
 #define kuserName @"userName"
 #define klastLoginUserName @"lastUserName"
@@ -83,6 +89,8 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
 #define kFirstLogin @"firstLogin"
 #define kHaveLogin @"haveLogin"
 
+#define JCHATMAINTHREAD(block) dispatch_async(dispatch_get_main_queue(), block)
+
 #define kimgKey @"imgKey"
 #define kmessageKey @"messageKey"
 #define kupdateUserInfo @"updateUserInfo"
@@ -91,6 +99,15 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
 
 #define kDBMigrateStartNotification @"DBMigrateStartNotification"
 #define kDBMigrateFinishNotification @"DBMigrateFinishNotification"
-#define JCHATMAINTHREAD(block) dispatch_async(dispatch_get_main_queue(), block)
+
+#define kAlertToSendImage @"AlertToSendImage"
+#define kDeleteMessage @"DeleteMessage"
+#define kDeleteAllMessage  @"deleteAllMessage"
+
+#define upLoadImgWidth   720
+
+
+static NSString * const st_receiveUnknowMessageDes = @"收到新消息类型无法解析的数据，请升级查看";
+static NSString * const st_receiveErrorMessageDes = @"接收消息错误";
 
 #endif /* MFYMacro_h */

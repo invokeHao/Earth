@@ -9,6 +9,7 @@
 #import "MFYLoginVIewController.h"
 #import "MFYTimerButton.h"
 #import "MFYLoginService.h"
+#import "MFYMineService.h"
 
 typedef enum : NSUInteger {
     PhoneNumType,
@@ -220,13 +221,47 @@ typedef enum : NSUInteger {
 - (void)loginWithPhoneNum:(NSString*)num code:(NSString*)code {
     [self.view showActivityView];
     [MFYLoginService loginWithPhoneNum:num verifyCode:code completion:^(MFYLoginModel * _Nonnull loginModel, NSError * _Nonnull error) {
-        [self.view hideActivityView];
-        [MFYLoginManager saveTheLoginModel:loginModel];
-        [self dismissViewControllerAnimated:YES completion:^{
-            [[WHAlertTool WHTopViewController].view showString:@"登录成功"];
-        }];
-        WHLogSuccess(@"%@",loginModel.token);
+        if (!error) {
+            //登录IM
+            [self loginJChatIM:loginModel];
+        }else {
+            [WHHud showString:error.descriptionFromServer];
+            [self.view hideActivityView];
+        }
     }];
+}
+
+#pragma mark- 登录IM
+- (void)loginJChatIM:(MFYLoginModel *)loginModel {
+    //先获取用户IM信息
+    [MFYMineService getSelfDetailInfoCompletion:^(MFYProfile * _Nonnull profile, NSError * _Nonnull error) {
+        [self.view hideActivityView];
+        if (!error) {
+            //IM登录
+            [JMSGUser loginWithUsername:profile.imId
+                               password:profile.imPwd
+                      completionHandler:^(id resultObject, NSError *error) {
+                if (!error) {
+                    loginModel.imId = profile.imId;
+                    loginModel.imPwd = profile.imPwd;
+                    [MFYLoginManager saveTheLoginModel:loginModel];
+                
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kupdateUserInfo object:nil];
+
+                    [self dismissViewControllerAnimated:YES completion:^{
+                        [WHHud showString:@"登录成功"];
+                    }];
+                }else {
+                    [WHHud showString:@"登录聊天系统失败"];
+                    WHLogError(@"%@",error);
+                }
+            }];
+
+        }else {
+            [WHHud showString:error.descriptionFromServer];
+        }
+    }];
+    
 }
 
 #pragma mark - UITextFieldDelegate

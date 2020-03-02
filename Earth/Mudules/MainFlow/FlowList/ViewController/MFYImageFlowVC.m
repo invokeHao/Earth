@@ -108,6 +108,7 @@
     
     [self.toolView setTapMessageBlock:^(BOOL tap) {
         @strongify(self)
+        WHLogSuccess(@"imid ===  %@",self.currentCard.model.profile.imId);
         MFYSingleChatVC * chatVC = [[MFYSingleChatVC alloc]init];
         [JMSGConversation createSingleConversationWithUsername:self.currentCard.model.profile.imId appKey:JMESSAGE_APPKEY completionHandler:^(id resultObject, NSError *error) {
             @strongify(self)

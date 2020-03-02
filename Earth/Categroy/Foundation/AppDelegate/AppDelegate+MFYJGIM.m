@@ -36,9 +36,9 @@
                                               categories:nil];
     }
     
-    [self registerJPushStatusNotification];
+//    [self registerJPushStatusNotification];
     
-    [JCHATFileManager initWithFilePath];//demo 初始化存储路径
+//    [JCHATFileManager initWithFilePath];//demo 初始化存储路径
     
     [JMessage resetBadge]; //清理角标
 }

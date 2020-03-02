@@ -30,6 +30,12 @@ NS_ASSUME_NONNULL_BEGIN
 // 删除link中部分参数
 + (NSString *)deleteSpecificUrlQuery:(NSArray *)array andUrl:(NSString *)url;
 
+
+- (NSString *)stringByTrimingWhitespace;
+
+//一串字符串有几行
+- (NSUInteger)numberOfLines;
+
 @end
 
 NS_ASSUME_NONNULL_END

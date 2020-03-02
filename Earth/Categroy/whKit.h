@@ -18,5 +18,7 @@
 #import "UIImage+WHCompress.h"
 #import "UIImage+WHMosaic.h"
 #import "NSString+WHExtention.h"
+#import "NSDate+Utilities.h"
+#import "UIImage+ResizeMagick.h"
 
 #endif /* whKit_h */

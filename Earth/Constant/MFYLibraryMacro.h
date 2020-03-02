@@ -26,5 +26,7 @@
 #import "whKit.h"
 #import "KSPhotoBrowser.h"
 #import "JCHATFileManager.h"
+#import "MJPhoto.h"
+#import "MJPhotoBrowser.h"
 
 #endif /* MFYLibraryMacro_h */
