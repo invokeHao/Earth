@@ -18,7 +18,7 @@
 #define kVoiceTimeLabelFrame [_model.message isReceived]?CGRectMake(_messageContent.frame.origin.x + _messageContent.frame.size.width + 10, _messageContent.frame.size.height/2 - 8, 35, 17):CGRectMake(_messageContent.frame.origin.x - 45, _messageContent.frame.size.height/2 - 8, 35, 17)
 #define kVoiceTimeLabelHidenFrame [_model.message isReceived]?CGRectMake(_messageContent.frame.origin.x + _messageContent.frame.size.width + 5, _messageContent.frame.size.height/2 - 8, 35, 17):CGRectMake(_messageContent.frame.origin.x, _messageContent.frame.size.height/2 - 8, 35, 17)
 
-static NSInteger const headHeight = 46;
+static NSInteger const headHeight = 41;
 static NSInteger const gapWidth = 5;
 static NSInteger const chatBgViewHeight = 50;
 static NSInteger const readViewRadius = 4;
@@ -34,42 +34,43 @@ static NSInteger const readViewRadius = 4;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.backgroundColor = [UIColor clearColor];
     _headView = [UIImageView new];
-    [_headView setImage:[UIImage imageNamed:@"headDefalt.png"]];
-    _headView.layer.cornerRadius = headHeight/2;
+    [_headView setImage:WHImageNamed(@"default_user")];
+    _headView.layer.cornerRadius = 6;
     _headView.layer.masksToBounds = YES;
     _headView.contentMode = UIViewContentModeScaleAspectFill;
     _messageContent = [JCHATMessageContentView new];
-    [self addSubview:_headView];
-    [self addSubview:_messageContent];
+    [self.contentView addSubview:_headView];
+    [self.contentView addSubview:_messageContent];
     
     _readView = [UIView new];
     [_readView setBackgroundColor:[UIColor redColor]];
     _readView.layer.cornerRadius = readViewRadius;
-    [self addSubview:self.readView];
+    [self.contentView addSubview:self.readView];
     self.continuePlayer = NO;
     
     self.sendFailView = [UIImageView new];
     [self.sendFailView setUserInteractionEnabled:YES];
     [self.sendFailView setImage:[UIImage imageNamed:@"fail05"]];
-    [self addSubview:self.sendFailView];
+    [self.contentView addSubview:self.sendFailView];
     
     _circleView = [UIActivityIndicatorView new];
     [_circleView setBackgroundColor:[UIColor clearColor]];
     [_circleView setHidden:NO];
     _circleView.hidesWhenStopped = YES;
-    [self addSubview:_circleView];
+    [self.contentView addSubview:_circleView];
     
     _voiceTimeLabel = [UILabel new];
     _voiceTimeLabel.backgroundColor = [UIColor clearColor];
-    _voiceTimeLabel.font = [UIFont systemFontOfSize:18];
-    [self addSubview:_voiceTimeLabel];
+    _voiceTimeLabel.textColor = wh_colorWithHexString(@"333333");
+    _voiceTimeLabel.font = WHFont(16);
+    [self.contentView addSubview:_voiceTimeLabel];
     
     _percentLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, chatBgViewHeight, chatBgViewHeight)];
     _percentLabel.hidden = NO;
-    _percentLabel.font =[UIFont systemFontOfSize:18];
+    _percentLabel.font = WHFont(16);
     _percentLabel.textAlignment=NSTextAlignmentCenter;
     _percentLabel.textColor=[UIColor whiteColor];
-    [_messageContent addSubview:_percentLabel];
+    [self.messageContent addSubview:_percentLabel];
     [_percentLabel setBackgroundColor:[UIColor clearColor]];
     
     [self addGestureForAllView];
@@ -124,12 +125,12 @@ static NSInteger const readViewRadius = 4;
                     self.model.avatarDataLength = data.length;
                     [self.headView setImage:[UIImage imageWithData:data]];
                 } else {
-                    [self.headView setImage:[UIImage imageNamed:@"headDefalt"]];
+                    [self.headView setImage:WHImageNamed(@"default_user")];
                 }
             }
         } else {
             WHLog(@"Action -- get thumbavatar fail");
-            [self.headView setImage:[UIImage imageNamed:@"headDefalt"]];
+            [self.headView setImage:[UIImage imageNamed:@"default_user"]];
         }
     }];
 }

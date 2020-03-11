@@ -25,13 +25,15 @@ static NSInteger const textMessageContentRightOffset = 15;
 - (id)init {
   self = [super init];
   if (self != nil) {
-    _textContent = [UILabel new];
-    _textContent.numberOfLines = 0;
-    _textContent.backgroundColor = [UIColor clearColor];
-    _voiceConent = [UIImageView new];
-    _isReceivedSide = NO;
-    [self addSubview:_textContent];
-    [self addSubview:_voiceConent];
+        _textContent = [UILabel new];
+        _textContent.numberOfLines = 0;
+        _textContent.backgroundColor = [UIColor clearColor];
+        _textContent.font = WHFont(16);
+        _textContent.textColor = wh_colorWithHexString(@"#333333");
+        _voiceConent = [UIImageView new];
+        _isReceivedSide = NO;
+        [self addSubview:_textContent];
+        [self addSubview:_voiceConent];
   }
   return self;
 }

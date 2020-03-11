@@ -21,4 +21,6 @@
 #import "NSDate+Utilities.h"
 #import "UIImage+ResizeMagick.h"
 
+#import "JMSGConversation+MFYTop.h"
+
 #endif /* whKit_h */

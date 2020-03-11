@@ -67,7 +67,7 @@
              [viewController presentViewController:nav animated:YES completion:NULL];
         }
             break;
-        case MFYPublicTypeImage: {
+        case MFYPublicTypeImage | MFYPublicTypeChat : {
             MOPhotoLibraryConfiguration *configuration = [[MOPhotoLibraryConfiguration alloc] init];
             configuration.assetType = MOAssetTypePhoto | MOAssetTypeGif;
             configuration.maxSelectedCount = 1;
@@ -195,18 +195,24 @@
     NSArray<MFYAssetModel *> *mfyAssetList = [MOPhotoToMFYTransformer wh_assetListTransformer:assetList];
     [MFYPhotosManager sharedManager].selectedList = [mfyAssetList mutableCopy];
     MFYAssetModel * asset = [mfyAssetList firstObject];
-    MFYCropType type = self.publishType == mfyPublicTypeNull ? MFYImageCardType : MFYUserIconType;
-    MFYPhotoCropVC * cropVC = [[MFYPhotoCropVC alloc]initWithModel:asset cropType:type didCropedImage:^(MFYAssetModel * _Nonnull asset) {
-        WHLog(@"裁切成功");
+    if (self.publishType == MFYPublicTypeChat) {
         if (self.successB) {
             self.successB(asset);
         }
-    }];
-    [picker dismissViewControllerAnimated:NO completion:^{
-        [self.fromViewController presentViewController:cropVC animated:YES completion:^{
+        [picker dismissViewControllerAnimated:YES completion:^{}];
+    }else {
+        MFYCropType type = self.publishType == mfyPublicTypeNull ? MFYImageCardType : MFYUserIconType;
+        MFYPhotoCropVC * cropVC = [[MFYPhotoCropVC alloc]initWithModel:asset cropType:type didCropedImage:^(MFYAssetModel * _Nonnull asset) {
+            WHLog(@"裁切成功");
+            if (self.successB) {
+                self.successB(asset);
+            }
         }];
-    }];
-    
+        [picker dismissViewControllerAnimated:NO completion:^{
+            [self.fromViewController presentViewController:cropVC animated:YES completion:^{
+            }];
+        }];
+    }
 }
 
 - (void)photoLibraryController:(MOPhotoLibraryController *)picker didFinishVideoAssets:(MOAssetModel *)asset {

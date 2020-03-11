@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MFYMessageTextView.h"
+#import "MFYRecorderView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -38,6 +39,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)sendText :(NSString *)text;
 
+- (void)photoClick;
+
 - (void)noPressmoreBtnClick :(UIButton *)btn;
 
 - (void)pressMoreBtnClick :(UIButton *)btn;
@@ -53,7 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-@interface MFYChatToolBar : UIView<UITextViewDelegate>
+@interface MFYChatToolBar : UIView
 
 /**
 *  语音button
@@ -84,10 +87,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic)  NSLayoutConstraint *textViewHeight;
 
 
-/**
- *  录音button 的高度
- */
-//@property (strong, nonatomic) UIButton *startRecordButton;
 /**
  *  是否正在录音
  */
@@ -140,6 +139,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @interface MFYChatToolBarContainer : UIView
+
 @property (strong, nonatomic) MFYChatToolBar *toolbar;
 
 @end

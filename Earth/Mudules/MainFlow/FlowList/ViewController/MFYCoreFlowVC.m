@@ -14,6 +14,7 @@
 #import "MFYNavCategoryTitleView.h"
 #import "MFYTopicTagService.h"
 #import "MFYMineHomePageVC.h"
+#import "MFYChatListVC.h"
 
 @interface MFYCoreFlowVC ()<JXCategoryListContainerViewDelegate>
 {
@@ -66,6 +67,12 @@
         @strongify(self)
         MFYMineHomePageVC * mineVC = [[MFYMineHomePageVC alloc]init];
         [self.navigationController pushViewController:mineVC animated:YES];
+    }];
+    
+    [[self.messageBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self)
+        MFYChatListVC * chatListVC = [[MFYChatListVC alloc]init];
+        [self.navigationController pushViewController:chatListVC animated:YES];
     }];
 
 }

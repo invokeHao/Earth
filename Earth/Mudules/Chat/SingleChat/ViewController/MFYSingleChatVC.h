@@ -9,6 +9,8 @@
 #import "MFYBaseViewController.h"
 #import "MFYMessageTableView.h"
 #import "MFYChatToolBar.h"
+#import "MFYProfile.h"
+#import "MFYChatMoreView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -21,6 +23,7 @@ static NSInteger const messagefristPageNumber = 20;
 UITableViewDataSource,
 UITableViewDelegate,
 SendMessageDelegate,
+MoreViewRecoderDelegate,
 UIImagePickerControllerDelegate,
 UINavigationControllerDelegate,
 UITextViewDelegate,
@@ -32,9 +35,13 @@ UIGestureRecognizerDelegate
 
 @property (nonatomic, strong) MFYMessageTableView *messageTableView;
 
+@property (nonatomic, strong) MFYChatMoreView * moreView;
+
 @property (nonatomic, strong) MFYChatToolBarContainer *toolBarContainer;
 
 @property(nonatomic, assign) JPIMInputViewType textViewInputViewType;
+
+@property (nonatomic, strong) MFYProfile * userProfile;
 
 @property(assign, nonatomic) BOOL barBottomFlag;
 

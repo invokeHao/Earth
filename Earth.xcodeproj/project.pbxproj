@@ -27,6 +27,12 @@
 		6746D49523B625E900A46FC7 /* MFYFlowListVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D49423B625E900A46FC7 /* MFYFlowListVM.m */; };
 		6746D49C23B62C2E00A46FC7 /* MFYFlowCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D49B23B62C2E00A46FC7 /* MFYFlowCardView.m */; };
 		6746D4A023B62E2000A46FC7 /* UIView+WHChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 6746D49F23B62E2000A46FC7 /* UIView+WHChain.m */; };
+		675570612412550D008D6614 /* MFYChatListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 675570602412550D008D6614 /* MFYChatListVC.m */; };
+		6755706424125C1B008D6614 /* MFYChatSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6755706324125C1B008D6614 /* MFYChatSearchView.m */; };
+		675570672416458C008D6614 /* MFYChatFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 675570662416458C008D6614 /* MFYChatFriendCell.m */; };
+		6755706A241781B2008D6614 /* MFYChatListVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 67557069241781B2008D6614 /* MFYChatListVM.m */; };
+		6755706E241885B3008D6614 /* MFYChatService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6755706D241885B3008D6614 /* MFYChatService.m */; };
+		6755707624189BC8008D6614 /* JMSGConversation+MFYTop.m in Sources */ = {isa = PBXBuildFile; fileRef = 6755707524189BC8008D6614 /* JMSGConversation+MFYTop.m */; };
 		6763D79023CEEE5B003D9E20 /* MFYHTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D78F23CEEE5B003D9E20 /* MFYHTTPManager.m */; };
 		6763D79323CEEFE1003D9E20 /* MFYResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D79223CEEFE1003D9E20 /* MFYResponseObject.m */; };
 		6763D79623CEF400003D9E20 /* MFYServiceURLConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D79523CEF400003D9E20 /* MFYServiceURLConfig.m */; };
@@ -72,6 +78,7 @@
 		679A02F623F125FE0041A012 /* MFYAlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 679A02F523F125FE0041A012 /* MFYAlbumModel.m */; };
 		679A02F923F126580041A012 /* MFYAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 679A02F823F126580041A012 /* MFYAssetModel.m */; };
 		679A02FD23F12A1C0041A012 /* WHHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 679A02FC23F12A1C0041A012 /* WHHud.m */; };
+		67AA2917240FBA71008B6788 /* MFYChatMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67AA2916240FBA71008B6788 /* MFYChatMoreView.m */; };
 		67CC30E123F146ED002E6E2B /* MFYQiNiuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC30E023F146ED002E6E2B /* MFYQiNiuModel.m */; };
 		67CC30E423F14711002E6E2B /* MFYQiNiuResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC30E323F14711002E6E2B /* MFYQiNiuResponse.m */; };
 		67CC30E723F14776002E6E2B /* MFYDynamicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC30E623F14776002E6E2B /* MFYDynamicManager.m */; };
@@ -258,6 +265,18 @@
 		6746D49B23B62C2E00A46FC7 /* MFYFlowCardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYFlowCardView.m; sourceTree = "<group>"; };
 		6746D49E23B62E2000A46FC7 /* UIView+WHChain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+WHChain.h"; sourceTree = "<group>"; };
 		6746D49F23B62E2000A46FC7 /* UIView+WHChain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+WHChain.m"; sourceTree = "<group>"; };
+		6755705F2412550D008D6614 /* MFYChatListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYChatListVC.h; sourceTree = "<group>"; };
+		675570602412550D008D6614 /* MFYChatListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYChatListVC.m; sourceTree = "<group>"; };
+		6755706224125C1B008D6614 /* MFYChatSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYChatSearchView.h; sourceTree = "<group>"; };
+		6755706324125C1B008D6614 /* MFYChatSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYChatSearchView.m; sourceTree = "<group>"; };
+		675570652416458C008D6614 /* MFYChatFriendCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYChatFriendCell.h; sourceTree = "<group>"; };
+		675570662416458C008D6614 /* MFYChatFriendCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYChatFriendCell.m; sourceTree = "<group>"; };
+		67557068241781B2008D6614 /* MFYChatListVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYChatListVM.h; sourceTree = "<group>"; };
+		67557069241781B2008D6614 /* MFYChatListVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYChatListVM.m; sourceTree = "<group>"; };
+		6755706C241885B3008D6614 /* MFYChatService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYChatService.h; sourceTree = "<group>"; };
+		6755706D241885B3008D6614 /* MFYChatService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYChatService.m; sourceTree = "<group>"; };
+		6755707424189BC8008D6614 /* JMSGConversation+MFYTop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JMSGConversation+MFYTop.h"; sourceTree = "<group>"; };
+		6755707524189BC8008D6614 /* JMSGConversation+MFYTop.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "JMSGConversation+MFYTop.m"; sourceTree = "<group>"; };
 		6763D78E23CEEE5B003D9E20 /* MFYHTTPManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYHTTPManager.h; sourceTree = "<group>"; };
 		6763D78F23CEEE5B003D9E20 /* MFYHTTPManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYHTTPManager.m; sourceTree = "<group>"; };
 		6763D79123CEEFE1003D9E20 /* MFYResponseObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYResponseObject.h; sourceTree = "<group>"; };
@@ -354,6 +373,8 @@
 		679A02F823F126580041A012 /* MFYAssetModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYAssetModel.m; sourceTree = "<group>"; };
 		679A02FB23F12A1C0041A012 /* WHHud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHHud.h; sourceTree = "<group>"; };
 		679A02FC23F12A1C0041A012 /* WHHud.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WHHud.m; sourceTree = "<group>"; };
+		67AA2915240FBA71008B6788 /* MFYChatMoreView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYChatMoreView.h; sourceTree = "<group>"; };
+		67AA2916240FBA71008B6788 /* MFYChatMoreView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYChatMoreView.m; sourceTree = "<group>"; };
 		67CC30DF23F146ED002E6E2B /* MFYQiNiuModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYQiNiuModel.h; sourceTree = "<group>"; };
 		67CC30E023F146ED002E6E2B /* MFYQiNiuModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYQiNiuModel.m; sourceTree = "<group>"; };
 		67CC30E223F14711002E6E2B /* MFYQiNiuResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYQiNiuResponse.h; sourceTree = "<group>"; };
@@ -818,6 +839,70 @@
 				67EFC33023C311A800F5BDB3 /* UIView+WHExtension.m */,
 			);
 			path = UIView;
+			sourceTree = "<group>";
+		};
+		6755705B241254BA008D6614 /* ChatList */ = {
+			isa = PBXGroup;
+			children = (
+				6755705E241254BA008D6614 /* Reactor */,
+				6755705C241254BA008D6614 /* ViewController */,
+				6755705D241254BA008D6614 /* Views */,
+			);
+			path = ChatList;
+			sourceTree = "<group>";
+		};
+		6755705C241254BA008D6614 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6755705F2412550D008D6614 /* MFYChatListVC.h */,
+				675570602412550D008D6614 /* MFYChatListVC.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		6755705D241254BA008D6614 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6755706224125C1B008D6614 /* MFYChatSearchView.h */,
+				6755706324125C1B008D6614 /* MFYChatSearchView.m */,
+				675570652416458C008D6614 /* MFYChatFriendCell.h */,
+				675570662416458C008D6614 /* MFYChatFriendCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6755705E241254BA008D6614 /* Reactor */ = {
+			isa = PBXGroup;
+			children = (
+				67557068241781B2008D6614 /* MFYChatListVM.h */,
+				67557069241781B2008D6614 /* MFYChatListVM.m */,
+			);
+			path = Reactor;
+			sourceTree = "<group>";
+		};
+		6755706B2418859E008D6614 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				6755706C241885B3008D6614 /* MFYChatService.h */,
+				6755706D241885B3008D6614 /* MFYChatService.m */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		6755706F24188BA5008D6614 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		6755707324189BA3008D6614 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				6755707424189BC8008D6614 /* JMSGConversation+MFYTop.h */,
+				6755707524189BC8008D6614 /* JMSGConversation+MFYTop.m */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		6763D78D23CEEE17003D9E20 /* Network */ = {
@@ -1495,6 +1580,7 @@
 		67CC31C72408E6DF002E6E2B /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				6755705B241254BA008D6614 /* ChatList */,
 				67CC31C82408E6DF002E6E2B /* SingleChat */,
 			);
 			path = Chat;
@@ -1528,6 +1614,8 @@
 				67CC31D024090B49002E6E2B /* MFYMessageTableView.m */,
 				67CC31D224090C1B002E6E2B /* MFYChatToolBar.h */,
 				67CC31D324090C1B002E6E2B /* MFYChatToolBar.m */,
+				67AA2915240FBA71008B6788 /* MFYChatMoreView.h */,
+				67AA2916240FBA71008B6788 /* MFYChatMoreView.m */,
 				67CC31D524090C95002E6E2B /* MFYMessageTextView.h */,
 				67CC31D624090C95002E6E2B /* MFYMessageTextView.m */,
 				67CC31F3240A6E71002E6E2B /* JCHATMessageContentView.h */,
@@ -1784,6 +1872,7 @@
 			isa = PBXGroup;
 			children = (
 				6746D48823B4E84F00A46FC7 /* whKit.h */,
+				6755707324189BA3008D6614 /* Chat */,
 				6763D79A23CF02F8003D9E20 /* Foundation */,
 				6746D48323B4E73000A46FC7 /* UIKit */,
 			);
@@ -1816,6 +1905,7 @@
 		67F097F423A78D56001DCEB4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6755706F24188BA5008D6614 /* Chat */,
 				67CC316323FCE911002E6E2B /* Mine */,
 				67D28B7C23D1907800543D22 /* User */,
 				6763D7B023D06A48003D9E20 /* login */,
@@ -1852,6 +1942,7 @@
 		67F097F823A78D56001DCEB4 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				6755706B2418859E008D6614 /* Chat */,
 				67CC316A23FD190D002E6E2B /* Mine */,
 				67CC30E823F14809002E6E2B /* Publish */,
 				67D28B8323D1B26900543D22 /* coreflow */,
@@ -2180,6 +2271,7 @@
 				67CC317E23FFA738002E6E2B /* MFYSettingListVC.m in Sources */,
 				672503FB23D421A800716842 /* MFYOpenUDID.m in Sources */,
 				679A02D723F107620041A012 /* UIView+MOExtension.m in Sources */,
+				6755706E241885B3008D6614 /* MFYChatService.m in Sources */,
 				679A02ED23F107620041A012 /* MOProgressView.m in Sources */,
 				67CC31B12403E041002E6E2B /* MFYTimeLineView.m in Sources */,
 				679A02DF23F107620041A012 /* MOAssetModel.m in Sources */,
@@ -2204,6 +2296,7 @@
 				67CC312623F6A550002E6E2B /* MFYVideoDetailVC.m in Sources */,
 				679A02DD23F107620041A012 /* MOPhotoLibraryExportCenter.m in Sources */,
 				6725041023D5873200716842 /* MFYVideoAndImageView.m in Sources */,
+				67AA2917240FBA71008B6788 /* MFYChatMoreView.m in Sources */,
 				67CC312323F6821D002E6E2B /* MFYVideoProgressView.m in Sources */,
 				67D28B7F23D1908300543D22 /* MFYProfile.m in Sources */,
 				6763D79623CEF400003D9E20 /* MFYServiceURLConfig.m in Sources */,
@@ -2214,6 +2307,7 @@
 				6746D49C23B62C2E00A46FC7 /* MFYFlowCardView.m in Sources */,
 				67CC316D23FD1925002E6E2B /* MFYMineService.m in Sources */,
 				679A02E023F107620041A012 /* MOAssetCollectionInfoModel.m in Sources */,
+				6755707624189BC8008D6614 /* JMSGConversation+MFYTop.m in Sources */,
 				67CC3240240D194B002E6E2B /* UIImage+WebP.m in Sources */,
 				67CC310723F39C4F002E6E2B /* MFYCoreflowTag.m in Sources */,
 				679A029323F104520041A012 /* MFYPublicManager.m in Sources */,
@@ -2232,6 +2326,7 @@
 				67CC31B42403E176002E6E2B /* MFYDateItemView.m in Sources */,
 				6763D79923CEF4B4003D9E20 /* MFYServiceConstant.m in Sources */,
 				67CC31A12403710F002E6E2B /* MFYImageCardCell.m in Sources */,
+				675570672416458C008D6614 /* MFYChatFriendCell.m in Sources */,
 				67CC30E123F146ED002E6E2B /* MFYQiNiuModel.m in Sources */,
 				679A02E223F107620041A012 /* MODownloadNotificationModel.m in Sources */,
 				67CC316923FD17E7002E6E2B /* MFYMineHpVM.m in Sources */,
@@ -2260,6 +2355,7 @@
 				67CC317323FEBAE5002E6E2B /* MFYPhotoCropVC.m in Sources */,
 				679A02E423F107620041A012 /* MOSelectedButton.m in Sources */,
 				67CC31EF240A6A53002E6E2B /* JCHATChatModel.m in Sources */,
+				675570612412550D008D6614 /* MFYChatListVC.m in Sources */,
 				679A02F923F126580041A012 /* MFYAssetModel.m in Sources */,
 				67CC31F5240A6E71002E6E2B /* JCHATMessageContentView.m in Sources */,
 				679A02F623F125FE0041A012 /* MFYAlbumModel.m in Sources */,
@@ -2289,12 +2385,14 @@
 				67EFC33523C3136800F5BDB3 /* WHAlertTool.m in Sources */,
 				67CC3247240D194B002E6E2B /* UIImage+GIF.m in Sources */,
 				67CC31C62408BFD9002E6E2B /* JCHATFileManager.m in Sources */,
+				6755706424125C1B008D6614 /* MFYChatSearchView.m in Sources */,
 				67CC313D23F92E0B002E6E2B /* MFYAudioListVM.m in Sources */,
 				67CC31BB24079891002E6E2B /* MFYAddTagView.m in Sources */,
 				67CC3202240D0230002E6E2B /* UIImage+ResizeMagick.m in Sources */,
 				67CC31932401105C002E6E2B /* MFYArticleService.m in Sources */,
 				67CC3249240D194B002E6E2B /* SDWebImageCompat.m in Sources */,
 				67CC3241240D194B002E6E2B /* MKAnnotationView+WebCache.m in Sources */,
+				6755706A241781B2008D6614 /* MFYChatListVM.m in Sources */,
 				679A02FD23F12A1C0041A012 /* WHHud.m in Sources */,
 				67CC30FB23F1605E002E6E2B /* MFYPublishItemModel.m in Sources */,
 				67CC3242240D194B002E6E2B /* UIImageView+MJWebCache.m in Sources */,

@@ -16,6 +16,11 @@
 #import "JCHATShowTimeCell.h"
 #import "MFYChatToolBar.h"
 #import "MFYMessageTextView.h"
+#import "MFYPublicManager.h"
+#import "MFYPhotosManager.h"
+
+#define KMoreviewHeight  (211 + HOME_INDICATOR_HEIGHT)
+#define KToolviewHeight 57
 
 @interface MFYSingleChatVC ()
 {
@@ -31,6 +36,8 @@
 }
 
 @property (nonatomic, strong)UIButton * rightInfoBtn;
+
+@property (nonatomic, strong)MFYPublicManager * publicManager;
 
 @end
 
@@ -48,7 +55,7 @@
     
     [_conversation clearUnreadCount];
     
-    [self setupViews];
+    [self setupView];
     [self addNotification];
     [self addDelegate];
     [self getGroupMemberListWithGetMessageFlag:YES];
@@ -56,24 +63,16 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-  WHLog(@"Event - viewWillAppear");
-  [super viewWillAppear:animated];
-  [self.toolBarContainer.toolbar drawRect:self.toolBarContainer.toolbar.frame];
+    WHLog(@"Event - viewWillAppear");
+    [super viewWillAppear:animated];
     
     @weakify(self)
     [_conversation refreshTargetInfoFromServer:^(id resultObject, NSError *error) {
         WHLog(@"refresh nav right button");
         @strongify(self)
-        [self.navigationController setNavigationBarHidden:NO];
         // 禁用 iOS7 返回手势
         if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
             self.navigationController.interactivePopGestureRecognizer.enabled = YES;
-        }
-        
-        if (self.conversation.conversationType == kJMSGConversationTypeGroup) {
-            [self updateGroupConversationTittle:nil];
-        } else {
-            self.title = [resultObject title];
         }
         [self.messageTableView reloadData];
     }];
@@ -81,19 +80,8 @@
 }
 
 - (void)updateGroupConversationTittle:(JMSGGroup *)newGroup {
-  JMSGGroup *group;
-  if (newGroup == nil) {
-    group = self.conversation.target;
-  } else {
-    group = newGroup;
-  }
+    
   
-  if ([group.name isEqualToString:@""]) {
-    self.title = @"群聊";
-  } else {
-    self.title = group.name;
-  }
-  self.title = [NSString stringWithFormat:@"%@(%lu)",self.title,(unsigned long)[group.memberArray count]];
   [self getGroupMemberListWithGetMessageFlag:NO];
   if (self.isConversationChange) {
     [self cleanMessageCache];
@@ -105,15 +93,6 @@
 - (void)viewDidLayoutSubviews {
     WHLog(@"Event - viewDidLayoutSubviews");
     [self scrollToBottomAnimated:NO];
-    [self.messageTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(NAVIGATION_BAR_HEIGHT);
-        make.left.right.mas_equalTo(0);
-        make.bottom.mas_equalTo(- (45 + HOME_INDICATOR_HEIGHT));
-    }];
-    
-    [self.toolBarContainer mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-    }];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -143,20 +122,31 @@
     UITapGestureRecognizer *gesture =[[UITapGestureRecognizer alloc] initWithTarget:self
                                                                            action:@selector(tapClick:)];
     [self.view addGestureRecognizer:gesture];
-    [self.view setBackgroundColor:[UIColor clearColor]];
+    self.view.backgroundColor = wh_colorWithHexString(@"#F7F8FC");
     [self.view addSubview:self.messageTableView];
+    [self.view addSubview:self.toolBarContainer];
+    [self.view addSubview:self.moreView];
     
     
   self.toolBarContainer.toolbar.MessagetextView.text = [[JCHATSendMsgManager ins] draftStringWithConversation:_conversation];
-  
+    
+  [self.messageTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+      make.top.mas_equalTo(NAVIGATION_BAR_HEIGHT);
+      make.left.right.mas_equalTo(0);
+      make.bottom.mas_equalTo(- (57 + HOME_INDICATOR_HEIGHT));
+  }];
   
 //  _moreViewContainer.moreView.delegate = self;
 //  _moreViewContainer.moreView.backgroundColor = messageTableColor;
 }
 
 - (void)setupNavigation {
+    self.navBar.backgroundColor = wh_colorWithHexString(@"#FFFFFF");
     self.navBar.rightButton = self.rightInfoBtn;
-  self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    self.navBar.titleLabel.text = self.userProfile.nickname;
+    self.navBar.titleLabel.textColor = wh_colorWithHexString(@"#333333");
+    [self.navBar.leftButton setImage:WHImageNamed(@"chat_nav_back") forState:UIControlStateNormal];
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
 }
 
 - (void)getGroupMemberListWithGetMessageFlag:(BOOL)getMesageFlag {
@@ -171,6 +161,7 @@
   } else {
     if (getMesageFlag) {
       [self getPageMessage];
+        
     }
   }
 }
@@ -656,66 +647,48 @@ NSInteger sortMessageType(id object1,id object2,void *cha) {
 
 #pragma mark -调用相册
 - (void)photoClick {
-//  ALAssetsLibrary *lib = [[ALAssetsLibrary alloc] init];
-//  [lib enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
-//    JCHATPhotoPickerViewController *photoPickerVC = [[JCHATPhotoPickerViewController alloc] init];
-//    photoPickerVC.photoDelegate = self;
-//    [self presentViewController:photoPickerVC animated:YES completion:NULL];
-//  } failureBlock:^(NSError *error) {
-//    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"没有相册权限" message:@"请到设置页面获取相册权限" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-//    [alertView show];
-//  }];
+    [self.publicManager publishPhotoFromVC:self publishType:MFYPublicTypeChat completion:^(MFYAssetModel * _Nullable model) {
+        [[MFYPhotosManager sharedManager] requestImageDataWithAsset:model.asset completion:^(NSData * _Nonnull imageData, NSString * _Nonnull dataUTI, UIImageOrientation orientation, NSDictionary * _Nonnull assetInfo) {
+            UIImage * image = [YYImage imageWithData:imageData];
+            [self prepareImageMessage:image];
+            [self dropToolBarNoAnimate];
+        }];
+    }];
 }
 
-#pragma mark --调用相机
-- (void)cameraClick {
-  UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-  
-  if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    NSString *requiredMediaType = ( NSString *)kUTTypeImage;
-    NSArray *arrMediaTypes=[NSArray arrayWithObjects:requiredMediaType,nil];
-    [picker setMediaTypes:arrMediaTypes];
-    picker.showsCameraControls = YES;
-    picker.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-    picker.editing = YES;
-    picker.delegate = self;
-    [self presentViewController:picker animated:YES completion:nil];
-  }
-}
-
-#pragma mark - ZYQAssetPickerController Delegate
-//-(void)assetPickerController:(ZYQAssetPickerController *)picker didFinishPickingAssets:(NSArray *)assets{
-//  for (int i=0; i<assets.count; i++) {
-//    ALAsset *asset=assets[i];
-//    UIImage *tempImg=[UIImage imageWithCGImage:asset.defaultRepresentation.fullScreenImage];
-//    [self prepareImageMessage:tempImg];
-//    [self dropToolBarNoAnimate];
+//#pragma mark --调用相机
+//- (void)cameraClick {
+//  UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+//
+//  if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+//    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+//    NSString *requiredMediaType = ( NSString *)kUTTypeImage;
+//    NSArray *arrMediaTypes=[NSArray arrayWithObjects:requiredMediaType,nil];
+//    [picker setMediaTypes:arrMediaTypes];
+//    picker.showsCameraControls = YES;
+//    picker.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+//    picker.editing = YES;
+//    picker.delegate = self;
+//    [self presentViewController:picker animated:YES completion:nil];
 //  }
 //}
-#pragma mark - HMPhotoPickerViewController Delegate
-//- (void)JCHATPhotoPickerViewController:(JCHATPhotoSelectViewController *)PhotoPickerVC selectedPhotoArray:(NSArray *)selected_photo_array {
-//  for (UIImage *image in selected_photo_array) {
-//    [self prepareImageMessage:image];
+//
+//#pragma mark - UIImagePickerController Delegate
+////相机,相册Finish的代理
+//- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+//  NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+//
+//  if ([mediaType isEqualToString:@"public.movie"]) {
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//    [WHHud showString:@"不支持视频发送"];
+//    return;
 //  }
+//  UIImage *image;
+//  image = [info objectForKey:UIImagePickerControllerOriginalImage];
+//  [self prepareImageMessage:image];
 //  [self dropToolBarNoAnimate];
+//  [self dismissViewControllerAnimated:YES completion:nil];
 //}
-#pragma mark - UIImagePickerController Delegate
-//相机,相册Finish的代理
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-  NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
-  
-  if ([mediaType isEqualToString:@"public.movie"]) {
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [WHHud showString:@"不支持视频发送"];
-    return;
-  }
-  UIImage *image;
-  image = [info objectForKey:UIImagePickerControllerOriginalImage];
-  [self prepareImageMessage:image];
-  [self dropToolBarNoAnimate];
-  [self dismissViewControllerAnimated:YES completion:nil];
-}
 
 #pragma mark --发送图片
 - (void)prepareImageMessage:(UIImage *)img {
@@ -780,33 +753,46 @@ NSInteger sortMessageType(id object1,id object2,void *cha) {
                                            forKeyPath:@"contentSize"
                                               options:NSKeyValueObservingOptionNew
                                               context:nil];
-  self.toolBarContainer.toolbar.MessagetextView.delegate = self;
+//  self.toolBarContainer.toolbar.MessagetextView.delegate = self;
 }
 
 - (void)inputKeyboardWillShow:(NSNotification *)notification{
   _barBottomFlag=NO;
-  CGRect keyBoardFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+//  CGRect keyBoardFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
   CGFloat animationTime = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
-  
   [UIView animateWithDuration:animationTime animations:^{
-//    _moreViewHeight.constant = keyBoardFrame.size.height;
-    [self.view layoutIfNeeded];
+      self.moreView.hidden = YES;
+      [self.view layoutIfNeeded];
   }];
-  [self scrollToEnd];//!
+  [self scrollToEnd];
 }
 
 - (void)inputKeyboardWillHide:(NSNotification *)notification {
-  CGFloat animationTime = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
-  [UIView animateWithDuration:animationTime animations:^{
-//    _moreViewHeight.constant = 0;
-    [self.view layoutIfNeeded];
-  }];
-  [self scrollToBottomAnimated:NO];
+    CGFloat animationTime = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
+    CGRect keyBoardFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+//  [UIView animateWithDuration:animationTime animations:^{
+//
+//    [self.view layoutIfNeeded];
+//  }];
+//  [self scrollToBottomAnimated:NO];
+    
+    CGFloat moveY = keyBoardFrame.origin.y - VERTICAL_SCREEN_HEIGHT;
+    WHLog(@"moveF==%f",moveY);
+    [UIView animateWithDuration:animationTime animations:^{
+        self.messageTableView.transform = CGAffineTransformMakeTranslation(0, moveY);
+        self.toolBarContainer.transform = CGAffineTransformMakeTranslation(0, moveY);
+    }];
+
 }
 
 #pragma mark --发送文本
 - (void)sendText:(NSString *)text {
   [self prepareTextMessage:text];
+}
+
+#pragma mark- 发送语音
+- (void)finishRecoderAudioPath:(NSString *)audioPath audioDuration:(NSString *)audioDuration {
+    [self SendMessageWithVoice:audioPath voiceDuration:audioDuration];
 }
 
 - (void)perform {
@@ -821,9 +807,14 @@ NSInteger sortMessageType(id object1,id object2,void *cha) {
   _previousTextViewContentHeight = 31;
   _toolBarContainer.toolbar.faceButton.selected = NO;
   [_messageTableView reloadData];
-  [UIView animateWithDuration:0.3 animations:^{
-//    _toolBarToBottomConstrait.constant = 0;
-//    _moreViewHeight.constant = 0;
+    CGFloat moveY = 0;
+  [UIView animateWithDuration:0.2 animations:^{
+      self.messageTableView.transform = CGAffineTransformMakeTranslation(0, moveY);
+      self.toolBarContainer.transform = CGAffineTransformMakeTranslation(0, moveY);
+      self.moreView.hidden = YES;
+  } completion:^(BOOL finished) {
+      if (finished) {
+      }
   }];
 }
 
@@ -840,18 +831,16 @@ NSInteger sortMessageType(id object1,id object2,void *cha) {
 - (void)pressMoreBtnClick:(UIButton *)btn {
   _barBottomFlag=NO;
   [_toolBarContainer.toolbar.MessagetextView resignFirstResponder];
-  
-//  _toolBarToBottomConstrait.constant = 0;
-//  _moreViewHeight.constant = 227;
-  [_messageTableView setNeedsDisplay];
-//  [_moreViewContainer setNeedsLayout];
-  [_toolBarContainer setNeedsLayout];
+    CGFloat moveY = - (KMoreviewHeight - KToolviewHeight + 20);
+    CGFloat moveH = - (KMoreviewHeight - KToolviewHeight + 20);
+//    toolFrame.origin.y = VERTICAL_SCREEN_HEIGHT - KMoreviewHeight - KToolviewHeight;
+
   [UIView animateWithDuration:0.25 animations:^{
-//    _toolBarToBottomConstrait.constant = 0;
-//    _moreViewHeight.constant = 227;
-    [self.messageTableView layoutIfNeeded];
-    [self.toolBarContainer layoutIfNeeded];
-//    [_moreViewContainer layoutIfNeeded];
+//      [self.messageTableView layoutIfNeeded];
+      self.messageTableView.transform = CGAffineTransformMakeTranslation(0, moveY);
+      self.toolBarContainer.transform = CGAffineTransformMakeTranslation(0, moveH);
+//      self.toolBarContainer.frame = toolFrame;
+      self.moreView.hidden = NO;
   }];
   [_toolBarContainer.toolbar switchToolbarToTextMode];
   [self scrollToBottomAnimated:NO];
@@ -1571,11 +1560,12 @@ NSInteger sortMessageType(id object1,id object2,void *cha) {
 
 - (MFYMessageTableView *)messageTableView {
     if (!_messageTableView) {
-        _messageTableView = [[MFYMessageTableView alloc]init];
+        _messageTableView = [[MFYMessageTableView alloc]initWithFrame:CGRectZero];
         _messageTableView.userInteractionEnabled = YES;
         _messageTableView.showsVerticalScrollIndicator = NO;
         _messageTableView.delegate = self;
         _messageTableView.dataSource = self;
+        _messageTableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
         _messageTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _messageTableView.backgroundColor = wh_colorWithHexString(@"#F7F8FC");
     }
@@ -1584,10 +1574,27 @@ NSInteger sortMessageType(id object1,id object2,void *cha) {
 
 - (MFYChatToolBarContainer *)toolBarContainer {
     if (!_toolBarContainer) {
-        _toolBarContainer = [[MFYChatToolBarContainer alloc]init];
+        _toolBarContainer = [[MFYChatToolBarContainer alloc]initWithFrame:CGRectMake(0, VERTICAL_SCREEN_HEIGHT - (57 + HOME_INDICATOR_HEIGHT), VERTICAL_SCREEN_WIDTH, 57 + HOME_INDICATOR_HEIGHT)];
+        _toolBarContainer.userInteractionEnabled = YES;
         _toolBarContainer.toolbar.delegate = self;
     }
     return _toolBarContainer;
+}
+
+- (MFYPublicManager *)publicManager {
+    if (!_publicManager) {
+        _publicManager = [[MFYPublicManager alloc]init];
+    }
+    return  _publicManager;
+}
+
+- (MFYChatMoreView *)moreView {
+    if (!_moreView) {
+        _moreView = [[MFYChatMoreView alloc]initWithFrame:CGRectMake(0, VERTICAL_SCREEN_HEIGHT - KMoreviewHeight , VERTICAL_SCREEN_WIDTH, KMoreviewHeight)];
+        _moreView.hidden = YES;
+        _moreView.delegate = self;
+    }
+    return _moreView;
 }
 
 @end

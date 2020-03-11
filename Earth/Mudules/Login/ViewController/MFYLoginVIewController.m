@@ -222,8 +222,12 @@ typedef enum : NSUInteger {
     [self.view showActivityView];
     [MFYLoginService loginWithPhoneNum:num verifyCode:code completion:^(MFYLoginModel * _Nonnull loginModel, NSError * _Nonnull error) {
         if (!error) {
-            //登录IM
-            [self loginJChatIM:loginModel];
+            [MFYLoginManager saveTheLoginModel:loginModel completion:^(BOOL isSuccess) {
+                if (isSuccess) {
+                    //登录IM
+                    [self loginJChatIM:loginModel];
+                }
+            }];
         }else {
             [WHHud showString:error.descriptionFromServer];
             [self.view hideActivityView];
@@ -244,7 +248,7 @@ typedef enum : NSUInteger {
                 if (!error) {
                     loginModel.imId = profile.imId;
                     loginModel.imPwd = profile.imPwd;
-                    [MFYLoginManager saveTheLoginModel:loginModel];
+                    [MFYLoginManager saveTheLoginModel:loginModel completion:^(BOOL isSuccess) {}];
                 
                     [[NSNotificationCenter defaultCenter] postNotificationName:kupdateUserInfo object:nil];
 

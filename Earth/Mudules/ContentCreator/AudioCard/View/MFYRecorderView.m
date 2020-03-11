@@ -35,6 +35,7 @@ CGFloat const INTER_TIME = 0.1;
 @property (nonatomic, assign) NSTimeInterval playTime;
 @property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 @property (nonatomic, strong) NSString * audioPath;
+@property (nonatomic, strong) UIColor * circleBgCorlor;
 
 @property (nonatomic, assign) BOOL isPlaying;
 
@@ -42,10 +43,11 @@ CGFloat const INTER_TIME = 0.1;
 
 @implementation MFYRecorderView
 
-- (instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame displayType:(MFYRecoderDisplayType)displayType {
     self = [super initWithFrame:frame];
     if (self) {
         _recordType = MFYRecorderReadyType;
+        _displayType = displayType;
         [self setupViews];
         [self bindEvents];
     }
@@ -53,6 +55,8 @@ CGFloat const INTER_TIME = 0.1;
 }
 
 - (void)setupViews {
+    self.circleBgCorlor = self.displayType == MFYRecoderDisplayTypeChat ? [UIColor whiteColor] : [UIColor blackColor];
+    
     [self addSubview:self.centerView];
     [self.centerView addSubview:self.centerImage];
     [self.centerView.layer addSublayer:self.circleBgLayer];
@@ -146,6 +150,9 @@ CGFloat const INTER_TIME = 0.1;
     [[self.finishBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
        @strongify(self)
         [self publishTheAudio];
+        if (self.sendChatB) {
+            self.sendChatB(self.audioPath, FORMAT(@"%.0f",self.recordTime));
+        }
     }];
 }
 #pragma mark- 发布音频
@@ -397,7 +404,7 @@ CGFloat const INTER_TIME = 0.1;
     if (!_circleBgLayer) {
         _circleBgLayer = [CAShapeLayer layer];
         _circleBgLayer.lineWidth = 5.0;
-        _circleBgLayer.strokeColor = [UIColor wh_colorWithHexString:@"#000000"].CGColor;
+        _circleBgLayer.strokeColor = _circleBgCorlor.CGColor;
         _circleBgLayer.fillColor = [UIColor clearColor].CGColor;
         
         UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(circleRadio, circleRadio)

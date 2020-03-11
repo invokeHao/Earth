@@ -40,11 +40,11 @@ NSString *const kUserTabelName = @"userModel";
 
 #pragma mark- 数据库管理
 
-+ (void)saveTheLoginModel:(MFYLoginModel *)model {
++ (void)saveTheLoginModel:(MFYLoginModel *)model completion:(nonnull void (^)(BOOL))completion {
     model.bg_tableName = kUserTabelName;
     [model bg_coverAsync:^(BOOL isSuccess) {
         if (isSuccess) {
-            WHLog(@"存储success");
+            completion(YES);
         }
     }];
 }

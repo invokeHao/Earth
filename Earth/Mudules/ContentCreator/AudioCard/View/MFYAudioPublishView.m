@@ -120,7 +120,7 @@
 
 - (MFYRecorderView *)recordView {
     if (!_recordView) {
-        _recordView = [[MFYRecorderView alloc] init];
+        _recordView = [[MFYRecorderView alloc] initWithFrame:CGRectZero displayType:MFYRecoderDisplayTypeAudioFlow];
     }
     return _recordView;
 }

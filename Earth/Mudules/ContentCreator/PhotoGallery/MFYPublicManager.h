@@ -13,7 +13,8 @@
 typedef NS_ENUM(NSInteger, MFYPublicType) {
     mfyPublicTypeNull = 0,
     MFYPublicTypeImage,
-    MFYPublicTypeVideo
+    MFYPublicTypeVideo,
+    MFYPublicTypeChat,
 };
 
 

@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)jumpToLoginWithCompletion:(void (^)(void))completion ;
 
-+ (void)saveTheLoginModel:(MFYLoginModel*)model;
++ (void)saveTheLoginModel:(MFYLoginModel*)model completion:(void(^)(BOOL isSuccess))completion;
 
 @end
 

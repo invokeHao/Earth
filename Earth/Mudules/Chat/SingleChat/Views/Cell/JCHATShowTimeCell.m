@@ -20,8 +20,16 @@
 }
 
 - (void)setupViews {
-    self.contentView.backgroundColor = [UIColor clearColor];
+    self.backgroundColor = wh_colorWithHexString(@"#F7F8FC");
     [self.contentView addSubview:self.messageTimeLabel];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    [self.messageTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.mas_equalTo(self);
+        make.height.mas_equalTo(15);
+    }];
 }
 
 - (void)setCellData:(JCHATChatModel *)model {
@@ -43,6 +51,7 @@
 
 - (UILabel *)messageTimeLabel {
     if (!_messageTimeLabel) {
+        _messageTimeLabel = UILabel.label;
         _messageTimeLabel.font = WHFont(13);
         _messageTimeLabel.textColor = wh_colorWithHexString(@"#999999");
         _messageTimeLabel.textAlignment = NSTextAlignmentCenter;

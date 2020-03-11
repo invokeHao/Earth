@@ -109,38 +109,43 @@
 #pragma mark - Life cycle
 
 - (void)setup {
-  [[NSNotificationCenter defaultCenter] addObserver:self
+    [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(didReceiveTextDidChangeNotification:)
                                                name:UITextViewTextDidChangeNotification
                                              object:self];
   
-  _placeHolderTextColor = wh_colorWithHexString(@"#999999");
+    _placeHolderTextColor = wh_colorWithHexString(@"#999999");
     _placeHolder = @"请输入聊天内容...";
   
-  self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-  self.scrollIndicatorInsets = UIEdgeInsetsMake(10.0f, 0.0f, 10.0f, 8.0f);
-  self.contentInset = UIEdgeInsetsZero;
-  self.scrollEnabled = YES;
-  self.scrollsToTop = NO;
-  self.userInteractionEnabled = YES;
-  self.font = WHFont(16);
-  self.textColor = wh_colorWithHexString(@"#333333");
-  self.backgroundColor = wh_colorWithHexString(@"#F7F8FC");
-  self.keyboardAppearance = UIKeyboardAppearanceDefault;
-  self.keyboardType = UIKeyboardTypeDefault;
-  self.returnKeyType = UIReturnKeyDefault;
-  self.textAlignment = NSTextAlignmentLeft;
-  self.layer.cornerRadius = 6;
-  [self.layer setMasksToBounds:YES];
+    self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.scrollIndicatorInsets = UIEdgeInsetsMake(10.0f, 0.0f, 10.0f, 8.0f);
+    self.contentInset = UIEdgeInsetsZero;
+    self.scrollEnabled = YES;
+    self.scrollsToTop = NO;
+//    self.userInteractionEnabled = YES;
+    self.textColor = wh_colorWithHexString(@"#333333");
+    self.backgroundColor = wh_colorWithHexString(@"#F7F8FC");
+    self.keyboardAppearance = UIKeyboardAppearanceDefault;
+    self.keyboardType = UIKeyboardTypeDefault;
+    self.returnKeyType = UIReturnKeyDefault;
+    self.textAlignment = NSTextAlignmentLeft;
+    self.font = WHFont(16);
+    self.layer.cornerRadius = 6;
+    [self.layer setMasksToBounds:YES];
 }
 
 - (id)initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
   if (self) {
     // Initialization code
-    [self setup];
+      [self setup];
+      [self bindEvents];
   }
   return self;
+}
+
+- (void)bindEvents {
+    
 }
 
 - (void)dealloc {
@@ -169,7 +174,7 @@
       paragraphStyle.alignment = self.textAlignment;
       
       [self.placeHolder drawInRect:placeHolderRect
-                    withAttributes:@{ NSFontAttributeName : self.font,
+                    withAttributes:@{ NSFontAttributeName : WHFont(16),
                                       NSForegroundColorAttributeName : self.placeHolderTextColor,
                                       NSParagraphStyleAttributeName : paragraphStyle }];
     }

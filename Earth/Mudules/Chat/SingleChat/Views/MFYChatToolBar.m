@@ -13,6 +13,10 @@
 
 static NSInteger const st_toolBarTextSize = 17.0f;
 
+@interface MFYChatToolBar () <UITextViewDelegate>
+
+@end
+
 @implementation MFYChatToolBar
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -35,7 +39,22 @@ static NSInteger const st_toolBarTextSize = 17.0f;
 }
 
 - (void)bindEvents {
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick:)];
+    [self addGestureRecognizer:gesture];
+    @weakify(self)
+    [[self.voiceButton rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(UIButton * btn) {
+        @strongify(self)
+        if (self.delegate && [self.delegate respondsToSelector:@selector((pressMoreBtnClick:))]) {
+            [self.delegate pressMoreBtnClick:btn];
+        }
+    }];
     
+    [[self.imageButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+       @strongify(self)
+        if (self.delegate && [self.delegate respondsToSelector:@selector(photoClick)]) {
+            [self.delegate photoClick];
+        }
+    }];
 }
 
 //- (IBAction)addBtnClick:(id)sender {
@@ -85,21 +104,31 @@ static NSInteger const st_toolBarTextSize = 17.0f;
 }
 
 - (void)layoutSubviews {
-  [super layoutSubviews];
-
-}
-
-- (void)drawRect:(CGRect)rect {
-    self.voiceButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleTopMargin;
-    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick:)];
-    [self addGestureRecognizer:gesture];
-    CGFloat toolBarHeight = HOME_INDICATOR_HEIGHT + 45;
-    [self setFrame:CGRectMake(0, VERTICAL_SCREEN_HEIGHT - toolBarHeight, VERTICAL_SCREEN_WIDTH, toolBarHeight)];
+    [super layoutSubviews];
     
     [self.voiceButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(14);
         make.left.mas_equalTo(11);
         make.size.mas_equalTo(CGSizeMake(29, 29));
+    }];
+    
+    [self.imageButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(self.voiceButton);
+        make.right.mas_equalTo(-11);
+        make.size.mas_equalTo(CGSizeMake(28, 23));
+    }];
+    
+    [self.faceButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(self.voiceButton);
+        make.right.mas_equalTo(self.imageButton.mas_left).offset(-12);
+        make.size.mas_equalTo(CGSizeMake(29, 29));
+    }];
+
+    [self.MessagetextView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(self.voiceButton);
+        make.left.mas_equalTo(self.voiceButton.mas_right).offset(12);
+        make.right.mas_equalTo(self.faceButton.mas_left).offset(-12);
+        make.height.mas_equalTo(41);
     }];
 }
 
@@ -107,14 +136,14 @@ static NSInteger const st_toolBarTextSize = 17.0f;
 
 - (void)adjustTextViewHeightBy:(CGFloat)changeInHeight {
   // 动态改变自身的高度和输入框的高度
-  
+
   NSUInteger numLines = MAX([self.MessagetextView numberOfLinesOfText],
                             [self.MessagetextView.text numberOfLines]);
-  
+
   if ([_MessagetextView.text isEqualToString: @""]) {
     return;
   }
-  
+
   CGSize textSize = [JCHATStringUtils stringSizeWithWidthString:_MessagetextView.text withWidthLimit:_MessagetextView.frame.size.width withFont:WHFont(17)];
   CGFloat textViewHeight = textSize.height + 30;
   _textViewHeight.constant = textViewHeight>36?textViewHeight:36;
@@ -152,8 +181,7 @@ static NSInteger const st_toolBarTextSize = 17.0f;
     return bCanRecord;
 }
 
-- (void)tapClick:(UIGestureRecognizer *)gesture
-{
+- (void)tapClick:(UIGestureRecognizer *)gesture{
   [self.MessagetextView resignFirstResponder];
 }
 
@@ -187,6 +215,7 @@ static NSInteger const st_toolBarTextSize = 17.0f;
   
 }
 
+#pragma mark- UITextView delegate
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
   if ([text isEqualToString:@"\n"]) {
@@ -199,7 +228,7 @@ static NSInteger const st_toolBarTextSize = 17.0f;
   return YES;
 }
 
-#pragma mark - Text view delegate
+#pragma mark - TextView delegate
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
   if ([self.delegate respondsToSelector:@selector(inputTextViewWillBeginEditing:)]) {
     [self.delegate inputTextViewWillBeginEditing:self.MessagetextView];
@@ -275,7 +304,6 @@ static NSInteger const st_toolBarTextSize = 17.0f;
         _MessagetextView = [[MFYMessageTextView alloc]init];
         _MessagetextView.delegate = self;
         _MessagetextView.returnKeyType = UIReturnKeySend;
-
     }
     return _MessagetextView;
 }
@@ -294,14 +322,20 @@ static NSInteger const st_toolBarTextSize = 17.0f;
     return self;
 }
 
-
 - (void)setupViews {
   [self addSubview:self.toolbar];
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    [self.toolbar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(0);
+    }];
+}
+
 - (MFYChatToolBar *)toolbar {
     if (!_toolbar) {
-        _toolbar = [[MFYChatToolBar alloc]initWithFrame:CGRectMake(0, 0, VERTICAL_SCREEN_WIDTH, 45 + HOME_INDICATOR_HEIGHT)];
+        _toolbar = [[MFYChatToolBar alloc]initWithFrame:CGRectMake(0, 0, VERTICAL_SCREEN_WIDTH, 57 + HOME_INDICATOR_HEIGHT)];
     }
     return _toolbar;
 }
