@@ -50,7 +50,7 @@ typedef enum : NSUInteger {
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupViews];
-    [self bindEvents];
+    [self bindEvents];    
 }
 
 - (void)setupViews {
@@ -263,7 +263,6 @@ typedef enum : NSUInteger {
             [WHHud showString:error.descriptionFromServer];
         }
     }];
-    
 }
 
 #pragma mark - UITextFieldDelegate

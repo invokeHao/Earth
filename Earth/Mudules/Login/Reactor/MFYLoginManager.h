@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)jumpToMainVC;
 
++ (void)umengPhoneVerifyLogin;
 
 + (void)saveTheLoginModel:(MFYLoginModel*)model completion:(void(^)(BOOL isSuccess))completion;
 

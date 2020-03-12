@@ -32,7 +32,7 @@
 - (void)cms_setCode:(NSInteger)code {
     [self cms_setCode:code];
     if (code == -21) {
-        [MFYLoginManager jumpToLoginWithCompletion:^{}];
+        [MFYLoginManager umengPhoneVerifyLogin];
     }
 }
 

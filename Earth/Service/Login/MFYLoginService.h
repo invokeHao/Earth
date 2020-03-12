@@ -22,6 +22,11 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark- 退出登录
 + (void)singOutCompletion:(void(^)(BOOL success, NSError * error))completion;
 
+#pragma mark- 一键登录
+
++ (void)loginWithUMToken:(NSString *)token
+              completion:(void(^)(MFYLoginModel * loginModel, NSError * error))completion;;
+
 @end
 
 NS_ASSUME_NONNULL_END

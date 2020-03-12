@@ -37,6 +37,14 @@
 		6755707C2418DD7E008D6614 /* MFYChatSearchTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6755707B2418DD7E008D6614 /* MFYChatSearchTopView.m */; };
 		6755707F241A048D008D6614 /* MFYChatMayKnowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6755707E241A048D008D6614 /* MFYChatMayKnowVC.m */; };
 		67557082241A1A74008D6614 /* MFYSwizz.m in Sources */ = {isa = PBXBuildFile; fileRef = 67557081241A1A74008D6614 /* MFYSwizz.m */; };
+		67557084241A333F008D6614 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67557083241A333F008D6614 /* CoreTelephony.framework */; };
+		67557086241A334E008D6614 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 67557085241A334E008D6614 /* libz.tbd */; };
+		67557088241A3361008D6614 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 67557087241A3361008D6614 /* libsqlite3.tbd */; };
+		6755708A241A336B008D6614 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67557089241A336B008D6614 /* SystemConfiguration.framework */; };
+		6755708F241A33B7008D6614 /* TYRZResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6755708C241A33B6008D6614 /* TYRZResource.bundle */; };
+		67557090241A33B7008D6614 /* UMVerify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6755708D241A33B6008D6614 /* UMVerify.framework */; };
+		67557091241A33B7008D6614 /* ATAuthSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6755708E241A33B6008D6614 /* ATAuthSDK.bundle */; };
+		67557094241A3B64008D6614 /* UMModelCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67557093241A3B64008D6614 /* UMModelCreate.m */; };
 		6763D79023CEEE5B003D9E20 /* MFYHTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D78F23CEEE5B003D9E20 /* MFYHTTPManager.m */; };
 		6763D79323CEEFE1003D9E20 /* MFYResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D79223CEEFE1003D9E20 /* MFYResponseObject.m */; };
 		6763D79623CEF400003D9E20 /* MFYServiceURLConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D79523CEF400003D9E20 /* MFYServiceURLConfig.m */; };
@@ -289,6 +297,15 @@
 		6755707E241A048D008D6614 /* MFYChatMayKnowVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYChatMayKnowVC.m; sourceTree = "<group>"; };
 		67557080241A1A74008D6614 /* MFYSwizz.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYSwizz.h; sourceTree = "<group>"; };
 		67557081241A1A74008D6614 /* MFYSwizz.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYSwizz.m; sourceTree = "<group>"; };
+		67557083241A333F008D6614 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		67557085241A334E008D6614 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		67557087241A3361008D6614 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		67557089241A336B008D6614 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6755708C241A33B6008D6614 /* TYRZResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TYRZResource.bundle; sourceTree = "<group>"; };
+		6755708D241A33B6008D6614 /* UMVerify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMVerify.framework; sourceTree = "<group>"; };
+		6755708E241A33B6008D6614 /* ATAuthSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ATAuthSDK.bundle; sourceTree = "<group>"; };
+		67557092241A3B64008D6614 /* UMModelCreate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMModelCreate.h; sourceTree = "<group>"; };
+		67557093241A3B64008D6614 /* UMModelCreate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMModelCreate.m; sourceTree = "<group>"; };
 		6763D78E23CEEE5B003D9E20 /* MFYHTTPManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYHTTPManager.h; sourceTree = "<group>"; };
 		6763D78F23CEEE5B003D9E20 /* MFYHTTPManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYHTTPManager.m; sourceTree = "<group>"; };
 		6763D79123CEEFE1003D9E20 /* MFYResponseObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYResponseObject.h; sourceTree = "<group>"; };
@@ -654,6 +671,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6755708A241A336B008D6614 /* SystemConfiguration.framework in Frameworks */,
+				67557088241A3361008D6614 /* libsqlite3.tbd in Frameworks */,
+				67557086241A334E008D6614 /* libz.tbd in Frameworks */,
+				67557090241A33B7008D6614 /* UMVerify.framework in Frameworks */,
+				67557084241A333F008D6614 /* CoreTelephony.framework in Frameworks */,
 				4EB9B06CBE8768E2F907633A /* libPods-Earth.a in Frameworks */,
 				67CC315323FA674C002E6E2B /* libmp3lame.a in Frameworks */,
 			);
@@ -923,6 +945,16 @@
 			path = Chat;
 			sourceTree = "<group>";
 		};
+		6755708B241A33B6008D6614 /* UMVerify */ = {
+			isa = PBXGroup;
+			children = (
+				6755708C241A33B6008D6614 /* TYRZResource.bundle */,
+				6755708D241A33B6008D6614 /* UMVerify.framework */,
+				6755708E241A33B6008D6614 /* ATAuthSDK.bundle */,
+			);
+			path = UMVerify;
+			sourceTree = "<group>";
+		};
 		6763D78D23CEEE17003D9E20 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -982,6 +1014,8 @@
 			children = (
 				6763D7A623CF10C0003D9E20 /* MFYLoginManager.h */,
 				6763D7A723CF10C0003D9E20 /* MFYLoginManager.m */,
+				67557092241A3B64008D6614 /* UMModelCreate.h */,
+				67557093241A3B64008D6614 /* UMModelCreate.m */,
 			);
 			path = Reactor;
 			sourceTree = "<group>";
@@ -1973,6 +2007,7 @@
 		67F097F923A78D56001DCEB4 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				6755708B241A33B6008D6614 /* UMVerify */,
 				67CC321E240D194B002E6E2B /* SDWebImage */,
 				67CC3209240D133B002E6E2B /* PreviewPicture */,
 				67CC31F6240A6F75002E6E2B /* ChatImageBubble */,
@@ -2015,6 +2050,10 @@
 		EE95844D1746FBF60268A896 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				67557089241A336B008D6614 /* SystemConfiguration.framework */,
+				67557087241A3361008D6614 /* libsqlite3.tbd */,
+				67557085241A334E008D6614 /* libz.tbd */,
+				67557083241A333F008D6614 /* CoreTelephony.framework */,
 				8CD831C42EFAA5322E86D062 /* libPods-Earth.a */,
 				8077943148965DD1B7C6BA34 /* libPods-EarthTests.a */,
 				EABE641716F8167C445E2C55 /* libPods-EarthUITests.a */,
@@ -2131,6 +2170,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				67CC3219240D133B002E6E2B /* MJPhotoBrowser.bundle in Resources */,
+				67557091241A33B7008D6614 /* ATAuthSDK.bundle in Resources */,
+				6755708F241A33B7008D6614 /* TYRZResource.bundle in Resources */,
 				67F097FE23A78D56001DCEB4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2423,6 +2464,7 @@
 				6746D48223B4E54100A46FC7 /* MFYIndicatorBackgroundView.m in Sources */,
 				67EFC32723C3015C00F5BDB3 /* MFYCardSuduPicView.m in Sources */,
 				67CC30F823F15D8C002E6E2B /* MFYPublishModel.m in Sources */,
+				67557094241A3B64008D6614 /* UMModelCreate.m in Sources */,
 				67CC30FE23F2845D002E6E2B /* MFYPublishService.m in Sources */,
 				6763D79E23CF0375003D9E20 /* NSError+MFYHTTPError.m in Sources */,
 				67CC31FC240A6FF4002E6E2B /* ChatImageBubble.m in Sources */,
@@ -2601,6 +2643,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MYYDS5WA57;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Earth/Vendors/UMVerify",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Earth/Bootstrap/MFYPrefixHeader.pch;
 				INFOPLIST_FILE = Earth/Bootstrap/info.plist;
@@ -2629,6 +2675,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MYYDS5WA57;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Earth/Vendors/UMVerify",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Earth/Bootstrap/MFYPrefixHeader.pch;
 				INFOPLIST_FILE = Earth/Bootstrap/info.plist;

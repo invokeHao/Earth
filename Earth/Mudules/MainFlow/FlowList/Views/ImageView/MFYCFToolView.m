@@ -33,9 +33,7 @@
 - (void)bindEvents {
     
     [[self.beforeBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        [MFYLoginManager jumpToLoginWithCompletion:^{
-            WHLog(@"success");
-        }];
+        [MFYLoginManager umengPhoneVerifyLogin];
     }];
     
     [[self.publicBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
