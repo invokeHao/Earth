@@ -139,11 +139,7 @@
     }];
     
     [[self.singOutBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        [MFYLoginService singOutCompletion:^(BOOL success, NSError * _Nonnull error) {
-            if (success) {
-                [WHHud showString:@"退出登录成功"];
-            }
-        }];
+        [MFYLoginManager logoutWithCompletion:^{}];
     }];
 }
 

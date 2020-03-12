@@ -44,6 +44,11 @@
     [self bindingData];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.viewModel refreshData];
+}
+
 - (void)setupViews {
     self.navBar.titleLabel.text = @"我的";
     self.navBar.backgroundColor = wh_colorWithHexString(@"#FF3F70");

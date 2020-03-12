@@ -56,7 +56,7 @@ typedef enum : NSUInteger {
 - (void)setupViews {
     UIView * topView = [[UIView alloc]initWithFrame:CGRectMake(0, STATUS_BAR_HEIGHT + 32, VERTICAL_SCREEN_WIDTH, 150)];
     [self.view addSubview:topView];
-    [self.view addSubview:self.dismissBtn];
+//    [self.view addSubview:self.dismissBtn];
     [self.view addSubview:self.mainScroll];
     [self.view addSubview:self.confirmBtn];
     
@@ -75,11 +75,11 @@ typedef enum : NSUInteger {
     [codeView addSubview:self.codeField];
     
     
-    [self.dismissBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(STATUS_BAR_HEIGHT + 10);
-        make.left.mas_equalTo(15);
-        make.size.mas_equalTo(CGSizeMake(22, 22));
-    }];
+//    [self.dismissBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.mas_equalTo(STATUS_BAR_HEIGHT + 10);
+//        make.left.mas_equalTo(15);
+//        make.size.mas_equalTo(CGSizeMake(22, 22));
+//    }];
     [self.slognLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(10);
         make.centerX.mas_equalTo(topView);
@@ -251,10 +251,8 @@ typedef enum : NSUInteger {
                     [MFYLoginManager saveTheLoginModel:loginModel completion:^(BOOL isSuccess) {}];
                 
                     [[NSNotificationCenter defaultCenter] postNotificationName:kupdateUserInfo object:nil];
+                    [MFYLoginManager jumpToMainVC];
 
-                    [self dismissViewControllerAnimated:YES completion:^{
-                        [WHHud showString:@"登录成功"];
-                    }];
                 }else {
                     [WHHud showString:@"登录聊天系统失败"];
                     WHLogError(@"%@",error);

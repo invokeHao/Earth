@@ -9,6 +9,9 @@
 #import "MFYLoginManager.h"
 #import "MFYLoginVIewController.h"
 #import "UDIDWithKeyChain.h"
+#import "MFYLoginService.h"
+#import "MFYBaseNavigationController.h"
+#import "MFYCoreFlowVC.h"
 
 NSString *const kUserTabelName = @"userModel";
 
@@ -35,7 +38,44 @@ NSString *const kUserTabelName = @"userModel";
     if ([VC isKindOfClass:[MFYLoginVIewController class]]) {
         return;
     };
-    [VC presentViewController:[MFYLoginVIewController new] animated:YES completion:NULL];
+    MFYLoginVIewController *loginViewController = [[MFYLoginVIewController alloc] init];
+    MFYBaseNavigationController *logoinNavigationController = [[MFYBaseNavigationController alloc] initWithRootViewController:loginViewController];
+    UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+    keyWindow.rootViewController = logoinNavigationController;
+    if (completion) {
+        completion();
+    }
+}
+
++ (void)logoutWithCompletion:(void(^)(void))completion {
+    [MFYLoginService singOutCompletion:^(BOOL success, NSError * _Nonnull error) {
+        if (success) {
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:kuserName];
+            [JMSGUser logout:^(id resultObject, NSError *error) {
+            }];
+            [MFYLoginManager jumpToLoginWithCompletion:^{
+                [WHHud showString:@"退出登录成功"];
+                if (completion) {
+                    completion();
+                }
+            }];
+        }else {
+            [WHHud showString:error.descriptionFromServer];
+        }
+    }];
+}
++ (void)jumpToMainVC {
+    UIViewController *viewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    
+    if (viewController.presentedViewController) {
+        [viewController.presentedViewController dismissViewControllerAnimated:NO completion:^{
+        }];
+    }else {
+        UIViewController *viewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+        MFYBaseNavigationController *navigationController = (MFYBaseNavigationController *)viewController;
+        MFYCoreFlowVC * flowVC = [[MFYCoreFlowVC alloc]init];
+        [navigationController setViewControllers:@[flowVC] animated:YES];
+    }
 }
 
 #pragma mark- 数据库管理

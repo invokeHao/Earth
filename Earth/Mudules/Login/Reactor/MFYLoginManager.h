@@ -20,7 +20,12 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)deviceID;
 
 
-+ (void)jumpToLoginWithCompletion:(void (^)(void))completion ;
++ (void)jumpToLoginWithCompletion:(void (^)(void))completion;
+
++ (void)logoutWithCompletion:(void(^)(void))completion;
+
++ (void)jumpToMainVC;
+
 
 + (void)saveTheLoginModel:(MFYLoginModel*)model completion:(void(^)(BOOL isSuccess))completion;
 

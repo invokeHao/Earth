@@ -36,6 +36,7 @@
 		675570792418B80B008D6614 /* MFYChatSearchFriendVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 675570782418B80B008D6614 /* MFYChatSearchFriendVC.m */; };
 		6755707C2418DD7E008D6614 /* MFYChatSearchTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6755707B2418DD7E008D6614 /* MFYChatSearchTopView.m */; };
 		6755707F241A048D008D6614 /* MFYChatMayKnowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6755707E241A048D008D6614 /* MFYChatMayKnowVC.m */; };
+		67557082241A1A74008D6614 /* MFYSwizz.m in Sources */ = {isa = PBXBuildFile; fileRef = 67557081241A1A74008D6614 /* MFYSwizz.m */; };
 		6763D79023CEEE5B003D9E20 /* MFYHTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D78F23CEEE5B003D9E20 /* MFYHTTPManager.m */; };
 		6763D79323CEEFE1003D9E20 /* MFYResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D79223CEEFE1003D9E20 /* MFYResponseObject.m */; };
 		6763D79623CEF400003D9E20 /* MFYServiceURLConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D79523CEF400003D9E20 /* MFYServiceURLConfig.m */; };
@@ -286,6 +287,8 @@
 		6755707B2418DD7E008D6614 /* MFYChatSearchTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYChatSearchTopView.m; sourceTree = "<group>"; };
 		6755707D241A048D008D6614 /* MFYChatMayKnowVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYChatMayKnowVC.h; sourceTree = "<group>"; };
 		6755707E241A048D008D6614 /* MFYChatMayKnowVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYChatMayKnowVC.m; sourceTree = "<group>"; };
+		67557080241A1A74008D6614 /* MFYSwizz.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYSwizz.h; sourceTree = "<group>"; };
+		67557081241A1A74008D6614 /* MFYSwizz.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYSwizz.m; sourceTree = "<group>"; };
 		6763D78E23CEEE5B003D9E20 /* MFYHTTPManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYHTTPManager.h; sourceTree = "<group>"; };
 		6763D78F23CEEE5B003D9E20 /* MFYHTTPManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYHTTPManager.m; sourceTree = "<group>"; };
 		6763D79123CEEFE1003D9E20 /* MFYResponseObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYResponseObject.h; sourceTree = "<group>"; };
@@ -1994,6 +1997,8 @@
 				67CC30ED23F14C57002E6E2B /* MFYVideoManager.m */,
 				67CC314823F95806002E6E2B /* WHTimeUtil.h */,
 				67CC314923F95806002E6E2B /* WHTimeUtil.m */,
+				67557080241A1A74008D6614 /* MFYSwizz.h */,
+				67557081241A1A74008D6614 /* MFYSwizz.m */,
 			);
 			path = Unit;
 			sourceTree = "<group>";
@@ -2374,6 +2379,7 @@
 				67CC31EF240A6A53002E6E2B /* JCHATChatModel.m in Sources */,
 				675570612412550D008D6614 /* MFYChatListVC.m in Sources */,
 				679A02F923F126580041A012 /* MFYAssetModel.m in Sources */,
+				67557082241A1A74008D6614 /* MFYSwizz.m in Sources */,
 				67CC31F5240A6E71002E6E2B /* JCHATMessageContentView.m in Sources */,
 				679A02F623F125FE0041A012 /* MFYAlbumModel.m in Sources */,
 				67CC31E0240A3DB3002E6E2B /* JCHATStringUtils.m in Sources */,

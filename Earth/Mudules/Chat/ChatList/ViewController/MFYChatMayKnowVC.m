@@ -104,7 +104,6 @@
 }
 
 
-
 - (MFYBaseTableView *)mainTable {
     if (!_mainTable) {
         _mainTable = [[MFYBaseTableView alloc]init];
