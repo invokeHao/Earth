@@ -214,7 +214,6 @@
 
 - (UITextField *)currentPhoneField {
     if (!_currentPhoneField) {
-        _currentPhoneField = [[UITextField alloc]init];
         _currentPhoneField = UITextField.textField;
         NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:@"请输入原手机号" attributes:@{NSForegroundColorAttributeName:wh_colorWithHexString(@"#939499"),
         NSFontAttributeName:WHFont(17)
@@ -242,7 +241,6 @@
 
 - (UITextField *)currentCodeField {
     if (!_currentCodeField) {
-        _currentCodeField = [[UITextField alloc]init];
         _currentCodeField = UITextField.textField;
         NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:@"请输入验证码" attributes:@{NSForegroundColorAttributeName:wh_colorWithHexString(@"#939499"),
         NSFontAttributeName:WHFont(17)
@@ -271,7 +269,6 @@
 
 - (UITextField *)modifyPhoneField {
     if (!_modifyPhoneField) {
-        _modifyPhoneField = [[UITextField alloc]init];
         _modifyPhoneField = UITextField.textField;
         NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:@"请输入新手机号" attributes:@{NSForegroundColorAttributeName:wh_colorWithHexString(@"#939499"),
         NSFontAttributeName:WHFont(17)
@@ -299,7 +296,6 @@
 
 - (UITextField *)modifycodeField {
     if (!_modifycodeField) {
-        _modifycodeField = [[UITextField alloc]init];
         _modifycodeField = UITextField.textField;
         NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:@"请输入验证码" attributes:@{NSForegroundColorAttributeName:wh_colorWithHexString(@"#939499"),
         NSFontAttributeName:WHFont(17)

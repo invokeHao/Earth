@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MFYProfile.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,6 +21,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark- 获取置顶聊天列表
 + (void)getTopChatListCompletion:(void(^)(NSArray<NSString *> *imIdArr, NSError * error))completion;
+
+#pragma mark- 搜索聊天好友
++ (void)postSearchFriendsPramaDic:(NSDictionary *)dic Completion:(void(^)(NSArray<MFYProfile *> *userArr, NSError * error))completion;
+
+#pragma mark- 获取可能认识的人
++ (void)postMayKnowFriendsWithPhoneNum:(NSArray *)numArr Completion:(void(^)(NSArray<MFYProfile *> *userArr, NSError * error))completion;
+
 
 @end
 

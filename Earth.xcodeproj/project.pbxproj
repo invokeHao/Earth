@@ -33,6 +33,9 @@
 		6755706A241781B2008D6614 /* MFYChatListVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 67557069241781B2008D6614 /* MFYChatListVM.m */; };
 		6755706E241885B3008D6614 /* MFYChatService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6755706D241885B3008D6614 /* MFYChatService.m */; };
 		6755707624189BC8008D6614 /* JMSGConversation+MFYTop.m in Sources */ = {isa = PBXBuildFile; fileRef = 6755707524189BC8008D6614 /* JMSGConversation+MFYTop.m */; };
+		675570792418B80B008D6614 /* MFYChatSearchFriendVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 675570782418B80B008D6614 /* MFYChatSearchFriendVC.m */; };
+		6755707C2418DD7E008D6614 /* MFYChatSearchTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6755707B2418DD7E008D6614 /* MFYChatSearchTopView.m */; };
+		6755707F241A048D008D6614 /* MFYChatMayKnowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6755707E241A048D008D6614 /* MFYChatMayKnowVC.m */; };
 		6763D79023CEEE5B003D9E20 /* MFYHTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D78F23CEEE5B003D9E20 /* MFYHTTPManager.m */; };
 		6763D79323CEEFE1003D9E20 /* MFYResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D79223CEEFE1003D9E20 /* MFYResponseObject.m */; };
 		6763D79623CEF400003D9E20 /* MFYServiceURLConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D79523CEF400003D9E20 /* MFYServiceURLConfig.m */; };
@@ -277,6 +280,12 @@
 		6755706D241885B3008D6614 /* MFYChatService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYChatService.m; sourceTree = "<group>"; };
 		6755707424189BC8008D6614 /* JMSGConversation+MFYTop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JMSGConversation+MFYTop.h"; sourceTree = "<group>"; };
 		6755707524189BC8008D6614 /* JMSGConversation+MFYTop.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "JMSGConversation+MFYTop.m"; sourceTree = "<group>"; };
+		675570772418B80B008D6614 /* MFYChatSearchFriendVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYChatSearchFriendVC.h; sourceTree = "<group>"; };
+		675570782418B80B008D6614 /* MFYChatSearchFriendVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYChatSearchFriendVC.m; sourceTree = "<group>"; };
+		6755707A2418DD7E008D6614 /* MFYChatSearchTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYChatSearchTopView.h; sourceTree = "<group>"; };
+		6755707B2418DD7E008D6614 /* MFYChatSearchTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYChatSearchTopView.m; sourceTree = "<group>"; };
+		6755707D241A048D008D6614 /* MFYChatMayKnowVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYChatMayKnowVC.h; sourceTree = "<group>"; };
+		6755707E241A048D008D6614 /* MFYChatMayKnowVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYChatMayKnowVC.m; sourceTree = "<group>"; };
 		6763D78E23CEEE5B003D9E20 /* MFYHTTPManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYHTTPManager.h; sourceTree = "<group>"; };
 		6763D78F23CEEE5B003D9E20 /* MFYHTTPManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYHTTPManager.m; sourceTree = "<group>"; };
 		6763D79123CEEFE1003D9E20 /* MFYResponseObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYResponseObject.h; sourceTree = "<group>"; };
@@ -856,6 +865,10 @@
 			children = (
 				6755705F2412550D008D6614 /* MFYChatListVC.h */,
 				675570602412550D008D6614 /* MFYChatListVC.m */,
+				675570772418B80B008D6614 /* MFYChatSearchFriendVC.h */,
+				675570782418B80B008D6614 /* MFYChatSearchFriendVC.m */,
+				6755707D241A048D008D6614 /* MFYChatMayKnowVC.h */,
+				6755707E241A048D008D6614 /* MFYChatMayKnowVC.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -865,6 +878,8 @@
 			children = (
 				6755706224125C1B008D6614 /* MFYChatSearchView.h */,
 				6755706324125C1B008D6614 /* MFYChatSearchView.m */,
+				6755707A2418DD7E008D6614 /* MFYChatSearchTopView.h */,
+				6755707B2418DD7E008D6614 /* MFYChatSearchTopView.m */,
 				675570652416458C008D6614 /* MFYChatFriendCell.h */,
 				675570662416458C008D6614 /* MFYChatFriendCell.m */,
 			);
@@ -2240,6 +2255,7 @@
 				67D28B8223D191EF00543D22 /* MFYGender.m in Sources */,
 				67CC31AE2403BF74002E6E2B /* MFYMyNoteVM.m in Sources */,
 				67CC324C240D194B002E6E2B /* SDWebImageDownloaderOperation.m in Sources */,
+				6755707F241A048D008D6614 /* MFYChatMayKnowVC.m in Sources */,
 				679A02E923F107620041A012 /* MOPhotoPreviewNavigationBar.m in Sources */,
 				67CC310423F29754002E6E2B /* MFYItem.m in Sources */,
 				67EFC32223C300C500F5BDB3 /* KSProgressLayer.m in Sources */,
@@ -2298,6 +2314,7 @@
 				6725041023D5873200716842 /* MFYVideoAndImageView.m in Sources */,
 				67AA2917240FBA71008B6788 /* MFYChatMoreView.m in Sources */,
 				67CC312323F6821D002E6E2B /* MFYVideoProgressView.m in Sources */,
+				6755707C2418DD7E008D6614 /* MFYChatSearchTopView.m in Sources */,
 				67D28B7F23D1908300543D22 /* MFYProfile.m in Sources */,
 				6763D79623CEF400003D9E20 /* MFYServiceURLConfig.m in Sources */,
 				67CC31E8240A52F7002E6E2B /* JCHATSendMsgManager.m in Sources */,
@@ -2421,6 +2438,7 @@
 				67CC30F223F14D2E002E6E2B /* UIImage+WHCompress.m in Sources */,
 				67CC3208240D07EE002E6E2B /* JCHATShowTimeCell.m in Sources */,
 				67CC321C240D133B002E6E2B /* MJPhotoProgressView.m in Sources */,
+				675570792418B80B008D6614 /* MFYChatSearchFriendVC.m in Sources */,
 				67CC30F523F14F7E002E6E2B /* MOPhotoToMFYTransformer.m in Sources */,
 				6725041623D6ABB900716842 /* MFYBaseTableView.m in Sources */,
 			);

@@ -90,7 +90,9 @@
     if (conversation) {
         self.contentView.backgroundColor = conversation.isTop? wh_colorWithHexString(@"#F0F1F5") : [UIColor whiteColor];
         _conversation = conversation;
+        JMSGUser * user = conversation.target;
         self.nameLabel.text = conversation.title;
+        self.nameLabel.textColor = user.gender == kJMSGUserGenderMale ? wh_colorWithHexString(@"#FDAD10") : wh_colorWithHexString(@"FF6CA0");
         self.messageLabel.text = conversation.latestMessageContentText;
         [conversation avatarData:^(NSData *data, NSString *objectId, NSError *error) {
             if (!error) {
@@ -132,6 +134,18 @@
         } else {
             [self.messageNumberLabel setHidden:YES];
         }
+    }
+}
+
+- (void)setProfile:(MFYProfile *)profile {
+    if (profile) {
+        _profile = profile;
+        self.contentView.backgroundColor = [UIColor whiteColor];
+        self.nameLabel.text = profile.nickname;
+        self.nameLabel.textColor = profile.gender.no == 2 ? wh_colorWithHexString(@"#FDAD10") : wh_colorWithHexString(@"FF6CA0");
+        self.messageLabel.text = @"和我交朋友吧～";
+        [self.iconView yy_setImageWithURL:[NSURL URLWithString:profile.headIconUrl] options:YYWebImageOptionProgressive];
+        [self.timeLabel setText:@""];
     }
 }
 

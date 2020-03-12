@@ -12,6 +12,8 @@
 #import "MFYChatFriendCell.h"
 #import "MFYChatListVM.h"
 #import "MFYSingleChatVC.h"
+#import "MFYChatSearchFriendVC.h"
+#import "MFYChatMayKnowVC.h"
 
 @interface MFYChatListVC ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -21,7 +23,7 @@
 
 @property (nonatomic, strong)MFYChatListVM * viewModel;
 
-@property (nonatomic, strong)UIButton * addFriends;
+@property (nonatomic, strong)UIButton * mayKnowBtn;
 
 @end
 
@@ -37,7 +39,7 @@
 - (void)setupViews {
     self.navBar.backgroundColor = wh_colorWithHexString(@"#FF3F70");
     self.navBar.titleLabel.text = @"消息";
-    self.navBar.rightButton = self.addFriends;
+    self.navBar.rightButton = self.mayKnowBtn;
     
     [self.view addSubview:self.mainTable];
     [self.mainTable mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -47,11 +49,21 @@
 }
 
 - (void)bindEvents {
-    self.viewModel = [[MFYChatListVM alloc]init];
-    
-    [[self.addFriends rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        
+    self.viewModel = [[MFYChatListVM alloc]initWithType:MFYChatListFriendsType];
+    @weakify(self)
+    [[self.mayKnowBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self)
+        MFYChatMayKnowVC * mayKnowVC = [[MFYChatMayKnowVC alloc]init];
+        [self.navigationController pushViewController:mayKnowVC animated:YES];
     }];
+    
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]init];
+    [[tap rac_gestureSignal] subscribeNext:^(id x) {
+        @strongify(self)
+        MFYChatSearchFriendVC * chatSearchVC = [[MFYChatSearchFriendVC alloc]init];
+        [self.navigationController pushViewController:chatSearchVC animated:NO];
+    }];
+    [self.searchView addGestureRecognizer:tap];
     
 }
 
@@ -66,7 +78,6 @@
         @strongify(self)
         [self.mainTable reloadData];
     }];
-
 }
 
 
@@ -98,7 +109,7 @@
     MFYSingleChatVC * singleChatVC = [[MFYSingleChatVC alloc]init];
     JMSGConversation *conversation = [self.viewModel.dataList objectAtIndex:indexPath.row];
     singleChatVC.conversation = conversation;
-    singleChatVC.title = conversation.title;
+    singleChatVC.userProfile.nickname = conversation.title;
     [self.navigationController pushViewController:singleChatVC animated:YES];
      
 //     NSInteger badge = _unreadCount - [conversation.unreadCount integerValue];
@@ -154,15 +165,16 @@
 - (MFYChatSearchView *)searchView {
     if (!_searchView) {
         _searchView = [[MFYChatSearchView alloc]initWithFrame:CGRectMake(0, 0, VERTICAL_SCREEN_WIDTH, 70)];
+        _searchView.textField.enabled = NO;
     }
     return _searchView;
 }
 
-- (UIButton *)addFriends {
-    if (!_addFriends) {
-        _addFriends = UIButton.button.WH_setImage_forState(WHImageNamed(@"chat_addFriends"),UIControlStateNormal);
+- (UIButton *)mayKnowBtn {
+    if (!_mayKnowBtn) {
+        _mayKnowBtn = UIButton.button.WH_setImage_forState(WHImageNamed(@"chat_mayKnow"),UIControlStateNormal);
     }
-    return _addFriends;
+    return _mayKnowBtn;
 }
 
 @end

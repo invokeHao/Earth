@@ -20,43 +20,14 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        [self _setup];
+        [self setupViews];
     }
     return self;
 }
 
-- (void)_setup {
+- (void)setupViews {
     self.backgroundColor = wh_colorWithHexString(@"#FFFFFF");
-    
-
-    
-    self.textField = [[UITextField alloc] init];
-    self.textField.backgroundColor = wh_colorWithHexString(@"#F0F1F5");
-    self.textField.font = WHFont(16);
-    self.textField.textColor = wh_colorWithHexString(@"#939499");
-    self.textField.layer.cornerRadius = 17.0;
-    self.textField.clipsToBounds = YES;
-    self.textField.returnKeyType = UIReturnKeySearch;
-    NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:@" 搜索" attributes:
-                                      @{
-                                        NSForegroundColorAttributeName: wh_colorWithHexString(@"#C4C6CC"),
-                                        NSFontAttributeName: WHFont(16)
-                                        }];
-    self.textField.attributedPlaceholder = attrString;
-    self.textField.leftView = [self setLeftView];
-    self.textField.leftViewMode = UITextFieldViewModeAlways;
-    self.textField.tintColor = wh_colorWithHexString(@"#939499");
-    self.textField.delegate = self;
     [self addSubview:self.textField];
-    
-    @weakify(self);
-    [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
-        @strongify(self);
-        make.left.mas_equalTo(11);
-        make.right.mas_equalTo(-11);
-        make.height.equalTo(@36);
-        make.centerY.mas_equalTo(self);
-    }];
 }
 
 - (UIView *)setLeftView {
@@ -66,6 +37,18 @@
     leftImageV.contentMode = UIViewContentModeCenter;
     [leftView addSubview:leftImageV];
     return leftView;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    @weakify(self);
+    [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.left.mas_equalTo(11);
+        make.right.mas_equalTo(-11);
+        make.height.equalTo(@36);
+        make.centerY.mas_equalTo(self);
+    }];
 }
 
 #pragma mark - Action
@@ -92,6 +75,30 @@
         [self.textField resignFirstResponder];
     }
     return YES;
+}
+
+- (UITextField *)textField {
+    if (!_textField) {
+        _textField = UITextField.textField;
+        NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:@"搜索" attributes:
+                                          @{
+                                              NSForegroundColorAttributeName: wh_colorWithHexString(@"#C4C6CC"),
+                                              NSFontAttributeName: WHFont(16)
+                                            }];
+        self.textField.attributedPlaceholder = attrString;
+        _textField.backgroundColor = wh_colorWithHexString(@"#F0F1F5");
+        _textField.returnKeyType = UIReturnKeySearch;
+        _textField.font = WHFont(16);
+        _textField.tintColor = wh_colorWithHexString(@"939499");
+        _textField.leftView = [self setLeftView];
+        _textField.leftViewMode = UITextFieldViewModeAlways;
+        _textField.textColor = wh_colorWithHexString(@"#939499");
+        _textField.layer.cornerRadius = 17.0;
+        _textField.clipsToBounds = YES;
+
+        _textField.delegate = self;
+    }
+    return _textField;
 }
 
 
