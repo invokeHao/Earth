@@ -13,6 +13,7 @@
 - (void)initialization {
     [self setupIQKeyboardManager];
     [self configTheUmeng];
+    [self configTheWX];
     WHLog(@"%@",[MFYLoginManager token]);
 }
 
@@ -25,6 +26,10 @@
 
 - (void)configTheUmeng {
     [UMConfigure initWithAppkey:@"5e4e8cc67ba7e954e9f6a577" channel:@"APP Store"];
+}
+
+- (void)configTheWX {
+    [WXApi registerApp:@"wx9d3834c0a416ff28" universalLink:@"https://friends.0act.com/apple-app-site-association"];
 }
 
 @end

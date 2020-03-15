@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong)void(^tapMessageBlock)(BOOL tap);
 
+@property (nonatomic, strong)void(^tapBeforeBlock)(BOOL tap);
+
 @end
 
 NS_ASSUME_NONNULL_END

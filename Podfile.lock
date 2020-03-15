@@ -56,6 +56,7 @@ PODS:
   - UMCPush (3.2.4):
     - UMCCommon
   - UMCSecurityPlugins (1.0.6)
+  - WechatOpenSDK (1.8.6)
   - YHDragContainer (0.6.2)
   - YYCache (1.0.4)
   - YYImage (1.0.4):
@@ -89,6 +90,7 @@ DEPENDENCIES:
   - UMCCommon
   - UMCPush
   - UMCSecurityPlugins
+  - WechatOpenSDK
   - YHDragContainer
   - YYImage
   - YYImage/WebP
@@ -119,6 +121,7 @@ SPEC REPOS:
     - UMCCommon
     - UMCPush
     - UMCSecurityPlugins
+    - WechatOpenSDK
     - YHDragContainer
     - YYCache
     - YYImage
@@ -159,12 +162,13 @@ SPEC CHECKSUMS:
   UMCCommon: 971f324a5a99c9d662ae040a815e7e3d7ef8b2a8
   UMCPush: 1edd856027dcf905333effb4040ace5d236a7316
   UMCSecurityPlugins: 0831a08f3988f3cea9f1d3a7626cd9bee4fef150
+  WechatOpenSDK: 368ae03b72ee3ea1328c4f11326fbb5d2721d118
   YHDragContainer: a3b98c15e8413a5eba144d914903bd3d3ee48573
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: 10bd771ddd67098845b69117f78ba3ca970b50d4
+PODFILE CHECKSUM: 835bd1da851fb302cd4af4bb734f2ef1029194e6
 
 COCOAPODS: 1.5.3

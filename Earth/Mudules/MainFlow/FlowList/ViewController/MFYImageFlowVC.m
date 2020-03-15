@@ -15,6 +15,7 @@
 #import "MFYIndicatorBackgroundView.h"
 #import "MFYArticleService.h"
 #import "MFYSingleChatVC.h"
+#import "MFYPayCardView.h"
 
 @interface MFYImageFlowVC ()<YHDragCardDelegate,YHDragCardDataSource,JXCategoryViewDelegate>
 
@@ -121,6 +122,14 @@
             } else {
                 WHLogError(@"createSingleConversationWithUsername");
             }
+        }];
+    }];
+    
+    [self.toolView setTapBeforeBlock:^(BOOL tap) {
+       @strongify(self)
+//        [MFYLoginManager umengPhoneVerifyLogin];
+        [MFYPayCardView showInView:self.view completion:^(BOOL isSuccess) {
+            
         }];
     }];
 

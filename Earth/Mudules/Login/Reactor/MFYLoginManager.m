@@ -88,6 +88,8 @@ NSString *const kUserTabelName = @"userModel";
         if ([PNSCodeSuccess isEqualToString:[resultDic objectForKey:@"resultCode"]]) {
             //设置密钥成功
             [[MFYLoginManager sharedManager] checkTheVerify];
+        }else {
+            [MFYLoginManager jumpToLoginWithCompletion:^{}];
         }
     }];
 }
@@ -98,12 +100,14 @@ NSString *const kUserTabelName = @"userModel";
     [UMCommonHandler checkEnvAvailableWithComplete:^(NSDictionary * _Nullable resultDic) {
         if ([PNSCodeSuccess isEqualToString:[resultDic objectForKey:@"resultCode"]] == NO) {
             [WHHud showString:@"check 接口检查失败，环境不满足"];
+            [MFYLoginManager jumpToLoginWithCompletion:^{}];
             return;
         }
         //2. 调用预取号接口，加速授权页的弹起
         [UMCommonHandler accelerateLoginPageWithTimeout:3.0 complete:^(NSDictionary * _Nonnull resultDic) {
             if ([PNSCodeSuccess isEqualToString:[resultDic objectForKey:@"resultCode"]] == NO) {
                 [WHHud showString:@"取号，加速授权页弹起失败"];
+                [MFYLoginManager jumpToLoginWithCompletion:^{}];
                 return ;
             }
             //3. 调用获取登录Token接口，可以立马弹起授权页

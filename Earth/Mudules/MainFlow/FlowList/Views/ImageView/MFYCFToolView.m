@@ -31,9 +31,11 @@
 }
 
 - (void)bindEvents {
-    
+    @weakify(self)
     [[self.beforeBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        [MFYLoginManager umengPhoneVerifyLogin];
+        if(self.tapBeforeBlock){
+            self.tapBeforeBlock(YES);
+        }
     }];
     
     [[self.publicBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
@@ -41,7 +43,7 @@
         MFYBaseNavigationController * Nav = [[MFYBaseNavigationController alloc]initWithRootViewController:[MFYPublicImageCardVC new]];
         [vc presentViewController:Nav animated:YES completion:NULL];
     }];
-    @weakify(self)
+    
     [[self.likeBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self)
         if (self.tapLikeBlock) {

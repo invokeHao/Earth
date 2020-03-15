@@ -45,6 +45,7 @@
 		67557090241A33B7008D6614 /* UMVerify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6755708D241A33B6008D6614 /* UMVerify.framework */; };
 		67557091241A33B7008D6614 /* ATAuthSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6755708E241A33B6008D6614 /* ATAuthSDK.bundle */; };
 		67557094241A3B64008D6614 /* UMModelCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67557093241A3B64008D6614 /* UMModelCreate.m */; };
+		6755709A241B4F4A008D6614 /* MFYPayCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67557099241B4F4A008D6614 /* MFYPayCardView.m */; };
 		6763D79023CEEE5B003D9E20 /* MFYHTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D78F23CEEE5B003D9E20 /* MFYHTTPManager.m */; };
 		6763D79323CEEFE1003D9E20 /* MFYResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D79223CEEFE1003D9E20 /* MFYResponseObject.m */; };
 		6763D79623CEF400003D9E20 /* MFYServiceURLConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D79523CEF400003D9E20 /* MFYServiceURLConfig.m */; };
@@ -306,6 +307,8 @@
 		6755708E241A33B6008D6614 /* ATAuthSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ATAuthSDK.bundle; sourceTree = "<group>"; };
 		67557092241A3B64008D6614 /* UMModelCreate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMModelCreate.h; sourceTree = "<group>"; };
 		67557093241A3B64008D6614 /* UMModelCreate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMModelCreate.m; sourceTree = "<group>"; };
+		67557098241B4F4A008D6614 /* MFYPayCardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYPayCardView.h; sourceTree = "<group>"; };
+		67557099241B4F4A008D6614 /* MFYPayCardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYPayCardView.m; sourceTree = "<group>"; };
 		6763D78E23CEEE5B003D9E20 /* MFYHTTPManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYHTTPManager.h; sourceTree = "<group>"; };
 		6763D78F23CEEE5B003D9E20 /* MFYHTTPManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYHTTPManager.m; sourceTree = "<group>"; };
 		6763D79123CEEFE1003D9E20 /* MFYResponseObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYResponseObject.h; sourceTree = "<group>"; };
@@ -955,6 +958,15 @@
 			path = UMVerify;
 			sourceTree = "<group>";
 		};
+		67557097241B4F31008D6614 /* PayCardView */ = {
+			isa = PBXGroup;
+			children = (
+				67557098241B4F4A008D6614 /* MFYPayCardView.h */,
+				67557099241B4F4A008D6614 /* MFYPayCardView.m */,
+			);
+			path = PayCardView;
+			sourceTree = "<group>";
+		};
 		6763D78D23CEEE17003D9E20 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -1086,6 +1098,7 @@
 				67CC312D23F92405002E6E2B /* AudioView */,
 				67CC312023F681FE002E6E2B /* MFYVideoViews */,
 				6746D48C23B60DA500A46FC7 /* CategoryViews */,
+				67557097241B4F31008D6614 /* PayCardView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2460,6 +2473,7 @@
 				679A02FD23F12A1C0041A012 /* WHHud.m in Sources */,
 				67CC30FB23F1605E002E6E2B /* MFYPublishItemModel.m in Sources */,
 				67CC3242240D194B002E6E2B /* UIImageView+MJWebCache.m in Sources */,
+				6755709A241B4F4A008D6614 /* MFYPayCardView.m in Sources */,
 				67CC31F9240A6F8F002E6E2B /* ChatBubbleLayer.m in Sources */,
 				6746D48223B4E54100A46FC7 /* MFYIndicatorBackgroundView.m in Sources */,
 				67EFC32723C3015C00F5BDB3 /* MFYCardSuduPicView.m in Sources */,

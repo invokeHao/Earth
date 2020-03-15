@@ -22,6 +22,7 @@
 #import <IQKeyboardManager.h>
 #import <UMCommon/UMCommon.h>
 #import <JMessage/JMessage.h>
+#import <WXApi.h>
 
 #import "whKit.h"
 #import "KSPhotoBrowser.h"

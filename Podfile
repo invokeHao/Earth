@@ -35,6 +35,7 @@ def shared_pods
     pod 'UMCSecurityPlugins'
     pod 'UMCAnalytics'
     pod 'JMessage'
+    pod 'WechatOpenSDK'
 
     post_install do |installer|
     installer.pods_project.targets.each do |target|
