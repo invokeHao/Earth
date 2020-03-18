@@ -10,7 +10,7 @@
 
 @interface MFYFlowListVM()
 
-@property (nonatomic, strong) NSMutableArray<MFYArticle *> * dataList;
+@property (nonatomic, strong) NSArray<MFYArticle *> * dataList;
 
 @property (nonatomic, assign) NSInteger NewDataCount;
 
@@ -38,6 +38,7 @@
     [self setupData];
 }
 
+
 -(void)setupData {
     @weakify(self)
     [MFYCoreflowService getTheImageCardWithTopicId:self.topicId completion:^(NSArray<MFYArticle *> * _Nonnull articleList, NSError * _Nonnull error) {
@@ -49,11 +50,15 @@
     }];
 }
 
-- (NSMutableArray<MFYArticle *> *)dataList {
-    if (!_dataList) {
-        _dataList = [NSMutableArray arrayWithCapacity:0];
-    }
-    return _dataList;
+- (void)getMoreData {
+    @weakify(self)
+    [MFYCoreflowService getTheImageCardWithTopicId:self.topicId completion:^(NSArray<MFYArticle *> * _Nonnull articleList, NSError * _Nonnull error) {
+        @strongify(self)
+        self.NewDataCount = articleList.count;
+         if (articleList.count > 0) {
+             self.dataList = [self.dataList arrayByAddingObjectsFromArray:[articleList copy]];
+         }
+    }];
 }
 
 @end

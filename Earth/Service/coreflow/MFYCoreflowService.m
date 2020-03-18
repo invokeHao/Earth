@@ -34,8 +34,10 @@
 }
 
 +(void)getTheImageCardWithTopicId:(NSString *)topicId completion:(void (^)(NSArray<MFYArticle *> * , NSError * ))completion {
+    NSMutableDictionary * dic = [[NSMutableDictionary alloc]initWithCapacity:0];
+    dic[@"size"] = @(50);
     NSString * path = FORMAT(@"/api/article/image/next/%@",topicId);
-    [[MFYHTTPManager sharedManager] GET:path parameters:@[] success:^(NSURLSessionDataTask * _Nonnull task, MFYResponseObject * _Nonnull cmsResponse) {
+    [[MFYHTTPManager sharedManager] GET:path parameters:dic success:^(NSURLSessionDataTask * _Nonnull task, MFYResponseObject * _Nonnull cmsResponse) {
         MFYResponseObject * resp = cmsResponse;
         if (resp.code == 1) {
             NSMutableArray * ArticleArr = [NSMutableArray arrayWithCapacity:0];

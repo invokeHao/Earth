@@ -47,5 +47,28 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:kDBMigrateFinishNotification object:nil];
 }
 
+#pragma mark- APPdelegate delegate
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    BOOL result = NO;
+    result = [[MFYRechargeManager sharedManager] WXHandleUrl:url];
+    result = [[MFYShareManager sharedManager] mfy_thirdPatyHandleTheUrl:url];
+    return result;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    BOOL result = NO;
+    result = [[MFYRechargeManager sharedManager] WXHandleUrl:url];
+    result = [[MFYShareManager sharedManager] mfy_thirdPatyHandleTheUrl:url];
+    return result;
+}
+
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler {
+    BOOL result = NO;
+    result = [[MFYRechargeManager sharedManager] WXhandleOpenUniversalLink:userActivity];
+    result = [[MFYShareManager sharedManager] mfy_handleOpenUniversalLink:userActivity];
+    return result;
+}
+
+
 
 @end

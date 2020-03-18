@@ -24,6 +24,7 @@
 @property (nonatomic, strong) MFYFlowListVM * viewModel;
 @property (nonatomic, strong) MFYCFToolView * toolView;
 @property (nonatomic, strong) MFYFlowCardView * currentCard;
+@property (nonatomic, assign) NSInteger currentIndex;
 @property (nonatomic, strong) MFYCategoryTitleView * myCategoryView;
 
 
@@ -69,6 +70,7 @@
 
 - (void)bindData {
     @weakify(self)
+    self.currentCard = 0;
     RACSignal * tagObserve = RACObserve(self, imageTagArray);
     [[tagObserve skipUntilBlock:^BOOL(id x) {
         @strongify(self)
@@ -127,9 +129,31 @@
     
     [self.toolView setTapBeforeBlock:^(BOOL tap) {
        @strongify(self)
-//        [MFYLoginManager umengPhoneVerifyLogin];
-        [MFYPayCardView showInView:self.view completion:^(BOOL isSuccess) {
-            
+        //先判断用户可以重读次数
+        NSInteger index = self.currentIndex - 1;
+        if (index < 0) {
+            [WHHud showString:@"目前是第一张"];
+            return;
+        }
+        [WHHud showActivityView];
+        MFYArticle * artitle = self.viewModel.dataList[index];
+        [MFYArticleService rereadArticle:artitle.articleId Completion:^(BOOL isSuccess, NSError * _Nonnull error) {
+            [WHHud hideActivityView];
+            @strongify(self)
+            if (!error) {
+                if (isSuccess) {
+                    //重读上一张
+                    [self revokeCard];
+                }else {
+                    //充值弹窗
+                    [MFYPayCardView showTheBeforeCard:artitle Completion:^(BOOL payed) {
+                        @strongify(self)
+                        [self revokeCard];
+                    }];
+                }
+            }else {
+                [WHHud showString:error.descriptionFromServer];
+            }
         }];
     }];
 
@@ -161,6 +185,7 @@
 #pragma mark YHDragCardDelegate
 - (void)dragCard:(YHDragCardContainer *)dragCard didDisplayCard:(UIView *)card withIndex:(int)index{
     WHLog(@"索引为%d的卡片正在展示", index);
+    self.currentIndex = index;
     MFYFlowCardView * cardView = (MFYFlowCardView*)card;
     self.currentCard = cardView;
     MFYArticle * article = self.viewModel.dataList[index];
@@ -184,7 +209,8 @@
 
 - (void)dragCard:(YHDragCardContainer *)dragCard didFinishRemoveLastCard:(UIView *)card{
     WHLog(@"最后一张卡片滑出去了");
-
+    [WHHud showString:@"新的一波内容正在路上..."];
+    [self.viewModel refreshData];
 }
 
 - (void)dragCard:(YHDragCardContainer *)dragCard currentCard:(UIView *)card withIndex:(int)index currentCardDirection:(YHDragCardDirection *)direction canRemove:(BOOL)canRemove{
@@ -200,6 +226,10 @@
         self.toolView.likeBtn.transform = CGAffineTransformMakeScale(ratio, ratio);
     }
 //    WHLog(@"%ld", self.awayDirection);
+}
+
+- (void)revokeCard {
+    [self.card revoke:self.awayDirection];
 }
 
 #pragma mark- 视频控制
@@ -236,7 +266,7 @@
         _card.delegate = self;
         _card.dataSource = self;
         _card.removeDirection = YHDragCardRemoveDirectionHorizontal;
-        _card.infiniteLoop = YES;
+        _card.infiniteLoop = NO;
     }
     return _card;
 }

@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong)MFYItem * item;
 
-+ (void)showInViwe:(UIView *)view itemModel:(MFYItem *)item;
++ (void)showInViwe:(UIView *)view itemModel:(MFYItem *)item completion:(void(^)(BOOL isPayed))completion;
 
 @end
 

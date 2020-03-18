@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		2CD1C4B1FFEA8182F60BEF17 /* libPods-EarthTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8077943148965DD1B7C6BA34 /* libPods-EarthTests.a */; };
 		4EB9B06CBE8768E2F907633A /* libPods-Earth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CD831C42EFAA5322E86D062 /* libPods-Earth.a */; };
+		6717AC5E2420E4A70072BBFE /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6717AC5D2420E4A70072BBFE /* TencentOpenAPI.framework */; };
+		6717AC602420E5010072BBFE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6717AC5F2420E5010072BBFE /* Security.framework */; };
+		6717AC622420E5120072BBFE /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6717AC612420E5120072BBFE /* libiconv.tbd */; };
+		6717AC642420E5800072BBFE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6717AC632420E5800072BBFE /* CoreGraphics.framework */; };
+		6717AC682420E6860072BBFE /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6717AC672420E6860072BBFE /* libc++.tbd */; };
+		6717AC6D2421CE5C0072BBFE /* MFYShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6717AC6C2421CE5C0072BBFE /* MFYShareManager.m */; };
 		672503FB23D421A800716842 /* MFYOpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 672503FA23D421A800716842 /* MFYOpenUDID.m */; };
 		672503FE23D4229A00716842 /* UDIDWithKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 672503FD23D4229A00716842 /* UDIDWithKeyChain.m */; };
 		6725040A23D433B600716842 /* MFYPublicImageCardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6725040923D433B600716842 /* MFYPublicImageCardVC.m */; };
@@ -217,6 +223,17 @@
 		67F0980423A7A063001DCEB4 /* MFYBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F0980323A7A063001DCEB4 /* MFYBaseViewController.m */; };
 		67F0980823A7A185001DCEB4 /* MFYNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F0980723A7A185001DCEB4 /* MFYNavigationBar.m */; };
 		67F0981023A7AAE7001DCEB4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F0980D23A7AAE6001DCEB4 /* main.m */; };
+		67FB42B8241F30C600F2817D /* MFYGlobalConfigService.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FB42B7241F30C600F2817D /* MFYGlobalConfigService.m */; };
+		67FB42BB241F451A00F2817D /* MFYGlobalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FB42BA241F451A00F2817D /* MFYGlobalModel.m */; };
+		67FB42BE241F45EF00F2817D /* MFYAudioRereadRechargeProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FB42BD241F45EF00F2817D /* MFYAudioRereadRechargeProduct.m */; };
+		67FB42C1241F465D00F2817D /* MFYAudioTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FB42C0241F465D00F2817D /* MFYAudioTopic.m */; };
+		67FB42C5241F475400F2817D /* MFYGlobalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FB42C4241F475400F2817D /* MFYGlobalManager.m */; };
+		67FB42C9241F61FF00F2817D /* MFYRechargeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FB42C8241F61FF00F2817D /* MFYRechargeManager.m */; };
+		67FB42CD241F641700F2817D /* MFYRechargeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FB42CC241F641700F2817D /* MFYRechargeService.m */; };
+		67FB42D1241F67F700F2817D /* MFYWXOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FB42D0241F67F700F2817D /* MFYWXOrderModel.m */; };
+		67FB42D4241F684900F2817D /* MFYDeductStatu.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FB42D3241F684900F2817D /* MFYDeductStatu.m */; };
+		67FB42D824209D1B00F2817D /* MFYShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FB42D724209D1B00F2817D /* MFYShareView.m */; };
+		67FB42DC2420A38800F2817D /* WHTopImageBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FB42DB2420A38800F2817D /* WHTopImageBtn.m */; };
 		7AD7DC2B60CCB2CD828A85F5 /* libPods-EarthUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EABE641716F8167C445E2C55 /* libPods-EarthUITests.a */; };
 /* End PBXBuildFile section */
 
@@ -241,6 +258,14 @@
 		0E01BA0FF280F6B5DBA883DC /* Pods-Earth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Earth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Earth/Pods-Earth.debug.xcconfig"; sourceTree = "<group>"; };
 		3215E6FA30092520AD67D89C /* Pods-EarthUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EarthUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EarthUITests/Pods-EarthUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4C07D197B752148CF079BE0D /* Pods-EarthTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EarthTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EarthTests/Pods-EarthTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6717AC5D2420E4A70072BBFE /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
+		6717AC5F2420E5010072BBFE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		6717AC612420E5120072BBFE /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		6717AC632420E5800072BBFE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6717AC672420E6860072BBFE /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		6717AC6B2421CE5C0072BBFE /* MFYShareManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYShareManager.h; sourceTree = "<group>"; };
+		6717AC6C2421CE5C0072BBFE /* MFYShareManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYShareManager.m; sourceTree = "<group>"; };
+		6717AC6E2421D4580072BBFE /* MFYThirdPartyConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYThirdPartyConstant.h; sourceTree = "<group>"; };
 		672503F923D421A800716842 /* MFYOpenUDID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYOpenUDID.h; sourceTree = "<group>"; };
 		672503FA23D421A800716842 /* MFYOpenUDID.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYOpenUDID.m; sourceTree = "<group>"; };
 		672503FC23D4229A00716842 /* UDIDWithKeyChain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UDIDWithKeyChain.h; sourceTree = "<group>"; };
@@ -661,6 +686,28 @@
 		67F0980A23A7A301001DCEB4 /* MFYPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYPrefixHeader.pch; sourceTree = "<group>"; };
 		67F0980B23A7A327001DCEB4 /* MFYMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYMacro.h; sourceTree = "<group>"; };
 		67F0980D23A7AAE6001DCEB4 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		67FB42B6241F30C600F2817D /* MFYGlobalConfigService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYGlobalConfigService.h; sourceTree = "<group>"; };
+		67FB42B7241F30C600F2817D /* MFYGlobalConfigService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYGlobalConfigService.m; sourceTree = "<group>"; };
+		67FB42B9241F451A00F2817D /* MFYGlobalModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYGlobalModel.h; sourceTree = "<group>"; };
+		67FB42BA241F451A00F2817D /* MFYGlobalModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYGlobalModel.m; sourceTree = "<group>"; };
+		67FB42BC241F45EF00F2817D /* MFYAudioRereadRechargeProduct.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYAudioRereadRechargeProduct.h; sourceTree = "<group>"; };
+		67FB42BD241F45EF00F2817D /* MFYAudioRereadRechargeProduct.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYAudioRereadRechargeProduct.m; sourceTree = "<group>"; };
+		67FB42BF241F465D00F2817D /* MFYAudioTopic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYAudioTopic.h; sourceTree = "<group>"; };
+		67FB42C0241F465D00F2817D /* MFYAudioTopic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYAudioTopic.m; sourceTree = "<group>"; };
+		67FB42C3241F475400F2817D /* MFYGlobalManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYGlobalManager.h; sourceTree = "<group>"; };
+		67FB42C4241F475400F2817D /* MFYGlobalManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYGlobalManager.m; sourceTree = "<group>"; };
+		67FB42C7241F61FF00F2817D /* MFYRechargeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYRechargeManager.h; sourceTree = "<group>"; };
+		67FB42C8241F61FF00F2817D /* MFYRechargeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYRechargeManager.m; sourceTree = "<group>"; };
+		67FB42CB241F641700F2817D /* MFYRechargeService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYRechargeService.h; sourceTree = "<group>"; };
+		67FB42CC241F641700F2817D /* MFYRechargeService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYRechargeService.m; sourceTree = "<group>"; };
+		67FB42CF241F67F700F2817D /* MFYWXOrderModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYWXOrderModel.h; sourceTree = "<group>"; };
+		67FB42D0241F67F700F2817D /* MFYWXOrderModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYWXOrderModel.m; sourceTree = "<group>"; };
+		67FB42D2241F684900F2817D /* MFYDeductStatu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYDeductStatu.h; sourceTree = "<group>"; };
+		67FB42D3241F684900F2817D /* MFYDeductStatu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYDeductStatu.m; sourceTree = "<group>"; };
+		67FB42D624209D1B00F2817D /* MFYShareView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYShareView.h; sourceTree = "<group>"; };
+		67FB42D724209D1B00F2817D /* MFYShareView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYShareView.m; sourceTree = "<group>"; };
+		67FB42DA2420A38800F2817D /* WHTopImageBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHTopImageBtn.h; sourceTree = "<group>"; };
+		67FB42DB2420A38800F2817D /* WHTopImageBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WHTopImageBtn.m; sourceTree = "<group>"; };
 		7670937B80E0D3ECA54F5B0F /* Pods-EarthTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EarthTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EarthTests/Pods-EarthTests.release.xcconfig"; sourceTree = "<group>"; };
 		8077943148965DD1B7C6BA34 /* libPods-EarthTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EarthTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CD831C42EFAA5322E86D062 /* libPods-Earth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Earth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -674,7 +721,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6717AC682420E6860072BBFE /* libc++.tbd in Frameworks */,
+				6717AC642420E5800072BBFE /* CoreGraphics.framework in Frameworks */,
 				6755708A241A336B008D6614 /* SystemConfiguration.framework in Frameworks */,
+				6717AC622420E5120072BBFE /* libiconv.tbd in Frameworks */,
+				6717AC602420E5010072BBFE /* Security.framework in Frameworks */,
+				6717AC5E2420E4A70072BBFE /* TencentOpenAPI.framework in Frameworks */,
 				67557088241A3361008D6614 /* libsqlite3.tbd in Frameworks */,
 				67557086241A334E008D6614 /* libz.tbd in Frameworks */,
 				67557090241A33B7008D6614 /* UMVerify.framework in Frameworks */,
@@ -714,6 +766,14 @@
 				F14EB8E407F5482BFB417E66 /* Pods-EarthUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		6717AC5C2420E4A70072BBFE /* TencentOpenAPI */ = {
+			isa = PBXGroup;
+			children = (
+				6717AC5D2420E4A70072BBFE /* TencentOpenAPI.framework */,
+			);
+			path = TencentOpenAPI;
 			sourceTree = "<group>";
 		};
 		672503FF23D4333A00716842 /* ContentCreator */ = {
@@ -1046,6 +1106,8 @@
 			children = (
 				6763D7AD23D06944003D9E20 /* MFYLoginService.h */,
 				6763D7AE23D06944003D9E20 /* MFYLoginService.m */,
+				67FB42B6241F30C600F2817D /* MFYGlobalConfigService.h */,
+				67FB42B7241F30C600F2817D /* MFYGlobalConfigService.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1055,6 +1117,12 @@
 			children = (
 				6763D7B123D07B84003D9E20 /* MFYLoginModel.h */,
 				6763D7B223D07B84003D9E20 /* MFYLoginModel.m */,
+				67FB42B9241F451A00F2817D /* MFYGlobalModel.h */,
+				67FB42BA241F451A00F2817D /* MFYGlobalModel.m */,
+				67FB42BC241F45EF00F2817D /* MFYAudioRereadRechargeProduct.h */,
+				67FB42BD241F45EF00F2817D /* MFYAudioRereadRechargeProduct.m */,
+				67FB42BF241F465D00F2817D /* MFYAudioTopic.h */,
+				67FB42C0241F465D00F2817D /* MFYAudioTopic.m */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -1959,6 +2027,10 @@
 		67F097F323A78D56001DCEB4 /* ContentView */ = {
 			isa = PBXGroup;
 			children = (
+				67FB42D92420A36A00F2817D /* UIButton */,
+				67FB42D524209CFC00F2817D /* thirdShare */,
+				67FB42C6241F61E400F2817D /* Recharge */,
+				67FB42C2241F472100F2817D /* GlobalConfig */,
 				67CC317423FEBBA2002E6E2B /* Controls */,
 				679A02FA23F129F60041A012 /* Hud */,
 				67EFC33223C3134600F5BDB3 /* AlertView */,
@@ -1970,6 +2042,7 @@
 		67F097F423A78D56001DCEB4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				67FB42CE241F67E400F2817D /* Recharge */,
 				6755706F24188BA5008D6614 /* Chat */,
 				67CC316323FCE911002E6E2B /* Mine */,
 				67D28B7C23D1907800543D22 /* User */,
@@ -2007,6 +2080,7 @@
 		67F097F823A78D56001DCEB4 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				67FB42CA241F640300F2817D /* Recharge */,
 				6755706B2418859E008D6614 /* Chat */,
 				67CC316A23FD190D002E6E2B /* Mine */,
 				67CC30E823F14809002E6E2B /* Publish */,
@@ -2020,6 +2094,7 @@
 		67F097F923A78D56001DCEB4 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				6717AC5C2420E4A70072BBFE /* TencentOpenAPI */,
 				6755708B241A33B6008D6614 /* UMVerify */,
 				67CC321E240D194B002E6E2B /* SDWebImage */,
 				67CC3209240D133B002E6E2B /* PreviewPicture */,
@@ -2060,9 +2135,72 @@
 			path = NavigationBar;
 			sourceTree = "<group>";
 		};
+		67FB42C2241F472100F2817D /* GlobalConfig */ = {
+			isa = PBXGroup;
+			children = (
+				67FB42C3241F475400F2817D /* MFYGlobalManager.h */,
+				67FB42C4241F475400F2817D /* MFYGlobalManager.m */,
+			);
+			path = GlobalConfig;
+			sourceTree = "<group>";
+		};
+		67FB42C6241F61E400F2817D /* Recharge */ = {
+			isa = PBXGroup;
+			children = (
+				67FB42C7241F61FF00F2817D /* MFYRechargeManager.h */,
+				67FB42C8241F61FF00F2817D /* MFYRechargeManager.m */,
+			);
+			path = Recharge;
+			sourceTree = "<group>";
+		};
+		67FB42CA241F640300F2817D /* Recharge */ = {
+			isa = PBXGroup;
+			children = (
+				67FB42CB241F641700F2817D /* MFYRechargeService.h */,
+				67FB42CC241F641700F2817D /* MFYRechargeService.m */,
+			);
+			path = Recharge;
+			sourceTree = "<group>";
+		};
+		67FB42CE241F67E400F2817D /* Recharge */ = {
+			isa = PBXGroup;
+			children = (
+				67FB42CF241F67F700F2817D /* MFYWXOrderModel.h */,
+				67FB42D0241F67F700F2817D /* MFYWXOrderModel.m */,
+				67FB42D2241F684900F2817D /* MFYDeductStatu.h */,
+				67FB42D3241F684900F2817D /* MFYDeductStatu.m */,
+			);
+			path = Recharge;
+			sourceTree = "<group>";
+		};
+		67FB42D524209CFC00F2817D /* thirdShare */ = {
+			isa = PBXGroup;
+			children = (
+				6717AC6E2421D4580072BBFE /* MFYThirdPartyConstant.h */,
+				6717AC6B2421CE5C0072BBFE /* MFYShareManager.h */,
+				6717AC6C2421CE5C0072BBFE /* MFYShareManager.m */,
+				67FB42D624209D1B00F2817D /* MFYShareView.h */,
+				67FB42D724209D1B00F2817D /* MFYShareView.m */,
+			);
+			path = thirdShare;
+			sourceTree = "<group>";
+		};
+		67FB42D92420A36A00F2817D /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+				67FB42DA2420A38800F2817D /* WHTopImageBtn.h */,
+				67FB42DB2420A38800F2817D /* WHTopImageBtn.m */,
+			);
+			path = UIButton;
+			sourceTree = "<group>";
+		};
 		EE95844D1746FBF60268A896 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6717AC672420E6860072BBFE /* libc++.tbd */,
+				6717AC632420E5800072BBFE /* CoreGraphics.framework */,
+				6717AC612420E5120072BBFE /* libiconv.tbd */,
+				6717AC5F2420E5010072BBFE /* Security.framework */,
 				67557089241A336B008D6614 /* SystemConfiguration.framework */,
 				67557087241A3361008D6614 /* libsqlite3.tbd */,
 				67557085241A334E008D6614 /* libz.tbd */,
@@ -2355,16 +2493,20 @@
 				67CC316223FCDCC9002E6E2B /* MFYHomeItemView.m in Sources */,
 				679A02DB23F107620041A012 /* MOPhotoLibraryManager.m in Sources */,
 				679A02D923F107620041A012 /* MOPhotoUtil.m in Sources */,
+				67FB42B8241F30C600F2817D /* MFYGlobalConfigService.m in Sources */,
 				6725042023D6E5F900716842 /* MFYPrivacyOptionCell.m in Sources */,
 				679A02D623F107620041A012 /* UIColor+MOKit.m in Sources */,
 				67CC324A240D194B002E6E2B /* SDWebImagePrefetcher.m in Sources */,
 				67EFC32423C300C500F5BDB3 /* KSPhotoBrowser.m in Sources */,
 				67D28B8623D1B2B400543D22 /* MFYCoreflowService.m in Sources */,
 				67CC3205240D06B5002E6E2B /* JCHATLoadMessageTableViewCell.m in Sources */,
+				67FB42C9241F61FF00F2817D /* MFYRechargeManager.m in Sources */,
 				679A02E123F107620041A012 /* MOAlbumModel.m in Sources */,
 				672503FE23D4229A00716842 /* UDIDWithKeyChain.m in Sources */,
 				67CC31FF240A7090002E6E2B /* JCHATAudioPlayerHelper.m in Sources */,
+				67FB42D4241F684900F2817D /* MFYDeductStatu.m in Sources */,
 				67CC31AB2403BF00002E6E2B /* MFYMyNoteVC.m in Sources */,
+				67FB42D1241F67F700F2817D /* MFYWXOrderModel.m in Sources */,
 				67CC311B23F4FB19002E6E2B /* MFYRedPacketView.m in Sources */,
 				67CC310A23F39D56002E6E2B /* MFYTopicTagService.m in Sources */,
 				67CC31C22408BCA4002E6E2B /* AppDelegate+MFYJGIM.m in Sources */,
@@ -2377,6 +2519,7 @@
 				67D28B7F23D1908300543D22 /* MFYProfile.m in Sources */,
 				6763D79623CEF400003D9E20 /* MFYServiceURLConfig.m in Sources */,
 				67CC31E8240A52F7002E6E2B /* JCHATSendMsgManager.m in Sources */,
+				67FB42DC2420A38800F2817D /* WHTopImageBtn.m in Sources */,
 				67CC315023FA668D002E6E2B /* MFYVoiceRecorder.m in Sources */,
 				67CC324B240D194B002E6E2B /* SDImageCache.m in Sources */,
 				67CC314123F94F70002E6E2B /* MFYTagDisplayView.m in Sources */,
@@ -2400,6 +2543,7 @@
 				6746D48B23B4EDC500A46FC7 /* MFYCategoryTitleView.m in Sources */,
 				67CC30EB23F14847002E6E2B /* MFYQiniuSystemService.m in Sources */,
 				67CC31B42403E176002E6E2B /* MFYDateItemView.m in Sources */,
+				67FB42BE241F45EF00F2817D /* MFYAudioRereadRechargeProduct.m in Sources */,
 				6763D79923CEF4B4003D9E20 /* MFYServiceConstant.m in Sources */,
 				67CC31A12403710F002E6E2B /* MFYImageCardCell.m in Sources */,
 				675570672416458C008D6614 /* MFYChatFriendCell.m in Sources */,
@@ -2408,6 +2552,7 @@
 				67CC316923FD17E7002E6E2B /* MFYMineHpVM.m in Sources */,
 				67CC318423FFA815002E6E2B /* MFYAllowSearchView.m in Sources */,
 				67EFC32123C300C500F5BDB3 /* KSYYImageManager.m in Sources */,
+				67FB42C1241F465D00F2817D /* MFYAudioTopic.m in Sources */,
 				6725041323D6AAAA00716842 /* MFYPublicImageCardDetailVC.m in Sources */,
 				67CC310D23F3B202002E6E2B /* UIImage+WHMosaic.m in Sources */,
 				67EFC32A23C30BFF00F5BDB3 /* UIView+WHUd.m in Sources */,
@@ -2429,6 +2574,8 @@
 				6779376723B0C29700D1B822 /* MFYCoreFlowVC.m in Sources */,
 				67CC324E240D194B002E6E2B /* SDWebImageManager+MJ.m in Sources */,
 				67CC317323FEBAE5002E6E2B /* MFYPhotoCropVC.m in Sources */,
+				67FB42BB241F451A00F2817D /* MFYGlobalModel.m in Sources */,
+				67FB42C5241F475400F2817D /* MFYGlobalManager.m in Sources */,
 				679A02E423F107620041A012 /* MOSelectedButton.m in Sources */,
 				67CC31EF240A6A53002E6E2B /* JCHATChatModel.m in Sources */,
 				675570612412550D008D6614 /* MFYChatListVC.m in Sources */,
@@ -2438,6 +2585,7 @@
 				679A02F623F125FE0041A012 /* MFYAlbumModel.m in Sources */,
 				67CC31E0240A3DB3002E6E2B /* JCHATStringUtils.m in Sources */,
 				67CC317723FEBC39002E6E2B /* TKImageView.m in Sources */,
+				67FB42D824209D1B00F2817D /* MFYShareView.m in Sources */,
 				67CC3244240D194B002E6E2B /* SDWebImageDecoder.m in Sources */,
 				67CC31D724090C95002E6E2B /* MFYMessageTextView.m in Sources */,
 				67CC316623FCE929002E6E2B /* MFYMineItemModel.m in Sources */,
@@ -2479,6 +2627,7 @@
 				67EFC32723C3015C00F5BDB3 /* MFYCardSuduPicView.m in Sources */,
 				67CC30F823F15D8C002E6E2B /* MFYPublishModel.m in Sources */,
 				67557094241A3B64008D6614 /* UMModelCreate.m in Sources */,
+				6717AC6D2421CE5C0072BBFE /* MFYShareManager.m in Sources */,
 				67CC30FE23F2845D002E6E2B /* MFYPublishService.m in Sources */,
 				6763D79E23CF0375003D9E20 /* NSError+MFYHTTPError.m in Sources */,
 				67CC31FC240A6FF4002E6E2B /* ChatImageBubble.m in Sources */,
@@ -2488,6 +2637,7 @@
 				67CC311F23F644DB002E6E2B /* MFYHTTPCacheService.m in Sources */,
 				67CC313723F926D6002E6E2B /* MFYAudioPlayCell.m in Sources */,
 				67CC319E24012E9B002E6E2B /* MFYMyLikeListVC.m in Sources */,
+				67FB42CD241F641700F2817D /* MFYRechargeService.m in Sources */,
 				6725040A23D433B600716842 /* MFYPublicImageCardVC.m in Sources */,
 				679A02E623F107620041A012 /* MOIndicatorButton.m in Sources */,
 				679A02F023F107620041A012 /* MOPhotoLibraryController.m in Sources */,
@@ -2660,6 +2810,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Earth/Vendors/UMVerify",
+					"$(PROJECT_DIR)/Earth/Vendors/TencentOpenAPI",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Earth/Bootstrap/MFYPrefixHeader.pch;
@@ -2692,6 +2843,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Earth/Vendors/UMVerify",
+					"$(PROJECT_DIR)/Earth/Vendors/TencentOpenAPI",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Earth/Bootstrap/MFYPrefixHeader.pch;

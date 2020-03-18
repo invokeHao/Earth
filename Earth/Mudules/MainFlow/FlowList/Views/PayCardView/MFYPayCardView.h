@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MFYArticle.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MFYPayCardView : UIView
 
-+ (void)showInView:(UIView *)view completion:(void(^)(BOOL isSuccess))completion;
+@property (nonatomic, strong)MFYArticle * article;
+
++ (void)showTheBeforeCard:(MFYArticle *)article Completion:(void (^)(BOOL payed))completion;
 
 @end
 
@@ -20,6 +23,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MFYPayItemView : UIView
 
 - (instancetype)initWithFrame:(CGRect)frame;
+
+@property (nonatomic, strong)MFYAudioRereadRechargeProduct * product;
+
+@property (nonatomic, copy)void(^tapBlock)(BOOL isTap);
 
 @property (nonatomic, assign)BOOL isSelected;
 

@@ -12,7 +12,9 @@
 
 @property (nonatomic, strong)UIImageView * redBackView; //红包背景图片
 
-@property (nonatomic, strong)UIButton * payBtn;
+@property (nonatomic, strong)UIButton * aliPayBtn;
+
+@property (nonatomic, strong)UIButton * wxPayBtn;
 
 @property (nonatomic, strong)UIButton * backBtn;
 
@@ -26,17 +28,28 @@
 
 @property (nonatomic, strong)UILabel * priceLabel;
 
+@property (nonatomic, copy)void(^payedBlock)(BOOL success);
+
 @end
 
 @implementation MFYRedPacketView
 
-+ (void)showInViwe:(UIView *)view itemModel:(nonnull MFYItem *)item{
++ (void)showInViwe:(UIView *)view itemModel:(nonnull MFYItem *)item completion:(void (^)(BOOL))completion{
     MFYRedPacketView * redView = [[MFYRedPacketView alloc]init];
     [view addSubview:redView];
     [redView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(view);
     }];
     [redView setItem:item];
+    redView.payedBlock = completion;
+}
+
+- (void)dismiss {
+    [UIView animateWithDuration:0.2 animations:^{
+        self.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self removeFromSuperview];
+    }];
 }
 
 
@@ -54,7 +67,8 @@
     [self.redBackView addSubview:self.titleView];
     [self.redBackView addSubview:self.priceLabel];
     [self.redBackView addSubview:self.backBtn];
-    [self.redBackView addSubview:self.payBtn];
+    [self.redBackView addSubview:self.aliPayBtn];
+    [self.redBackView addSubview:self.wxPayBtn];
     
     [self.titleView addSubview:self.leftLine];
     [self.titleView addSubview:self.tipLabel];
@@ -94,7 +108,7 @@
     }];
     
     [self.priceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.titleView.mas_bottom).offset(30);
+        make.top.mas_equalTo(self.titleView.mas_bottom).offset(20);
         make.centerX.mas_equalTo(self.redBackView);
         make.height.mas_equalTo(50);
     }];
@@ -105,11 +119,16 @@
         make.centerX.mas_equalTo(self.redBackView);
     }];
     
-    [self.payBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.aliPayBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(self.backBtn.mas_top).offset(-15);
-        make.left.mas_equalTo(29);
-        make.right.mas_equalTo(-29);
-        make.height.mas_equalTo(40);
+        make.left.mas_equalTo(15);
+        make.size.mas_equalTo(CGSizeMake(90, 40));
+    }];
+    
+    [self.wxPayBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(self.aliPayBtn);
+        make.right.mas_equalTo(-15);
+        make.size.mas_equalTo(self.aliPayBtn);
     }];
 }
 
@@ -134,6 +153,27 @@
     [[self.backBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self)
         [self hiddenTheRedPacket];
+    }];
+    [[self.aliPayBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        
+    }];
+    
+    [[self.wxPayBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+       @strongify(self)
+        [MFYRechargeManager purchaseTheCard:self.item.articleId completion:^(BOOL issuccess) {
+            if (issuccess) {
+                [self dismiss];
+                if (self.payedBlock) {
+                    self.payedBlock(issuccess);
+                }
+                [WHHud showString:@"购买成功"];
+            }else {
+                [WHHud showString:@"购买失败"];
+                if (self.payedBlock) {
+                    self.payedBlock(issuccess);
+                }
+            }
+        }];
     }];
 }
 
@@ -178,15 +218,28 @@
     return _priceLabel;
 }
 
-- (UIButton *)payBtn {
-    if (!_payBtn) {
-        _payBtn = UIButton.button.WH_titleLabel_font(WHFont(17)).WH_setTitleColor_forState(wh_colorWithHexString(@"#E93D45"),UIControlStateNormal).WH_setTitle_forState(@"立即支付",UIControlStateNormal);
-        _payBtn.backgroundColor = [UIColor whiteColor];
-        _payBtn.layer.cornerRadius = 6;
-        _payBtn.clipsToBounds = YES;
-
+-(UIButton *)aliPayBtn {
+    if (!_aliPayBtn) {
+        _aliPayBtn = UIButton.button;
+        _aliPayBtn.WH_setImage_forState(WHImageNamed(@"pay_alipayBtn"),UIControlStateNormal);
+        _aliPayBtn.WH_setTitle_forState(@" 支付宝",UIControlStateNormal);
+        _aliPayBtn.backgroundColor = wh_colorWithHexString(@"#2B8DE4");
+        _aliPayBtn.layer.cornerRadius = 6;
+        _aliPayBtn.clipsToBounds = YES;
     }
-    return _payBtn;
+    return _aliPayBtn;
+}
+
+- (UIButton *)wxPayBtn {
+    if (!_wxPayBtn) {
+        _wxPayBtn = UIButton.button;
+        _wxPayBtn.WH_setImage_forState(WHImageNamed(@"pay_wxpayBtn"),UIControlStateNormal);
+        _wxPayBtn.WH_setTitle_forState(@" 微信",UIControlStateNormal);
+        _wxPayBtn.backgroundColor = wh_colorWithHexString(@"#2BC57D");
+        _wxPayBtn.layer.cornerRadius = 6;
+        _wxPayBtn.clipsToBounds = YES;
+    }
+    return _wxPayBtn;
 }
 
 - (UIButton *)backBtn {

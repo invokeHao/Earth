@@ -12,6 +12,7 @@
 #import "WHTimeUtil.h"
 #import <AVFoundation/AVFoundation.h>
 #import "MFYArticleService.h"
+#import "MFYShareView.h"
 
 @interface MFYAudioPlayCell ()<AVAudioPlayerDelegate>
 
@@ -190,7 +191,22 @@
         }
     }];
     [self addGestureRecognizer:longPress];
-
+    
+    //分享与举报
+    [[self.reportBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        [MFYArticleService reportArticle:self.model.articleId Completion:^(BOOL isSuccess, NSError * _Nonnull error) {
+            if (isSuccess) {
+                [WHHud showString:@"举报成功"];
+            }else {
+                [WHHud showString:error.descriptionFromServer];
+            }
+        }];
+    }];
+    
+    [[self.shareBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self)
+        [MFYShareView showInViewWithArticle:self.model];
+    }];
 }
 
 - (void)setModel:(MFYArticle *)model {

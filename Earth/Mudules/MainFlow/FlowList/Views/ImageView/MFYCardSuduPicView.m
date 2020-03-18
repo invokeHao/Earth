@@ -11,6 +11,9 @@
 #import "MFYHTTPCacheService.h"
 #import <JPVideoPlayer/UIView+WebVideoCache.h>
 #import "MFYVideoDetailVC.h"
+#import "WHTimeUtil.h"
+#import "MFYShareView.h"
+#import "MFYArticleService.h"
 
 @implementation MFYCardSuduPicView
 
@@ -81,6 +84,7 @@
             }
             MFYPicItemView * picItem = [self.imageVArr objectAtIndex:idx];
             [picItem setItemModel:item];
+            [picItem setArticle:article];
 #pragma mark- 马赛克逻辑
             if (item.media.mediaUrl.length > 1) {
                 NSURL * coverImageURL = [NSURL URLWithString:item.media.mediaUrl];
@@ -141,6 +145,14 @@
 
 @property (strong, nonatomic)UIImageView * playView;
 
+@property (strong, nonatomic)UIButton * reportBtn;
+
+@property (strong, nonatomic)UIButton * shareBtn;
+
+@property (strong, nonatomic)UILabel * timeLabel;
+
+@property (strong, nonatomic)UIView * headerView;
+
 
 @end
 
@@ -169,6 +181,11 @@
     [self addSubview:self.mosaciView];
     [self addSubview:self.tipView];
     [self addSubview:self.playView];
+    [self addSubview:self.headerView];
+    [self addSubview:self.timeLabel];
+    [self addSubview:self.reportBtn];
+    [self addSubview:self.shareBtn];
+    
     
     [self.tipView addSubview:self.tipLabel];
     
@@ -183,6 +200,29 @@
         make.center.equalTo(self);
         make.size.mas_equalTo(CGSizeMake(34, 40));
     }];
+    
+    [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.mas_equalTo(0);
+        make.height.mas_equalTo(30);
+    }];
+    
+    [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(8);
+        make.left.mas_equalTo(10);
+        make.height.mas_equalTo(14);
+    }];
+    
+    [self.reportBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(5);
+        make.bottom.mas_equalTo(-4);
+        make.size.mas_equalTo(CGSizeMake(22, 23));
+    }];
+    
+    [self.shareBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(-2);
+        make.bottom.mas_equalTo(-2);
+        make.size.mas_equalTo(CGSizeMake(23, 23));
+    }];
 }
 
 - (void)setItemModel:(MFYItem *)itemModel {
@@ -194,19 +234,31 @@
         if (itemModel.media.mediaType > 2) {
             self.playUrl = [MFYHTTPCacheService proxyURLWithOriginalUrl:itemModel.media.mediaUrl];
         }
-        
+        if (self.itemType == MFYPicItemBigType) {
+            [self.timeLabel setText:[WHTimeUtil articleCardDateStringByTimeStamp:itemModel.createDate]];
+        }
         [self layoutTheTip:itemModel.bodyText]; //配置帖子说明
     }
 }
 
 - (void)bindEvents {
     @weakify(self)
+    self.reportBtn.hidden = self.itemType != MFYPicItemBigType;
+    self.shareBtn.hidden = self.timeLabel.hidden = self.headerView.hidden = self.reportBtn.hidden;
+    
     if (self.itemType == MFYPicItemBigType) {
         UITapGestureRecognizer * tapBig = [[UITapGestureRecognizer alloc]init];
         
         [[tapBig rac_gestureSignal] subscribeNext:^(id x) {
             @strongify(self)
-            [self startPlayTheVideo];
+            if ([self.itemModel mediaType] == MFYMediavideoType) {
+                [self startPlayTheVideo];
+            }
+            if ([self.itemModel mediaType] == MFYMediaPictureType) {
+                MFYImageDetailVC * detailVC = [[MFYImageDetailVC alloc]init];
+                detailVC.itemModel = self.itemModel;
+                [[WHAlertTool WHTopViewController].navigationController pushViewController:detailVC animated:YES];
+            }
         }];
         [self addGestureRecognizer:tapBig];
     }
@@ -227,6 +279,22 @@
         }];
         [self addGestureRecognizer:tapSmall];
     }
+    //分享与举报
+    [[self.reportBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        [MFYArticleService reportArticle:self.article.articleId Completion:^(BOOL isSuccess, NSError * _Nonnull error) {
+            if (isSuccess) {
+                [WHHud showString:@"举报成功"];
+            }else {
+                [WHHud showString:error.descriptionFromServer];
+            }
+        }];
+    }];
+    
+    [[self.shareBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self)
+        [MFYShareView showInViewWithArticle:self.article];
+    }];
+    
 }
 
 - (void)layoutTheTip:(NSString *)tip {
@@ -359,6 +427,39 @@
     }
     return _playView;
 }
+
+- (UIButton *)reportBtn {
+    if (!_reportBtn) {
+        _reportBtn = UIButton.button.WH_setImage_forState(WHImageNamed(@"article_report"),UIControlStateNormal);
+        _reportBtn.hidden = YES;
+    }
+    return _reportBtn;
+}
+
+- (UIButton *)shareBtn {
+    if (!_shareBtn) {
+        _shareBtn = UIButton.button.WH_setImage_forState(WHImageNamed(@"share_icon"),UIControlStateNormal);
+        _shareBtn.hidden = YES;
+    }
+    return _shareBtn;
+}
+
+- (UILabel *)timeLabel {
+    if (!_timeLabel) {
+        _timeLabel = UILabel.label;
+        _timeLabel.WH_font(WHFont(13)).WH_textColor([UIColor whiteColor]);
+    }
+    return _timeLabel;
+}
+
+- (UIView *)headerView {
+    if (!_headerView) {
+        _headerView = [[UIView alloc]init];
+        _headerView.backgroundColor = wh_colorWithHexAndAlpha(@"B2B2B2", 0.2);
+    }
+    return _headerView;
+}
+
 
 @end
 

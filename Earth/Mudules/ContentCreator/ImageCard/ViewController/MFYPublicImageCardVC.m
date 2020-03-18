@@ -48,6 +48,11 @@
     self.topicId = @"abcdefg";
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.titleField resignFirstResponder];
+}
+
 - (void)setupViews {
     self.navBar.titleLabel.text = @"颜控";
     self.navBar.backgroundColor = wh_colorWithHexString(@"#FF3F70");

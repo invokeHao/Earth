@@ -58,7 +58,11 @@
         if (!self.itemModel.isbig && self.itemModel.priceAmount > 0) {
             UIImage * mosaciImage = [UIImage mosaicImage:image mosaicLevel:80];
             [self.mosaciView setImage:mosaciImage];
-            [MFYRedPacketView showInViwe:self.view itemModel:self.itemModel];
+            [MFYRedPacketView showInViwe:self.view itemModel:self.itemModel completion:^(BOOL isPayed) {
+                if (isPayed) {
+                    self.mosaciView.hidden = YES;
+                }
+            }];
         }
     }];
 }

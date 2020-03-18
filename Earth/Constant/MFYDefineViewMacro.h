@@ -13,6 +13,11 @@
 #import "MFYLoginManager.h"
 #import "MFYHTTPManager.h"
 #import "WHHud.h"
+#import "MFYGlobalManager.h"
+#import "MFYRechargeManager.h"
+#import "MFYShareManager.h"
+
+#import "MFYThirdPartyConstant.h"
 
 
 #endif /* MFYDefineViewMacro_h */

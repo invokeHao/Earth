@@ -29,6 +29,8 @@ typedef NS_ENUM(NSInteger, MFYPicItemType) {
 
 @property (nonatomic, strong)MFYItem * itemModel;
 
+@property (strong, nonatomic)MFYArticle * article;
+
 @property (nonatomic, assign)MFYPicItemType itemType;
 
 @property (strong, nonatomic)NSURL * playUrl;

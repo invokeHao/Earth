@@ -11,6 +11,7 @@
 #import "MFYVideoProgressView.h"
 #import "MFYHTTPCacheService.h"
 #import <JPNavigationControllerKit.h>
+#import "MFYRedPacketView.h"
 
 
 @interface MFYVideoDetailVC ()<JPVideoPlayerDelegate>
@@ -18,6 +19,10 @@
 @property (nonatomic, strong) UIView *videoContainer;
 
 @property (nonatomic, strong) UIButton * reportBtn;
+
+@property (nonatomic, strong) YYAnimatedImageView * imageView;
+
+@property (nonatomic, strong) UIImageView * mosaciView;
 
 @end
 
@@ -33,12 +38,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    @weakify(self)
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        @strongify(self)
-        [self playTheVideo];
-    });
-
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -53,13 +52,54 @@
 
     self.view.backgroundColor = [UIColor blackColor];
     [self.view addSubview:self.videoContainer];
+    [self.view addSubview:self.imageView];
+    [self.imageView addSubview:self.mosaciView];
     
     [self.videoContainer mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(0);
         make.left.right.mas_equalTo(0);
         make.bottom.mas_equalTo(-HOME_INDICATOR_HEIGHT);
     }];
+    
+    [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self.videoContainer);
+    }];
+    
+    [self.mosaciView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(0);
+    }];
+    
+    [self configTheImage];
 }
+
+- (void)configTheImage {
+    @weakify(self)
+    if (!self.itemModel.isbig && self.itemModel.priceAmount > 0) {
+        self.imageView.hidden = NO;
+        NSURL * coverImageURL = [NSURL URLWithString:self.itemModel.media.mediaUrl];
+        if (self.itemModel.media.mediaType > 2) {
+            coverImageURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?vframe/jpg/offset/0.2", self.itemModel.media.mediaUrl]];
+        }
+        [self.imageView yy_setImageWithURL:coverImageURL placeholder:nil options:YYWebImageOptionProgressive completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+            @strongify(self)
+            UIImage * mosaciImage = [UIImage mosaicImage:image mosaicLevel:80];
+            [self.mosaciView setImage:mosaciImage];
+            [MFYRedPacketView showInViwe:self.view itemModel:self.itemModel completion:^(BOOL isPayed) {
+                if (isPayed) {
+                    self.imageView.hidden = YES;
+                    self.mosaciView.hidden = YES;
+                }
+            }];
+        }];
+    }else {
+        @weakify(self)
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            @strongify(self)
+            [self playTheVideo];
+        });
+    }
+}
+
 
 - (void)playTheVideo {
     if (self.itemModel.media.mediaUrl == nil) {
@@ -85,6 +125,23 @@
         _reportBtn = UIButton.button.WH_setTitle_forState(@"举报",UIControlStateNormal).WH_setTitleColor_forState([UIColor whiteColor],UIControlStateNormal);
     }
     return _reportBtn;
+}
+
+- (UIImageView *)mosaciView {
+    if (!_mosaciView) {
+        _mosaciView = UIImageView.imageView;
+        _mosaciView.contentMode = UIViewContentModeScaleAspectFit;
+    }
+    return _mosaciView;
+}
+
+- (YYAnimatedImageView *)imageView {
+    if (!_imageView) {
+        _imageView = [[YYAnimatedImageView alloc]init];
+        _imageView.contentMode = UIViewContentModeScaleAspectFit;
+        _imageView.hidden = YES;
+    }
+    return _imageView;
 }
 
 
