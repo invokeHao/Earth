@@ -55,7 +55,7 @@
     @weakify(self)
     [self.imageView yy_setImageWithURL:[NSURL URLWithString:self.itemModel.media.mediaUrl] placeholder:nil options:YYWebImageOptionProgressive completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
         @strongify(self)
-        if (!self.itemModel.isbig && self.itemModel.priceAmount > 0) {
+        if (!self.itemModel.isbig && self.itemModel.priceAmount > 0 && !self.itemModel.purchased) {
             UIImage * mosaciImage = [UIImage mosaicImage:image mosaicLevel:80];
             [self.mosaciView setImage:mosaciImage];
             [MFYRedPacketView showInViwe:self.view itemModel:self.itemModel completion:^(BOOL isPayed) {

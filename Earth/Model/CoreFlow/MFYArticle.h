@@ -35,6 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger priceAmount;
 @property (nonatomic, strong) MFYProfile * profile;
 @property (nonatomic, assign) BOOL purchased;
+@property (nonatomic, assign) BOOL complained;
 @property (nonatomic, strong) NSString * subtitle;
 @property (nonatomic, strong) NSString * title;
 @property (nonatomic, assign) BOOL unliked;

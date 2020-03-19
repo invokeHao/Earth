@@ -16,6 +16,7 @@
 #import "MFYMineService.h"
 #import "MFYMyLikeListVC.h"
 #import "MFYMyNoteVC.h"
+#import "MFYPhotosManager.h"
 
 @interface MFYMineHomePageVC ()
 
@@ -156,6 +157,7 @@
                 NSString * fileId = resp.storeId;
                 [MFYMineService postModifyIcon:fileId Completion:^(BOOL isSuccess, NSError * _Nonnull error) {
                     @strongify(self)
+                    [self modifyIMAvatarWithAsset:model];
                     [self.viewModel refreshData];
                     [WHHud hideActivityView];
                 }];
@@ -195,6 +197,16 @@
     [self.myNickNameCell.subtitleLabel setText:profile.nickname];
     [self.myOldCell.subtitleLabel setText:FORMAT(@"%ld",profile.age)];
     [self.myGenderCell.subtitleLabel setText:gender.name];
+}
+
+- (void)modifyIMAvatarWithAsset:(MFYAssetModel *)asset {
+    [[MFYPhotosManager sharedManager] requestImageDataWithAsset:asset.asset completion:^(NSData * _Nonnull imageData, NSString * _Nonnull dataUTI, UIImageOrientation orientation, NSDictionary * _Nonnull assetInfo) {
+        [JMSGUser updateMyAvatarWithData:imageData avatarFormat:@"" completionHandler:^(id resultObject, NSError *error) {
+            if (!error) {
+                WHLog(@"%@",resultObject);
+            }
+        }];
+    }];
 }
 
 #pragma mark- setting&getting

@@ -17,6 +17,7 @@ NSString *const kMFYArticleFormatType = @"formatType";
 NSString *const kMFYArticleFunctionType = @"functionType";
 NSString *const kMFYArticleLikeTimes = @"likeTimes";
 NSString *const kMFYArticleLiked = @"liked";
+NSString *const kMFYArticleComplained = @"complained";
 NSString *const kMFYArticleMedia = @"media";
 NSString *const kMFYArticlePostType = @"postType";
 NSString *const kMFYArticlePriceAmount = @"priceAmount";
@@ -77,6 +78,9 @@ NSString *const kMFYArticleUnliked = @"unliked";
 
     if(![dictionary[kMFYArticleLiked] isKindOfClass:[NSNull class]]){
         self.liked = [dictionary[kMFYArticleLiked] boolValue];
+    }
+    if (![dictionary[kMFYArticleComplained] isKindOfClass:[NSNull class]]) {
+        self.complained = [dictionary[kMFYArticleComplained] boolValue];
     }
 
     if(![dictionary[kMFYArticleMedia] isKindOfClass:[NSNull class]]){
@@ -152,8 +156,8 @@ NSString *const kMFYArticleUnliked = @"unliked";
         dictionary[kMFYArticleTitle] = self.title;
     }
     dictionary[kMFYArticleUnliked] = @(self.unliked);
+    dictionary[kMFYArticleComplained] = @(self.complained);
     return dictionary;
-
 }
 
 /**
@@ -189,6 +193,7 @@ NSString *const kMFYArticleUnliked = @"unliked";
         [aCoder encodeObject:self.title forKey:kMFYArticleTitle];
     }
     [aCoder encodeObject:@(self.unliked) forKey:kMFYArticleUnliked];
+    [aCoder encodeObject:@(self.complained) forKey:kMFYArticleComplained];
 }
 
 /**
@@ -214,6 +219,7 @@ NSString *const kMFYArticleUnliked = @"unliked";
     self.subtitle = [aDecoder decodeObjectForKey:kMFYArticleSubtitle];
     self.title = [aDecoder decodeObjectForKey:kMFYArticleTitle];
     self.unliked = [[aDecoder decodeObjectForKey:kMFYArticleUnliked] boolValue];
+    self.complained = [[aDecoder decodeObjectForKey:kMFYArticleComplained] boolValue];
     return self;
 
 }
@@ -242,6 +248,7 @@ NSString *const kMFYArticleUnliked = @"unliked";
     copy.subtitle = [self.subtitle copy];
     copy.title = [self.title copy];
     copy.unliked = self.unliked;
+    copy.complained = self.complained;
 
     return copy;
 }

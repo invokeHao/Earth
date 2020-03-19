@@ -196,6 +196,11 @@
     
     //分享与举报
     [[self.reportBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self)
+        if (self.model.complained) {
+            [WHHud showString:@"您已举报过该帖子"];
+            return;
+        }
         [MFYArticleService reportArticle:self.model.articleId Completion:^(BOOL isSuccess, NSError * _Nonnull error) {
             if (isSuccess) {
                 [WHHud showString:@"举报成功"];

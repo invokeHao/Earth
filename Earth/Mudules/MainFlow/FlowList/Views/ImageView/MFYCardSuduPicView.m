@@ -92,7 +92,7 @@
                     coverImageURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?vframe/jpg/offset/0.2", item.media.mediaUrl]];
                 }
                 [picItem.picImageV yy_setImageWithURL:coverImageURL placeholder:nil options:YYWebImageOptionProgressive completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
-                    if (image && item.priceAmount > 0 && idx > 0) {
+                    if (image && item.priceAmount > 0 && idx > 0 && !item.purchased) {
                        UIImage * mosaicImage = [UIImage mosaicImage:image mosaicLevel:80];
                        [picItem.mosaciView setImage:mosaicImage];
                     }
@@ -281,6 +281,11 @@
     }
     //分享与举报
     [[self.reportBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self)
+        if (self.article.complained) {
+            [WHHud showString:@"您已举报过该帖子"];
+            return;
+        }
         [MFYArticleService reportArticle:self.article.articleId Completion:^(BOOL isSuccess, NSError * _Nonnull error) {
             if (isSuccess) {
                 [WHHud showString:@"举报成功"];

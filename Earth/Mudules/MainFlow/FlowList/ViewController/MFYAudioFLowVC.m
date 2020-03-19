@@ -97,10 +97,10 @@
     
     RACSignal * dataObserve = RACObserve(self, viewModel.dataList);
     
-    [[[dataObserve skipUntilBlock:^BOOL(id x) {
+    [[[[dataObserve skipUntilBlock:^BOOL(id x) {
         @strongify(self)
         return self.viewModel.dataList.count > 0;
-    }] deliverOnMainThread] subscribeNext:^(id x) {
+    }] deliverOnMainThread] delay:0.2] subscribeNext:^(id x) {
         @strongify(self)
         [self.displayView reloadDataWithArray:self.viewModel.dataList];
     }];

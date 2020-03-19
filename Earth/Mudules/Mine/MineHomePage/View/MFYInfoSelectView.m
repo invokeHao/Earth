@@ -140,6 +140,7 @@
     [MFYMineService postModifyNickname:nickName Completion:^(BOOL isSuccess, NSError * _Nonnull error) {
         if (isSuccess) {
             self.confirmB(YES);
+            [self modifyIMInfo:nickName userFieldType:kJMSGUserFieldsNickname];
             [self dismiss];
         }else {
             [WHHud showString:error.descriptionFromServer];
@@ -149,9 +150,11 @@
 
 - (void)modifyTheGenderToMan:(BOOL)toman{
     NSInteger genderType = toman ? 2 : 1;
+    JMSGUserGender IMGenderType = toman ? 1 : 2;
     [MFYMineService postModifyGender:genderType Completion:^(BOOL isSuccess, NSError * _Nonnull error) {
         if (isSuccess) {
             self.confirmB(YES);
+            [self modifyIMInfo:@(IMGenderType) userFieldType:kJMSGUserFieldsGender];
             [self dismiss];
         }else {
             [WHHud showString:error.descriptionFromServer];
@@ -168,6 +171,17 @@
             [self dismiss];
         }else {
             [WHHud showString:error.descriptionFromServer];
+        }
+    }];
+}
+
+#pragma mark- IM修改个人信息
+- (void)modifyIMInfo:(id)info userFieldType:(JMSGUserField)fieldType {
+    [JMSGUser updateMyInfoWithParameter:info userFieldType:fieldType completionHandler:^(id resultObject, NSError *error) {
+        if (!error) {
+            WHLog(@"修改成功%@",resultObject);
+        }else {
+            WHLog(@"%@",error);
         }
     }];
 }

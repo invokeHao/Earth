@@ -10,13 +10,19 @@
 
 NSString *const kMFYItemArticleId = @"articleId";
 NSString *const kMFYItemBodyText = @"bodyText";
+NSString *const kMFYItemCommentTimes = @"commentTimes";
+NSString *const kMFYItemComplained = @"complained";
 NSString *const kMFYItemCreateDate = @"createDate";
 NSString *const kMFYItemEmbeddedArticles = @"embeddedArticles";
 NSString *const kMFYItemFormatType = @"formatType";
 NSString *const kMFYItemFunctionType = @"functionType";
+NSString *const kMFYItemLikeTimes = @"likeTimes";
+NSString *const kMFYItemLiked = @"liked";
 NSString *const kMFYItemMedia = @"media";
 NSString *const kMFYItemPostType = @"postType";
 NSString *const kMFYItemPriceAmount = @"priceAmount";
+NSString *const kMFYItemPurchased = @"purchased";
+NSString *const kMFYItemUnliked = @"unliked";
 
 @interface MFYItem ()
 @end
@@ -38,6 +44,14 @@ NSString *const kMFYItemPriceAmount = @"priceAmount";
     if(![dictionary[kMFYItemBodyText] isKindOfClass:[NSNull class]]){
         self.bodyText = dictionary[kMFYItemBodyText];
     }
+    if(![dictionary[kMFYItemCommentTimes] isKindOfClass:[NSNull class]]){
+        self.commentTimes = [dictionary[kMFYItemCommentTimes] integerValue];
+    }
+
+    if(![dictionary[kMFYItemComplained] isKindOfClass:[NSNull class]]){
+        self.complained = [dictionary[kMFYItemComplained] boolValue];
+    }
+
     if(![dictionary[kMFYItemCreateDate] isKindOfClass:[NSNull class]]){
         self.createDate = [dictionary[kMFYItemCreateDate] integerValue];
     }
@@ -53,6 +67,14 @@ NSString *const kMFYItemPriceAmount = @"priceAmount";
         self.functionType = [dictionary[kMFYItemFunctionType] integerValue];
     }
 
+    if(![dictionary[kMFYItemLikeTimes] isKindOfClass:[NSNull class]]){
+        self.likeTimes = [dictionary[kMFYItemLikeTimes] integerValue];
+    }
+
+    if(![dictionary[kMFYItemLiked] isKindOfClass:[NSNull class]]){
+        self.liked = [dictionary[kMFYItemLiked] boolValue];
+    }
+
     if(![dictionary[kMFYItemMedia] isKindOfClass:[NSNull class]]){
         self.media = [[MFYMedia alloc] initWithDictionary:dictionary[kMFYItemMedia]];
     }
@@ -62,7 +84,15 @@ NSString *const kMFYItemPriceAmount = @"priceAmount";
     }
 
     if(![dictionary[kMFYItemPriceAmount] isKindOfClass:[NSNull class]]){
-        self.priceAmount = [dictionary[kMFYItemPriceAmount] floatValue];
+        self.priceAmount = [dictionary[kMFYItemPriceAmount] integerValue];
+    }
+
+    if(![dictionary[kMFYItemPurchased] isKindOfClass:[NSNull class]]){
+        self.purchased = [dictionary[kMFYItemPurchased] boolValue];
+    }
+
+    if(![dictionary[kMFYItemUnliked] isKindOfClass:[NSNull class]]){
+        self.unliked = [dictionary[kMFYItemUnliked] boolValue];
     }
 
     return self;
@@ -81,17 +111,23 @@ NSString *const kMFYItemPriceAmount = @"priceAmount";
     if(self.bodyText != nil){
         dictionary[kMFYItemBodyText] = self.bodyText;
     }
+    dictionary[kMFYItemCommentTimes] = @(self.commentTimes);
+    dictionary[kMFYItemComplained] = @(self.complained);
     dictionary[kMFYItemCreateDate] = @(self.createDate);
     if(self.embeddedArticles != nil){
         dictionary[kMFYItemEmbeddedArticles] = self.embeddedArticles;
     }
     dictionary[kMFYItemFormatType] = @(self.formatType);
     dictionary[kMFYItemFunctionType] = @(self.functionType);
+    dictionary[kMFYItemLikeTimes] = @(self.likeTimes);
+    dictionary[kMFYItemLiked] = @(self.liked);
     if(self.media != nil){
         dictionary[kMFYItemMedia] = [self.media toDictionary];
     }
     dictionary[kMFYItemPostType] = @(self.postType);
     dictionary[kMFYItemPriceAmount] = @(self.priceAmount);
+    dictionary[kMFYItemPurchased] = @(self.purchased);
+    dictionary[kMFYItemUnliked] = @(self.unliked);
     return dictionary;
 
 }
@@ -110,13 +146,13 @@ NSString *const kMFYItemPriceAmount = @"priceAmount";
     if(self.bodyText != nil){
         [aCoder encodeObject:self.bodyText forKey:kMFYItemBodyText];
     }
-    [aCoder encodeObject:@(self.createDate) forKey:kMFYItemCreateDate];    if(self.embeddedArticles != nil){
+    [aCoder encodeObject:@(self.commentTimes) forKey:kMFYItemCommentTimes];    [aCoder encodeObject:@(self.complained) forKey:kMFYItemComplained];    [aCoder encodeObject:@(self.createDate) forKey:kMFYItemCreateDate];    if(self.embeddedArticles != nil){
         [aCoder encodeObject:self.embeddedArticles forKey:kMFYItemEmbeddedArticles];
     }
-    [aCoder encodeObject:@(self.formatType) forKey:kMFYItemFormatType];    [aCoder encodeObject:@(self.functionType) forKey:kMFYItemFunctionType];    if(self.media != nil){
+    [aCoder encodeObject:@(self.formatType) forKey:kMFYItemFormatType];    [aCoder encodeObject:@(self.functionType) forKey:kMFYItemFunctionType];    [aCoder encodeObject:@(self.likeTimes) forKey:kMFYItemLikeTimes];    [aCoder encodeObject:@(self.liked) forKey:kMFYItemLiked];    if(self.media != nil){
         [aCoder encodeObject:self.media forKey:kMFYItemMedia];
     }
-    [aCoder encodeObject:@(self.postType) forKey:kMFYItemPostType];    [aCoder encodeObject:@(self.priceAmount) forKey:kMFYItemPriceAmount];
+    [aCoder encodeObject:@(self.postType) forKey:kMFYItemPostType];    [aCoder encodeObject:@(self.priceAmount) forKey:kMFYItemPriceAmount];    [aCoder encodeObject:@(self.purchased) forKey:kMFYItemPurchased];    [aCoder encodeObject:@(self.unliked) forKey:kMFYItemUnliked];
 }
 
 /**
@@ -127,13 +163,19 @@ NSString *const kMFYItemPriceAmount = @"priceAmount";
     self = [super init];
     self.articleId = [aDecoder decodeObjectForKey:kMFYItemArticleId];
     self.bodyText = [aDecoder decodeObjectForKey:kMFYItemBodyText];
+    self.commentTimes = [[aDecoder decodeObjectForKey:kMFYItemCommentTimes] integerValue];
+    self.complained = [[aDecoder decodeObjectForKey:kMFYItemComplained] boolValue];
     self.createDate = [[aDecoder decodeObjectForKey:kMFYItemCreateDate] integerValue];
     self.embeddedArticles = [aDecoder decodeObjectForKey:kMFYItemEmbeddedArticles];
     self.formatType = [[aDecoder decodeObjectForKey:kMFYItemFormatType] integerValue];
     self.functionType = [[aDecoder decodeObjectForKey:kMFYItemFunctionType] integerValue];
+    self.likeTimes = [[aDecoder decodeObjectForKey:kMFYItemLikeTimes] integerValue];
+    self.liked = [[aDecoder decodeObjectForKey:kMFYItemLiked] boolValue];
     self.media = [aDecoder decodeObjectForKey:kMFYItemMedia];
     self.postType = [[aDecoder decodeObjectForKey:kMFYItemPostType] integerValue];
-    self.priceAmount = [[aDecoder decodeObjectForKey:kMFYItemPriceAmount] floatValue];
+    self.priceAmount = [[aDecoder decodeObjectForKey:kMFYItemPriceAmount] integerValue];
+    self.purchased = [[aDecoder decodeObjectForKey:kMFYItemPurchased] boolValue];
+    self.unliked = [[aDecoder decodeObjectForKey:kMFYItemUnliked] boolValue];
     return self;
 
 }
@@ -147,13 +189,19 @@ NSString *const kMFYItemPriceAmount = @"priceAmount";
 
     copy.articleId = [self.articleId copy];
     copy.bodyText = [self.bodyText copy];
+    copy.commentTimes = self.commentTimes;
+    copy.complained = self.complained;
     copy.createDate = self.createDate;
     copy.embeddedArticles = [self.embeddedArticles copy];
     copy.formatType = self.formatType;
     copy.functionType = self.functionType;
+    copy.likeTimes = self.likeTimes;
+    copy.liked = self.liked;
     copy.media = [self.media copy];
     copy.postType = self.postType;
     copy.priceAmount = self.priceAmount;
+    copy.purchased = self.purchased;
+    copy.unliked = self.unliked;
 
     return copy;
 }

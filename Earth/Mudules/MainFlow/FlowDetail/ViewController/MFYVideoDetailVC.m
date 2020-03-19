@@ -74,7 +74,7 @@
 
 - (void)configTheImage {
     @weakify(self)
-    if (!self.itemModel.isbig && self.itemModel.priceAmount > 0) {
+    if (!self.itemModel.isbig && self.itemModel.priceAmount > 0 && !self.itemModel.purchased) {
         self.imageView.hidden = NO;
         NSURL * coverImageURL = [NSURL URLWithString:self.itemModel.media.mediaUrl];
         if (self.itemModel.media.mediaType > 2) {
