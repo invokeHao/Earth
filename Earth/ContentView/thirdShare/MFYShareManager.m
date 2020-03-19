@@ -45,6 +45,8 @@
     
     [WXApi registerApp:MFYWeChatAppKey universalLink:MFYUniversalLink];
     
+//    [WeiboSDK enableDebugMode:YES];
+    [WeiboSDK registerApp:MFYWeiboAppkey];
 }
 
 + (void)shareToWechatFriend:(BOOL)isFriend article:(MFYArticle *)article completion:(void (^)(BOOL))completion {
@@ -180,7 +182,6 @@
     WBSendMessageToWeiboRequest * requst = [WBSendMessageToWeiboRequest requestWithMessage:message];
     [WeiboSDK sendRequest:requst];
 }
-
 
 #pragma mark- QQ登录回调（必须要调用用不然没法分享）
 - (void)isOnlineResponse:(NSDictionary *)response {}

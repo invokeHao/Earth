@@ -50,6 +50,7 @@ NSString *const kUserTabelName = @"userModel";
     }
 }
 
+#pragma mark- 退出登录
 + (void)logoutWithCompletion:(void(^)(void))completion {
     [MFYLoginService singOutCompletion:^(BOOL success, NSError * _Nonnull error) {
         if (success) {

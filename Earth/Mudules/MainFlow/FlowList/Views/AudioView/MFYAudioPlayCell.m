@@ -26,7 +26,7 @@
 
 @property (strong, nonatomic)MFYTagDisplayView * tagView;
 
-@property (strong, nonatomic)UIButton * playBtn;
+@property (strong, nonatomic)YYAnimatedImageView * playView;
 
 @property (strong, nonatomic)UIButton * likeBtn;
 
@@ -65,7 +65,7 @@
     [self.contentView addSubview:self.tagView];
     
     [self.audioBack addSubview:self.timeLabel];
-    [self.audioBack addSubview:self.playBtn];
+    [self.audioBack addSubview:self.playView];
     [self.audioBack addSubview:self.likeBtn];
     [self.audioBack addSubview:self.likeLabel];
     [self.audioBack addSubview:self.replyBtn];
@@ -106,7 +106,7 @@
         make.height.mas_equalTo(self.tagViewHeight);
     }];
     
-    [self.playBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.playView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.mas_equalTo(self.audioBack);
         make.size.mas_equalTo(CGSizeMake(W_SCALE(97), W_SCALE(97)));
     }];
@@ -163,7 +163,8 @@
 
 - (void)bindEvents {
     @weakify(self)
-    [[self.playBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]init];
+    [[tap rac_gestureSignal] subscribeNext:^(id x) {
         @strongify(self)
         if (self.audioPlayer.isPlaying) {
             [self pauseTheAudio];
@@ -171,6 +172,7 @@
             [self mfy_startPlay];
         }
     }];
+    [self.playView addGestureRecognizer:tap];
     
     [[self.likeBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * btn) {
        @strongify(self)
@@ -239,18 +241,18 @@
         [self configTheAudio];
     }
     [self.audioPlayer play];
-    [self.playBtn setImage:WHImageNamed(@"audio_stop") forState:UIControlStateNormal];
+    [self.playView startAnimating];
 }
 
 - (void)pauseTheAudio {
     [self.audioPlayer pause];
-    [self.playBtn setImage:WHImageNamed(@"audio_play") forState:UIControlStateNormal];
+    [self.playView stopAnimating];
 }
 
 - (void)mfy_stopPlay {
     [self.audioPlayer stop];
     self.audioPlayer = nil;
-    [self.playBtn setImage:WHImageNamed(@"audio_play") forState:UIControlStateNormal];
+    [self.playView stopAnimating];
 }
 
 #pragma mark- audioDeleagate
@@ -326,12 +328,16 @@
     return _tagView;
 }
 
-- (UIButton *)playBtn {
-    if (!_playBtn) {
-        _playBtn = UIButton.button;
-        _playBtn.WH_setImage_forState(WHImageNamed(@"audio_play"),UIControlStateNormal);
+- (YYAnimatedImageView *)playView {
+    if (!_playView) {
+        YYImage * image = [YYImage imageNamed:@"audio_playing.gif"];
+        image.preloadAllAnimatedImageFrames = YES;
+        _playView = [[YYAnimatedImageView alloc]initWithImage:image];
+        _playView.contentMode = UIViewContentModeScaleAspectFill;
+        _playView.autoPlayAnimatedImage = NO;
+        _playView.userInteractionEnabled = YES;
     }
-    return _playBtn;
+    return _playView;
 }
 
 - (UIButton *)likeBtn {

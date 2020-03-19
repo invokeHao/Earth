@@ -15,6 +15,7 @@
 		6717AC642420E5800072BBFE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6717AC632420E5800072BBFE /* CoreGraphics.framework */; };
 		6717AC682420E6860072BBFE /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6717AC672420E6860072BBFE /* libc++.tbd */; };
 		6717AC6D2421CE5C0072BBFE /* MFYShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6717AC6C2421CE5C0072BBFE /* MFYShareManager.m */; };
+		6717AC7A242346550072BBFE /* audio_playing.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6717AC79242346550072BBFE /* audio_playing.gif */; };
 		672503FB23D421A800716842 /* MFYOpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 672503FA23D421A800716842 /* MFYOpenUDID.m */; };
 		672503FE23D4229A00716842 /* UDIDWithKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 672503FD23D4229A00716842 /* UDIDWithKeyChain.m */; };
 		6725040A23D433B600716842 /* MFYPublicImageCardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6725040923D433B600716842 /* MFYPublicImageCardVC.m */; };
@@ -266,6 +267,7 @@
 		6717AC6B2421CE5C0072BBFE /* MFYShareManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYShareManager.h; sourceTree = "<group>"; };
 		6717AC6C2421CE5C0072BBFE /* MFYShareManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYShareManager.m; sourceTree = "<group>"; };
 		6717AC6E2421D4580072BBFE /* MFYThirdPartyConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYThirdPartyConstant.h; sourceTree = "<group>"; };
+		6717AC79242346550072BBFE /* audio_playing.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = audio_playing.gif; sourceTree = "<group>"; };
 		672503F923D421A800716842 /* MFYOpenUDID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYOpenUDID.h; sourceTree = "<group>"; };
 		672503FA23D421A800716842 /* MFYOpenUDID.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYOpenUDID.m; sourceTree = "<group>"; };
 		672503FC23D4229A00716842 /* UDIDWithKeyChain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UDIDWithKeyChain.h; sourceTree = "<group>"; };
@@ -2072,6 +2074,7 @@
 		67F097F623A78D56001DCEB4 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				6717AC79242346550072BBFE /* audio_playing.gif */,
 				67F097F723A78D56001DCEB4 /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -2322,6 +2325,7 @@
 			files = (
 				67CC3219240D133B002E6E2B /* MJPhotoBrowser.bundle in Resources */,
 				67557091241A33B7008D6614 /* ATAuthSDK.bundle in Resources */,
+				6717AC7A242346550072BBFE /* audio_playing.gif in Resources */,
 				6755708F241A33B7008D6614 /* TYRZResource.bundle in Resources */,
 				67F097FE23A78D56001DCEB4 /* Assets.xcassets in Resources */,
 			);

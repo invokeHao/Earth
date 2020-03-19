@@ -27,10 +27,6 @@
 
 - (void)configTheUmeng {
     [UMConfigure initWithAppkey:@"5e4e8cc67ba7e954e9f6a577" channel:@"APP Store"];
-    
-    [WeiboSDK enableDebugMode:YES];
-    [WeiboSDK registerApp:MFYWeiboAppkey];
-    
 }
 
 
