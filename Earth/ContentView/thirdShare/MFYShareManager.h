@@ -10,11 +10,12 @@
 #import <TencentOpenAPI/TencentOAuth.h>
 #import <TencentOpenAPI/QQApiInterface.h>
 #import "MFYArticle.h"
+#import <WeiboSDK.h>
 
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MFYShareManager : NSObject <QQApiInterfaceDelegate,WXApiDelegate,TencentSessionDelegate>
+@interface MFYShareManager : NSObject <QQApiInterfaceDelegate,WXApiDelegate,TencentSessionDelegate,WeiboSDKDelegate>
 
 + (instancetype)sharedManager;
 
@@ -24,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)shareToWechatFriend:(BOOL)isFriend article:(MFYArticle *)article completion:(void(^)(BOOL success))completion;
 
 + (void)shareToQQ:(BOOL)isQQ andArticle:(MFYArticle *)article completion:(void(^)(BOOL success))completion;
+
++ (void)shareToWeiboWithArticle:(MFYArticle *)article completion:(void(^)(BOOL success))completion;
 
 @end
 

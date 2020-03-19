@@ -13,9 +13,8 @@
 #define MFYThirdPartyTypeWechat 12
 #define MFYThirdPartyTypeWeibo 13
 
-#define MFYWeiboAppkey @"2979585171"
+#define MFYWeiboAppkey @"1280913245"
 #define MFYQQAppkey @"1108907019"
-//#define MFYQQAppkey @"1106783733"
 #define MFYWeChatAppKey @"wx9d3834c0a416ff28"
 #define MFYUniversalLink @"https://friends.0act.com/apple-app-site-association/"
 

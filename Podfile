@@ -36,6 +36,7 @@ def shared_pods
     pod 'UMCAnalytics'
     pod 'JMessage'
     pod 'WechatOpenSDK'
+    pod 'Weibo_SDK', :git => 'https://github.com/sinaweibosdk/weibo_ios_sdk.git'
 
     post_install do |installer|
     installer.pods_project.targets.each do |target|

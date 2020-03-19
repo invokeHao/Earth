@@ -68,89 +68,90 @@ static CGFloat ratio ;
 + (UMCustomModel *)createFullScreen {
     
     UMCustomModel *model = [[UMCustomModel alloc] init];
-        
-        model.navColor = UIColor.clearColor;
-        model.navTitle = [[NSAttributedString alloc] initWithString:@"" attributes:@{NSForegroundColorAttributeName : UIColor.whiteColor,NSFontAttributeName : [UIFont systemFontOfSize:20.0]}];
-        model.navIsHidden = YES;
-        model.navBackImage = [UIImage imageNamed:@"icon_nav_back_light"];
-        //model.hideNavBackItem = NO;
-        UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-        [rightBtn setTitle:@"更多" forState:UIControlStateNormal];
-        model.navMoreView = rightBtn;
-        
-        model.privacyNavColor = UIColor.orangeColor;
-        model.privacyNavBackImage = [UIImage imageNamed:@"icon_nav_back_light"];
-        model.privacyNavTitleFont = [UIFont systemFontOfSize:20.0];
-        model.privacyNavTitleColor = UIColor.whiteColor;
-        
-        model.logoImage = [UIImage imageNamed:@""];
-        model.logoIsHidden = YES;
-        //model.sloganIsHidden = NO;
-        model.sloganText = [[NSAttributedString alloc] initWithString:@"全球风靡的生活圈社交软件" attributes:@{NSForegroundColorAttributeName : wh_colorWithHexString(@"#383838"),NSFontAttributeName : WHFont(25)}];
-        model.numberColor = wh_colorWithHexString(@"#383838");
-        model.numberFont = WHFont(30);
-        model.loginBtnText = [[NSAttributedString alloc] initWithString:@"一键登录" attributes:@{NSForegroundColorAttributeName : UIColor.whiteColor,NSFontAttributeName : WHFont(22)}];
     
-        //model.autoHideLoginLoading = NO;
-        //model.privacyOne = @[@"《隐私1》",@"https://www.taobao.com/"];
-        //model.privacyTwo = @[@"《隐私2》",@"https://www.taobao.com/"];
-        model.privacyColors = @[UIColor.lightGrayColor, wh_colorWithHexString(@"#FC5B64")];
-        model.privacyAlignment = NSTextAlignmentCenter;
-        model.privacyFont = [UIFont fontWithName:@"PingFangSC-Regular" size:13.0];
-        model.privacyOperatorPreText = @"《";
-        model.privacyOperatorSufText = @"》";
-        model.checkBoxIsChecked = YES;
-    model.checkBoxIsHidden = YES;
-        model.checkBoxWH = 17.0;
-        model.changeBtnTitle = [[NSAttributedString alloc] initWithString:@"切换到其他方式" attributes:@{NSForegroundColorAttributeName : wh_colorWithHexString(@"#FF6CA0"),NSFontAttributeName : [UIFont systemFontOfSize:14.0]}];
-        //model.changeBtnIsHidden = NO;
-        //model.prefersStatusBarHidden = NO;
-        model.preferredStatusBarStyle = UIStatusBarStyleLightContent;
-        //model.presentDirection = PNSPresentationDirectionBottom;
-        
-        //授权页默认控件布局调整
-        //model.navBackButtonFrameBlock =
-        //model.navTitleFrameBlock =
-        model.navMoreViewFrameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
-            CGFloat width = superViewSize.height;
-            CGFloat height = width;
-            return CGRectMake(superViewSize.width - 15 - width, 0, width, height);
-        };
-        model.loginBtnFrameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
-            if ([self isHorizontal:screenSize]) {
-                frame.origin.y = 20;
-                return frame;
-            }
+    model.navColor = UIColor.clearColor;
+    model.navTitle = [[NSAttributedString alloc] initWithString:@"" attributes:@{NSForegroundColorAttributeName : UIColor.whiteColor,NSFontAttributeName : [UIFont systemFontOfSize:20.0]}];
+    model.navIsHidden = YES;
+    model.navBackImage = [UIImage imageNamed:@"icon_nav_back_light"];
+    //model.hideNavBackItem = NO;
+    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+    [rightBtn setTitle:@"更多" forState:UIControlStateNormal];
+    model.navMoreView = rightBtn;
+    
+    model.privacyNavColor = UIColor.orangeColor;
+    model.privacyNavBackImage = [UIImage imageNamed:@"icon_nav_back_light"];
+    model.privacyNavTitleFont = [UIFont systemFontOfSize:20.0];
+    model.privacyNavTitleColor = UIColor.whiteColor;
+    
+    model.logoImage = [UIImage imageNamed:@""];
+    model.logoIsHidden = YES;
+    //model.sloganIsHidden = NO;
+    model.sloganText = [[NSAttributedString alloc] initWithString:@"全球风靡的生活圈社交软件" attributes:@{NSForegroundColorAttributeName : wh_colorWithHexString(@"#383838"),NSFontAttributeName : WHFont(25)}];
+    model.numberColor = wh_colorWithHexString(@"#383838");
+    model.numberFont = WHFont(30);
+    model.loginBtnText = [[NSAttributedString alloc] initWithString:@"一键登录" attributes:@{NSForegroundColorAttributeName : UIColor.whiteColor,NSFontAttributeName : WHFont(22)}];
+    model.loginBtnBgImgs = @[WHImageNamed(@"autoLogin_btn"),WHImageNamed(@"autoLogin_btn"),WHImageNamed(@"autoLogin_btn")];
+    
+    //model.autoHideLoginLoading = NO;
+    //model.privacyOne = @[@"《隐私1》",@"https://www.taobao.com/"];
+    //model.privacyTwo = @[@"《隐私2》",@"https://www.taobao.com/"];
+    model.privacyColors = @[UIColor.lightGrayColor, wh_colorWithHexString(@"#FC5B64")];
+    model.privacyAlignment = NSTextAlignmentCenter;
+    model.privacyFont = [UIFont fontWithName:@"PingFangSC-Regular" size:13.0];
+    model.privacyOperatorPreText = @"《";
+    model.privacyOperatorSufText = @"》";
+    model.checkBoxIsChecked = YES;
+model.checkBoxIsHidden = YES;
+    model.checkBoxWH = 17.0;
+    model.changeBtnTitle = [[NSAttributedString alloc] initWithString:@"切换到其他方式" attributes:@{NSForegroundColorAttributeName : wh_colorWithHexString(@"#FF6CA0"),NSFontAttributeName : [UIFont systemFontOfSize:14.0]}];
+    //model.changeBtnIsHidden = NO;
+    //model.prefersStatusBarHidden = NO;
+    model.preferredStatusBarStyle = UIStatusBarStyleLightContent;
+    //model.presentDirection = PNSPresentationDirectionBottom;
+    
+    //授权页默认控件布局调整
+    //model.navBackButtonFrameBlock =
+    //model.navTitleFrameBlock =
+    model.navMoreViewFrameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
+        CGFloat width = superViewSize.height;
+        CGFloat height = width;
+        return CGRectMake(superViewSize.width - 15 - width, 0, width, height);
+    };
+    model.loginBtnFrameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
+        if ([self isHorizontal:screenSize]) {
+            frame.origin.y = 20;
             return frame;
-        };
-        model.sloganFrameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
-            if ([self isHorizontal:screenSize]) {
-                return CGRectZero; //横屏时模拟隐藏该控件
-            } else {
-                return CGRectMake(0, 100, superViewSize.width, frame.size.height);
-            }
-        };
-        model.numberFrameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
-            if ([self isHorizontal:screenSize]) {
-                frame.origin.y = 100;
-            }
-            return frame;
-        };
-        model.loginBtnFrameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
-            if ([self isHorizontal:screenSize]) {
-                frame.origin.y = 185;
-            }
-            return frame;
-        };
-        model.changeBtnFrameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
-            if ([self isHorizontal:screenSize]) {
-                return CGRectZero; //横屏时模拟隐藏该控件
-            } else {
-                return CGRectMake(10, frame.origin.y - 20, superViewSize.width - 20, 30);
-            }
-        };
-        
-        //添加自定义控件并对自定义控件进行布局
+        }
+        return frame;
+    };
+    model.sloganFrameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
+        if ([self isHorizontal:screenSize]) {
+            return CGRectZero; //横屏时模拟隐藏该控件
+        } else {
+            return CGRectMake(0, 100, superViewSize.width, frame.size.height);
+        }
+    };
+    model.numberFrameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
+        if ([self isHorizontal:screenSize]) {
+            frame.origin.y = 100;
+        }
+        return frame;
+    };
+    model.loginBtnFrameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
+        if ([self isHorizontal:screenSize]) {
+            frame.origin.y = 185;
+        }
+        return frame;
+    };
+    model.changeBtnFrameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
+        if ([self isHorizontal:screenSize]) {
+            return CGRectZero; //横屏时模拟隐藏该控件
+        } else {
+            return CGRectMake(10, frame.origin.y - 20, superViewSize.width - 20, 30);
+        }
+    };
+    
+    //添加自定义控件并对自定义控件进行布局
     __block UILabel *customLabel = UILabel.label;
     [customLabel setText:@"所在国家注册达到100万人开启全球社交"];
     customLabel.WH_textColor(wh_colorWithHexString(@"#666666"));

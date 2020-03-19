@@ -44,23 +44,7 @@
     _tencentPermissions = @[@"get_user_info", @"get_simple_userinfo", @"add_t"];
     
     [WXApi registerApp:MFYWeChatAppKey universalLink:MFYUniversalLink];
-}
-
-
--(BOOL)mfy_thirdPatyHandleTheUrl:(NSURL *)url {
-    BOOL result = NO;
-//    result = [WeiboSDK handleOpenURL:url delegate:self];
-    result = [TencentOAuth HandleOpenURL:url];
-    result = [QQApiInterface handleOpenURL:url delegate:self];
-    result = [WXApi handleOpenURL:url delegate:self];
-    return result;
-}
-
-- (BOOL)mfy_handleOpenUniversalLink:(NSUserActivity*)userActivity {
-    BOOL result = NO;
-    result = [WXApi handleOpenUniversalLink:userActivity delegate:self];
-    result = [QQApiInterface handleOpenUniversallink:userActivity.webpageURL delegate:self];
-    return result;
+    
 }
 
 + (void)shareToWechatFriend:(BOOL)isFriend article:(MFYArticle *)article completion:(void (^)(BOOL))completion {
@@ -155,15 +139,55 @@
     }
 }
 
-
-- (void)isOnlineResponse:(NSDictionary *)response {
++ (void)shareToWeiboWithArticle:(MFYArticle *)article
+                   completion:(void(^)(BOOL))completion {
     
+    MFYShareManager * manager = [MFYShareManager sharedManager];
+    manager.shareResBlock = completion;
+    
+    WBMessageObject *message = [WBMessageObject message];
+    WBWebpageObject *webpage = [WBWebpageObject object];
+    
+    NSString *utf8String = @"https://www.baidu.com";
+    NSString *title = nil;
+    NSString *description = nil;
+    NSString *previewImageUrl = nil;
+
+    if (article.functionType == 11 ) {
+        MFYItem * item = [article.embeddedArticles firstObject];
+        title = @"全球颜控社交第一站";
+        description = FORMAT(@"%@【全球103个国家，超过300万人在交友】",article.title);
+        if(item.mediaType == MFYMediavideoType){
+            previewImageUrl = [NSString stringWithFormat:@"%@?vframe/jpg/offset/0.2/imageView2/1/w/200/h/200", item.media.mediaUrl];
+
+        }else {
+            previewImageUrl = [NSString stringWithFormat:@"%@?imageView2/1/w/200/h/200", item.media.mediaUrl];;
+        }
+    }else {
+        //音频卡片封面
+        title = @"全球声控社交第一站";
+        description = @"我发布了最新动态【全球103个国家，超过300万人在交友】";
+        previewImageUrl = article.profile.headIconUrl;
+    }
+    
+    webpage.title = title;
+    webpage.description= description;
+    webpage.thumbnailData =  [NSData dataWithContentsOfURL:[NSURL URLWithString:previewImageUrl]];
+    webpage.webpageUrl = utf8String;
+    webpage.objectID = @"Earth";
+    message.mediaObject = webpage;
+    
+    WBSendMessageToWeiboRequest * requst = [WBSendMessageToWeiboRequest requestWithMessage:message];
+    [WeiboSDK sendRequest:requst];
 }
 
-- (void)onReq:(QQBaseReq *)req {
-    
-}
 
+#pragma mark- QQ登录回调（必须要调用用不然没法分享）
+- (void)isOnlineResponse:(NSDictionary *)response {}
+
+- (void)onReq:(QQBaseReq *)req {}
+
+#pragma mark- 腾讯分享回调
 - (void)onResp:(QQBaseResp *)resp {
     if([resp isKindOfClass:[SendMessageToWXResp class]])
     {
@@ -193,6 +217,28 @@
     }
 }
 
+
+#pragma mark- Appdelegate
+
+-(BOOL)mfy_thirdPatyHandleTheUrl:(NSURL *)url {
+    BOOL result = NO;
+//    result = [WeiboSDK handleOpenURL:url delegate:self];
+    result = [TencentOAuth HandleOpenURL:url];
+    result = [QQApiInterface handleOpenURL:url delegate:self];
+    result = [WXApi handleOpenURL:url delegate:self];
+    result = [WeiboSDK handleOpenURL:url delegate:self];
+    return result;
+}
+
+- (BOOL)mfy_handleOpenUniversalLink:(NSUserActivity*)userActivity {
+    BOOL result = NO;
+    result = [WXApi handleOpenUniversalLink:userActivity delegate:self];
+    result = [QQApiInterface handleOpenUniversallink:userActivity.webpageURL delegate:self];
+    return result;
+}
+
+
+
 #pragma mark- TencentSessionDelegate
 
 - (void)tencentDidLogin {}
@@ -202,5 +248,23 @@
 - (void)tencentDidNotNetWork {}
 
 
+
+- (void)didReceiveWeiboRequest:(WBBaseRequest *)request {
+    NSLog(@"didReceiveWeiboRequest : %@", request);
+}
+
+- (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
+    if ([response isKindOfClass:WBSendMessageToWeiboResponse.class]) {
+        if (response.statusCode == 0) {
+            [[WHAlertTool shareInstance] showALterViewWithOneButton:@"新浪微博" andMessage:@"分享成功"];
+            if (self.shareResBlock) {
+                self.shareResBlock(YES);
+            }
+        }
+        else {
+            [[WHAlertTool shareInstance] showALterViewWithOneButton:@"新浪微博" andMessage:@"分享失败"];
+        }
+    }
+}
 
 @end

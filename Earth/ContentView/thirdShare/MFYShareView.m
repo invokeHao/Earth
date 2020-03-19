@@ -112,6 +112,15 @@
             }
         }];
     }];
+    
+    [[self.weiboBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+       @strongify(self)
+        [MFYShareManager shareToWeiboWithArticle:self.article completion:^(BOOL success) {
+            if (success) {
+                [self dismiss];
+            }
+        }];
+    }];
 }
 
 + (void)showInViewWithArticle:(MFYArticle *)article{

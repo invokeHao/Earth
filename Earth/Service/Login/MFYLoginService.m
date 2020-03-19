@@ -30,7 +30,7 @@
 
 + (void)loginWithUMToken:(NSString *)token completion:(nonnull void (^)(MFYLoginModel * , NSError * ))completion {
     NSString * path = @"/api/auth/signon/auto";
-    NSDictionary * dic = @{@"autotoken": token};
+    NSDictionary * dic = @{@"autotoken": token, @"os":@"ios"};
     [[MFYHTTPManager sharedManager] POST:path parameters:dic success:^(NSURLSessionDataTask * _Nonnull task, MFYResponseObject * _Nonnull responseObject) {
         MFYResponseObject * resp = responseObject;
         if (resp.code == 1) {
