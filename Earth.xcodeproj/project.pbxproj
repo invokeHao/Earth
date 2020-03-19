@@ -16,6 +16,11 @@
 		6717AC682420E6860072BBFE /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6717AC672420E6860072BBFE /* libc++.tbd */; };
 		6717AC6D2421CE5C0072BBFE /* MFYShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6717AC6C2421CE5C0072BBFE /* MFYShareManager.m */; };
 		6717AC7A242346550072BBFE /* audio_playing.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6717AC79242346550072BBFE /* audio_playing.gif */; };
+		6717AC8124236DA70072BBFE /* MFYMyPurchasedVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6717AC8024236DA70072BBFE /* MFYMyPurchasedVC.m */; };
+		6717AC8424236EC80072BBFE /* MFYBaseCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6717AC8324236EC80072BBFE /* MFYBaseCollectionView.m */; };
+		6717AC872423711D0072BBFE /* MFYFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6717AC862423711D0072BBFE /* MFYFlowLayout.m */; };
+		6717AC8A2423745B0072BBFE /* MFYPurchasedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6717AC892423745B0072BBFE /* MFYPurchasedCell.m */; };
+		6717AC8D2423778D0072BBFE /* MFYPurchasedVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 6717AC8C2423778D0072BBFE /* MFYPurchasedVM.m */; };
 		672503FB23D421A800716842 /* MFYOpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 672503FA23D421A800716842 /* MFYOpenUDID.m */; };
 		672503FE23D4229A00716842 /* UDIDWithKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 672503FD23D4229A00716842 /* UDIDWithKeyChain.m */; };
 		6725040A23D433B600716842 /* MFYPublicImageCardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6725040923D433B600716842 /* MFYPublicImageCardVC.m */; };
@@ -268,6 +273,16 @@
 		6717AC6C2421CE5C0072BBFE /* MFYShareManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYShareManager.m; sourceTree = "<group>"; };
 		6717AC6E2421D4580072BBFE /* MFYThirdPartyConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYThirdPartyConstant.h; sourceTree = "<group>"; };
 		6717AC79242346550072BBFE /* audio_playing.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = audio_playing.gif; sourceTree = "<group>"; };
+		6717AC7F24236DA70072BBFE /* MFYMyPurchasedVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYMyPurchasedVC.h; sourceTree = "<group>"; };
+		6717AC8024236DA70072BBFE /* MFYMyPurchasedVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYMyPurchasedVC.m; sourceTree = "<group>"; };
+		6717AC8224236EC80072BBFE /* MFYBaseCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYBaseCollectionView.h; sourceTree = "<group>"; };
+		6717AC8324236EC80072BBFE /* MFYBaseCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYBaseCollectionView.m; sourceTree = "<group>"; };
+		6717AC852423711D0072BBFE /* MFYFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYFlowLayout.h; sourceTree = "<group>"; };
+		6717AC862423711D0072BBFE /* MFYFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYFlowLayout.m; sourceTree = "<group>"; };
+		6717AC882423745B0072BBFE /* MFYPurchasedCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYPurchasedCell.h; sourceTree = "<group>"; };
+		6717AC892423745B0072BBFE /* MFYPurchasedCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYPurchasedCell.m; sourceTree = "<group>"; };
+		6717AC8B2423778D0072BBFE /* MFYPurchasedVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYPurchasedVM.h; sourceTree = "<group>"; };
+		6717AC8C2423778D0072BBFE /* MFYPurchasedVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYPurchasedVM.m; sourceTree = "<group>"; };
 		672503F923D421A800716842 /* MFYOpenUDID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYOpenUDID.h; sourceTree = "<group>"; };
 		672503FA23D421A800716842 /* MFYOpenUDID.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYOpenUDID.m; sourceTree = "<group>"; };
 		672503FC23D4229A00716842 /* UDIDWithKeyChain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UDIDWithKeyChain.h; sourceTree = "<group>"; };
@@ -776,6 +791,45 @@
 				6717AC5D2420E4A70072BBFE /* TencentOpenAPI.framework */,
 			);
 			path = TencentOpenAPI;
+			sourceTree = "<group>";
+		};
+		6717AC7B24236D7D0072BBFE /* MyPurchased */ = {
+			isa = PBXGroup;
+			children = (
+				6717AC7E24236D7D0072BBFE /* Reactor */,
+				6717AC7C24236D7D0072BBFE /* ViewController */,
+				6717AC7D24236D7D0072BBFE /* Views */,
+			);
+			path = MyPurchased;
+			sourceTree = "<group>";
+		};
+		6717AC7C24236D7D0072BBFE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6717AC7F24236DA70072BBFE /* MFYMyPurchasedVC.h */,
+				6717AC8024236DA70072BBFE /* MFYMyPurchasedVC.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		6717AC7D24236D7D0072BBFE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6717AC852423711D0072BBFE /* MFYFlowLayout.h */,
+				6717AC862423711D0072BBFE /* MFYFlowLayout.m */,
+				6717AC882423745B0072BBFE /* MFYPurchasedCell.h */,
+				6717AC892423745B0072BBFE /* MFYPurchasedCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6717AC7E24236D7D0072BBFE /* Reactor */ = {
+			isa = PBXGroup;
+			children = (
+				6717AC8B2423778D0072BBFE /* MFYPurchasedVM.h */,
+				6717AC8C2423778D0072BBFE /* MFYPurchasedVM.m */,
+			);
+			path = Reactor;
 			sourceTree = "<group>";
 		};
 		672503FF23D4333A00716842 /* ContentCreator */ = {
@@ -1483,6 +1537,7 @@
 				67CC315923FCD778002E6E2B /* MineHomePage */,
 				67CC31A52403BA1A002E6E2B /* MyNote */,
 				67CC319524012CA9002E6E2B /* MyLike */,
+				6717AC7B24236D7D0072BBFE /* MyPurchased */,
 				67CC317823FFA706002E6E2B /* MineSettingVC */,
 			);
 			path = Mine;
@@ -2063,6 +2118,8 @@
 				67F0980323A7A063001DCEB4 /* MFYBaseViewController.m */,
 				6725041423D6ABB900716842 /* MFYBaseTableView.h */,
 				6725041523D6ABB900716842 /* MFYBaseTableView.m */,
+				6717AC8224236EC80072BBFE /* MFYBaseCollectionView.h */,
+				6717AC8324236EC80072BBFE /* MFYBaseCollectionView.m */,
 				6725041723D6E43E00716842 /* MFYBaseTableViewCell.h */,
 				6725041823D6E43E00716842 /* MFYBaseTableViewCell.m */,
 				67CC313823F927D1002E6E2B /* MFYBaseCollectionViewCell.h */,
@@ -2512,6 +2569,7 @@
 				67CC31FF240A7090002E6E2B /* JCHATAudioPlayerHelper.m in Sources */,
 				67FB42D4241F684900F2817D /* MFYDeductStatu.m in Sources */,
 				67CC31AB2403BF00002E6E2B /* MFYMyNoteVC.m in Sources */,
+				6717AC8124236DA70072BBFE /* MFYMyPurchasedVC.m in Sources */,
 				67FB42D1241F67F700F2817D /* MFYWXOrderModel.m in Sources */,
 				67CC311B23F4FB19002E6E2B /* MFYRedPacketView.m in Sources */,
 				67CC310A23F39D56002E6E2B /* MFYTopicTagService.m in Sources */,
@@ -2580,6 +2638,7 @@
 				6779376723B0C29700D1B822 /* MFYCoreFlowVC.m in Sources */,
 				67CC324E240D194B002E6E2B /* SDWebImageManager+MJ.m in Sources */,
 				67CC317323FEBAE5002E6E2B /* MFYPhotoCropVC.m in Sources */,
+				6717AC8424236EC80072BBFE /* MFYBaseCollectionView.m in Sources */,
 				67FB42BB241F451A00F2817D /* MFYGlobalModel.m in Sources */,
 				67FB42C5241F475400F2817D /* MFYGlobalManager.m in Sources */,
 				679A02E423F107620041A012 /* MOSelectedButton.m in Sources */,
@@ -2596,6 +2655,7 @@
 				67CC31D724090C95002E6E2B /* MFYMessageTextView.m in Sources */,
 				67CC316623FCE929002E6E2B /* MFYMineItemModel.m in Sources */,
 				67CC31B8240549F4002E6E2B /* UIScrollView+RefreshAble.m in Sources */,
+				6717AC872423711D0072BBFE /* MFYFlowLayout.m in Sources */,
 				67CC31DA24090D6F002E6E2B /* JCHATAlertToSendImage.m in Sources */,
 				6746D47F23B4DE0700A46FC7 /* MFYImageFlowVC.m in Sources */,
 				67CC319B24012D91002E6E2B /* MFYMyLikeVM.m in Sources */,
@@ -2632,6 +2692,7 @@
 				6746D48223B4E54100A46FC7 /* MFYIndicatorBackgroundView.m in Sources */,
 				67EFC32723C3015C00F5BDB3 /* MFYCardSuduPicView.m in Sources */,
 				67CC30F823F15D8C002E6E2B /* MFYPublishModel.m in Sources */,
+				6717AC8A2423745B0072BBFE /* MFYPurchasedCell.m in Sources */,
 				67557094241A3B64008D6614 /* UMModelCreate.m in Sources */,
 				6717AC6D2421CE5C0072BBFE /* MFYShareManager.m in Sources */,
 				67CC30FE23F2845D002E6E2B /* MFYPublishService.m in Sources */,
@@ -2658,6 +2719,7 @@
 				67CC321C240D133B002E6E2B /* MJPhotoProgressView.m in Sources */,
 				675570792418B80B008D6614 /* MFYChatSearchFriendVC.m in Sources */,
 				67CC30F523F14F7E002E6E2B /* MOPhotoToMFYTransformer.m in Sources */,
+				6717AC8D2423778D0072BBFE /* MFYPurchasedVM.m in Sources */,
 				6725041623D6ABB900716842 /* MFYBaseTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

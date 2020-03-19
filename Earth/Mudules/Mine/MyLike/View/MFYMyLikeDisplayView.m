@@ -25,7 +25,6 @@
 
 @property (nonatomic,assign) NSInteger currentIndex;
 
-@property (nonatomic, strong) UICollectionView * mainCollection;
 
 @end
 
@@ -189,7 +188,7 @@
         layout.minimumInteritemSpacing = itemSpacing;
         layout.itemSize = CGSizeMake(cellWidth, cellHeight);
         //初始化collectionView
-        _mainCollection = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, VERTICAL_SCREEN_WIDTH, cellHeight) collectionViewLayout:layout];
+        _mainCollection = [[MFYBaseCollectionView alloc] initWithFrame:CGRectMake(0, 0, VERTICAL_SCREEN_WIDTH, cellHeight) collectionViewLayout:layout];
         _mainCollection.backgroundColor = [UIColor clearColor];
         _mainCollection.showsHorizontalScrollIndicator = NO;
         _mainCollection.delegate = self;

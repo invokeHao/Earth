@@ -76,6 +76,7 @@
         @strongify(self)
         [self.displayView reloadDataWithArray:self.viewModel.dataList];
     }];
+    
 }
 
 - (void)startPlayVideo {

@@ -13,7 +13,6 @@
     CGFloat _sumCellWidth ;
 }
 @end
-
 @implementation MFYTagDisplayLayout
 
 - (instancetype)init {

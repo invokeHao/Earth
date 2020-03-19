@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MFYBaseCollectionView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -25,6 +26,8 @@ typedef void(^scrollItemBlock)(NSInteger index);
 - (void)mfy_scrollToItem:(NSInteger)item;
 
 @property (nonatomic, strong)scrollItemBlock scrollBlock;
+
+@property (nonatomic, strong) MFYBaseCollectionView * mainCollection;
 
 @end
 

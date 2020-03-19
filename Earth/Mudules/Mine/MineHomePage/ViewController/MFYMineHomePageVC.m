@@ -17,6 +17,7 @@
 #import "MFYMyLikeListVC.h"
 #import "MFYMyNoteVC.h"
 #import "MFYPhotosManager.h"
+#import "MFYMyPurchasedVC.h"
 
 @interface MFYMineHomePageVC ()
 
@@ -147,7 +148,9 @@
         [self.navigationController pushViewController:noteVC animated:YES];
     }];
     [self.myPayedCell setSelectB:^(BOOL isTap) {
-        
+        @strongify(self)
+        MFYMyPurchasedVC * purchasedVC = [[MFYMyPurchasedVC alloc]init];
+        [self.navigationController pushViewController:purchasedVC animated:YES];
     }];
     [self.myIconCell setSelectB:^(BOOL isTap) {
         @strongify(self)

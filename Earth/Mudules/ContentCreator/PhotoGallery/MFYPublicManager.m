@@ -67,7 +67,7 @@
              [viewController presentViewController:nav animated:YES completion:NULL];
         }
             break;
-        case MFYPublicTypeImage: {
+        case MFYPublicTypeImage : case MFYPublicTypeChat: {
             MOPhotoLibraryConfiguration *configuration = [[MOPhotoLibraryConfiguration alloc] init];
             configuration.assetType = MOAssetTypePhoto | MOAssetTypeGif;
             configuration.maxSelectedCount = 1;
