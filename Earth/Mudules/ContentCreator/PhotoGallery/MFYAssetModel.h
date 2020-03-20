@@ -18,7 +18,7 @@ typedef NS_ENUM(NSInteger, CMSAssetMediaType) {
     CMSAssetMediaTypeAudio,
     CMSAssetMediaTypeOnlineGif, // 线上的gif
     CMSAssetMediaTypeVideoTranformGif, // 视频转换的gif
-    CMSAssetMediaTypeEditVideo // 裁剪视频
+    CMSAssetMediaTypeEditVideo // 拍摄的视频
 };
 
 
@@ -73,6 +73,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat fileSize;
 
 - (void)getVideoCoverImageCompletion:(void(^)(UIImage * image))completion;
+
+
+- (UIImage*)getVideoPreViewImage;
 
 @end
 

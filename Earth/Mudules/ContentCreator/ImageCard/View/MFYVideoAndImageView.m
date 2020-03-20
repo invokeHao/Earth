@@ -38,9 +38,13 @@
 - (void)setImageData:(MFYAssetModel *)model {
     if (model) {
         if (model.type == CMSAssetMediaTypePhoto) {
-            [self.coverImageV setImage:model.thumbImage];
+            if (!model.highImage) {
+                [self.coverImageV setImage:model.thumbImage];
+            }else {
+                [self.coverImageV setImage:model.highImage];
+            }
             [self.addbutton setImage:WHImageNamed(@"public_smallAdd") forState:UIControlStateNormal];
-        }else if(model.type == CMSAssetMediaTypeVideo){
+        }else if(model.type == (CMSAssetMediaTypeVideo | CMSAssetMediaTypeEditVideo)){
             [model getVideoCoverImageCompletion:^(UIImage * _Nonnull image) {
                 [self.coverImageV setImage:image];
                 [self.addbutton setImage:WHImageNamed(@"video_tag") forState:UIControlStateNormal];

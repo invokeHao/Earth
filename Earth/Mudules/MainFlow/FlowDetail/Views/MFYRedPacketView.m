@@ -135,7 +135,7 @@
 - (void)setItem:(MFYItem *)item {
     if (item) {
         _item = item;
-        NSString * price = FORMAT(@"%.0f 元",item.priceAmount);
+        NSString * price = FORMAT(@"%ld 元",item.priceAmount);
         NSMutableAttributedString * AttrStr = [[NSMutableAttributedString alloc]initWithString:price];
         NSMutableDictionary *attrDic = [NSMutableDictionary dictionary];
         attrDic[NSFontAttributeName] = WHFont(18);

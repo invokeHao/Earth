@@ -142,8 +142,8 @@
         }
             break;
         case CMSAssetMediaTypeEditVideo: {
-//            fileName = [fileName stringByReplacingOccurrencesOfString:@".png" withString:@".mp4"];
-//            [manager putFile:assetModel.videoPath key:fileName token:[CMSDynamicConfig shared].qiniuTocken complete:block option:option];
+            fileName = [fileName stringByReplacingOccurrencesOfString:@".png" withString:@".mp4"];
+            [manager putFile:assetModel.videoPath key:fileName token:[MFYDynamicManager sharedManager].qiniuTocken complete:block option:option];
         }
             break;
         default: {

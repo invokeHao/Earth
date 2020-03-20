@@ -42,14 +42,42 @@
 }
 
 - (void)getVideoCoverImageCompletion:(void (^)(UIImage * ))completion{
-    PHImageRequestOptions *option = [[PHImageRequestOptions alloc] init];
-    option.resizeMode = PHImageRequestOptionsResizeModeFast;
     
-    [[PHImageManager defaultManager] requestImageForAsset:self.asset targetSize:CGSizeMake(240, 320) contentMode:PHImageContentModeDefault options:option resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-        if (result) {
-            completion(result);
+    if (self.asset) {
+        PHImageRequestOptions *option = [[PHImageRequestOptions alloc] init];
+        option.resizeMode = PHImageRequestOptionsResizeModeFast;
+        
+        [[PHImageManager defaultManager] requestImageForAsset:self.asset targetSize:CGSizeMake(240, 320) contentMode:PHImageContentModeDefault options:option resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+            if (result) {
+                completion(result);
+            }
+        }];
+    }else {
+        UIImage * image = [self getVideoPreViewImage];
+        if (image) {
+            completion(image);
         }
-    }];
+    }
+}
+
+//根据本地路径获取视频的第一帧
+- (UIImage*)getVideoPreViewImage{
+    if (!self.videoPath) {
+        return nil;
+    }
+    NSString * videoStr = FORMAT(@"file://%@",self.videoPath);
+    NSURL * url = [NSURL URLWithString:videoStr];
+    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:url options:nil];
+    AVAssetImageGenerator *gen = [[AVAssetImageGenerator alloc] initWithAsset:asset];
+    
+    gen.appliesPreferredTrackTransform = YES;
+    CMTime time = CMTimeMakeWithSeconds(0.0, 600);
+    NSError *error = nil;
+    CMTime actualTime;
+    CGImageRef image = [gen copyCGImageAtTime:time actualTime:&actualTime error:&error];
+    UIImage *img = [[UIImage alloc] initWithCGImage:image];
+    CGImageRelease(image);
+    return img;
 }
 
 - (BOOL)isEqual:(id)object {

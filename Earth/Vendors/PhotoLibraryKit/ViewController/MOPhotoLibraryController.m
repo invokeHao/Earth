@@ -28,8 +28,11 @@
 #import "MODownloadNotificationModel.h"
 #import "MFYPhotosManager.h"
 
-@interface MOPhotoLibraryController () <PhotoLibraryNavigationBarDelegate, PhotoListTableViewDelegate, MOAssetCellDelegate,
-                                                UICollectionViewDelegate, UICollectionViewDataSource>
+#import "MFYFirstModel.h"
+#import "MFYTakePhotoCell.h"
+#import "SRAlbumViewController.h"
+
+@interface MOPhotoLibraryController () <PhotoLibraryNavigationBarDelegate, PhotoListTableViewDelegate, MOAssetCellDelegate,UICollectionViewDelegate, UICollectionViewDataSource,SRAlbumViewControllerDelegate>
 
 @property (nonatomic, strong) MOPhotoLibraryNavigationBar *navigationBar;
 @property (nonatomic, strong) MOPhotoListTableView *photoListTableView;
@@ -211,7 +214,11 @@
         [MOPhotoUtil fetchAssetListFromAssetCollection:albumModel.collection assetType:self.configuration.assetType completion:^(NSArray<PHAsset *> *list) {
             NSArray<MOAssetModel *> *assetModelList = [MOPhotoTransformer assetTransformer:list];
             albumModel.assetModelList = [self rememberSelectedModelWithAssetModelList:assetModelList];
-            self.dataList = albumModel.assetModelList;
+            NSMutableArray * newArr = [NSMutableArray arrayWithArray:albumModel.assetModelList];
+            MFYFirstModel * firstModel = [[MFYFirstModel alloc]init];
+            [newArr insertObject:firstModel atIndex:0];
+//            self.dataList = albumModel.assetModelList;
+            self.dataList = [newArr copy];
             [self.collectionView reloadData];
             [self.navigationBar recoverEvent];
             [self.collectionView setContentOffset:CGPointZero animated:NO];
@@ -296,6 +303,7 @@
         _collectionView.showsHorizontalScrollIndicator = NO;
         [_collectionView registerClass:[MOAssetCell class]
             forCellWithReuseIdentifier:NSStringFromClass([MOAssetCell class])];
+        [_collectionView registerClass:[MFYTakePhotoCell class] forCellWithReuseIdentifier:[MFYTakePhotoCell reuseID]];
     }
     return _collectionView;
 }
@@ -356,15 +364,30 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    MOAssetCell *cell = [collectionView
-                       dequeueReusableCellWithReuseIdentifier:NSStringFromClass([MOAssetCell class]) forIndexPath:indexPath];
-    MOAssetModel *assetModel = self.dataList[indexPath.row];
-    [cell loadData:assetModel];
-    cell.delegate = self;
-    return cell;
+    NSObject *model = self.dataList[indexPath.row];
+    if ([model isKindOfClass:[MFYFirstModel class]]) {
+        MFYTakePhotoCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:[MFYTakePhotoCell reuseID] forIndexPath:indexPath];
+        return cell;
+    }else {
+        MOAssetCell *cell = [collectionView
+                           dequeueReusableCellWithReuseIdentifier:NSStringFromClass([MOAssetCell class]) forIndexPath:indexPath];
+        MOAssetModel * assetModel = (MOAssetModel *)model;
+        [cell loadData:assetModel];
+        cell.delegate = self;
+        return cell;
+    }
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    //增加点击拍照
+    if (indexPath.item == 0) {
+        NSObject * model = [self.dataList firstObject];
+        if ([model isKindOfClass:[MFYFirstModel class]]) {
+            [self jumpToTakePhoto];
+            return;
+        }
+    }
     
     __block BOOL isAllDownloadFinish = YES;
     [[MOPhotoLibraryManager sharedManager].selectedList enumerateObjectsUsingBlock:^(MOAssetModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -406,6 +429,57 @@
         }
     }
 }
+
+#pragma mark- 打开相机
+- (void)jumpToTakePhoto {
+    SRDeviceType deviceType = SRDeviceTypeCamera;
+    SRAssetType assetType = SRAssetTypeNone;
+    SRAlbumViewController *vc = [[SRAlbumViewController alloc] initWithDeviceType:deviceType];
+    vc.albumDelegate = self;
+    vc.assetType = assetType;
+    vc.maxItem = 1;
+    vc.maxlength = 500*1024;
+    vc.isEidt = NO;
+    vc.isShowPicList = YES;
+    [self.navigationController presentViewController:vc animated:YES completion:nil];
+}
+
+#pragma mark - SRAlbumViewControllerDelegate
+/**
+ TODO:相册照片获取
+ 
+ @param picker 相册
+ @param images 图片列表
+ */
+- (void)srAlbumPickerController:(SRAlbumViewController *)picker didFinishPickingImages:(NSArray *)images{
+    [picker dismissViewControllerAnimated:NO completion:^{
+        
+    }];
+    NSLog(@"%@",[images firstObject]);
+    UIImage *image = [images firstObject];
+    if ([self.delegate respondsToSelector:@selector(takePhotoController:didFinishPickingPhoto:)]) {
+        [self.delegate takePhotoController:self didFinishPickingPhoto:image];
+    }
+}
+
+/**
+ TODO:相册视频获取
+ 
+ @param picker 相册
+ @param vedios 视频列表
+ */
+- (void)srAlbumPickerController:(SRAlbumViewController *)picker didFinishPickingVedios:(NSArray *)vedios{
+    [picker dismissViewControllerAnimated:NO completion:^{
+        
+    }];
+    NSURL * fileUrl = [vedios firstObject];
+    NSString * fileStr = [fileUrl absoluteString];
+    fileStr = [fileStr stringByReplacingOccurrencesOfString:@"file://" withString:@""];
+    if ([self.delegate respondsToSelector:@selector(takeVedioController:didFinishPickingVideo:)]) {
+        [self.delegate takeVedioController:self didFinishPickingVideo:fileStr];
+    }
+}
+
 
 #pragma mark - PhotoListTableViewDelegate
 

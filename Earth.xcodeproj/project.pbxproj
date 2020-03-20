@@ -104,6 +104,59 @@
 		679A02F923F126580041A012 /* MFYAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 679A02F823F126580041A012 /* MFYAssetModel.m */; };
 		679A02FD23F12A1C0041A012 /* WHHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 679A02FC23F12A1C0041A012 /* WHHud.m */; };
 		67AA2917240FBA71008B6788 /* MFYChatMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67AA2916240FBA71008B6788 /* MFYChatMoreView.m */; };
+		67C435572424C2590081C477 /* SRVideoCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C435432424C2590081C477 /* SRVideoCaptureViewController.m */; };
+		67C435582424C2590081C477 /* SREidtViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67C435442424C2590081C477 /* SREidtViewController.xib */; };
+		67C435592424C2590081C477 /* SRNoPowerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C435462424C2590081C477 /* SRNoPowerViewController.m */; };
+		67C4355A2424C2590081C477 /* SREidtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C435472424C2590081C477 /* SREidtViewController.m */; };
+		67C4355B2424C2590081C477 /* SRAlbumBrowseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C435482424C2590081C477 /* SRAlbumBrowseViewController.m */; };
+		67C4355C2424C2590081C477 /* SRAlbumContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C435492424C2590081C477 /* SRAlbumContentController.m */; };
+		67C4355D2424C2590081C477 /* SRVideoCaptureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67C4354A2424C2590081C477 /* SRVideoCaptureViewController.xib */; };
+		67C4355E2424C2590081C477 /* SRAlbumGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C4354B2424C2590081C477 /* SRAlbumGroupViewController.m */; };
+		67C4355F2424C2590081C477 /* SRAlbumContentController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67C4354D2424C2590081C477 /* SRAlbumContentController.xib */; };
+		67C435602424C2590081C477 /* SRNoPowerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67C4354E2424C2590081C477 /* SRNoPowerViewController.xib */; };
+		67C435612424C2590081C477 /* SRAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C4354F2424C2590081C477 /* SRAlbumViewController.m */; };
+		67C435622424C2590081C477 /* SRAlbumBrowseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67C435512424C2590081C477 /* SRAlbumBrowseViewController.xib */; };
+		67C435632424C2590081C477 /* SRAlbumGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67C435562424C2590081C477 /* SRAlbumGroupViewController.xib */; };
+		67C435682424C3EF0081C477 /* SRHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C435672424C3EF0081C477 /* SRHelper.m */; };
+		67C435702424C4B70081C477 /* SRAlbumConfiger.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C4356D2424C4B60081C477 /* SRAlbumConfiger.m */; };
+		67C435712424C4B70081C477 /* PhotoInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C4356E2424C4B60081C477 /* PhotoInfoModel.m */; };
+		67C435722424C4B70081C477 /* UIAlertTagAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C4356F2424C4B60081C477 /* UIAlertTagAction.m */; };
+		67C4358B2424C4C00081C477 /* SRHub.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C435762424C4C00081C477 /* SRHub.m */; };
+		67C4358C2424C4C00081C477 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67C435782424C4C00081C477 /* ImageCollectionViewCell.xib */; };
+		67C4358D2424C4C00081C477 /* SRPromptManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C435792424C4C00081C477 /* SRPromptManager.m */; };
+		67C4358E2424C4C00081C477 /* AlbumGroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C4357A2424C4C00081C477 /* AlbumGroupTableViewCell.m */; };
+		67C4358F2424C4C00081C477 /* AlbumGroupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67C4357B2424C4C00081C477 /* AlbumGroupTableViewCell.xib */; };
+		67C435902424C4C00081C477 /* SRBrowseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C4357D2424C4C00081C477 /* SRBrowseCollectionViewCell.m */; };
+		67C435912424C4C00081C477 /* SRBrowseCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67C4357E2424C4C00081C477 /* SRBrowseCollectionViewCell.xib */; };
+		67C435922424C4C00081C477 /* TransparentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C435862424C4C00081C477 /* TransparentView.m */; };
+		67C435932424C4C00081C477 /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C435872424C4C00081C477 /* ProgressView.m */; };
+		67C435942424C4C00081C477 /* SRCameraButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C435882424C4C00081C477 /* SRCameraButton.m */; };
+		67C435952424C4C00081C477 /* EffectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C435892424C4C00081C477 /* EffectView.m */; };
+		67C435962424C4C00081C477 /* ImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C4358A2424C4C00081C477 /* ImageCollectionViewCell.m */; };
+		67C4359E2424C6500081C477 /* PHAsset+Info.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C4359A2424C6500081C477 /* PHAsset+Info.m */; };
+		67C4359F2424C6500081C477 /* PHAssetCollection+Info.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C4359B2424C6500081C477 /* PHAssetCollection+Info.m */; };
+		67C435A02424C6500081C477 /* UICollectionView+Info.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C4359C2424C6500081C477 /* UICollectionView+Info.m */; };
+		67C435A42424C6A20081C477 /* SRBrowserTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C435A32424C6A20081C477 /* SRBrowserTransition.m */; };
+		67C435B02424C6FE0081C477 /* JPImageresizerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C435A82424C6FD0081C477 /* JPImageresizerView.m */; };
+		67C435B12424C6FE0081C477 /* UIImage+JPExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C435A92424C6FD0081C477 /* UIImage+JPExtension.m */; };
+		67C435B22424C6FE0081C477 /* JPImageresizerFrameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C435AA2424C6FD0081C477 /* JPImageresizerFrameView.m */; };
+		67C435B32424C6FE0081C477 /* JPImageresizerConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C435AD2424C6FD0081C477 /* JPImageresizerConfigure.m */; };
+		67C435B92424C74F0081C477 /* FLAnimatedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C435B52424C74E0081C477 /* FLAnimatedImage.m */; };
+		67C435BA2424C74F0081C477 /* FLAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C435B62424C74E0081C477 /* FLAnimatedImageView.m */; };
+		67C435C82424CDE60081C477 /* SR_Camera_WhiteBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67C435BC2424CDE60081C477 /* SR_Camera_WhiteBack@2x.png */; };
+		67C435C92424CDE60081C477 /* SRCamera_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67C435BD2424CDE60081C477 /* SRCamera_icon@3x.png */; };
+		67C435CA2424CDE60081C477 /* SRCamera_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67C435BE2424CDE60081C477 /* SRCamera_icon@2x.png */; };
+		67C435CB2424CDE60081C477 /* SR_Camera_WhiteBack@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67C435BF2424CDE60081C477 /* SR_Camera_WhiteBack@3x.png */; };
+		67C435CC2424CDE60081C477 /* SR_touch_focus_not@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67C435C02424CDE60081C477 /* SR_touch_focus_not@3x.png */; };
+		67C435CD2424CDE60081C477 /* SR_touch_focus_not@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67C435C12424CDE60081C477 /* SR_touch_focus_not@2x.png */; };
+		67C435CE2424CDE60081C477 /* SR_Camera_Cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67C435C22424CDE60081C477 /* SR_Camera_Cancel@2x.png */; };
+		67C435CF2424CDE60081C477 /* SRFlash_lamp_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67C435C32424CDE60081C477 /* SRFlash_lamp_icon@2x.png */; };
+		67C435D02424CDE60081C477 /* SR_Camera_Selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67C435C42424CDE60081C477 /* SR_Camera_Selected@3x.png */; };
+		67C435D12424CDE60081C477 /* SR_Camera_Selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67C435C52424CDE60081C477 /* SR_Camera_Selected@2x.png */; };
+		67C435D22424CDE60081C477 /* SRFlash_lamp_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67C435C62424CDE60081C477 /* SRFlash_lamp_icon@3x.png */; };
+		67C435D32424CDE60081C477 /* SR_Camera_Cancel@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67C435C72424CDE60081C477 /* SR_Camera_Cancel@3x.png */; };
+		67C435D62424D7610081C477 /* MFYFirstModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C435D52424D7610081C477 /* MFYFirstModel.m */; };
+		67C435D92424D8610081C477 /* MFYTakePhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C435D82424D8610081C477 /* MFYTakePhotoCell.m */; };
 		67CC30E123F146ED002E6E2B /* MFYQiNiuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC30E023F146ED002E6E2B /* MFYQiNiuModel.m */; };
 		67CC30E423F14711002E6E2B /* MFYQiNiuResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC30E323F14711002E6E2B /* MFYQiNiuResponse.m */; };
 		67CC30E723F14776002E6E2B /* MFYDynamicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC30E623F14776002E6E2B /* MFYDynamicManager.m */; };
@@ -449,6 +502,93 @@
 		679A02FC23F12A1C0041A012 /* WHHud.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WHHud.m; sourceTree = "<group>"; };
 		67AA2915240FBA71008B6788 /* MFYChatMoreView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYChatMoreView.h; sourceTree = "<group>"; };
 		67AA2916240FBA71008B6788 /* MFYChatMoreView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYChatMoreView.m; sourceTree = "<group>"; };
+		67C435432424C2590081C477 /* SRVideoCaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRVideoCaptureViewController.m; sourceTree = "<group>"; };
+		67C435442424C2590081C477 /* SREidtViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SREidtViewController.xib; sourceTree = "<group>"; };
+		67C435452424C2590081C477 /* SRAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRAlbumViewController.h; sourceTree = "<group>"; };
+		67C435462424C2590081C477 /* SRNoPowerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRNoPowerViewController.m; sourceTree = "<group>"; };
+		67C435472424C2590081C477 /* SREidtViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SREidtViewController.m; sourceTree = "<group>"; };
+		67C435482424C2590081C477 /* SRAlbumBrowseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRAlbumBrowseViewController.m; sourceTree = "<group>"; };
+		67C435492424C2590081C477 /* SRAlbumContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRAlbumContentController.m; sourceTree = "<group>"; };
+		67C4354A2424C2590081C477 /* SRVideoCaptureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRVideoCaptureViewController.xib; sourceTree = "<group>"; };
+		67C4354B2424C2590081C477 /* SRAlbumGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRAlbumGroupViewController.m; sourceTree = "<group>"; };
+		67C4354C2424C2590081C477 /* SRVideoCaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRVideoCaptureViewController.h; sourceTree = "<group>"; };
+		67C4354D2424C2590081C477 /* SRAlbumContentController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRAlbumContentController.xib; sourceTree = "<group>"; };
+		67C4354E2424C2590081C477 /* SRNoPowerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRNoPowerViewController.xib; sourceTree = "<group>"; };
+		67C4354F2424C2590081C477 /* SRAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRAlbumViewController.m; sourceTree = "<group>"; };
+		67C435502424C2590081C477 /* SRNoPowerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRNoPowerViewController.h; sourceTree = "<group>"; };
+		67C435512424C2590081C477 /* SRAlbumBrowseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRAlbumBrowseViewController.xib; sourceTree = "<group>"; };
+		67C435522424C2590081C477 /* SRAlbumContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRAlbumContentController.h; sourceTree = "<group>"; };
+		67C435532424C2590081C477 /* SRAlbumBrowseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRAlbumBrowseViewController.h; sourceTree = "<group>"; };
+		67C435542424C2590081C477 /* SREidtViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SREidtViewController.h; sourceTree = "<group>"; };
+		67C435552424C2590081C477 /* SRAlbumGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRAlbumGroupViewController.h; sourceTree = "<group>"; };
+		67C435562424C2590081C477 /* SRAlbumGroupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRAlbumGroupViewController.xib; sourceTree = "<group>"; };
+		67C435652424C3410081C477 /* SRAlbum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRAlbum.h; sourceTree = "<group>"; };
+		67C435662424C3EF0081C477 /* SRHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRHelper.h; sourceTree = "<group>"; };
+		67C435672424C3EF0081C477 /* SRHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRHelper.m; sourceTree = "<group>"; };
+		67C4356A2424C4B60081C477 /* SRAlbumConfiger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRAlbumConfiger.h; sourceTree = "<group>"; };
+		67C4356B2424C4B60081C477 /* PhotoInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoInfoModel.h; sourceTree = "<group>"; };
+		67C4356C2424C4B60081C477 /* UIAlertTagAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertTagAction.h; sourceTree = "<group>"; };
+		67C4356D2424C4B60081C477 /* SRAlbumConfiger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRAlbumConfiger.m; sourceTree = "<group>"; };
+		67C4356E2424C4B60081C477 /* PhotoInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoInfoModel.m; sourceTree = "<group>"; };
+		67C4356F2424C4B60081C477 /* UIAlertTagAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAlertTagAction.m; sourceTree = "<group>"; };
+		67C435752424C4C00081C477 /* SRHub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRHub.h; sourceTree = "<group>"; };
+		67C435762424C4C00081C477 /* SRHub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRHub.m; sourceTree = "<group>"; };
+		67C435772424C4C00081C477 /* SRBrowseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRBrowseCollectionViewCell.h; sourceTree = "<group>"; };
+		67C435782424C4C00081C477 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		67C435792424C4C00081C477 /* SRPromptManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRPromptManager.m; sourceTree = "<group>"; };
+		67C4357A2424C4C00081C477 /* AlbumGroupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumGroupTableViewCell.m; sourceTree = "<group>"; };
+		67C4357B2424C4C00081C477 /* AlbumGroupTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumGroupTableViewCell.xib; sourceTree = "<group>"; };
+		67C4357C2424C4C00081C477 /* ImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCollectionViewCell.h; sourceTree = "<group>"; };
+		67C4357D2424C4C00081C477 /* SRBrowseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRBrowseCollectionViewCell.m; sourceTree = "<group>"; };
+		67C4357E2424C4C00081C477 /* SRBrowseCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRBrowseCollectionViewCell.xib; sourceTree = "<group>"; };
+		67C4357F2424C4C00081C477 /* AlbumGroupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumGroupTableViewCell.h; sourceTree = "<group>"; };
+		67C435802424C4C00081C477 /* SRPromptManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRPromptManager.h; sourceTree = "<group>"; };
+		67C435822424C4C00081C477 /* TransparentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentView.h; sourceTree = "<group>"; };
+		67C435832424C4C00081C477 /* SRCameraButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRCameraButton.h; sourceTree = "<group>"; };
+		67C435842424C4C00081C477 /* ProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
+		67C435852424C4C00081C477 /* EffectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectView.h; sourceTree = "<group>"; };
+		67C435862424C4C00081C477 /* TransparentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentView.m; sourceTree = "<group>"; };
+		67C435872424C4C00081C477 /* ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
+		67C435882424C4C00081C477 /* SRCameraButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRCameraButton.m; sourceTree = "<group>"; };
+		67C435892424C4C00081C477 /* EffectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EffectView.m; sourceTree = "<group>"; };
+		67C4358A2424C4C00081C477 /* ImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCollectionViewCell.m; sourceTree = "<group>"; };
+		67C435982424C6500081C477 /* UICollectionView+Info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+Info.h"; sourceTree = "<group>"; };
+		67C435992424C6500081C477 /* PHAssetCollection+Info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PHAssetCollection+Info.h"; sourceTree = "<group>"; };
+		67C4359A2424C6500081C477 /* PHAsset+Info.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PHAsset+Info.m"; sourceTree = "<group>"; };
+		67C4359B2424C6500081C477 /* PHAssetCollection+Info.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PHAssetCollection+Info.m"; sourceTree = "<group>"; };
+		67C4359C2424C6500081C477 /* UICollectionView+Info.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+Info.m"; sourceTree = "<group>"; };
+		67C4359D2424C6500081C477 /* PHAsset+Info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PHAsset+Info.h"; sourceTree = "<group>"; };
+		67C435A22424C6A20081C477 /* SRBrowserTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRBrowserTransition.h; sourceTree = "<group>"; };
+		67C435A32424C6A20081C477 /* SRBrowserTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRBrowserTransition.m; sourceTree = "<group>"; };
+		67C435A72424C6FD0081C477 /* JPImageresizerConfigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPImageresizerConfigure.h; sourceTree = "<group>"; };
+		67C435A82424C6FD0081C477 /* JPImageresizerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPImageresizerView.m; sourceTree = "<group>"; };
+		67C435A92424C6FD0081C477 /* UIImage+JPExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JPExtension.m"; sourceTree = "<group>"; };
+		67C435AA2424C6FD0081C477 /* JPImageresizerFrameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPImageresizerFrameView.m; sourceTree = "<group>"; };
+		67C435AB2424C6FD0081C477 /* JPImageresizerTypedef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPImageresizerTypedef.h; sourceTree = "<group>"; };
+		67C435AC2424C6FD0081C477 /* JPImageresizerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPImageresizerView.h; sourceTree = "<group>"; };
+		67C435AD2424C6FD0081C477 /* JPImageresizerConfigure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPImageresizerConfigure.m; sourceTree = "<group>"; };
+		67C435AE2424C6FD0081C477 /* JPImageresizerFrameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPImageresizerFrameView.h; sourceTree = "<group>"; };
+		67C435AF2424C6FD0081C477 /* UIImage+JPExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JPExtension.h"; sourceTree = "<group>"; };
+		67C435B52424C74E0081C477 /* FLAnimatedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAnimatedImage.m; sourceTree = "<group>"; };
+		67C435B62424C74E0081C477 /* FLAnimatedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAnimatedImageView.m; sourceTree = "<group>"; };
+		67C435B72424C74E0081C477 /* FLAnimatedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLAnimatedImage.h; sourceTree = "<group>"; };
+		67C435B82424C74E0081C477 /* FLAnimatedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLAnimatedImageView.h; sourceTree = "<group>"; };
+		67C435BC2424CDE60081C477 /* SR_Camera_WhiteBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SR_Camera_WhiteBack@2x.png"; sourceTree = "<group>"; };
+		67C435BD2424CDE60081C477 /* SRCamera_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SRCamera_icon@3x.png"; sourceTree = "<group>"; };
+		67C435BE2424CDE60081C477 /* SRCamera_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SRCamera_icon@2x.png"; sourceTree = "<group>"; };
+		67C435BF2424CDE60081C477 /* SR_Camera_WhiteBack@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SR_Camera_WhiteBack@3x.png"; sourceTree = "<group>"; };
+		67C435C02424CDE60081C477 /* SR_touch_focus_not@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SR_touch_focus_not@3x.png"; sourceTree = "<group>"; };
+		67C435C12424CDE60081C477 /* SR_touch_focus_not@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SR_touch_focus_not@2x.png"; sourceTree = "<group>"; };
+		67C435C22424CDE60081C477 /* SR_Camera_Cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SR_Camera_Cancel@2x.png"; sourceTree = "<group>"; };
+		67C435C32424CDE60081C477 /* SRFlash_lamp_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SRFlash_lamp_icon@2x.png"; sourceTree = "<group>"; };
+		67C435C42424CDE60081C477 /* SR_Camera_Selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SR_Camera_Selected@3x.png"; sourceTree = "<group>"; };
+		67C435C52424CDE60081C477 /* SR_Camera_Selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SR_Camera_Selected@2x.png"; sourceTree = "<group>"; };
+		67C435C62424CDE60081C477 /* SRFlash_lamp_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SRFlash_lamp_icon@3x.png"; sourceTree = "<group>"; };
+		67C435C72424CDE60081C477 /* SR_Camera_Cancel@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SR_Camera_Cancel@3x.png"; sourceTree = "<group>"; };
+		67C435D42424D7610081C477 /* MFYFirstModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYFirstModel.h; sourceTree = "<group>"; };
+		67C435D52424D7610081C477 /* MFYFirstModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYFirstModel.m; sourceTree = "<group>"; };
+		67C435D72424D8610081C477 /* MFYTakePhotoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYTakePhotoCell.h; sourceTree = "<group>"; };
+		67C435D82424D8610081C477 /* MFYTakePhotoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYTakePhotoCell.m; sourceTree = "<group>"; };
 		67CC30DF23F146ED002E6E2B /* MFYQiNiuModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYQiNiuModel.h; sourceTree = "<group>"; };
 		67CC30E023F146ED002E6E2B /* MFYQiNiuModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYQiNiuModel.m; sourceTree = "<group>"; };
 		67CC30E223F14711002E6E2B /* MFYQiNiuResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYQiNiuResponse.h; sourceTree = "<group>"; };
@@ -832,9 +972,33 @@
 			path = Reactor;
 			sourceTree = "<group>";
 		};
+		6717AC98242496E60072BBFE /* TakePhoto */ = {
+			isa = PBXGroup;
+			children = (
+				6717AC99242496E60072BBFE /* ViewController */,
+				6717AC9A242496E60072BBFE /* Views */,
+			);
+			path = TakePhoto;
+			sourceTree = "<group>";
+		};
+		6717AC99242496E60072BBFE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		6717AC9A242496E60072BBFE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		672503FF23D4333A00716842 /* ContentCreator */ = {
 			isa = PBXGroup;
 			children = (
+				6717AC98242496E60072BBFE /* TakePhoto */,
 				679A029423F106050041A012 /* Dynamic */,
 				679A029023F104150041A012 /* PhotoGallery */,
 				6725040023D4333A00716842 /* ImageCard */,
@@ -1340,6 +1504,8 @@
 				679A02B423F107620041A012 /* MODownloadNotificationModel.m */,
 				679A02B523F107620041A012 /* MOAssetCollectionInfoModel.h */,
 				679A02B123F107620041A012 /* MOAssetCollectionInfoModel.m */,
+				67C435D42424D7610081C477 /* MFYFirstModel.h */,
+				67C435D52424D7610081C477 /* MFYFirstModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1348,6 +1514,9 @@
 			isa = PBXGroup;
 			children = (
 				679A02B823F107620041A012 /* MOAssetCell.h */,
+				679A02C523F107620041A012 /* MOAssetCell.m */,
+				67C435D72424D8610081C477 /* MFYTakePhotoCell.h */,
+				67C435D82424D8610081C477 /* MFYTakePhotoCell.m */,
 				679A02B923F107620041A012 /* MOPhotoListTableView.m */,
 				679A02BA23F107620041A012 /* MOSelectedButton.m */,
 				679A02BB23F107620041A012 /* MOPhotoPreviewNavigationBar.h */,
@@ -1360,7 +1529,6 @@
 				679A02C223F107620041A012 /* MOPhotoLibraryNavigationBar.h */,
 				679A02C323F107620041A012 /* MOProgressView.h */,
 				679A02C423F107620041A012 /* MOSelectedButton.h */,
-				679A02C523F107620041A012 /* MOAssetCell.m */,
 				679A02C623F107620041A012 /* MOPhotoListTableView.h */,
 				679A02C723F107620041A012 /* MONotHighlightButton.h */,
 				679A02C823F107620041A012 /* MOPhotoPreviewNavigationBar.m */,
@@ -1393,6 +1561,177 @@
 				679A02FC23F12A1C0041A012 /* WHHud.m */,
 			);
 			path = Hud;
+			sourceTree = "<group>";
+		};
+		67C435422424C2590081C477 /* SRController */ = {
+			isa = PBXGroup;
+			children = (
+				67C435BB2424CDE60081C477 /* SRCaptureFiles */,
+				67C435B42424C74E0081C477 /* FLAnimatedImage */,
+				67C435A52424C6FD0081C477 /* JPImageresizerView */,
+				67C435A12424C6A20081C477 /* SRAnimation */,
+				67C435972424C6500081C477 /* SRCategory */,
+				67C435732424C4C00081C477 /* SRView */,
+				67C435692424C4B60081C477 /* SRModel */,
+				67C435652424C3410081C477 /* SRAlbum.h */,
+				67C435662424C3EF0081C477 /* SRHelper.h */,
+				67C435672424C3EF0081C477 /* SRHelper.m */,
+				67C435452424C2590081C477 /* SRAlbumViewController.h */,
+				67C4354F2424C2590081C477 /* SRAlbumViewController.m */,
+				67C435492424C2590081C477 /* SRAlbumContentController.m */,
+				67C435432424C2590081C477 /* SRVideoCaptureViewController.m */,
+				67C435442424C2590081C477 /* SREidtViewController.xib */,
+				67C435462424C2590081C477 /* SRNoPowerViewController.m */,
+				67C435472424C2590081C477 /* SREidtViewController.m */,
+				67C435482424C2590081C477 /* SRAlbumBrowseViewController.m */,
+				67C4354A2424C2590081C477 /* SRVideoCaptureViewController.xib */,
+				67C4354B2424C2590081C477 /* SRAlbumGroupViewController.m */,
+				67C4354C2424C2590081C477 /* SRVideoCaptureViewController.h */,
+				67C4354D2424C2590081C477 /* SRAlbumContentController.xib */,
+				67C4354E2424C2590081C477 /* SRNoPowerViewController.xib */,
+				67C435502424C2590081C477 /* SRNoPowerViewController.h */,
+				67C435512424C2590081C477 /* SRAlbumBrowseViewController.xib */,
+				67C435522424C2590081C477 /* SRAlbumContentController.h */,
+				67C435532424C2590081C477 /* SRAlbumBrowseViewController.h */,
+				67C435542424C2590081C477 /* SREidtViewController.h */,
+				67C435552424C2590081C477 /* SRAlbumGroupViewController.h */,
+				67C435562424C2590081C477 /* SRAlbumGroupViewController.xib */,
+			);
+			path = SRController;
+			sourceTree = "<group>";
+		};
+		67C435692424C4B60081C477 /* SRModel */ = {
+			isa = PBXGroup;
+			children = (
+				67C4356A2424C4B60081C477 /* SRAlbumConfiger.h */,
+				67C4356B2424C4B60081C477 /* PhotoInfoModel.h */,
+				67C4356C2424C4B60081C477 /* UIAlertTagAction.h */,
+				67C4356D2424C4B60081C477 /* SRAlbumConfiger.m */,
+				67C4356E2424C4B60081C477 /* PhotoInfoModel.m */,
+				67C4356F2424C4B60081C477 /* UIAlertTagAction.m */,
+			);
+			path = SRModel;
+			sourceTree = "<group>";
+		};
+		67C435732424C4C00081C477 /* SRView */ = {
+			isa = PBXGroup;
+			children = (
+				67C435742424C4C00081C477 /* SRHub */,
+				67C435772424C4C00081C477 /* SRBrowseCollectionViewCell.h */,
+				67C435782424C4C00081C477 /* ImageCollectionViewCell.xib */,
+				67C435792424C4C00081C477 /* SRPromptManager.m */,
+				67C4357A2424C4C00081C477 /* AlbumGroupTableViewCell.m */,
+				67C4357B2424C4C00081C477 /* AlbumGroupTableViewCell.xib */,
+				67C4357C2424C4C00081C477 /* ImageCollectionViewCell.h */,
+				67C4357D2424C4C00081C477 /* SRBrowseCollectionViewCell.m */,
+				67C4357E2424C4C00081C477 /* SRBrowseCollectionViewCell.xib */,
+				67C4357F2424C4C00081C477 /* AlbumGroupTableViewCell.h */,
+				67C435802424C4C00081C477 /* SRPromptManager.h */,
+				67C435812424C4C00081C477 /* SRCameraButton */,
+				67C4358A2424C4C00081C477 /* ImageCollectionViewCell.m */,
+			);
+			path = SRView;
+			sourceTree = "<group>";
+		};
+		67C435742424C4C00081C477 /* SRHub */ = {
+			isa = PBXGroup;
+			children = (
+				67C435752424C4C00081C477 /* SRHub.h */,
+				67C435762424C4C00081C477 /* SRHub.m */,
+			);
+			path = SRHub;
+			sourceTree = "<group>";
+		};
+		67C435812424C4C00081C477 /* SRCameraButton */ = {
+			isa = PBXGroup;
+			children = (
+				67C435822424C4C00081C477 /* TransparentView.h */,
+				67C435832424C4C00081C477 /* SRCameraButton.h */,
+				67C435842424C4C00081C477 /* ProgressView.h */,
+				67C435852424C4C00081C477 /* EffectView.h */,
+				67C435862424C4C00081C477 /* TransparentView.m */,
+				67C435872424C4C00081C477 /* ProgressView.m */,
+				67C435882424C4C00081C477 /* SRCameraButton.m */,
+				67C435892424C4C00081C477 /* EffectView.m */,
+			);
+			path = SRCameraButton;
+			sourceTree = "<group>";
+		};
+		67C435972424C6500081C477 /* SRCategory */ = {
+			isa = PBXGroup;
+			children = (
+				67C435982424C6500081C477 /* UICollectionView+Info.h */,
+				67C435992424C6500081C477 /* PHAssetCollection+Info.h */,
+				67C4359A2424C6500081C477 /* PHAsset+Info.m */,
+				67C4359B2424C6500081C477 /* PHAssetCollection+Info.m */,
+				67C4359C2424C6500081C477 /* UICollectionView+Info.m */,
+				67C4359D2424C6500081C477 /* PHAsset+Info.h */,
+			);
+			path = SRCategory;
+			sourceTree = "<group>";
+		};
+		67C435A12424C6A20081C477 /* SRAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				67C435A22424C6A20081C477 /* SRBrowserTransition.h */,
+				67C435A32424C6A20081C477 /* SRBrowserTransition.m */,
+			);
+			name = SRAnimation;
+			path = Earth/Vendors/SRController/SRAnimation;
+			sourceTree = SOURCE_ROOT;
+		};
+		67C435A52424C6FD0081C477 /* JPImageresizerView */ = {
+			isa = PBXGroup;
+			children = (
+				67C435A62424C6FD0081C477 /* Classes */,
+			);
+			path = JPImageresizerView;
+			sourceTree = "<group>";
+		};
+		67C435A62424C6FD0081C477 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				67C435A72424C6FD0081C477 /* JPImageresizerConfigure.h */,
+				67C435A82424C6FD0081C477 /* JPImageresizerView.m */,
+				67C435A92424C6FD0081C477 /* UIImage+JPExtension.m */,
+				67C435AA2424C6FD0081C477 /* JPImageresizerFrameView.m */,
+				67C435AB2424C6FD0081C477 /* JPImageresizerTypedef.h */,
+				67C435AC2424C6FD0081C477 /* JPImageresizerView.h */,
+				67C435AD2424C6FD0081C477 /* JPImageresizerConfigure.m */,
+				67C435AE2424C6FD0081C477 /* JPImageresizerFrameView.h */,
+				67C435AF2424C6FD0081C477 /* UIImage+JPExtension.h */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		67C435B42424C74E0081C477 /* FLAnimatedImage */ = {
+			isa = PBXGroup;
+			children = (
+				67C435B52424C74E0081C477 /* FLAnimatedImage.m */,
+				67C435B62424C74E0081C477 /* FLAnimatedImageView.m */,
+				67C435B72424C74E0081C477 /* FLAnimatedImage.h */,
+				67C435B82424C74E0081C477 /* FLAnimatedImageView.h */,
+			);
+			path = FLAnimatedImage;
+			sourceTree = "<group>";
+		};
+		67C435BB2424CDE60081C477 /* SRCaptureFiles */ = {
+			isa = PBXGroup;
+			children = (
+				67C435BC2424CDE60081C477 /* SR_Camera_WhiteBack@2x.png */,
+				67C435BD2424CDE60081C477 /* SRCamera_icon@3x.png */,
+				67C435BE2424CDE60081C477 /* SRCamera_icon@2x.png */,
+				67C435BF2424CDE60081C477 /* SR_Camera_WhiteBack@3x.png */,
+				67C435C02424CDE60081C477 /* SR_touch_focus_not@3x.png */,
+				67C435C12424CDE60081C477 /* SR_touch_focus_not@2x.png */,
+				67C435C22424CDE60081C477 /* SR_Camera_Cancel@2x.png */,
+				67C435C32424CDE60081C477 /* SRFlash_lamp_icon@2x.png */,
+				67C435C42424CDE60081C477 /* SR_Camera_Selected@3x.png */,
+				67C435C52424CDE60081C477 /* SR_Camera_Selected@2x.png */,
+				67C435C62424CDE60081C477 /* SRFlash_lamp_icon@3x.png */,
+				67C435C72424CDE60081C477 /* SR_Camera_Cancel@3x.png */,
+			);
+			path = SRCaptureFiles;
 			sourceTree = "<group>";
 		};
 		67CC30E823F14809002E6E2B /* Publish */ = {
@@ -2154,6 +2493,7 @@
 		67F097F923A78D56001DCEB4 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				67C435422424C2590081C477 /* SRController */,
 				6717AC5C2420E4A70072BBFE /* TencentOpenAPI */,
 				6755708B241A33B6008D6614 /* UMVerify */,
 				67CC321E240D194B002E6E2B /* SDWebImage */,
@@ -2381,10 +2721,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				67CC3219240D133B002E6E2B /* MJPhotoBrowser.bundle in Resources */,
+				67C435602424C2590081C477 /* SRNoPowerViewController.xib in Resources */,
 				67557091241A33B7008D6614 /* ATAuthSDK.bundle in Resources */,
+				67C435CF2424CDE60081C477 /* SRFlash_lamp_icon@2x.png in Resources */,
+				67C435C82424CDE60081C477 /* SR_Camera_WhiteBack@2x.png in Resources */,
+				67C4358F2424C4C00081C477 /* AlbumGroupTableViewCell.xib in Resources */,
+				67C435CE2424CDE60081C477 /* SR_Camera_Cancel@2x.png in Resources */,
+				67C4355F2424C2590081C477 /* SRAlbumContentController.xib in Resources */,
+				67C435D22424CDE60081C477 /* SRFlash_lamp_icon@3x.png in Resources */,
+				67C435CC2424CDE60081C477 /* SR_touch_focus_not@3x.png in Resources */,
 				6717AC7A242346550072BBFE /* audio_playing.gif in Resources */,
+				67C435D32424CDE60081C477 /* SR_Camera_Cancel@3x.png in Resources */,
+				67C435632424C2590081C477 /* SRAlbumGroupViewController.xib in Resources */,
+				67C435C92424CDE60081C477 /* SRCamera_icon@3x.png in Resources */,
+				67C435912424C4C00081C477 /* SRBrowseCollectionViewCell.xib in Resources */,
+				67C435622424C2590081C477 /* SRAlbumBrowseViewController.xib in Resources */,
+				67C435CD2424CDE60081C477 /* SR_touch_focus_not@2x.png in Resources */,
+				67C435D02424CDE60081C477 /* SR_Camera_Selected@3x.png in Resources */,
 				6755708F241A33B7008D6614 /* TYRZResource.bundle in Resources */,
+				67C435CB2424CDE60081C477 /* SR_Camera_WhiteBack@3x.png in Resources */,
+				67C4355D2424C2590081C477 /* SRVideoCaptureViewController.xib in Resources */,
+				67C435D12424CDE60081C477 /* SR_Camera_Selected@2x.png in Resources */,
+				67C435CA2424CDE60081C477 /* SRCamera_icon@2x.png in Resources */,
 				67F097FE23A78D56001DCEB4 /* Assets.xcassets in Resources */,
+				67C4358C2424C4C00081C477 /* ImageCollectionViewCell.xib in Resources */,
+				67C435582424C2590081C477 /* SREidtViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2520,13 +2881,17 @@
 				67CC310423F29754002E6E2B /* MFYItem.m in Sources */,
 				67EFC32223C300C500F5BDB3 /* KSProgressLayer.m in Sources */,
 				67CC31BF2408BC39002E6E2B /* AppDelegate+MFYCustomConfig.m in Sources */,
+				67C4355C2424C2590081C477 /* SRAlbumContentController.m in Sources */,
 				67F0980423A7A063001DCEB4 /* MFYBaseViewController.m in Sources */,
 				67CC30E723F14776002E6E2B /* MFYDynamicManager.m in Sources */,
 				679A02DA23F107620041A012 /* MOPhotoLibraryConfiguration.m in Sources */,
 				679A02E723F107620041A012 /* MOProgressHUD.m in Sources */,
+				67C435682424C3EF0081C477 /* SRHelper.m in Sources */,
 				6763D7A823CF10C0003D9E20 /* MFYLoginManager.m in Sources */,
 				67CC312C23F915D3002E6E2B /* MFYAudioFLowVC.m in Sources */,
+				67C435A42424C6A20081C477 /* SRBrowserTransition.m in Sources */,
 				67EFC32023C300C500F5BDB3 /* KSPhotoView.m in Sources */,
+				67C435B32424C6FE0081C477 /* JPImageresizerConfigure.m in Sources */,
 				67EFC32D23C310A200F5BDB3 /* UIView+WHRoundCorner.m in Sources */,
 				67CC321D240D133B002E6E2B /* MJPhotoBrowser.m in Sources */,
 				679A02F323F108FC0041A012 /* MFYPhotosManager.m in Sources */,
@@ -2534,6 +2899,7 @@
 				67CC30EE23F14C57002E6E2B /* MFYVideoManager.m in Sources */,
 				679A02E823F107620041A012 /* MOAssetCell.m in Sources */,
 				6746D49523B625E900A46FC7 /* MFYFlowListVM.m in Sources */,
+				67C4358E2424C4C00081C477 /* AlbumGroupTableViewCell.m in Sources */,
 				67CC3245240D194B002E6E2B /* NSData+GIF.m in Sources */,
 				6746D48723B4E77300A46FC7 /* UIColor+WHColorKit.m in Sources */,
 				6746D48F23B60E0A00A46FC7 /* MFYCategoryBackgroundTitleCell.m in Sources */,
@@ -2541,10 +2907,12 @@
 				67EFC33123C311A800F5BDB3 /* UIView+WHExtension.m in Sources */,
 				67CC321B240D133B002E6E2B /* MJPhotoToolbar.m in Sources */,
 				67F0980823A7A185001DCEB4 /* MFYNavigationBar.m in Sources */,
+				67C4359F2424C6500081C477 /* PHAssetCollection+Info.m in Sources */,
 				67CC311823F4F9F5002E6E2B /* MFYImageDetailVC.m in Sources */,
 				67CC3248240D194B002E6E2B /* UIImage+MultiFormat.m in Sources */,
 				67CC321A240D133B002E6E2B /* MJPhoto.m in Sources */,
 				67CC317E23FFA738002E6E2B /* MFYSettingListVC.m in Sources */,
+				67C435712424C4B70081C477 /* PhotoInfoModel.m in Sources */,
 				672503FB23D421A800716842 /* MFYOpenUDID.m in Sources */,
 				679A02D723F107620041A012 /* UIView+MOExtension.m in Sources */,
 				6755706E241885B3008D6614 /* MFYChatService.m in Sources */,
@@ -2562,9 +2930,11 @@
 				67CC324A240D194B002E6E2B /* SDWebImagePrefetcher.m in Sources */,
 				67EFC32423C300C500F5BDB3 /* KSPhotoBrowser.m in Sources */,
 				67D28B8623D1B2B400543D22 /* MFYCoreflowService.m in Sources */,
+				67C4359E2424C6500081C477 /* PHAsset+Info.m in Sources */,
 				67CC3205240D06B5002E6E2B /* JCHATLoadMessageTableViewCell.m in Sources */,
 				67FB42C9241F61FF00F2817D /* MFYRechargeManager.m in Sources */,
 				679A02E123F107620041A012 /* MOAlbumModel.m in Sources */,
+				67C435BA2424C74F0081C477 /* FLAnimatedImageView.m in Sources */,
 				672503FE23D4229A00716842 /* UDIDWithKeyChain.m in Sources */,
 				67CC31FF240A7090002E6E2B /* JCHATAudioPlayerHelper.m in Sources */,
 				67FB42D4241F684900F2817D /* MFYDeductStatu.m in Sources */,
@@ -2578,7 +2948,9 @@
 				679A02DD23F107620041A012 /* MOPhotoLibraryExportCenter.m in Sources */,
 				6725041023D5873200716842 /* MFYVideoAndImageView.m in Sources */,
 				67AA2917240FBA71008B6788 /* MFYChatMoreView.m in Sources */,
+				67C435612424C2590081C477 /* SRAlbumViewController.m in Sources */,
 				67CC312323F6821D002E6E2B /* MFYVideoProgressView.m in Sources */,
+				67C435942424C4C00081C477 /* SRCameraButton.m in Sources */,
 				6755707C2418DD7E008D6614 /* MFYChatSearchTopView.m in Sources */,
 				67D28B7F23D1908300543D22 /* MFYProfile.m in Sources */,
 				6763D79623CEF400003D9E20 /* MFYServiceURLConfig.m in Sources */,
@@ -2590,9 +2962,11 @@
 				6746D49C23B62C2E00A46FC7 /* MFYFlowCardView.m in Sources */,
 				67CC316D23FD1925002E6E2B /* MFYMineService.m in Sources */,
 				679A02E023F107620041A012 /* MOAssetCollectionInfoModel.m in Sources */,
+				67C4358D2424C4C00081C477 /* SRPromptManager.m in Sources */,
 				6755707624189BC8008D6614 /* JMSGConversation+MFYTop.m in Sources */,
 				67CC3240240D194B002E6E2B /* UIImage+WebP.m in Sources */,
 				67CC310723F39C4F002E6E2B /* MFYCoreflowTag.m in Sources */,
+				67C435932424C4C00081C477 /* ProgressView.m in Sources */,
 				679A029323F104520041A012 /* MFYPublicManager.m in Sources */,
 				67CC313423F92671002E6E2B /* MFYAudioFlowLayout.m in Sources */,
 				67F0981023A7AAE7001DCEB4 /* main.m in Sources */,
@@ -2608,6 +2982,7 @@
 				67CC30EB23F14847002E6E2B /* MFYQiniuSystemService.m in Sources */,
 				67CC31B42403E176002E6E2B /* MFYDateItemView.m in Sources */,
 				67FB42BE241F45EF00F2817D /* MFYAudioRereadRechargeProduct.m in Sources */,
+				67C435B02424C6FE0081C477 /* JPImageresizerView.m in Sources */,
 				6763D79923CEF4B4003D9E20 /* MFYServiceConstant.m in Sources */,
 				67CC31A12403710F002E6E2B /* MFYImageCardCell.m in Sources */,
 				675570672416458C008D6614 /* MFYChatFriendCell.m in Sources */,
@@ -2617,26 +2992,34 @@
 				67CC318423FFA815002E6E2B /* MFYAllowSearchView.m in Sources */,
 				67EFC32123C300C500F5BDB3 /* KSYYImageManager.m in Sources */,
 				67FB42C1241F465D00F2817D /* MFYAudioTopic.m in Sources */,
+				67C435922424C4C00081C477 /* TransparentView.m in Sources */,
 				6725041323D6AAAA00716842 /* MFYPublicImageCardDetailVC.m in Sources */,
 				67CC310D23F3B202002E6E2B /* UIImage+WHMosaic.m in Sources */,
 				67EFC32A23C30BFF00F5BDB3 /* UIView+WHUd.m in Sources */,
 				67CC318723FFB612002E6E2B /* MFYSettingService.m in Sources */,
 				6725041923D6E43E00716842 /* MFYBaseTableViewCell.m in Sources */,
 				67CC31CE2408E6FB002E6E2B /* MFYSingleChatVC.m in Sources */,
+				67C435A02424C6500081C477 /* UICollectionView+Info.m in Sources */,
+				67C435962424C4C00081C477 /* ImageCollectionViewCell.m in Sources */,
 				6746D4A023B62E2000A46FC7 /* UIView+WHChain.m in Sources */,
 				67CC31E4240A3E49002E6E2B /* NSDate+Utilities.m in Sources */,
 				679A02D823F107620041A012 /* MOPhotoTransformer.m in Sources */,
+				67C435572424C2590081C477 /* SRVideoCaptureViewController.m in Sources */,
 				67CC30E423F14711002E6E2B /* MFYQiNiuResponse.m in Sources */,
+				67C435592424C2590081C477 /* SRNoPowerViewController.m in Sources */,
 				67CC314D23FA3770002E6E2B /* MFYAudioPublishView.m in Sources */,
 				6763D7A523CF10A1003D9E20 /* MFYLoginVIewController.m in Sources */,
 				67CC3217240D133B002E6E2B /* MJPhotoLoadingView.m in Sources */,
+				67C4355E2424C2590081C477 /* SRAlbumGroupViewController.m in Sources */,
 				67F0980123A78EF0001DCEB4 /* MFYBaseNavigationController.m in Sources */,
+				67C435952424C4C00081C477 /* EffectView.m in Sources */,
 				67EFC32323C300C500F5BDB3 /* KSPhotoItem.m in Sources */,
 				679A02EC23F107620041A012 /* MOHud.m in Sources */,
 				679A02DE23F107620041A012 /* MODownloadCacheModel.m in Sources */,
 				67CC324D240D194B002E6E2B /* UIImageView+WebCache.m in Sources */,
 				6779376723B0C29700D1B822 /* MFYCoreFlowVC.m in Sources */,
 				67CC324E240D194B002E6E2B /* SDWebImageManager+MJ.m in Sources */,
+				67C4355A2424C2590081C477 /* SREidtViewController.m in Sources */,
 				67CC317323FEBAE5002E6E2B /* MFYPhotoCropVC.m in Sources */,
 				6717AC8424236EC80072BBFE /* MFYBaseCollectionView.m in Sources */,
 				67FB42BB241F451A00F2817D /* MFYGlobalModel.m in Sources */,
@@ -2653,6 +3036,7 @@
 				67FB42D824209D1B00F2817D /* MFYShareView.m in Sources */,
 				67CC3244240D194B002E6E2B /* SDWebImageDecoder.m in Sources */,
 				67CC31D724090C95002E6E2B /* MFYMessageTextView.m in Sources */,
+				67C4358B2424C4C00081C477 /* SRHub.m in Sources */,
 				67CC316623FCE929002E6E2B /* MFYMineItemModel.m in Sources */,
 				67CC31B8240549F4002E6E2B /* UIScrollView+RefreshAble.m in Sources */,
 				6717AC872423711D0072BBFE /* MFYFlowLayout.m in Sources */,
@@ -2662,6 +3046,7 @@
 				67CC314A23F95806002E6E2B /* WHTimeUtil.m in Sources */,
 				67CC317023FD2B38002E6E2B /* MFYInfoSelectView.m in Sources */,
 				679A02EF23F107620041A012 /* MOPhotoPreviewViewController.m in Sources */,
+				67C435702424C4B70081C477 /* SRAlbumConfiger.m in Sources */,
 				6763D7AB23D057A2003D9E20 /* MFYTimerButton.m in Sources */,
 				6763D79323CEEFE1003D9E20 /* MFYResponseObject.m in Sources */,
 				679A02EA23F107620041A012 /* MOExportLoadingView.m in Sources */,
@@ -2669,9 +3054,12 @@
 				67CC3243240D194B002E6E2B /* SDWebImageManager.m in Sources */,
 				6763D79023CEEE5B003D9E20 /* MFYHTTPManager.m in Sources */,
 				67CC324F240D194B002E6E2B /* UIButton+WebCache.m in Sources */,
+				67C4355B2424C2590081C477 /* SRAlbumBrowseViewController.m in Sources */,
 				679A02E523F107620041A012 /* MONotHighlightButton.m in Sources */,
 				67CC313123F9244B002E6E2B /* MFYAudioDisplayView.m in Sources */,
 				67CC313A23F927D1002E6E2B /* MFYBaseCollectionViewCell.m in Sources */,
+				67C435B92424C74F0081C477 /* FLAnimatedImage.m in Sources */,
+				67C435B22424C6FE0081C477 /* JPImageresizerFrameView.m in Sources */,
 				67D28B7823D1902D00543D22 /* MFYMedia.m in Sources */,
 				67EFC33523C3136800F5BDB3 /* WHAlertTool.m in Sources */,
 				67CC3247240D194B002E6E2B /* UIImage+GIF.m in Sources */,
@@ -2683,10 +3071,13 @@
 				67CC31932401105C002E6E2B /* MFYArticleService.m in Sources */,
 				67CC3249240D194B002E6E2B /* SDWebImageCompat.m in Sources */,
 				67CC3241240D194B002E6E2B /* MKAnnotationView+WebCache.m in Sources */,
+				67C435D92424D8610081C477 /* MFYTakePhotoCell.m in Sources */,
+				67C435B12424C6FE0081C477 /* UIImage+JPExtension.m in Sources */,
 				6755706A241781B2008D6614 /* MFYChatListVM.m in Sources */,
 				679A02FD23F12A1C0041A012 /* WHHud.m in Sources */,
 				67CC30FB23F1605E002E6E2B /* MFYPublishItemModel.m in Sources */,
 				67CC3242240D194B002E6E2B /* UIImageView+MJWebCache.m in Sources */,
+				67C435722424C4B70081C477 /* UIAlertTagAction.m in Sources */,
 				6755709A241B4F4A008D6614 /* MFYPayCardView.m in Sources */,
 				67CC31F9240A6F8F002E6E2B /* ChatBubbleLayer.m in Sources */,
 				6746D48223B4E54100A46FC7 /* MFYIndicatorBackgroundView.m in Sources */,
@@ -2706,11 +3097,13 @@
 				67CC319E24012E9B002E6E2B /* MFYMyLikeListVC.m in Sources */,
 				67FB42CD241F641700F2817D /* MFYRechargeService.m in Sources */,
 				6725040A23D433B600716842 /* MFYPublicImageCardVC.m in Sources */,
+				67C435D62424D7610081C477 /* MFYFirstModel.m in Sources */,
 				679A02E623F107620041A012 /* MOIndicatorButton.m in Sources */,
 				679A02F023F107620041A012 /* MOPhotoLibraryController.m in Sources */,
 				679A02E323F107620041A012 /* MOPhotoListTableView.m in Sources */,
 				679A02EB23F107620041A012 /* MOPhotoListCell.m in Sources */,
 				6746D47C23B1D00800A46FC7 /* MFYCFToolView.m in Sources */,
+				67C435902424C4C00081C477 /* SRBrowseCollectionViewCell.m in Sources */,
 				67CC3246240D194B002E6E2B /* SDWebImageDownloader.m in Sources */,
 				679A02DC23F107620041A012 /* MOAssetDownloadManager.m in Sources */,
 				67CC314723F9534E002E6E2B /* MFYTagDisplayLayout.m in Sources */,

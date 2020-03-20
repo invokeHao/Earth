@@ -192,6 +192,7 @@
         NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:@"请输入红包金额" attributes:@{NSForegroundColorAttributeName:wh_colorWithHexString(@"#999999"),
         NSFontAttributeName:WHFont(15)
         }];
+        _redField.keyboardType = UIKeyboardTypePhonePad;
         _redField.attributedPlaceholder = attrString;
         _redField.textColor = wh_colorWithHexString(@"333333");
         _redField.tintColor = wh_colorWithHexString(@"333333");

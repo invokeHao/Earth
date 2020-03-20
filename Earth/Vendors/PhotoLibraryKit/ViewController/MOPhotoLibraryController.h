@@ -49,6 +49,15 @@
 - (BOOL)photoLibraryController:(MOPhotoLibraryController *)picker
                 canDidSelected:(MOAssetModel *)assetModel;
 
+//拍照业务
+
+- (void)takePhotoController:(MOPhotoLibraryController *)picker
+     didFinishPickingPhoto:(UIImage*)photo;
+
+- (void)takeVedioController:(MOPhotoLibraryController *)picker
+      didFinishPickingVideo:(NSString *)filePath;   
+
+
 @end
 
 @interface MOPhotoLibraryController : UIViewController

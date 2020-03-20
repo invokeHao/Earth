@@ -80,14 +80,17 @@
         w = width;
         h = imgHeight;
     }
-
-    [[MFYPhotosManager sharedManager] requestPhotoWithTargetSize:CGSizeMake(w * [UIScreen mainScreen].scale,
-                                                                            h * [UIScreen mainScreen].scale)
-                                                           asset:self.model.asset
-                                                      resizeMode:PHImageRequestOptionsResizeModeFast
-                                                      completion:^(UIImage *photo, NSDictionary *info, BOOL isDegraded) {
-                                                          self.cropingImageView.toCropImage = photo;
-                                                      }];
+    if (!self.model.asset) {
+        self.cropingImageView.toCropImage = self.model.highImage;
+    }else {
+        [[MFYPhotosManager sharedManager] requestPhotoWithTargetSize:CGSizeMake(w * [UIScreen mainScreen].scale,
+                                                                                h * [UIScreen mainScreen].scale)
+                                                               asset:self.model.asset
+                                                          resizeMode:PHImageRequestOptionsResizeModeFast
+                                                          completion:^(UIImage *photo, NSDictionary *info, BOOL isDegraded) {
+                                                              self.cropingImageView.toCropImage = photo;
+                                                          }];
+    }
 }
 
 #pragma mark - Action

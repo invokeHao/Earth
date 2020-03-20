@@ -81,7 +81,7 @@
             MFYBaseNavigationController *nav = [[MFYBaseNavigationController alloc] initWithRootViewController:picker];
             nav.navigationBar.translucent = NO;
             [[MFYPhotosManager sharedManager] setSelectedAlbumsType:CMSAlbumsSelectedTypePhoto];
-            [viewController presentViewController:nav animated:YES completion:NULL];
+            [viewController.navigationController presentViewController:nav animated:YES completion:NULL];
         }
             break;
         case MFYPublicTypeVideo: {
@@ -221,6 +221,34 @@
     if (!asset.isDownloadFinish) {
         [WHHud showString:@"正在下载iCloud视频,请稍后..."];
     }
+}
+
+- (void)takePhotoController:(MOPhotoLibraryController *)picker didFinishPickingPhoto:(UIImage *)photo {
+    MFYAssetModel * asset  = [[MFYAssetModel alloc]init];
+    asset.highImage = photo;
+    asset.type = CMSAssetMediaTypePhoto;
+    MFYCropType type = self.publishType == mfyPublicTypeNull ? MFYImageCardType : MFYUserIconType;
+    MFYPhotoCropVC * cropVC = [[MFYPhotoCropVC alloc]initWithModel:asset cropType:type didCropedImage:^(MFYAssetModel * _Nonnull asset) {
+        WHLog(@"裁切成功");
+        if (self.successB) {
+            self.successB(asset);
+        }
+    }];
+    [picker dismissViewControllerAnimated:NO completion:^{
+        [self.fromViewController presentViewController:cropVC animated:YES completion:^{
+        }];
+    }];
+}
+
+- (void)takeVedioController:(MOPhotoLibraryController *)picker didFinishPickingVideo:(NSString *)filePath {
+    MFYAssetModel * asset  = [[MFYAssetModel alloc]init];
+    asset.type = CMSAssetMediaTypeEditVideo;
+    asset.videoPath = filePath;
+    self.singleVideoModel = asset;
+    if (self.successB) {
+        self.successB(self.singleVideoModel);
+    }
+    [picker dismissViewControllerAnimated:YES completion:^{}];
 }
 
 
