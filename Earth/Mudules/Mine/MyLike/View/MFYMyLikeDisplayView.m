@@ -17,6 +17,8 @@
 #define cellHeight H_SCALE(368)
 #define itemSpacing W_SCALE(0)
 
+static NSString * const FooterReuseID = @"FooterReuseID";
+
 
 @interface MFYMyLikeDisplayView ()<UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate>
 
@@ -24,6 +26,8 @@
 @property (nonatomic,strong) NSArray *dataList;
 
 @property (nonatomic,assign) NSInteger currentIndex;
+
+@property (nonatomic, strong) UIActivityIndicatorView *pullupView;
 
 
 @end
@@ -120,7 +124,15 @@
     }
 }
 
-
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    UICollectionReusableView *supplementaryView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:FooterReuseID forIndexPath:indexPath];
+    [supplementaryView addSubview:self.pullupView];
+    [self.pullupView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.centerY.equalTo(supplementaryView);
+        make.width.height.equalTo(@(20));
+    }];
+    return supplementaryView;
+}
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
 //    _pageControl.currentPage = indexPath.row;
@@ -155,8 +167,18 @@
     if (self.scrollBlock) {
         self.scrollBlock(index);
     }
-//    WHLog(@"EndDecelerating==%d",index);
+    
+    if (scrollView.contentOffset.x + scrollView.width + 10 > scrollView.contentSize.width) {
+        if (!self.requesting) {
+            self.requesting = YES;
+            if (self.onFooterRefresh) {
+                self.onFooterRefresh();
+            }
+        }
+    }
+
 }
+
 
 #pragma mark- 删除帖子
 - (void)deleteItemByArticleid:(NSString*)articleId atIndexPath:(NSIndexPath *)indexpath {
@@ -196,6 +218,25 @@
         _mainCollection.decelerationRate = 0.5;
     }
     return _mainCollection;
+}
+
+- (UIActivityIndicatorView *)pullupView {
+    if (_pullupView == nil) {
+        _pullupView = [UIActivityIndicatorView new];
+        _pullupView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
+        _pullupView.hidden = NO;
+    }
+    return _pullupView;
+}
+
+- (void)setRequesting:(BOOL)requesting {
+    _requesting = requesting;
+    if (_requesting == NO) {
+        [self.pullupView stopAnimating];
+        return;
+    } else {
+        [self.pullupView startAnimating];
+    }
 }
 
 @end

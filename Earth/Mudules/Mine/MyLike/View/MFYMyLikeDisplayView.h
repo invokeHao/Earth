@@ -29,6 +29,10 @@ typedef void(^scrollItemBlock)(NSInteger index);
 
 @property (nonatomic, strong) MFYBaseCollectionView * mainCollection;
 
+@property (nonatomic, assign) BOOL requesting;
+
+@property (nonatomic, strong) void(^onFooterRefresh)(void);
+
 @end
 
 NS_ASSUME_NONNULL_END

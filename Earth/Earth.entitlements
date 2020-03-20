@@ -6,7 +6,7 @@
 	<string>development</string>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:https://friends.0act.com/apple-app-site-association/</string>
+		<string>applinks:friends.0act.com</string>
 	</array>
 </dict>
 </plist>

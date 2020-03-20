@@ -74,9 +74,14 @@
         return self.viewModel.dataList.count > 0;
     }] deliverOnMainThread] subscribeNext:^(id x) {
         @strongify(self)
+        self.displayView.requesting = NO;
         [self.displayView reloadDataWithArray:self.viewModel.dataList];
     }];
     
+    [self.displayView setOnFooterRefresh:^{
+       @strongify(self)
+        [self.viewModel loadMoreData];
+    }];
 }
 
 - (void)startPlayVideo {

@@ -39,8 +39,8 @@
 
 
 - (void)setupConfig {
-    _tencentOAuth = [[TencentOAuth alloc] initWithAppId:MFYQQAppkey
-                                            andDelegate:self];
+    
+    _tencentOAuth = [[TencentOAuth alloc]initWithAppId:MFYQQAppkey andUniversalLink:MFYUniversalLink andDelegate:self];
     _tencentPermissions = @[@"get_user_info", @"get_simple_userinfo", @"add_t"];
     
     [WXApi registerApp:MFYWeChatAppKey universalLink:MFYUniversalLink];
@@ -234,7 +234,21 @@
 - (BOOL)mfy_handleOpenUniversalLink:(NSUserActivity*)userActivity {
     BOOL result = NO;
     result = [WXApi handleOpenUniversalLink:userActivity delegate:self];
-    result = [QQApiInterface handleOpenUniversallink:userActivity.webpageURL delegate:self];
+    if([userActivity.activityType isEqualToString:NSUserActivityTypeBrowsingWeb]) {
+        NSURL *url = userActivity.webpageURL;
+        if(url && [TencentOAuth CanHandleUniversalLink:url]) {
+            [WHAlertTool showActionSheetWithTitle:url.description withActionBlock:^(UIAlertAction * _Nonnull action) {
+                    
+            }];
+        #if BUILD_QQAPIDEMO
+            // 兼容[QQApiInterface handleOpenURL:delegate:]的接口回调能力
+            [QQApiInterface handleOpenUniversallink:url delegate:(id<QQApiInterfaceDelegate>)[QQApiShareEntry class]];
+        #endif
+            return [TencentOAuth HandleUniversalLink:url];
+        }
+    }
+
+//    result = [QQApiInterface handleOpenUniversallink:userActivity.webpageURL delegate:self];
     return result;
 }
 

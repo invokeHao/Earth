@@ -17,6 +17,7 @@
 #define MFYQQAppkey @"1108907019"
 #define MFYWeChatAppKey @"wx9d3834c0a416ff28"
 #define MFYUniversalLink @"https://friends.0act.com/apple-app-site-association/"
+//#define MFYUniversalLink @"friends.0act.com"
 
 
 #endif /* MFYThirdPartyConstant_h */
