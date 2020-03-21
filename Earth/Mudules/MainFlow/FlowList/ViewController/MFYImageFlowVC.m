@@ -16,6 +16,8 @@
 #import "MFYArticleService.h"
 #import "MFYSingleChatVC.h"
 #import "MFYPayCardView.h"
+#import "MFYCategroyFlowTopView.h"
+#import "MFYCoreFlowCategroyVC.h"
 
 @interface MFYImageFlowVC ()<YHDragCardDelegate,YHDragCardDataSource,JXCategoryViewDelegate>
 
@@ -26,11 +28,22 @@
 @property (nonatomic, strong) MFYFlowCardView * currentCard;
 @property (nonatomic, assign) NSInteger currentIndex;
 @property (nonatomic, strong) MFYCategoryTitleView * myCategoryView;
+@property (nonatomic, strong) MFYCategroyFlowTopView * topView;
+
+@property (nonatomic, assign) MFYImageFlowType type;
 
 
 @end
 
 @implementation MFYImageFlowVC
+
+- (instancetype)initWithType:(MFYImageFlowType)type {
+    self = [super init];
+    if (self) {
+        _type = type;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,6 +54,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self startPlayVideo];
+    [self.myCategoryView selectItemAtIndex:0];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -53,6 +67,7 @@
     [self.view addSubview:self.toolView];
     
     [self.view addSubview:self.myCategoryView];
+    [self.view addSubview:self.topView];
 
     NSMutableArray * titleArr = [NSMutableArray array];
     for (MFYCoreflowTag * tag in self.imageTagArray) {
@@ -61,11 +76,17 @@
     self.myCategoryView.titles = titleArr;
     MFYIndicatorBackgroundView *lineView = [[MFYIndicatorBackgroundView alloc] init];
     self.myCategoryView.indicators = @[lineView];
+    
+    self.topView.hidden = self.type == MFYImageFlowMainType;
+    self.myCategoryView.hidden = self.type != MFYImageFlowMainType;
+    [self.topView setFlowTag:[self.imageTagArray firstObject]];
+
 }
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     [self.myCategoryView setFrame:CGRectMake(0, 10, VERTICAL_SCREEN_WIDTH, 50)];
+    [self.topView setFrame:CGRectMake(0, 10, VERTICAL_SCREEN_WIDTH, 50)];
 }
 
 - (void)bindData {
@@ -249,8 +270,15 @@
 #pragma mark - JXCategoryViewDelegate
 
 - (void)categoryView:(JXCategoryBaseView *)categoryView didSelectedItemAtIndex:(NSInteger)index {
-
-    WHLog(@"%d",index);
+    if (index == 0) {
+        return;
+    }
+    MFYCoreflowTag * flowTag = self.imageTagArray[index];
+    MFYCoreFlowCategroyVC * flowVC = [[MFYCoreFlowCategroyVC alloc]init];
+    flowVC.tagImageArray = @[flowTag];
+    flowVC.tagAudioArray = @[flowTag];
+    [self.navigationController pushViewController:flowVC animated:YES];
+    
 }
 
 - (void)categoryView:(JXCategoryBaseView *)categoryView didScrollSelectedItemAtIndex:(NSInteger)index {
@@ -284,6 +312,13 @@
         _myCategoryView.delegate = self;
     }
     return _myCategoryView;
+}
+
+- (MFYCategroyFlowTopView *)topView {
+    if (!_topView) {
+        _topView = [[MFYCategroyFlowTopView alloc]init];
+    }
+    return _topView;
 }
 
 @end

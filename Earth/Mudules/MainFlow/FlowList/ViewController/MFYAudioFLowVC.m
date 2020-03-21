@@ -14,6 +14,9 @@
 #import "MFYAudioDisplayView.h"
 #import "MFYAudioListVM.h"
 #import "MFYAudioPublishView.h"
+#import "MFYCoreFlowCategroyVC.h"
+
+#import "MFYCategroyFlowTopView.h"
 
 @interface MFYAudioFLowVC ()<JXCategoryViewDelegate>
 
@@ -27,9 +30,22 @@
 
 @property (nonatomic, strong) MFYAudioPublishView * publishView;
 
+@property (nonatomic, strong) MFYCategroyFlowTopView * topView;
+
+@property (nonatomic, assign) MFYAudioFlowType type;
+
 @end
 
 @implementation MFYAudioFLowVC
+
+- (instancetype)initWithType:(MFYAudioFlowType)type {
+    self = [super init];
+    if (self) {
+        _type = type;
+    }
+    return self;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,6 +56,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.displayView playTheAudio];
+    [self.myCategoryView selectItemAtIndex:0];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -51,15 +68,20 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     [self.myCategoryView setFrame:CGRectMake(0, 10, VERTICAL_SCREEN_WIDTH, 50)];
+    [self.topView setFrame:CGRectMake(0, 10, VERTICAL_SCREEN_WIDTH, 50)];
     [self.displayView setFrame:CGRectMake(0, 60, VERTICAL_SCREEN_WIDTH, H_SCALE(440))];
 }
 
 - (void)setupViews {
     self.view.backgroundColor = wh_colorWithHexString(@"#F0F0F0");
+    [self.view addSubview:self.topView];
     [self.view addSubview:self.myCategoryView];
     [self.view addSubview:self.displayView];
     [self.view addSubview:self.publishBtn];
     
+    self.topView.hidden = self.type == MFYAudioFlowMainType;
+    self.myCategoryView.hidden = self.type != MFYAudioFlowMainType;
+    [self.topView setFlowTag:[self.audioTagArray firstObject]];
     
     [self.publishBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self.view);
@@ -122,8 +144,14 @@
 #pragma mark - JXCategoryViewDelegate
 
 - (void)categoryView:(JXCategoryBaseView *)categoryView didSelectedItemAtIndex:(NSInteger)index {
-
-    WHLog(@"%d",index);
+    if (index == 0) {
+        return;
+    }
+    MFYCoreflowTag * flowTag = self.audioTagArray[index];
+    MFYCoreFlowCategroyVC * flowVC = [[MFYCoreFlowCategroyVC alloc]init];
+    flowVC.tagImageArray = @[flowTag];
+    flowVC.tagAudioArray = @[flowTag];
+    [self.navigationController pushViewController:flowVC animated:YES];
 }
 
 - (void)categoryView:(JXCategoryBaseView *)categoryView didScrollSelectedItemAtIndex:(NSInteger)index {
@@ -160,4 +188,12 @@
     }
     return _publishView;
 }
+
+- (MFYCategroyFlowTopView *)topView {
+    if (!_topView) {
+        _topView = [[MFYCategroyFlowTopView alloc]init];
+    }
+    return _topView;
+}
+
 @end

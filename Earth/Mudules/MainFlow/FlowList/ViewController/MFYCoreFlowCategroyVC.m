@@ -1,12 +1,12 @@
 //
-//  MFYCoreFlowVC.m
+//  MFYCoreFlowCategroyVC.m
 //  Earth
 //
-//  Created by colr on 2019/12/23.
-//  Copyright © 2019 fuYin. All rights reserved.
+//  Created by colr on 2020/3/21.
+//  Copyright © 2020 fuYin. All rights reserved.
 //
 
-#import "MFYCoreFlowVC.h"
+#import "MFYCoreFlowCategroyVC.h"
 #import "MFYImageFlowVC.h"
 #import "MFYAudioFLowVC.h"
 #import "MFYIndicatorBackgroundView.h"
@@ -16,33 +16,29 @@
 #import "MFYMineHomePageVC.h"
 #import "MFYChatListVC.h"
 
-@interface MFYCoreFlowVC ()<JXCategoryListContainerViewDelegate>
+
+@interface MFYCoreFlowCategroyVC ()<JXCategoryListContainerViewDelegate>
+
 {
     BOOL _disableDrag;
 }
 
-@property (nonatomic, strong) YHDragCardContainer * cardView;
-@property (nonatomic, assign) YHDragCardDirectionType awayDirection;
 @property (nonatomic, strong) MFYNavCategoryTitleView * navCategoryView;
 @property (nonatomic, strong) JXCategoryListContainerView * listContainerView;
-@property (nonatomic, strong) NSArray * tagImageArray;
-@property (nonatomic, strong) NSArray * tagAudioArray;
-@property (nonatomic, strong) UIButton * MineBtn;
+
 @property (nonatomic, strong) UIButton * messageBtn;
 
 @end
 
-@implementation MFYCoreFlowVC
+@implementation MFYCoreFlowCategroyVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupData];
     [self bindEvents];
 }
 
 - (void)setupViews {
     self.navBar.backgroundColor = wh_colorWithHexString(@"#FF3F70");
-    self.navBar.leftButton = self.MineBtn;
     self.navBar.rightButton = self.messageBtn;
     [self.navBar addSubview:self.navCategoryView];
     
@@ -62,13 +58,7 @@
          @strongify(self)
          [self setupViews];
      }];
-    
-    [[self.MineBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        @strongify(self)
-        MFYMineHomePageVC * mineVC = [[MFYMineHomePageVC alloc]init];
-        [self.navigationController pushViewController:mineVC animated:YES];
-    }];
-    
+        
     [[self.messageBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self)
         MFYChatListVC * chatListVC = [[MFYChatListVC alloc]init];
@@ -88,11 +78,11 @@
 #pragma mark- JXCategoryListContentViewDelegate
  - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index{
      if (index == 0) {
-         MFYImageFlowVC * vc = [[MFYImageFlowVC alloc]initWithType:MFYImageFlowMainType];
+         MFYImageFlowVC * vc = [[MFYImageFlowVC alloc]initWithType:MFYImageFlowCategroyType];
          vc.imageTagArray = self.tagImageArray;
          return vc;
      }else {
-         MFYAudioFLowVC * vc = [[MFYAudioFLowVC alloc]init];
+         MFYAudioFLowVC * vc = [[MFYAudioFLowVC alloc]initWithType:MFYAudioFlowCategroyType];
          vc.audioTagArray = self.tagAudioArray;
          return vc;
      }
@@ -102,28 +92,6 @@
     return 2;
 }
 
-#pragma mark- 获取标签
-
-- (void)setupData {
-    @weakify(self)
-    [MFYTopicTagService getTheImageTopicTagsCompletion:^(NSArray<MFYCoreflowTag *> * _Nonnull array, NSError * _Nonnull error) {
-        @strongify(self)
-        if (!error) {
-            self.tagImageArray = array;
-            [self setupViews];
-        }else{
-            [WHHud showString:error.descriptionFromServer];
-        }
-    }];
-    
-    [MFYTopicTagService getTheaudioTopicTagsCompletion:^(NSArray<MFYCoreflowTag *> * _Nonnull array, NSError * _Nonnull error) {
-        if (!error) {
-            self.tagAudioArray = array;
-        }else{
-            [WHHud showString:error.descriptionFromServer];
-        }
-    }];
-}
 
 -(JXCategoryListContainerView *)listContainerView {
     if (!_listContainerView) {
@@ -131,14 +99,6 @@
         _listContainerView.scrollView.scrollEnabled = NO;
     }
     return _listContainerView;
-}
-
-- (UIButton *)MineBtn {
-    if (!_MineBtn) {
-        _MineBtn = UIButton.button;
-        [_MineBtn setImage:WHImageNamed(@"core_mine") forState:UIControlStateNormal];
-    }
-    return _MineBtn;
 }
 
 - (UIButton *)messageBtn {
@@ -155,6 +115,5 @@
     }
     return  _navCategoryView;
 }
-
 
 @end

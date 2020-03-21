@@ -57,5 +57,21 @@
     }];
 }
 
++ (void)getVerifyCode:(NSString *)phoneNum completion:(void (^)(BOOL , NSError *))completion {
+    NSString * path = @"/api/misc/verify/code/send";
+    NSDictionary * dic = @{@"authvalue": phoneNum};
+    [[MFYHTTPManager sharedManager] POST:path parameters:dic success:^(NSURLSessionDataTask * _Nonnull task, MFYResponseObject * _Nonnull responseObject) {
+        MFYResponseObject * resp = responseObject;
+        if (resp.code == 1) {
+            completion(YES, nil);
+        }else{
+            NSError * error = [NSError errorWithCode:resp.code desc:resp.errorDesc];
+            completion(NO,error);
+        }
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        completion(NO,error);
+    }];
+
+}
 
 @end

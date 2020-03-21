@@ -25,7 +25,11 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark- 一键登录
 
 + (void)loginWithUMToken:(NSString *)token
-              completion:(void(^)(MFYLoginModel * loginModel, NSError * error))completion;;
+              completion:(void(^)(MFYLoginModel * loginModel, NSError * error))completion;
+
+#pragma mark- 获取验证码
+
++ (void)getVerifyCode:(NSString *)phoneNum completion:(void(^)(BOOL success, NSError * error))completion;
 
 @end
 

@@ -200,6 +200,15 @@ typedef enum : NSUInteger {
     
     [[self.sendCodeBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self)
+        if (self.PhoneField.text.length != 11) {
+            [self.view showString:@"手机号格式不正确"];
+            return;
+        }
+        [MFYLoginService getVerifyCode:self.PhoneField.text completion:^(BOOL success, NSError * _Nonnull error) {
+            if (!success) {
+                [WHHud showString:error.descriptionFromServer];
+            }
+        }];
         [self.sendCodeBtn startTimer];
         
     }];

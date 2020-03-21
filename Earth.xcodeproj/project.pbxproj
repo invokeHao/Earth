@@ -157,6 +157,8 @@
 		67C435D32424CDE60081C477 /* SR_Camera_Cancel@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67C435C72424CDE60081C477 /* SR_Camera_Cancel@3x.png */; };
 		67C435D62424D7610081C477 /* MFYFirstModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C435D52424D7610081C477 /* MFYFirstModel.m */; };
 		67C435D92424D8610081C477 /* MFYTakePhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C435D82424D8610081C477 /* MFYTakePhotoCell.m */; };
+		67C435DC24262C650081C477 /* MFYCategroyFlowTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C435DB24262C650081C477 /* MFYCategroyFlowTopView.m */; };
+		67C435DF242639B50081C477 /* MFYCoreFlowCategroyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C435DE242639B50081C477 /* MFYCoreFlowCategroyVC.m */; };
 		67CC30E123F146ED002E6E2B /* MFYQiNiuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC30E023F146ED002E6E2B /* MFYQiNiuModel.m */; };
 		67CC30E423F14711002E6E2B /* MFYQiNiuResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC30E323F14711002E6E2B /* MFYQiNiuResponse.m */; };
 		67CC30E723F14776002E6E2B /* MFYDynamicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CC30E623F14776002E6E2B /* MFYDynamicManager.m */; };
@@ -589,6 +591,10 @@
 		67C435D52424D7610081C477 /* MFYFirstModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYFirstModel.m; sourceTree = "<group>"; };
 		67C435D72424D8610081C477 /* MFYTakePhotoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYTakePhotoCell.h; sourceTree = "<group>"; };
 		67C435D82424D8610081C477 /* MFYTakePhotoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYTakePhotoCell.m; sourceTree = "<group>"; };
+		67C435DA24262C650081C477 /* MFYCategroyFlowTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYCategroyFlowTopView.h; sourceTree = "<group>"; };
+		67C435DB24262C650081C477 /* MFYCategroyFlowTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYCategroyFlowTopView.m; sourceTree = "<group>"; };
+		67C435DD242639B50081C477 /* MFYCoreFlowCategroyVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYCoreFlowCategroyVC.h; sourceTree = "<group>"; };
+		67C435DE242639B50081C477 /* MFYCoreFlowCategroyVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYCoreFlowCategroyVC.m; sourceTree = "<group>"; };
 		67CC30DF23F146ED002E6E2B /* MFYQiNiuModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYQiNiuModel.h; sourceTree = "<group>"; };
 		67CC30E023F146ED002E6E2B /* MFYQiNiuModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYQiNiuModel.m; sourceTree = "<group>"; };
 		67CC30E223F14711002E6E2B /* MFYQiNiuResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYQiNiuResponse.h; sourceTree = "<group>"; };
@@ -1371,6 +1377,8 @@
 			children = (
 				6779376523B0C29700D1B822 /* MFYCoreFlowVC.h */,
 				6779376623B0C29700D1B822 /* MFYCoreFlowVC.m */,
+				67C435DD242639B50081C477 /* MFYCoreFlowCategroyVC.h */,
+				67C435DE242639B50081C477 /* MFYCoreFlowCategroyVC.m */,
 				6746D47D23B4DE0700A46FC7 /* MFYImageFlowVC.h */,
 				6746D47E23B4DE0700A46FC7 /* MFYImageFlowVC.m */,
 				67CC312A23F915D3002E6E2B /* MFYAudioFLowVC.h */,
@@ -1844,6 +1852,8 @@
 				6746D49B23B62C2E00A46FC7 /* MFYFlowCardView.m */,
 				67EFC32523C3015C00F5BDB3 /* MFYCardSuduPicView.h */,
 				67EFC32623C3015C00F5BDB3 /* MFYCardSuduPicView.m */,
+				67C435DA24262C650081C477 /* MFYCategroyFlowTopView.h */,
+				67C435DB24262C650081C477 /* MFYCategroyFlowTopView.m */,
 			);
 			path = ImageView;
 			sourceTree = "<group>";
@@ -2944,6 +2954,7 @@
 				67CC311B23F4FB19002E6E2B /* MFYRedPacketView.m in Sources */,
 				67CC310A23F39D56002E6E2B /* MFYTopicTagService.m in Sources */,
 				67CC31C22408BCA4002E6E2B /* AppDelegate+MFYJGIM.m in Sources */,
+				67C435DF242639B50081C477 /* MFYCoreFlowCategroyVC.m in Sources */,
 				67CC312623F6A550002E6E2B /* MFYVideoDetailVC.m in Sources */,
 				679A02DD23F107620041A012 /* MOPhotoLibraryExportCenter.m in Sources */,
 				6725041023D5873200716842 /* MFYVideoAndImageView.m in Sources */,
@@ -3038,6 +3049,7 @@
 				67CC31D724090C95002E6E2B /* MFYMessageTextView.m in Sources */,
 				67C4358B2424C4C00081C477 /* SRHub.m in Sources */,
 				67CC316623FCE929002E6E2B /* MFYMineItemModel.m in Sources */,
+				67C435DC24262C650081C477 /* MFYCategroyFlowTopView.m in Sources */,
 				67CC31B8240549F4002E6E2B /* UIScrollView+RefreshAble.m in Sources */,
 				6717AC872423711D0072BBFE /* MFYFlowLayout.m in Sources */,
 				67CC31DA24090D6F002E6E2B /* JCHATAlertToSendImage.m in Sources */,
