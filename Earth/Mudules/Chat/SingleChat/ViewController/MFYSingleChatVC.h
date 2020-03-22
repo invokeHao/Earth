@@ -43,6 +43,8 @@ UIGestureRecognizerDelegate
 
 @property (nonatomic, strong) MFYProfile * userProfile;
 
+@property (nonatomic, strong) NSString * nickName;
+
 @property(assign, nonatomic) BOOL barBottomFlag;
 
 @property(strong, nonatomic) NSString *targetName;

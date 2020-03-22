@@ -18,6 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UILabel * titleLabel;
 
+@property (nonatomic, strong) UIImageView * likeIcon;
+
+@property (nonatomic, strong) UIImageView * dislikeIcon;
+
 @property (nonatomic, strong) MFYArticle * model;
 
 - (void)mfy_stopPlay;

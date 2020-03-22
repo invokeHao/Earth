@@ -36,6 +36,11 @@
     [self bindData];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.mainTable reloadData];
+}
+
 - (void)setupViews {
     self.navBar.backgroundColor = wh_colorWithHexString(@"#FF3F70");
     self.navBar.titleLabel.text = @"消息";
@@ -110,6 +115,7 @@
     JMSGConversation *conversation = [self.viewModel.dataList objectAtIndex:indexPath.row];
     singleChatVC.conversation = conversation;
     singleChatVC.userProfile.nickname = conversation.title;
+    singleChatVC.nickName = conversation.title;
     [self.navigationController pushViewController:singleChatVC animated:YES];
      
 //     NSInteger badge = _unreadCount - [conversation.unreadCount integerValue];

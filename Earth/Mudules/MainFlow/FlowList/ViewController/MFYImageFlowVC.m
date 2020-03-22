@@ -239,12 +239,15 @@
         self.awayDirection = direction.horizontal;
     }
     CGFloat ratio = ABS(direction.horizontalRatio) * 0.3 + 1.0;
+    CGFloat alphaRatio = ABS(direction.horizontalRatio);
     //左滑不喜欢，右滑喜欢
     if (self.awayDirection == YHDragCardDirectionTypeLeft) {
         self.toolView.dislikeBtn.transform = CGAffineTransformMakeScale(ratio, ratio);
+        self.currentCard.dislikeIcon.alpha = alphaRatio;
     }
     if (self.awayDirection == YHDragCardDirectionTypeRight) {
         self.toolView.likeBtn.transform = CGAffineTransformMakeScale(ratio, ratio);
+        self.currentCard.likeIcon.alpha = alphaRatio;
     }
 //    WHLog(@"%ld", self.awayDirection);
 }

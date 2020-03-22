@@ -143,7 +143,8 @@
 - (void)setupNavigation {
     self.navBar.backgroundColor = wh_colorWithHexString(@"#FFFFFF");
     self.navBar.rightButton = self.rightInfoBtn;
-    self.navBar.titleLabel.text = self.userProfile.nickname;
+    NSString * nickName = self.userProfile? self.userProfile.nickname : self.nickName;
+    self.navBar.titleLabel.text = nickName;
     self.navBar.titleLabel.textColor = wh_colorWithHexString(@"#333333");
     [self.navBar.leftButton setImage:WHImageNamed(@"chat_nav_back") forState:UIControlStateNormal];
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
