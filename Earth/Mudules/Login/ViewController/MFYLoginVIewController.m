@@ -204,13 +204,8 @@ typedef enum : NSUInteger {
             [self.view showString:@"手机号格式不正确"];
             return;
         }
-        [MFYLoginService getVerifyCode:self.PhoneField.text completion:^(BOOL success, NSError * _Nonnull error) {
-            if (!success) {
-                [WHHud showString:error.descriptionFromServer];
-            }
-        }];
+        [self sendVerifyCode];
         [self.sendCodeBtn startTimer];
-        
     }];
     
     [[self.confirmBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
@@ -222,7 +217,27 @@ typedef enum : NSUInteger {
             [self.view showString:@"请检查验证码格式"];
         }
     }];
+    
+    RACSignal * dataObserve = RACObserve(self, mainScroll.contentOffset);
+    
+    [[[dataObserve skipUntilBlock:^BOOL(id x) {
+        @strongify(self)
+        return self.mainScroll.contentOffset.x >= VERTICAL_SCREEN_WIDTH;
+    }] deliverOnMainThread] subscribeNext:^(id x) {
+        @strongify(self)
+        [self sendVerifyCode];
+        [self.sendCodeBtn startTimer];
+    }];
 
+
+}
+
+- (void)sendVerifyCode {
+    [MFYLoginService getVerifyCode:self.PhoneField.text completion:^(BOOL success, NSError * _Nonnull error) {
+        if (!success) {
+            [WHHud showString:error.descriptionFromServer];
+        }
+    }];
 }
 
 

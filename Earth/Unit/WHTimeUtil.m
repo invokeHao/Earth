@@ -41,8 +41,10 @@ NSTimeInterval const OneWeek = 604800;
 + (NSString *)commentDateToString:(NSDate *)date componets:(NSCalendarUnit)unitFlags {
     NSDateComponents *components = [[NSCalendar currentCalendar] components:unitFlags fromDate:date];
     NSString *dateString = @"";
+    BOOL isCurrentYear = YES;
     if (components.year < [self currentYear]) {
         dateString = [[dateString stringByAppendingString:[@(components.year) stringValue]] stringByAppendingString:@"-"];
+        isCurrentYear = NO;
     }
     if (components.month > 0) {
         dateString = [[dateString stringByAppendingString:[@(components.month) stringValue]] stringByAppendingString:@"-"];
@@ -50,11 +52,12 @@ NSTimeInterval const OneWeek = 604800;
     if (components.day > 0) {
         dateString = [[dateString stringByAppendingString:[@(components.day) stringValue]] stringByAppendingString:@" "];
     }
-    
-    NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    [format setDateFormat:@"HH:mm"];
-    NSString * detailStr = [format stringFromDate:date];
-    dateString = [dateString stringByAppendingString:detailStr];
+    if (isCurrentYear) {
+        NSDateFormatter *format = [[NSDateFormatter alloc] init];
+        [format setDateFormat:@"HH:mm"];
+        NSString * detailStr = [format stringFromDate:date];
+        dateString = [dateString stringByAppendingString:detailStr];
+    }
     return dateString;
 }
 

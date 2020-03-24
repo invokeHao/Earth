@@ -244,7 +244,8 @@
 - (void)bindEvents {
     @weakify(self)
     self.reportBtn.hidden = self.itemType != MFYPicItemBigType;
-    self.shareBtn.hidden = self.timeLabel.hidden = self.reportBtn.hidden;
+    self.timeLabel.hidden = self.reportBtn.hidden;
+    self.shareBtn.hidden = self.itemType != MFYPicItemSmallBottomType;
     
     if (self.itemType == MFYPicItemBigType) {
         UITapGestureRecognizer * tapBig = [[UITapGestureRecognizer alloc]init];

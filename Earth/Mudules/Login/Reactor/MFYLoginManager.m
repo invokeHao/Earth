@@ -81,6 +81,9 @@ NSString *const kUserTabelName = @"userModel";
 
 #pragma mark-一键登录
 + (void)umengPhoneVerifyLogin {
+    
+    [MFYLoginManager jumpToLoginWithCompletion:^{}];
+    return;
     //设置秘钥
     NSString *info = @"sNpLSdXjarJOabWFvS/q1LOFGs4yYRj7wFJYUJQsNQrRkTMGsGYWJBtytNEsXA82CGGtFTUblYIwFsVQr3sduNLH4SbeZf1Kv4WCrxCs83ZCaKRG68IBsXSi4ltftndsx7rYW9B4aRpH6rwTNHWjv/pzLFDr67RC6Pxxx3mQUzd4/RkeIj6RfYx0/C3wzxptTcE2qW0HXBSqA4lzuPFGnS4rn8QEvnRwnSxVsnntXWs=";
     @weakify(self)
