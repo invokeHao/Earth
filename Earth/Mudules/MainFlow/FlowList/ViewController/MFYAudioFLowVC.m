@@ -73,6 +73,7 @@
 }
 
 - (void)setupViews {
+    [WHHud showActivityView];
     self.view.backgroundColor = wh_colorWithHexString(@"#F0F0F0");
     [self.view addSubview:self.topView];
     [self.view addSubview:self.myCategoryView];
@@ -124,6 +125,7 @@
         return self.viewModel.dataList.count > 0;
     }] deliverOnMainThread] delay:0.2] subscribeNext:^(id x) {
         @strongify(self)
+        [WHHud hideActivityView];
         [self.displayView reloadDataWithArray:self.viewModel.dataList];
     }];
     

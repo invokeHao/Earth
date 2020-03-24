@@ -44,7 +44,7 @@
                 [self.coverImageV setImage:model.highImage];
             }
             [self.addbutton setImage:WHImageNamed(@"public_smallAdd") forState:UIControlStateNormal];
-        }else if(model.type == (CMSAssetMediaTypeVideo | CMSAssetMediaTypeEditVideo)){
+        }else if(model.type == CMSAssetMediaTypeVideo || model.type == CMSAssetMediaTypeEditVideo){
             [model getVideoCoverImageCompletion:^(UIImage * _Nonnull image) {
                 [self.coverImageV setImage:image];
                 [self.addbutton setImage:WHImageNamed(@"video_tag") forState:UIControlStateNormal];

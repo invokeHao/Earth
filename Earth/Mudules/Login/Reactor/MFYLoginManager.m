@@ -166,6 +166,7 @@ NSString *const kUserTabelName = @"userModel";
         }else {
             [WHHud showString:error.descriptionFromServer];
             [WHHud hideActivityView];
+            [MFYLoginManager jumpToLoginWithCompletion:^{}];
         }
     }];
 }

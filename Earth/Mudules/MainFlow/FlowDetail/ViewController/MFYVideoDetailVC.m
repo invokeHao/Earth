@@ -12,6 +12,7 @@
 #import "MFYHTTPCacheService.h"
 #import <JPNavigationControllerKit.h>
 #import "MFYRedPacketView.h"
+#import "MFYArticleService.h"
 
 
 @interface MFYVideoDetailVC ()<JPVideoPlayerDelegate>
@@ -34,6 +35,7 @@
     // 使用 `JPNavigationController` 处理 pop 手势导致 `AVPlayer` 播放器播放视频卡顿.如果需要使用，需要修改Appdelegate的navigationcontroller
 //    self.navigationController.jp_useCustomPopAnimationForCurrentViewController = YES;
     [self setupView];
+    [self bindEvents];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -70,6 +72,25 @@
     }];
     
     [self configTheImage];
+}
+
+- (void)bindEvents {
+    @weakify(self)
+    [[self.reportBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+       @strongify(self)
+        if (self.itemModel.complained) {
+             [WHHud showString:@"您已举报过该帖子"];
+             return;
+         }
+         [MFYArticleService reportArticle:self.itemModel.articleId Completion:^(BOOL isSuccess, NSError * _Nonnull error) {
+             if (isSuccess) {
+                 [WHHud showString:@"举报成功"];
+                 self.itemModel.complained = YES;
+             }else {
+                 [WHHud showString:error.descriptionFromServer];
+             }
+         }];
+    }];
 }
 
 - (void)configTheImage {

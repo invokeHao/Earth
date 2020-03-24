@@ -69,41 +69,41 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    CGFloat margin = ((VERTICAL_SCREEN_WIDTH - 36) - W_SCALE(80) - W_SCALE(100) - W_SCALE(60)) / 4;
+    CGFloat margin = ((VERTICAL_SCREEN_WIDTH - 16) - W_SCALE(120) - W_SCALE(140) - W_SCALE(85)) / 4;
     @weakify(self)
     [self.beforeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self)
         make.left.mas_equalTo(0);
         make.centerY.mas_equalTo(self);
-        make.size.mas_equalTo(CGSizeMake(W_SCALE(40), W_SCALE(40)));
+        make.size.mas_equalTo(CGSizeMake(W_SCALE(60), W_SCALE(60)));
     }];
     
     [self.dislikeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
        @strongify(self)
         make.left.mas_equalTo(self.beforeBtn.mas_right).mas_offset(margin);
         make.centerY.mas_equalTo(self);
-        make.size.mas_equalTo(CGSizeMake(W_SCALE(50), W_SCALE(50)));
+        make.size.mas_equalTo(CGSizeMake(W_SCALE(70), W_SCALE(70)));
     }];
     
     [self.likeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
        @strongify(self)
         make.left.mas_equalTo(self.dislikeBtn.mas_right).mas_offset(margin);
         make.centerY.mas_equalTo(self);
-        make.size.mas_equalTo(CGSizeMake(W_SCALE(60), W_SCALE(60)));
+        make.size.mas_equalTo(CGSizeMake(W_SCALE(85), W_SCALE(85)));
     }];
     
     [self.messageBtn mas_makeConstraints:^(MASConstraintMaker *make) {
        @strongify(self)
         make.left.mas_equalTo(self.likeBtn.mas_right).mas_offset(margin);
         make.centerY.mas_equalTo(self);
-        make.size.mas_equalTo(CGSizeMake(W_SCALE(50), W_SCALE(50)));
+        make.size.mas_equalTo(CGSizeMake(W_SCALE(70), W_SCALE(70)));
     }];
     
     [self.publicBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self)
         make.left.mas_equalTo(self.messageBtn.mas_right).mas_offset(margin);
         make.centerY.mas_equalTo(self);
-        make.size.mas_equalTo(CGSizeMake(W_SCALE(40), W_SCALE(40)));
+        make.size.mas_equalTo(CGSizeMake(W_SCALE(60), W_SCALE(60)));
     }];
     [self layoutIfNeeded];
     
@@ -116,10 +116,10 @@
 }
 
 - (void)setupTheShadowWithView:(UIButton*)button {
-    button.layer.shadowColor = [UIColor colorWithRed:251/255.0 green:126/255.0 blue:92/255.0 alpha:0.8].CGColor;
-    button.layer.shadowOffset = CGSizeMake(0,0);
-    button.layer.shadowOpacity = 1;
-    button.layer.shadowRadius = 22;
+//    button.layer.shadowColor = [UIColor colorWithRed:251/255.0 green:126/255.0 blue:92/255.0 alpha:0.8].CGColor;
+//    button.layer.shadowOffset = CGSizeMake(0,0);
+//    button.layer.shadowOpacity = 1;
+//    button.layer.shadowRadius = 22;
     [button roundCorner:UIRectCornerAllCorners radius:button.width/2];
 }
 

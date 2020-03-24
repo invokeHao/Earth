@@ -832,7 +832,7 @@
 		67EFC33023C311A800F5BDB3 /* UIView+WHExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+WHExtension.m"; sourceTree = "<group>"; };
 		67EFC33323C3136800F5BDB3 /* WHAlertTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHAlertTool.h; sourceTree = "<group>"; };
 		67EFC33423C3136800F5BDB3 /* WHAlertTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WHAlertTool.m; sourceTree = "<group>"; };
-		67F097B323A785E6001DCEB4 /* Earth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Earth.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		67F097B323A785E6001DCEB4 /* 颜控声控.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "颜控声控.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		67F097CE23A785EA001DCEB4 /* EarthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EarthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		67F097D223A785EA001DCEB4 /* EarthTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EarthTests.m; sourceTree = "<group>"; };
 		67F097D423A785EA001DCEB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -2340,7 +2340,7 @@
 		67F097B423A785E6001DCEB4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				67F097B323A785E6001DCEB4 /* Earth.app */,
+				67F097B323A785E6001DCEB4 /* 颜控声控.app */,
 				67F097CE23A785EA001DCEB4 /* EarthTests.xctest */,
 				67F097D923A785EA001DCEB4 /* EarthUITests.xctest */,
 			);
@@ -2641,7 +2641,7 @@
 			);
 			name = Earth;
 			productName = Earth;
-			productReference = 67F097B323A785E6001DCEB4 /* Earth.app */;
+			productReference = 67F097B323A785E6001DCEB4 /* 颜控声控.app */;
 			productType = "com.apple.product-type.application";
 		};
 		67F097CD23A785EA001DCEB4 /* EarthTests */ = {
@@ -3278,8 +3278,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Earth/Earth.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = MYYDS5WA57;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Earth/Vendors/UMVerify",
@@ -3299,7 +3300,7 @@
 				);
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fuYinEarth;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "颜控声控";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -3311,8 +3312,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Earth/Earth.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = MYYDS5WA57;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Earth/Vendors/UMVerify",
@@ -3332,7 +3334,7 @@
 				);
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fuYinEarth;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "颜控声控";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

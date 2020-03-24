@@ -104,7 +104,7 @@ static CGFloat ratio ;
 model.checkBoxIsHidden = YES;
     model.checkBoxWH = 17.0;
     model.changeBtnTitle = [[NSAttributedString alloc] initWithString:@"切换到其他方式" attributes:@{NSForegroundColorAttributeName : wh_colorWithHexString(@"#FF6CA0"),NSFontAttributeName : [UIFont systemFontOfSize:14.0]}];
-    //model.changeBtnIsHidden = NO;
+    model.changeBtnIsHidden = YES;
     //model.prefersStatusBarHidden = NO;
     model.preferredStatusBarStyle = UIStatusBarStyleLightContent;
     //model.presentDirection = PNSPresentationDirectionBottom;

@@ -151,8 +151,6 @@
 
 @property (strong, nonatomic)UILabel * timeLabel;
 
-@property (strong, nonatomic)UIView * headerView;
-
 
 @end
 
@@ -181,7 +179,6 @@
     [self addSubview:self.mosaciView];
     [self addSubview:self.tipView];
     [self addSubview:self.playView];
-    [self addSubview:self.headerView];
     [self addSubview:self.timeLabel];
     [self addSubview:self.reportBtn];
     [self addSubview:self.shareBtn];
@@ -199,11 +196,6 @@
     [self.playView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self);
         make.size.mas_equalTo(CGSizeMake(34, 40));
-    }];
-    
-    [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.top.mas_equalTo(0);
-        make.height.mas_equalTo(30);
     }];
     
     [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -235,7 +227,15 @@
             self.playUrl = [MFYHTTPCacheService proxyURLWithOriginalUrl:itemModel.media.mediaUrl];
         }
         if (self.itemType == MFYPicItemBigType) {
-            [self.timeLabel setText:[WHTimeUtil articleCardDateStringByTimeStamp:itemModel.createDate]];
+            NSString * timeStr = [WHTimeUtil articleCardDateStringByTimeStamp:itemModel.createDate];
+            NSShadow *shadow = [[NSShadow alloc] init];
+            shadow.shadowBlurRadius = 2;
+            shadow.shadowColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:1.0];
+            shadow.shadowOffset = CGSizeMake(0,1);
+
+            NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:timeStr attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 14.0],NSForegroundColorAttributeName: [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0], NSShadowAttributeName: shadow}];
+
+            self.timeLabel.attributedText = string;
         }
         [self layoutTheTip:itemModel.bodyText]; //配置帖子说明
     }
@@ -244,7 +244,7 @@
 - (void)bindEvents {
     @weakify(self)
     self.reportBtn.hidden = self.itemType != MFYPicItemBigType;
-    self.shareBtn.hidden = self.timeLabel.hidden = self.headerView.hidden = self.reportBtn.hidden;
+    self.shareBtn.hidden = self.timeLabel.hidden = self.reportBtn.hidden;
     
     if (self.itemType == MFYPicItemBigType) {
         UITapGestureRecognizer * tapBig = [[UITapGestureRecognizer alloc]init];
@@ -289,6 +289,7 @@
         [MFYArticleService reportArticle:self.article.articleId Completion:^(BOOL isSuccess, NSError * _Nonnull error) {
             if (isSuccess) {
                 [WHHud showString:@"举报成功"];
+                self.article.complained = YES;
             }else {
                 [WHHud showString:error.descriptionFromServer];
             }
@@ -456,15 +457,6 @@
     }
     return _timeLabel;
 }
-
-- (UIView *)headerView {
-    if (!_headerView) {
-        _headerView = [[UIView alloc]init];
-        _headerView.backgroundColor = wh_colorWithHexAndAlpha(@"B2B2B2", 0.2);
-    }
-    return _headerView;
-}
-
 
 @end
 

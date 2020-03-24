@@ -304,7 +304,7 @@
 
 - (MFYCFToolView *)toolView {
     if (!_toolView) {
-        _toolView = [[MFYCFToolView alloc]initWithFrame:CGRectMake(18, self.card.wh_bottom + 30, VERTICAL_SCREEN_WIDTH - 36, 60)];
+        _toolView = [[MFYCFToolView alloc]initWithFrame:CGRectMake(W_SCALE(8), self.card.wh_bottom + 30, VERTICAL_SCREEN_WIDTH - W_SCALE(16), 85)];
     }
     return _toolView;
 }

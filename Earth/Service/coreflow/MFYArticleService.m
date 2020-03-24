@@ -60,8 +60,7 @@
     dic[@"articleid"] = articleId;
     [[MFYHTTPManager sharedManager] POST:@"/api/article/complain" parameters:dic success:^(NSURLSessionDataTask * _Nonnull task, MFYResponseObject * _Nonnull responseObject) {
         if (responseObject.code ==  1) {
-            BOOL isAble = [responseObject.result boolValue];
-            completion(isAble,nil);
+            completion(YES,nil);
         }else{
             completion(NO,[NSError errorWithCode:responseObject.code desc:responseObject.errorDesc]);
         }
