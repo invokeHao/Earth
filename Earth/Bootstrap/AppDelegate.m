@@ -11,11 +11,13 @@
 #import "AppDelegate+MFYJGIM.h"
 #import "MFYBaseNavigationController.h"
 #import "MFYCoreFlowVC.h"
+#import "DHLaunchAdPageHUD.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self initialization];
+    [self showLaunchScreen];
     [self loadCustomViewControllers];
     [self initJGIMWithLaunchOptions:launchOptions];
     return YES;
@@ -25,13 +27,23 @@
 #pragma mark - Custom
 
 - (void)loadCustomViewControllers {
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = UIColor.whiteColor;
     UIViewController *viewController = nil;
     viewController = [[MFYCoreFlowVC alloc]init];
     MFYBaseNavigationController *navigationController = [[MFYBaseNavigationController alloc] initWithRootViewController:viewController];
     navigationController.navigationBarHidden = YES;
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
+}
+
+- (void)showLaunchScreen {
+    NSString *adImageJPGPath = [[NSBundle mainBundle] pathForResource:@"launchImg@3x" ofType:@"png"];
+    DHLaunchAdPageHUD *launchAd = [[DHLaunchAdPageHUD alloc] initWithFrame:CGRectMake(0, 0,VERTICAL_SCREEN_WIDTH , VERTICAL_SCREEN_HEIGHT) aDduration:3.0 aDImageUrl:adImageJPGPath hideSkipButton:NO launchAdClickBlock:^{
+        NSLog(@"[AppDelegate]:点了广告图片");
+    } Completion:^{
+    }];
 }
 
 #pragma mark- JMSGDBMigrateDelegate
