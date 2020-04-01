@@ -40,6 +40,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString * title;
 @property (nonatomic, assign) BOOL unliked;
 
+//业务字段
+@property (nonatomic, assign) NSInteger bgName;
+
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 -(NSDictionary *)toDictionary;

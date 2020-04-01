@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (copy, nonatomic)void(^longPressBlock)(void);
 
+- (void)setupCardView;
+
 
 @end
 

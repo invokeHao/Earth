@@ -210,7 +210,7 @@
 - (UIView *)backView {
     if (!_backView) {
         _backView = [[UIView alloc]init];
-        _backView.backgroundColor = wh_colorWithHexString(@"#E1E2E6");
+        _backView.backgroundColor = UIColor.whiteColor;
     }
     return  _backView;
 }

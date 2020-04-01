@@ -139,7 +139,7 @@
         NSMutableAttributedString * AttrStr = [[NSMutableAttributedString alloc]initWithString:price];
         NSMutableDictionary *attrDic = [NSMutableDictionary dictionary];
         attrDic[NSFontAttributeName] = WHFont(18);
-        attrDic[NSForegroundColorAttributeName] = wh_colorWithHexString(@"FFFFFF");
+        attrDic[NSForegroundColorAttributeName] = wh_colorWithHexAndAlpha(@"FFFFFF", 0.8);
         
         NSRange range = [price rangeOfString:@"元"];
         [AttrStr addAttributes:attrDic range:range];
@@ -207,6 +207,7 @@
     if (!_tipLabel) {
         _tipLabel = UILabel.label.WH_font(WHFont(15)).WH_textColor(wh_colorWithHexString(@"FFFFFF")).WH_text(@"支付红包可查看照片")
         ;
+        _tipLabel.alpha = 0.8;
     }
     return _tipLabel;
 }
@@ -221,9 +222,11 @@
 -(UIButton *)aliPayBtn {
     if (!_aliPayBtn) {
         _aliPayBtn = UIButton.button;
-        _aliPayBtn.WH_setImage_forState(WHImageNamed(@"pay_alipayBtn"),UIControlStateNormal);
+        _aliPayBtn.WH_setImage_forState(WHImageNamed(@"pay_detailAlipay"),UIControlStateNormal);
         _aliPayBtn.WH_setTitle_forState(@" 支付宝",UIControlStateNormal);
-        _aliPayBtn.backgroundColor = wh_colorWithHexString(@"#2B8DE4");
+        _aliPayBtn.WH_setTitleColor_forState(wh_colorWithHexString(@"#07A0F8"),UIControlStateNormal);
+        _aliPayBtn.titleLabel.WH_font(WHFont(15));
+        _aliPayBtn.backgroundColor =UIColor.whiteColor;
         _aliPayBtn.layer.cornerRadius = 6;
         _aliPayBtn.clipsToBounds = YES;
     }
@@ -233,9 +236,11 @@
 - (UIButton *)wxPayBtn {
     if (!_wxPayBtn) {
         _wxPayBtn = UIButton.button;
-        _wxPayBtn.WH_setImage_forState(WHImageNamed(@"pay_wxpayBtn"),UIControlStateNormal);
+        _wxPayBtn.WH_setImage_forState(WHImageNamed(@"pay_detailWxpay"),UIControlStateNormal);
         _wxPayBtn.WH_setTitle_forState(@" 微信",UIControlStateNormal);
-        _wxPayBtn.backgroundColor = wh_colorWithHexString(@"#2BC57D");
+        _wxPayBtn.WH_setTitleColor_forState(wh_colorWithHexString(@"#41B035"),UIControlStateNormal);
+        _wxPayBtn.titleLabel.WH_font(WHFont(15));
+        _wxPayBtn.backgroundColor = UIColor.whiteColor;
         _wxPayBtn.layer.cornerRadius = 6;
         _wxPayBtn.clipsToBounds = YES;
     }
@@ -245,6 +250,7 @@
 - (UIButton *)backBtn {
     if (!_backBtn) {
         _backBtn = UIButton.button.WH_titleLabel_font(WHFont(13)).WH_setTitleColor_forState(wh_colorWithHexString(@"FFFFFF"),UIControlStateNormal).WH_setTitle_forState(@"不想看了，悄然离开",UIControlStateNormal);
+        _backBtn.alpha = 0.6;
         _backBtn.backgroundColor = [UIColor clearColor];
     }
     return _backBtn;

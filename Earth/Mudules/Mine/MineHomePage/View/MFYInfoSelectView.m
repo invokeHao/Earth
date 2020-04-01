@@ -279,9 +279,9 @@
     }];
     
     [self.ageConfirmBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(-(17 + HOME_INDICATOR_HEIGHT));
-        make.centerX.mas_equalTo(self.ageView);
-        make.size.mas_equalTo(CGSizeMake(180, 34));
+        make.bottom.mas_equalTo(-HOME_INDICATOR_HEIGHT);
+        make.left.right.mas_equalTo(0);
+        make.height.mas_equalTo(50);
     }];
     
     [self.agePickerView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -509,7 +509,7 @@
 -  (UIButton *)ageConfirmBtn {
     if (!_ageConfirmBtn) {
         _ageConfirmBtn = UIButton.button.WH_setTitle_forState(@"确认",UIControlStateNormal);
-        _ageConfirmBtn.WH_titleLabel_font(WHFont(16)).WH_setTitleColor_forState([UIColor whiteColor],UIControlStateNormal);
+        _ageConfirmBtn.WH_titleLabel_font(WHFont(18)).WH_setTitleColor_forState([UIColor whiteColor],UIControlStateNormal);
         _ageConfirmBtn.backgroundColor = wh_colorWithHexString(@"FF3F70");
     }
     return _ageConfirmBtn;

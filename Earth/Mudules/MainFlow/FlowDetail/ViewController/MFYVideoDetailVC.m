@@ -143,7 +143,7 @@
 
 - (UIButton *)reportBtn {
     if (!_reportBtn) {
-        _reportBtn = UIButton.button.WH_setTitle_forState(@"举报",UIControlStateNormal).WH_setTitleColor_forState([UIColor whiteColor],UIControlStateNormal);
+        _reportBtn = UIButton.button.WH_setImage_forState(WHImageNamed(@"detail_report"),UIControlStateNormal);
     }
     return _reportBtn;
 }

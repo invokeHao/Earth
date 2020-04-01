@@ -64,8 +64,14 @@
         if (resp.code == 1) {
             NSMutableArray * ArticleArr = [NSMutableArray arrayWithCapacity:0];
             NSArray * arr = resp.result;
+           __block NSInteger bgNameNum = 1;
             [arr enumerateObjectsUsingBlock:^(NSDictionary * obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 MFYArticle * article = [[MFYArticle alloc]initWithDictionary:obj];
+                article.bgName = bgNameNum;
+                bgNameNum ++;
+                if (bgNameNum > 6) {
+                    bgNameNum = 1;
+                }
                 [ArticleArr addObject:article];
             }];
             completion(ArticleArr.copy,nil);
@@ -87,8 +93,14 @@
         if (resp.code == 1) {
             NSMutableArray * ArticleArr = [NSMutableArray arrayWithCapacity:0];
             NSArray * arr = resp.result[@"rows"];
+            __block NSInteger bgNameNum = 1;
             [arr enumerateObjectsUsingBlock:^(NSDictionary * obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 MFYArticle * article = [[MFYArticle alloc]initWithDictionary:obj];
+                article.bgName = bgNameNum;
+                bgNameNum ++;
+                if (bgNameNum > 6) {
+                    bgNameNum = 1;
+                }
                 [ArticleArr addObject:article];
             }];
             completion(ArticleArr.copy,nil);

@@ -33,6 +33,15 @@
 - (void)setupViews {
     [self addSubview:self.coverImageV];
     [self addSubview:self.addbutton];
+    [self setupAddBtn];
+}
+
+- (void)setupAddBtn {
+    if (self.type == MFYVideoAndImageViewBigType) {
+        [self.addbutton setImage:WHImageNamed(@"public_bigAdd") forState:UIControlStateNormal];
+    }else {
+        [self.addbutton setImage:WHImageNamed(@"public_smallAdd") forState:UIControlStateNormal];
+    }
 }
 
 - (void)setImageData:(MFYAssetModel *)model {
@@ -43,7 +52,7 @@
             }else {
                 [self.coverImageV setImage:model.highImage];
             }
-            [self.addbutton setImage:WHImageNamed(@"public_smallAdd") forState:UIControlStateNormal];
+            [self setupAddBtn];
         }else if(model.type == CMSAssetMediaTypeVideo || model.type == CMSAssetMediaTypeEditVideo){
             [model getVideoCoverImageCompletion:^(UIImage * _Nonnull image) {
                 [self.coverImageV setImage:image];
@@ -79,6 +88,7 @@
         _coverImageV.backgroundColor = [UIColor whiteColor];
         _coverImageV.contentMode = UIViewContentModeScaleAspectFit;
         _coverImageV.clipsToBounds = YES;
+        _coverImageV.backgroundColor = wh_colorWithHexString(@"#EBECF5");
     }
     return _coverImageV;
 }
@@ -86,7 +96,6 @@
 - (UIButton *)addbutton {
     if (!_addbutton) {
         _addbutton = UIButton.button;
-        _addbutton.WH_setImage_forState(WHImageNamed(@"public_smallAdd"),UIControlStateNormal);
         _addbutton.contentMode = UIViewContentModeCenter;
         _addbutton.clipsToBounds = YES;
     }

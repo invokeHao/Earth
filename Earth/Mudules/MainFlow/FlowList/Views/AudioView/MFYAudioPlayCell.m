@@ -16,6 +16,12 @@
 
 @interface MFYAudioPlayCell ()<AVAudioPlayerDelegate>
 
+{
+    CGFloat _backTop;
+    CGFloat _headerTop;
+    CGFloat _nameHeight;
+}
+
 @property (strong, nonatomic)YYAnimatedImageView * headIcon;
 
 @property (strong, nonatomic)UILabel * nameLabel;
@@ -26,7 +32,11 @@
 
 @property (strong, nonatomic)MFYTagDisplayView * tagView;
 
+@property (strong, nonatomic)UIView * centerBackView;
+
 @property (strong, nonatomic)YYAnimatedImageView * playView;
+
+@property (strong, nonatomic)UIImageView * stopView;
 
 @property (strong, nonatomic)UIButton * likeBtn;
 
@@ -59,13 +69,20 @@
 }
 
 - (void)setupViews {
+    
+    _headerTop = 0;
+    _backTop = 30;
+    _nameHeight = 17;
+    
     [self.contentView addSubview:self.audioBack];
     [self.contentView addSubview:self.headIcon];
     [self.contentView addSubview:self.nameLabel];
     [self.contentView addSubview:self.tagView];
     
     [self.audioBack addSubview:self.timeLabel];
+    [self.audioBack addSubview:self.centerBackView];
     [self.audioBack addSubview:self.playView];
+    [self.audioBack addSubview:self.stopView];
     [self.audioBack addSubview:self.likeBtn];
     [self.audioBack addSubview:self.likeLabel];
     [self.audioBack addSubview:self.replyBtn];
@@ -74,22 +91,28 @@
     [self.audioBack addSubview:self.shareBtn];
 }
 
+- (void)setupCardView {
+    _headerTop = 10;
+    _backTop = 0;
+    _nameHeight = 0;
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     [self.headIcon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self.contentView);
-        make.top.mas_equalTo(0);
+        make.top.mas_equalTo(_headerTop);
         make.size.mas_equalTo(CGSizeMake(60, 60));
     }];
     
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self.headIcon);
         make.top.mas_equalTo(self.headIcon.mas_bottom).offset(10);
-        make.height.mas_equalTo(17);
+        make.height.mas_equalTo(_nameHeight);
     }];
     
     [self.audioBack mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(30);
+        make.top.mas_equalTo(_backTop);
         make.left.right.bottom.mas_equalTo(0);
     }];
     
@@ -106,10 +129,21 @@
         make.height.mas_equalTo(self.tagViewHeight);
     }];
     
+    [self.centerBackView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.mas_equalTo(self.audioBack);
+        make.size.mas_equalTo(CGSizeMake(W_SCALE(96), W_SCALE(96)));
+    }];
+    
     [self.playView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.mas_equalTo(self.audioBack);
-        make.size.mas_equalTo(CGSizeMake(W_SCALE(97), W_SCALE(97)));
+        make.size.mas_equalTo(CGSizeMake(W_SCALE(96), W_SCALE(96)));
     }];
+    
+    [self.stopView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.mas_equalTo(self.audioBack);
+        make.size.mas_equalTo(CGSizeMake(W_SCALE(29), W_SCALE(35)));
+    }];
+    
     [self.likeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(W_SCALE(48));
         make.bottom.mas_equalTo(H_SCALE(-70));
@@ -147,6 +181,7 @@
     }];
 }
 
+
 - (void)configTheTagViewHeight {
     CGFloat tagViewH = (H_SCALE(440)/2 - (H_SCALE(97)/2) - 110);
     CGFloat H = 0;
@@ -173,6 +208,18 @@
         }
     }];
     [self.playView addGestureRecognizer:tap];
+    
+    UITapGestureRecognizer * tapPlay = [[UITapGestureRecognizer alloc]init];
+    [[tapPlay rac_gestureSignal] subscribeNext:^(id x) {
+        @strongify(self)
+        if (self.audioPlayer.isPlaying) {
+            [self pauseTheAudio];
+        }else {
+            [self mfy_startPlay];
+        }
+    }];
+    [self.stopView addGestureRecognizer:tapPlay];
+
     
     [[self.likeBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * btn) {
        @strongify(self)
@@ -220,6 +267,7 @@
     if (model != nil) {
         _model = model;
         MFYProfile * profile = model.profile;
+        [self.audioBack setImage:WHImageNamed(FORMAT(@"audioBG_%ld",model.bgName))];
         [self.headIcon yy_setImageWithURL:[NSURL URLWithString:profile.headIconUrl] placeholder:WHImageNamed(@"default_user")];
         [self.nameLabel setText:profile.nickname];
         [self.tagView setTags: profile.tags];
@@ -247,17 +295,25 @@
     }
     [self.audioPlayer play];
     [self.playView startAnimating];
+    [self.playView setHidden:NO];
+    [self.stopView setHidden:YES];
+
 }
 
 - (void)pauseTheAudio {
     [self.audioPlayer pause];
     [self.playView stopAnimating];
+    [self.playView setHidden:YES];
+    [self.stopView setHidden:NO];
 }
 
 - (void)mfy_stopPlay {
     [self.audioPlayer stop];
     self.audioPlayer = nil;
     [self.playView stopAnimating];
+    [self.playView setHidden:YES];
+    [self.stopView setHidden:NO];
+
 }
 
 #pragma mark- audioDeleagate
@@ -333,18 +389,6 @@
     return _tagView;
 }
 
-- (YYAnimatedImageView *)playView {
-    if (!_playView) {
-        YYImage * image = [YYImage imageNamed:@"audio_playing.gif"];
-        image.preloadAllAnimatedImageFrames = YES;
-        _playView = [[YYAnimatedImageView alloc]initWithImage:image];
-        _playView.contentMode = UIViewContentModeScaleAspectFill;
-        _playView.autoPlayAnimatedImage = NO;
-        _playView.userInteractionEnabled = YES;
-    }
-    return _playView;
-}
-
 - (UIButton *)likeBtn {
     if (!_likeBtn) {
         _likeBtn = UIButton.button;
@@ -395,5 +439,38 @@
     return _shareBtn;
 }
 
+- (UIView *)centerBackView {
+    if (!_centerBackView) {
+        _centerBackView = [[UIView alloc]init];
+        _centerBackView.backgroundColor = wh_colorWithHexString(@"#000507");
+        _centerBackView.alpha = 0.4;
+        _centerBackView.layer.cornerRadius = 48;
+        _centerBackView.clipsToBounds = YES;
+    }
+    return _centerBackView;;
+}
+
+- (YYAnimatedImageView *)playView {
+    if (!_playView) {
+        YYImage * image = [YYImage imageNamed:@"audio_playing.gif"];
+        image.preloadAllAnimatedImageFrames = YES;
+        _playView = [[YYAnimatedImageView alloc]initWithImage:image];
+        _playView.contentMode = UIViewContentModeScaleAspectFill;
+        _playView.autoPlayAnimatedImage = NO;
+        _playView.userInteractionEnabled = YES;
+    }
+    return _playView;
+}
+
+
+- (UIImageView *)stopView {
+    if (!_stopView) {
+        _stopView = UIImageView.imageView.WH_image(WHImageNamed(@"audioCell_stop"));
+        _stopView.contentMode = UIViewContentModeCenter;
+        _stopView.hidden = YES;
+        _stopView.userInteractionEnabled = YES;
+    }
+    return _stopView;;
+}
 
 @end

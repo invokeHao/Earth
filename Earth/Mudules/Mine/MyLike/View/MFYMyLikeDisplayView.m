@@ -95,6 +95,7 @@ static NSString * const FooterReuseID = @"FooterReuseID";
     if (article.MFYmediaType == MFYArticleTypeAudio) {
         [collectionView registerClass:[MFYAudioPlayCell class] forCellWithReuseIdentifier:[MFYAudioPlayCell reuseID]];
         MFYAudioPlayCell *audioCell = [collectionView dequeueReusableCellWithReuseIdentifier:[MFYAudioPlayCell reuseID] forIndexPath:indexPath];
+        [audioCell setupCardView];
         [audioCell setModel:article];
         @weakify(self)
         [audioCell setLongPressBlock:^{
