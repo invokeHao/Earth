@@ -13,6 +13,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "MFYArticleService.h"
 #import "MFYShareView.h"
+#import "MFYProfessView.h"
 
 @interface MFYAudioPlayCell ()<AVAudioPlayerDelegate>
 
@@ -227,6 +228,12 @@
         [MFYArticleService postLikeArticle:self.model.articleId isLike:like Completion:^(BOOL isSuccess, NSError * _Nonnull error) {
             if (!error) {
                 [btn setSelected:like];
+                if (like) {
+                    self.model.likeTimes += 1;
+                }else {
+                    self.model.likeTimes -= 1;
+                }
+                self.likeLabel.text = self.model.likeTimes > 0 ? FORMAT(@"%ld人喜欢",(long)self.model.likeTimes) : @"喜欢";
             }
         }];
     }];
@@ -260,6 +267,25 @@
     [[self.shareBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self)
         [MFYShareView showInViewWithArticle:self.model];
+    }];
+    
+    [[self.replyBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+       @strongify(self)
+        [WHHud showActivityView];
+        [MFYRechargeService getTheProfessStatusCompletion:^(CGFloat price, NSError * _Nonnull error) {
+            [WHHud hideActivityView];
+            if (!error) {
+                if (price < 0) {
+                    [WHHud showString:@"系统错误"];
+                    return;
+                }
+                MFYArticle * article = self.model;
+                [MFYProfessView showTheProfessView:article Price:price Completion:^(BOOL success) {
+                }];
+            }else{
+               [WHHud showString:error.descriptionFromServer];
+            }
+        }];
     }];
 }
 

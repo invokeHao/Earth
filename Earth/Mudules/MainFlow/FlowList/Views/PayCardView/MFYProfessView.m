@@ -61,6 +61,8 @@
     [self.payView  addSubview:self.aliPayBtn];
     [self.payView  addSubview:self.wxPayBtn];
     [self.payView  addSubview:self.professBtn];
+    
+    [self layoutViews];
 }
 
 - (void)bindEvents {
@@ -104,8 +106,7 @@
     }];
 }
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
+- (void)layoutViews {
     
     [self.backView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(0);
@@ -206,6 +207,11 @@
     _price = price;
     self.professBtn.hidden = price > 0;
     self.aliPayBtn.hidden = self.wxPayBtn.hidden = !self.professBtn.hidden;
+    CGFloat height = price > 0 ? H_SCALE(400) : H_SCALE(360);
+    [self.payView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.center.mas_equalTo(self.backView);
+        make.size.mas_equalTo(CGSizeMake(W_SCALE(280), height));
+    }];
 }
 
 - (UIView *)backView {

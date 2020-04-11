@@ -9,6 +9,7 @@
 #import "MFYCFToolView.h"
 #import "MFYBaseNavigationController.h"
 #import "MFYPublicImageCardVC.h"
+#import "MFYMineService.h"
 
 @implementation MFYCFToolView
 
@@ -39,6 +40,7 @@
     }];
     
     [[self.publicBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        [MFYMineService getSelfDetailInfoCompletion:^(MFYProfile * _Nonnull profile, NSError * _Nonnull error) {}];
         UIViewController * vc = [WHAlertTool WHTopViewController];
         MFYBaseNavigationController * Nav = [[MFYBaseNavigationController alloc]initWithRootViewController:[MFYPublicImageCardVC new]];
         [vc presentViewController:Nav animated:YES completion:NULL];

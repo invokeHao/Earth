@@ -39,7 +39,7 @@
     }];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(12);
-        make.bottom.mas_equalTo(-30);
+        make.bottom.mas_equalTo(-H_SCALE(30));
         make.right.mas_equalTo(-20);
     }];
     [self.likeIcon mas_makeConstraints:^(MASConstraintMaker *make) {
