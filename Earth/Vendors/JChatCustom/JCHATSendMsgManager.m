@@ -62,5 +62,13 @@
   return _textDraftDic[key] ? _textDraftDic[key] : @"";
 }
 
++ (void)sendMessage:(NSString *)messageStr withConversation:(JMSGConversation *)conversation {
+    
+    [[JCHATSendMsgManager ins] updateConversation:conversation withDraft:@""];
+    JMSGTextContent *textContent = [[JMSGTextContent alloc] initWithText:messageStr];
+    JMSGMessage * message = [conversation createMessageWithContent:textContent];
+    [conversation sendMessage:message];
+}
+
 
 @end

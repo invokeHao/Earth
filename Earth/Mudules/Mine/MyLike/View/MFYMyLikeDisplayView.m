@@ -240,5 +240,14 @@ static NSString * const FooterReuseID = @"FooterReuseID";
     }
 }
 
+- (MFYArticle *)currendCard {
+    if (self.dataList.count > 0 ) {
+        MFYArticle * article = self.dataList[self.currentIndex];
+        return article;
+    }else {
+        return nil;
+    }
+}
+
 @end
 

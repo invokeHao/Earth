@@ -57,6 +57,8 @@
 		67557091241A33B7008D6614 /* ATAuthSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6755708E241A33B6008D6614 /* ATAuthSDK.bundle */; };
 		67557094241A3B64008D6614 /* UMModelCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67557093241A3B64008D6614 /* UMModelCreate.m */; };
 		6755709A241B4F4A008D6614 /* MFYPayCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67557099241B4F4A008D6614 /* MFYPayCardView.m */; };
+		6757D56A24404F43009482D5 /* MFYProfessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6757D56924404F43009482D5 /* MFYProfessView.m */; };
+		6757D56E244067D8009482D5 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6757D56D244067D8009482D5 /* UITextView+Placeholder.m */; };
 		6763D79023CEEE5B003D9E20 /* MFYHTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D78F23CEEE5B003D9E20 /* MFYHTTPManager.m */; };
 		6763D79323CEEFE1003D9E20 /* MFYResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D79223CEEFE1003D9E20 /* MFYResponseObject.m */; };
 		6763D79623CEF400003D9E20 /* MFYServiceURLConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D79523CEF400003D9E20 /* MFYServiceURLConfig.m */; };
@@ -411,6 +413,10 @@
 		67557093241A3B64008D6614 /* UMModelCreate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMModelCreate.m; sourceTree = "<group>"; };
 		67557098241B4F4A008D6614 /* MFYPayCardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYPayCardView.h; sourceTree = "<group>"; };
 		67557099241B4F4A008D6614 /* MFYPayCardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYPayCardView.m; sourceTree = "<group>"; };
+		6757D56824404F43009482D5 /* MFYProfessView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYProfessView.h; sourceTree = "<group>"; };
+		6757D56924404F43009482D5 /* MFYProfessView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYProfessView.m; sourceTree = "<group>"; };
+		6757D56C244067D8009482D5 /* UITextView+Placeholder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
+		6757D56D244067D8009482D5 /* UITextView+Placeholder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
 		6763D78E23CEEE5B003D9E20 /* MFYHTTPManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYHTTPManager.h; sourceTree = "<group>"; };
 		6763D78F23CEEE5B003D9E20 /* MFYHTTPManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYHTTPManager.m; sourceTree = "<group>"; };
 		6763D79123CEEFE1003D9E20 /* MFYResponseObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYResponseObject.h; sourceTree = "<group>"; };
@@ -1117,6 +1123,7 @@
 		6746D48323B4E73000A46FC7 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				6757D56B244067A2009482D5 /* UITextView */,
 				67CC31B5240549BC002E6E2B /* UIScrollView */,
 				67CC30EF23F14D12002E6E2B /* UIImage */,
 				6746D48423B4E73000A46FC7 /* UIColor */,
@@ -1264,8 +1271,19 @@
 			children = (
 				67557098241B4F4A008D6614 /* MFYPayCardView.h */,
 				67557099241B4F4A008D6614 /* MFYPayCardView.m */,
+				6757D56824404F43009482D5 /* MFYProfessView.h */,
+				6757D56924404F43009482D5 /* MFYProfessView.m */,
 			);
 			path = PayCardView;
+			sourceTree = "<group>";
+		};
+		6757D56B244067A2009482D5 /* UITextView */ = {
+			isa = PBXGroup;
+			children = (
+				6757D56C244067D8009482D5 /* UITextView+Placeholder.h */,
+				6757D56D244067D8009482D5 /* UITextView+Placeholder.m */,
+			);
+			path = UITextView;
 			sourceTree = "<group>";
 		};
 		6763D78D23CEEE17003D9E20 /* Network */ = {
@@ -2957,6 +2975,7 @@
 				67CC3248240D194B002E6E2B /* UIImage+MultiFormat.m in Sources */,
 				67CC321A240D133B002E6E2B /* MJPhoto.m in Sources */,
 				67CC317E23FFA738002E6E2B /* MFYSettingListVC.m in Sources */,
+				6757D56E244067D8009482D5 /* UITextView+Placeholder.m in Sources */,
 				67C435712424C4B70081C477 /* PhotoInfoModel.m in Sources */,
 				672503FB23D421A800716842 /* MFYOpenUDID.m in Sources */,
 				679A02D723F107620041A012 /* UIView+MOExtension.m in Sources */,
@@ -3105,6 +3124,7 @@
 				67CC324F240D194B002E6E2B /* UIButton+WebCache.m in Sources */,
 				67C4355B2424C2590081C477 /* SRAlbumBrowseViewController.m in Sources */,
 				679A02E523F107620041A012 /* MONotHighlightButton.m in Sources */,
+				6757D56A24404F43009482D5 /* MFYProfessView.m in Sources */,
 				67CC313123F9244B002E6E2B /* MFYAudioDisplayView.m in Sources */,
 				67CC313A23F927D1002E6E2B /* MFYBaseCollectionViewCell.m in Sources */,
 				67C435B92424C74F0081C477 /* FLAnimatedImage.m in Sources */,
@@ -3316,7 +3336,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Earth/Earth.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = MYYDS5WA57;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3350,7 +3370,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Earth/Earth.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = MYYDS5WA57;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (

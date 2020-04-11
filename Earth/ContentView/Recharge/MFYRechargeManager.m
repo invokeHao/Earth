@@ -51,6 +51,19 @@
     }];
 }
 
++ (void)professWXRechargeCompletion:(void (^)(BOOL))completion {
+    MFYRechargeManager * manager = [MFYRechargeManager sharedManager];
+    [MFYRechargeService professRechargePayType:MFYPayTypeWXPay Completion:^(MFYWXOrderModel * _Nonnull model, NSError * _Nonnull error) {
+        if (!error) {
+            manager.model = model;
+            manager.payResBlock = completion;
+            [manager payTheOrder:model];
+        }else {
+            WHLog(@"%@",[error descriptionFromServer]);
+        }
+    }];
+}
+
 - (void)payTheOrder:(MFYWXOrderModel *)model {
     PayReq *request = [[PayReq alloc] init];
     request.partnerId = model.wxPayPartnerId;

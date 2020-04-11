@@ -20,6 +20,7 @@
 #import "NSString+WHExtention.h"
 #import "NSDate+Utilities.h"
 #import "UIImage+ResizeMagick.h"
+#import "UITextView+Placeholder.h"
 
 #import "JMSGConversation+MFYTop.h"
 

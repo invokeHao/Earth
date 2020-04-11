@@ -77,6 +77,13 @@
     if (article) {
         _article = article;
         @weakify(self)
+        if (article.embeddedArticles.count == 1) {
+            CGFloat itemH = H_SCALE(325);
+            CGFloat itemMW = VERTICAL_SCREEN_WIDTH - 24 - 2;
+            [self.bigItem setFrame:CGRectMake(0, 0, itemMW, itemH)];
+            [self.smallTopItem setFrame:CGRectZero];
+            [self.smallBottomItem setFrame:CGRectZero];
+        }
         [article.embeddedArticles enumerateObjectsUsingBlock:^(MFYItem * item, NSUInteger idx, BOOL * _Nonnull stop) {
             @strongify(self)
             if (idx == 0) {

@@ -26,6 +26,22 @@
     }];
 }
 
++ (void)professRechargePayType:(MFYPayType)payType Completion:(void (^)(MFYWXOrderModel * , NSError * ))completion {
+    NSMutableDictionary * dic = [NSMutableDictionary dictionaryWithCapacity:0];
+    dic[@"sourcetype"] = @(payType);
+    [[MFYHTTPManager sharedManager] POST:@"/api/self/chat/recharge" parameters:dic success:^(NSURLSessionDataTask * _Nonnull task, MFYResponseObject * _Nonnull responseObject) {
+        if (responseObject.code ==  1) {
+            MFYWXOrderModel * model = [[MFYWXOrderModel alloc]initWithDictionary:responseObject.result];
+            completion(model,nil);
+        }else{
+            completion(nil,[NSError errorWithCode:responseObject.code desc:responseObject.errorDesc]);
+        }
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        completion(nil,error);
+    }];
+
+}
+
 + (void)purchaseCard:(NSString *)articleId PayType:(MFYPayType)payType Completion:(void (^)(MFYWXOrderModel * , NSError * ))completion {
     NSMutableDictionary * dic = [NSMutableDictionary dictionaryWithCapacity:0];
     dic[@"sourcetype"] = @(payType);
@@ -58,7 +74,22 @@
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         completion(nil, error);
     }];
+}
 
++ (void)getTheProfessStatusCompletion:(void (^)(CGFloat, NSError *))completion {
+    
+    [[MFYHTTPManager sharedManager] POST:@"/api/profile/interact/chat/check" parameters:@{} success:^(NSURLSessionDataTask * _Nonnull task, MFYResponseObject * _Nonnull cmsResponse) {
+        MFYResponseObject * resp = cmsResponse;
+        if (resp.code == 1) {
+            //返回0表示不需要充值尚有余额，大于0表示该次表白需要的价格。
+            CGFloat price = [resp.result floatValue];
+            completion(price,nil);
+        }else {
+            completion(-1,[NSError errorWithCode:resp.code desc:resp.errorDesc]);
+        }
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        completion(-1, error);
+    }];
 }
 
 

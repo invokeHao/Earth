@@ -28,8 +28,16 @@ typedef NS_ENUM(NSUInteger, MFYPayType) {
              PayType:(MFYPayType)payType
           Completion:(void(^)(MFYWXOrderModel *orderModel, NSError * error))completion;
 
+#pragma mark- 购买表白次数
++ (void)professRechargePayType:(MFYPayType)payType
+                    Completion:(void(^)(MFYWXOrderModel *model, NSError *error))completion;
+
 #pragma mark- 查询充值状态
 + (void)getTheRechargeOrderStatus:(NSString *)orderId Completion:(void(^)(MFYWXOrderModel *orderModel, NSError * error))completion;
+
+#pragma mark- 检查表白次数
++ (void)getTheProfessStatusCompletion:(void(^)(CGFloat price, NSError * error))completion;
+
 
 @end
 

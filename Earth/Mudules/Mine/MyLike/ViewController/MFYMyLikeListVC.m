@@ -9,6 +9,7 @@
 #import "MFYMyLikeListVC.h"
 #import "MFYMyLikeVM.h"
 #import "MFYMyLikeDisplayView.h"
+#import "MFYProfessView.h"
 
 @interface MFYMyLikeListVC ()
 
@@ -61,7 +62,26 @@
 
 - (void)bindEvents {
     [[self.professBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        WHLog(@"表白");
+        [WHHud showActivityView];
+        [MFYRechargeService getTheProfessStatusCompletion:^(CGFloat price, NSError * _Nonnull error) {
+            [WHHud hideActivityView];
+            if (!error) {
+                if (price < 0) {
+                    [WHHud showString:@"系统错误"];
+                    return;
+                }
+                MFYArticle * article = self.displayView.currendCard;
+                if (article == nil) {
+                    [WHHud showString:@"没有表白对象"];
+                    return;
+                }
+                [MFYProfessView showTheProfessView:article Price:price Completion:^(BOOL success) {
+                }];
+            }else{
+               [WHHud showString:error.descriptionFromServer];
+            }
+        }];
+
     }];
 }
 

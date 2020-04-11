@@ -47,7 +47,7 @@
 - (UIImageView *)setUpLaunchImageView {
     if (self.launchImageView == nil) {
         self.launchImageView = [[UIImageView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-        self.launchImageView.contentMode = UIViewContentModeScaleAspectFill;
+        self.launchImageView.contentMode = UIViewContentModeScaleAspectFit;
         self.launchImageView.image = [self launchImage];
     }
     return self.launchImageView;

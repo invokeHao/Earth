@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)purchaseTheCard:(NSString *)articleId completion:(void(^)(BOOL issuccess))completion;
 
++ (void)professWXRechargeCompletion:(void (^)(BOOL issuccess))completion;
+
 - (BOOL)WXHandleUrl:(NSURL *)url;
 
 - (BOOL)WXhandleOpenUniversalLink:(NSUserActivity*)userActivity;

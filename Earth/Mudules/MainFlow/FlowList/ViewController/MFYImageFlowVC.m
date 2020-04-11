@@ -18,6 +18,7 @@
 #import "MFYPayCardView.h"
 #import "MFYCategroyFlowTopView.h"
 #import "MFYCoreFlowCategroyVC.h"
+#import "MFYProfessView.h"
 
 @interface MFYImageFlowVC ()<YHDragCardDelegate,YHDragCardDataSource,JXCategoryViewDelegate>
 
@@ -132,18 +133,22 @@
     
     [self.toolView setTapMessageBlock:^(BOOL tap) {
         @strongify(self)
-        WHLogSuccess(@"imid ===  %@",self.currentCard.model.profile.imId);
-        MFYSingleChatVC * chatVC = [[MFYSingleChatVC alloc]init];
-        chatVC.userProfile = self.currentCard.model.profile;
-        [JMSGConversation createSingleConversationWithUsername:self.currentCard.model.profile.imId appKey:JMESSAGE_APPKEY completionHandler:^(id resultObject, NSError *error) {
-            @strongify(self)
-            if (error == nil) {
-                chatVC.conversation = resultObject;
-                JCHATMAINTHREAD(^{
-                    [self.navigationController pushViewController:chatVC animated:YES];
-                });
-            } else {
-                WHLogError(@"createSingleConversationWithUsername");
+//        if (self.currentCard.model.profile.inRelationDestChatAmount > 0) {
+//            [WHHud showString:@""];
+//        }
+        [WHHud showActivityView];
+        [MFYRechargeService getTheProfessStatusCompletion:^(CGFloat price, NSError * _Nonnull error) {
+            [WHHud hideActivityView];
+            if (!error) {
+                if (price < 0) {
+                    [WHHud showString:@"系统错误"];
+                    return;
+                }
+                MFYArticle * article = self.currentCard.model;
+                [MFYProfessView showTheProfessView:article Price:price Completion:^(BOOL success) {
+                }];
+            }else{
+               [WHHud showString:error.descriptionFromServer];
             }
         }];
     }];

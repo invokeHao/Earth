@@ -27,6 +27,8 @@ typedef void(^scrollItemBlock)(NSInteger index);
 
 @property (nonatomic, strong)scrollItemBlock scrollBlock;
 
+@property (nonatomic, strong)MFYArticle * currendCard;
+
 @property (nonatomic, strong) MFYBaseCollectionView * mainCollection;
 
 @property (nonatomic, assign) BOOL requesting;

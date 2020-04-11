@@ -25,6 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark- 搜索聊天好友
 + (void)postSearchFriendsPramaDic:(NSDictionary *)dic Completion:(void(^)(NSArray<MFYProfile *> *userArr, NSError * error))completion;
 
+#pragma mark- 向某人表白
++ (void)postProfessSB:(NSString *)userid Completion:(void(^)(BOOL isSuccess, NSError * error))completion;
+
 #pragma mark- 获取可能认识的人
 + (void)postMayKnowFriendsWithPhoneNum:(NSArray *)numArr Completion:(void(^)(NSArray<MFYProfile *> *userArr, NSError * error))completion;
 
