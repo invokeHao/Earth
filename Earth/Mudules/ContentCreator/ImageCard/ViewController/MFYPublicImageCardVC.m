@@ -11,6 +11,13 @@
 #import "MFYPublicImageCardDetailVC.h"
 #import "MFYPublishModel.h"
 #import "MFYDynamicManager.h"
+#import "MFYPublicManager.h"
+
+typedef NS_ENUM(NSUInteger, MFYImageViewType) {
+    MFYBigViewType,
+    MFYTopSmallViewType,
+    MFYBottomSmallViewType,
+};
 
 @interface MFYPublicImageCardVC ()<UITextFieldDelegate>
 
@@ -33,6 +40,8 @@
 @property (nonatomic, strong)MFYVideoAndImageView * bottomSmallView;
 
 @property (nonatomic, strong)MFYPublishModel * publishModel;
+
+@property (nonatomic, strong)MFYPublicManager * publicManager;
 
 
 @end
@@ -142,6 +151,7 @@
         self.publishModel.topicId = self.topicId;
         [MFYDynamicManager publishTheArticle:self.publishModel completion:^(MFYArticle * article, NSError * error) {
             if (article != nil) {
+                [WHHud showString:@"发布成功"];
                 //发布成功的通知
                 [[NSNotificationCenter defaultCenter] postNotificationName:MFYNotificationPublishImageSuccess object:nil];
                 [self dismissViewControllerAnimated:YES completion:NULL];
@@ -167,6 +177,43 @@
         return newLength <= 20 || returnKey;
     }
     return NO;
+}
+
+#pragma mark- 选图发帖
+- (void)tapToSlecetedPicType:(MFYImageViewType)type {
+    @weakify(self)
+    [self.publicManager publishPhotoFromVC:self publishType:mfyPublicTypeNull completion:^(MFYAssetModel * _Nullable model) {
+        if (model) {
+            @strongify(self)
+            MFYPublicImageCardDetailVC * detailVC = [[MFYPublicImageCardDetailVC alloc]init];
+            detailVC.isBig = type == MFYBigViewType;
+            detailVC.itemModel.assetModel = model;
+            detailVC.publishB = ^(MFYPublishItemModel * _Nullable itemModel) {
+                @strongify(self)
+                [self setupImageDataWithType:type itemModel:itemModel];
+            };
+            [self.navigationController pushViewController:detailVC animated:YES];
+        }
+    }];
+}
+
+- (void)setupImageDataWithType:(MFYImageViewType)type itemModel:(MFYPublishItemModel*)itemModel{
+    switch (type) {
+        case MFYBigViewType:
+            self.publishModel.bigitem = itemModel;
+            [self.bigView setImageData:itemModel.assetModel];
+            break;
+        case MFYTopSmallViewType:
+            self.publishModel.smallTopItem = itemModel;
+            [self.topSmallView setImageData:itemModel.assetModel];
+            break;
+        case MFYBottomSmallViewType:
+            self.publishModel.smallBottomItem = itemModel;
+            [self.bottomSmallView setImageData:itemModel.assetModel];
+            break;
+        default:
+            break;
+    }
 }
 
 
@@ -221,13 +268,7 @@
         @weakify(self);
         _bigView.tapAddBlock = ^{
             @strongify(self)
-            MFYPublicImageCardDetailVC * detailVC = [[MFYPublicImageCardDetailVC alloc]init];
-            detailVC.isBig = YES;
-            detailVC.publishB = ^(MFYPublishItemModel * _Nullable itemModel) {
-                self.publishModel.bigitem = itemModel;
-                [self.bigView setImageData:itemModel.assetModel];
-            };
-            [self.navigationController pushViewController:detailVC animated:YES];
+            [self tapToSlecetedPicType:MFYBigViewType];
         };
     }
     return _bigView;
@@ -239,12 +280,7 @@
         @weakify(self)
         _topSmallView.tapAddBlock = ^{
             @strongify(self)
-            MFYPublicImageCardDetailVC * detailVC = [[MFYPublicImageCardDetailVC alloc]init];
-              detailVC.publishB = ^(MFYPublishItemModel * _Nullable itemModel) {
-                  self.publishModel.smallTopItem = itemModel;
-                  [self.topSmallView setImageData:itemModel.assetModel];
-              };
-              [self.navigationController pushViewController:detailVC animated:YES];
+            [self tapToSlecetedPicType:MFYTopSmallViewType];
         };
     }
     return _topSmallView;
@@ -256,12 +292,7 @@
         @weakify(self)
         _bottomSmallView.tapAddBlock = ^{
             @strongify(self)
-            MFYPublicImageCardDetailVC * detailVC = [[MFYPublicImageCardDetailVC alloc]init];
-              detailVC.publishB = ^(MFYPublishItemModel * _Nullable itemModel) {
-                  self.publishModel.smallBottomItem = itemModel;
-                  [self.bottomSmallView setImageData:itemModel.assetModel];
-              };
-              [self.navigationController pushViewController:detailVC animated:YES];
+            [self tapToSlecetedPicType:MFYBottomSmallViewType];
         };
     }
     return _bottomSmallView;
@@ -280,6 +311,14 @@
     }
     return _publishModel;
 }
+
+- (MFYPublicManager *)publicManager {
+    if (!_publicManager) {
+        _publicManager = [[MFYPublicManager alloc]init];
+    }
+    return  _publicManager;
+}
+
 
 
 @end

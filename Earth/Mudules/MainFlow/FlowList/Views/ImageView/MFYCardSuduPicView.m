@@ -346,7 +346,7 @@
     if (self.picImageV.jp_playerStatus == JPVideoPlayerStatusPlaying) {
         return;
     }
-    [self.picImageV jp_playVideoWithURL:self.playUrl options:JPVideoPlayerLayerVideoGravityResize configuration:^(UIView * _Nonnull view, JPVideoPlayerModel * _Nonnull playerModel) {
+    [self.picImageV jp_playVideoWithURL:self.playUrl options:JPVideoPlayerLayerVideoGravityResizeAspectFill configuration:^(UIView * _Nonnull view, JPVideoPlayerModel * _Nonnull playerModel) {
     }];
 }
 

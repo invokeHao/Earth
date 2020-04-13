@@ -145,6 +145,7 @@
     [self.myNoteCell setSelectB:^(BOOL isTap) {
         @strongify(self)
         MFYMyNoteVC * noteVC = [[MFYMyNoteVC alloc]init];
+        noteVC.profile = self.viewModel.profile;
         [self.navigationController pushViewController:noteVC animated:YES];
     }];
     [self.myPayedCell setSelectB:^(BOOL isTap) {

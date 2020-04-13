@@ -74,6 +74,9 @@
 }
 
 + (void)showString:(NSString *)string {
+    if ([string isEqualToString:@""]) {
+        return;
+    }
     [self showString:string hideDelay:HUDHideDelay];
 }
 

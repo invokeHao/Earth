@@ -51,6 +51,7 @@
     if (flowTag) {
         _flowTag = flowTag;
         self.topLabel.text = FORMAT(@"23141人喜欢【%@】",flowTag.value);
+        self.tipsLabel.WH_text(FORMAT(@"发布动态，寻找喜欢%@的朋友",flowTag.value));
     }
 }
 
@@ -67,7 +68,7 @@
     if (!_tipsLabel) {
         _tipsLabel = UILabel.label.WH_textColor(wh_colorWithHexString(@"#FD94AF"));
         _tipsLabel.WH_textAlignment(NSTextAlignmentCenter).WH_font(WHFont(13));
-        _tipsLabel.WH_text(@"发布动态，寻找喜欢人气的朋友");
+        
     }
     return _tipsLabel;
 }

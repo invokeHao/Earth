@@ -27,6 +27,8 @@
 
 @property (nonatomic, strong)UIView * lineView;
 
+@property (nonatomic, strong)UILabel * idLabel;
+
 @end
 
 @implementation MFYMyNoteVC
@@ -58,6 +60,7 @@
     [self.view addSubview:self.displayView];
     [self.view addSubview:self.lineView];
     [self.view addSubview:self.timelineView];
+    [self.view addSubview:self.idLabel];
         
     self.viewModel = [[MFYMyNoteVM alloc]init];
 }
@@ -83,7 +86,12 @@
         make.right.mas_equalTo(-15);
         make.height.mas_equalTo(1);
     }];
-
+    
+    [self.idLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.timelineView.mas_bottom).offset(35);
+        make.left.mas_equalTo(10);
+        make.height.mas_equalTo(15);
+    }];
 }
 
 - (void)bindEvents {
@@ -107,6 +115,13 @@
         @strongify(self)
         [self mfy_deleteTag:tagStr];
     }];
+    
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]init];
+    [[tap rac_gestureSignal] subscribeNext:^(id x) {
+       @strongify(self)
+        [self copyTheIDNum];
+    }];
+    [self.idLabel addGestureRecognizer:tap];
 }
 
 - (void)bindData {
@@ -164,7 +179,13 @@
             }
         }];
     }];
+}
 
+#pragma mark- 复制id
+- (void)copyTheIDNum {
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = self.profile.userId;
+    [WHHud showString:@"朋友ID复制成功"];
 }
 
 - (MFYMyLikeDisplayView *)displayView {
@@ -205,6 +226,15 @@
         _lineView.backgroundColor = wh_colorWithHexString(@"#DCDCE6");
     }
     return _lineView;
+}
+
+- (UILabel *)idLabel {
+    if (!_idLabel) {
+        _idLabel = UILabel.label.WH_font(WHFont(14)).WH_textColor(wh_colorWithHexString(@"#939399"));
+        _idLabel.userInteractionEnabled = YES;
+        _idLabel.WH_text(FORMAT(@"我的朋友ID：%@",self.profile.userId));
+    }
+    return _idLabel;;
 }
 
 

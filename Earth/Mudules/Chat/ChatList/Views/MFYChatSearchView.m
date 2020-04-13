@@ -46,7 +46,7 @@
         @strongify(self);
         make.left.mas_equalTo(11);
         make.right.mas_equalTo(-11);
-        make.height.equalTo(@36);
+        make.height.mas_equalTo(36);
         make.centerY.mas_equalTo(self);
     }];
 }

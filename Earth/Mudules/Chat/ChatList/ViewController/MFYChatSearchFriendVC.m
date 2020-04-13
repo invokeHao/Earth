@@ -32,6 +32,11 @@
     [self dataBind];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.TopView.searchView.textField becomeFirstResponder];
+}
+
 - (void)setupViews {
     self.navBar.hidden = YES;
     [self.view addSubview:self.TopView];
@@ -47,8 +52,6 @@
         make.top.mas_equalTo(self.TopView.mas_bottom).offset(15);
         make.left.right.bottom.mas_equalTo(0);
     }];
-    
-    [self.TopView.searchView.textField becomeFirstResponder];
 }
 
 - (void)bindEvents {

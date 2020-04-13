@@ -30,8 +30,6 @@ typedef enum : NSUInteger {
 
 @property (nonatomic, strong)MFYPublicManager * publicManager;
 
-@property (nonatomic, strong)MFYPublishItemModel * itemModel;
-
 @property (nonatomic, strong)UITextField * redField;
 
 @property (nonatomic, strong)UITextField * descField;
@@ -176,6 +174,7 @@ typedef enum : NSUInteger {
                 return titleCell;
             }else{
                 MFYPrivacyOptionCell * videoCell = [MFYPrivacyOptionCell mfy_cellWithTableView:tableView type:MFYPrivacyOptionImageType];
+                [videoCell.videoView setImageData:self.itemModel.assetModel];
                 @weakify(self)
                 @weakify(videoCell)
                 [videoCell setAddPhotoBlock:^{
@@ -218,6 +217,7 @@ typedef enum : NSUInteger {
              return titleCell;
          }else{
              MFYPrivacyOptionCell * videoCell = [MFYPrivacyOptionCell mfy_cellWithTableView:tableView type:MFYPrivacyOptionImageType];
+             [videoCell.videoView setImageData:self.itemModel.assetModel];
              @weakify(self)
              @weakify(videoCell)
              [videoCell setAddPhotoBlock:^{

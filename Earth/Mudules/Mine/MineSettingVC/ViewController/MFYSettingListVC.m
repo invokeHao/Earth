@@ -76,13 +76,13 @@
         make.left.right.height.mas_equalTo(self.allowSearchView);
     }];
     
-    [self.blackMenuCell mas_makeConstraints:^(MASConstraintMaker *make) {
-       make.top.mas_equalTo(self.changePhoneCell.mas_bottom).offset(8);
-       make.left.right.height.mas_equalTo(self.allowSearchView);
-    }];
+//    [self.blackMenuCell mas_makeConstraints:^(MASConstraintMaker *make) {
+//       make.top.mas_equalTo(self.changePhoneCell.mas_bottom).offset(8);
+//       make.left.right.height.mas_equalTo(self.allowSearchView);
+//    }];
     
     [self.aboutUsCell mas_makeConstraints:^(MASConstraintMaker *make) {
-       make.top.mas_equalTo(self.blackMenuCell.mas_bottom).offset(25);
+       make.top.mas_equalTo(self.changePhoneCell.mas_bottom).offset(25);
        make.left.right.height.mas_equalTo(self.allowSearchView);
     }];
     

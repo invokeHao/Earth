@@ -73,6 +73,7 @@
 - (MFYFlowCardView *)cardView {
     if (!_cardView) {
         _cardView = [[MFYFlowCardView alloc]init];
+        [_cardView setCardType:MFYFlowCardViewTypeSmall];
     }
     return _cardView;
 }

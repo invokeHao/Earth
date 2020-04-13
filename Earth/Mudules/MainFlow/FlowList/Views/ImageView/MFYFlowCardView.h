@@ -10,6 +10,12 @@
 #import "MFYCardSuduPicView.h"
 #import "MFYArticle.h"
 
+typedef NS_ENUM(NSUInteger, MFYFlowCardViewType) {
+    MFYFlowCardViewTypeBig = 1,
+    MFYFlowCardViewTypeSmall,
+};
+
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MFYFlowCardView : UIView
@@ -23,6 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIImageView * dislikeIcon;
 
 @property (nonatomic, strong) MFYArticle * model;
+
+@property (nonatomic, assign) MFYFlowCardViewType cardType;
 
 - (void)mfy_stopPlay;
 

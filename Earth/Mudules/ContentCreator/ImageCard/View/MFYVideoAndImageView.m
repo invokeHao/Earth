@@ -47,10 +47,12 @@
 - (void)setImageData:(MFYAssetModel *)model {
     if (model) {
         if (model.type == CMSAssetMediaTypePhoto) {
-            if (!model.highImage) {
-                [self.coverImageV setImage:model.thumbImage];
-            }else {
+            if (model.resizeImage) {
+                [self.coverImageV setImage:model.resizeImage];
+            }else if(model.highImage) {
                 [self.coverImageV setImage:model.highImage];
+            }else {
+                [self.coverImageV setImage:model.thumbImage];
             }
             [self setupAddBtn];
         }else if(model.type == CMSAssetMediaTypeVideo || model.type == CMSAssetMediaTypeEditVideo){

@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (assign, nonatomic)BOOL isBig;
 
+@property (nonatomic, strong)MFYPublishItemModel * itemModel;
+
 @property (strong, nonatomic)publishBlock publishB;
 
 @end

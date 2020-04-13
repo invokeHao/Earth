@@ -10,12 +10,18 @@
 
 @implementation MFYFlowCardView
 
-- (instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
         [self setupView];
+        _cardType = MFYFlowCardViewTypeBig;
     }
     return self;
+}
+
+- (void)setCardType:(MFYFlowCardViewType)cardType {
+    _cardType = cardType;
+    [self.titleLabel layoutIfNeeded];
 }
 
 - (void)setupView {
@@ -37,9 +43,11 @@
         make.left.top.right.mas_equalTo(self);
         make.height.mas_equalTo(H_SCALE(325));
     }];
+    
+    CGFloat bottomMargin = self.cardType == MFYFlowCardViewTypeBig ? 30 : 10;
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(12);
-        make.bottom.mas_equalTo(-H_SCALE(30));
+        make.bottom.mas_equalTo(-H_SCALE(bottomMargin));
         make.right.mas_equalTo(-20);
     }];
     [self.likeIcon mas_makeConstraints:^(MASConstraintMaker *make) {

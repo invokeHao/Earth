@@ -122,6 +122,10 @@
     [self.toolView setTapLikeBlock:^(BOOL like) {
         @strongify(self)
         NSString * articleId = self.currentCard.model.articleId;
+        if (!articleId) {
+            [WHHud showString:@"动态审核中.."];
+            return;
+        }
         [MFYArticleService postLikeArticle:articleId isLike:like Completion:^(BOOL isSuccess, NSError * _Nonnull error) {
             if (error) {
                 [WHHud showString:error.descriptionFromServer];
@@ -133,9 +137,11 @@
     
     [self.toolView setTapMessageBlock:^(BOOL tap) {
         @strongify(self)
-//        if (self.currentCard.model.profile.inRelationDestChatAmount > 0) {
-//            [WHHud showString:@""];
-//        }
+        MFYArticle * article = self.currentCard.model;
+        if (!article.articleId) {
+            [WHHud showString:@"动态审核中.."];
+            return;
+        }
         [WHHud showActivityView];
         [MFYRechargeService getTheProfessStatusCompletion:^(CGFloat price, NSError * _Nonnull error) {
             [WHHud hideActivityView];
@@ -144,7 +150,6 @@
                     [WHHud showString:@"系统错误"];
                     return;
                 }
-                MFYArticle * article = self.currentCard.model;
                 [MFYProfessView showTheProfessView:article Price:price Completion:^(BOOL success) {
                 }];
             }else{
@@ -161,9 +166,13 @@
             [WHHud showString:@"目前是第一张"];
             return;
         }
+        MFYArticle * article = self.viewModel.dataList[index];
+        if (!article.articleId) {
+            [WHHud showString:@"动态审核中.."];
+            return;
+        }
         [WHHud showActivityView];
-        MFYArticle * artitle = self.viewModel.dataList[index];
-        [MFYArticleService rereadArticle:artitle.articleId Completion:^(BOOL isSuccess, NSError * _Nonnull error) {
+        [MFYArticleService rereadArticle:article.articleId Completion:^(BOOL isSuccess, NSError * _Nonnull error) {
             [WHHud hideActivityView];
             @strongify(self)
             if (!error) {
@@ -172,7 +181,7 @@
                     [self revokeCard];
                 }else {
                     //充值弹窗
-                    [MFYPayCardView showTheBeforeCard:artitle Completion:^(BOOL payed) {
+                    [MFYPayCardView showTheBeforeCard:article Completion:^(BOOL payed) {
                         @strongify(self)
                         [self revokeCard];
                     }];
