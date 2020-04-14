@@ -24,6 +24,7 @@
     self = [super init];
     if (self) {
         _topicId = topicId;
+        _NewDataCount = -1;
         [self setupData];
         [self bindData];
     }

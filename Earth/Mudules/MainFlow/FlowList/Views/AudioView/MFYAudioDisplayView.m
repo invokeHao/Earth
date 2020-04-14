@@ -9,6 +9,7 @@
 #import "MFYAudioDisplayView.h"
 #import "MFYAudioFlowLayout.h"
 #import "MFYAudioPlayCell.h"
+#import "MFYEmptyView.h"
 
 
 #define cellWidth W_SCALE(280)
@@ -16,7 +17,7 @@
 #define itemSpacing W_SCALE(15)
 
 
-@interface MFYAudioDisplayView ()<UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate>
+@interface MFYAudioDisplayView ()<UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 
 
 @property (nonatomic,strong) NSArray *dataList;
@@ -116,7 +117,17 @@
         _currentIndex = index;
     }
     WHLog(@"EndDecelerating==%d",index);
-    
+}
+
+- (UIView *)customViewForEmptyDataSet:(UIScrollView *)scrollView {
+    MFYEmptyView * emptyView = [[MFYEmptyView alloc]initWithFrame:CGRectMake(0, 0, 160, 140)];
+    [emptyView setRefreshBlock:^{
+        [WHHud showActivityView];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [WHHud hideActivityView];
+        });
+    }];
+    return emptyView;
 }
 
 - (UICollectionView *)mainCollection {
@@ -134,6 +145,8 @@
         _mainCollection.delegate = self;
         _mainCollection.dataSource = self;
         _mainCollection.decelerationRate = 0.5;
+        _mainCollection.emptyDataSetDelegate = self;
+        _mainCollection.emptyDataSetSource = self;
     }
     return _mainCollection;
 }

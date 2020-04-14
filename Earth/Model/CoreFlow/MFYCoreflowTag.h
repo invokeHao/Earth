@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MFYCoreflowTag : NSObject
 
 @property (nonatomic, strong) NSString * idField;
+@property (nonatomic, assign) NSInteger count;
 @property (nonatomic, strong) NSString * value;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;

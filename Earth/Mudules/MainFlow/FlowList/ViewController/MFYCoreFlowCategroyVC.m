@@ -37,6 +37,11 @@
     [self bindEvents];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.navCategoryView selectItemAtIndex:self.selectIndex];
+}
+
 - (void)setupViews {
     self.navBar.backgroundColor = wh_colorWithHexString(@"#FF3F70");
     self.navBar.rightButton = self.messageBtn;
@@ -45,7 +50,6 @@
     self.navCategoryView.listContainer = self.listContainerView;
     [self.view addSubview:self.listContainerView];
     self.navCategoryView.titles = @[@"颜控",@"声控"];
-
 }
 
 - (void)bindEvents {

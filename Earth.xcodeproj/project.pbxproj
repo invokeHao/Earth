@@ -20,6 +20,7 @@
 		6717AC872423711D0072BBFE /* MFYFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6717AC862423711D0072BBFE /* MFYFlowLayout.m */; };
 		6717AC8A2423745B0072BBFE /* MFYPurchasedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6717AC892423745B0072BBFE /* MFYPurchasedCell.m */; };
 		6717AC8D2423778D0072BBFE /* MFYPurchasedVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 6717AC8C2423778D0072BBFE /* MFYPurchasedVM.m */; };
+		671A72DA2445B63000BB10EA /* MFYEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 671A72D92445B63000BB10EA /* MFYEmptyView.m */; };
 		672503FB23D421A800716842 /* MFYOpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 672503FA23D421A800716842 /* MFYOpenUDID.m */; };
 		672503FE23D4229A00716842 /* UDIDWithKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 672503FD23D4229A00716842 /* UDIDWithKeyChain.m */; };
 		6725040A23D433B600716842 /* MFYPublicImageCardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6725040923D433B600716842 /* MFYPublicImageCardVC.m */; };
@@ -345,6 +346,8 @@
 		6717AC892423745B0072BBFE /* MFYPurchasedCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYPurchasedCell.m; sourceTree = "<group>"; };
 		6717AC8B2423778D0072BBFE /* MFYPurchasedVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYPurchasedVM.h; sourceTree = "<group>"; };
 		6717AC8C2423778D0072BBFE /* MFYPurchasedVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYPurchasedVM.m; sourceTree = "<group>"; };
+		671A72D82445B63000BB10EA /* MFYEmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYEmptyView.h; sourceTree = "<group>"; };
+		671A72D92445B63000BB10EA /* MFYEmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYEmptyView.m; sourceTree = "<group>"; };
 		672503F923D421A800716842 /* MFYOpenUDID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYOpenUDID.h; sourceTree = "<group>"; };
 		672503FA23D421A800716842 /* MFYOpenUDID.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYOpenUDID.m; sourceTree = "<group>"; };
 		672503FC23D4229A00716842 /* UDIDWithKeyChain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UDIDWithKeyChain.h; sourceTree = "<group>"; };
@@ -1024,6 +1027,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		671A72D72445B5FD00BB10EA /* EmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				671A72D82445B63000BB10EA /* MFYEmptyView.h */,
+				671A72D92445B63000BB10EA /* MFYEmptyView.m */,
+			);
+			path = EmptyView;
+			sourceTree = "<group>";
+		};
 		672503FF23D4333A00716842 /* ContentCreator */ = {
 			isa = PBXGroup;
 			children = (
@@ -1443,6 +1455,7 @@
 		6779376323B0C22100D1B822 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				671A72D72445B5FD00BB10EA /* EmptyView */,
 				67CC312E23F9240F002E6E2B /* ImageView */,
 				67CC312D23F92405002E6E2B /* AudioView */,
 				67CC312023F681FE002E6E2B /* MFYVideoViews */,
@@ -3027,6 +3040,7 @@
 				67FB42D1241F67F700F2817D /* MFYWXOrderModel.m in Sources */,
 				67CC311B23F4FB19002E6E2B /* MFYRedPacketView.m in Sources */,
 				67CC310A23F39D56002E6E2B /* MFYTopicTagService.m in Sources */,
+				671A72DA2445B63000BB10EA /* MFYEmptyView.m in Sources */,
 				67CC31C22408BCA4002E6E2B /* AppDelegate+MFYJGIM.m in Sources */,
 				67C435DF242639B50081C477 /* MFYCoreFlowCategroyVC.m in Sources */,
 				67CC312623F6A550002E6E2B /* MFYVideoDetailVC.m in Sources */,

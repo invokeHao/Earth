@@ -19,6 +19,7 @@
 #import "MFYCategroyFlowTopView.h"
 #import "MFYCoreFlowCategroyVC.h"
 #import "MFYProfessView.h"
+#import "MFYEmptyView.h"
 
 @interface MFYImageFlowVC ()<YHDragCardDelegate,YHDragCardDataSource,JXCategoryViewDelegate>
 
@@ -32,7 +33,6 @@
 @property (nonatomic, strong) MFYCategroyFlowTopView * topView;
 
 @property (nonatomic, assign) MFYImageFlowType type;
-
 
 @end
 
@@ -113,6 +113,23 @@
         @strongify(self)
         [self.card reloadData:NO];
     }];
+    
+    RACSignal * emptyObserve = RACObserve(self, viewModel.NewDataCount);
+    [[[emptyObserve skipUntilBlock:^BOOL(id x) {
+        @strongify(self)
+        return self.viewModel.NewDataCount == 0;
+    }] deliverOnMainThread] subscribeNext:^(id x) {
+        @strongify(self)
+        [MFYEmptyView showInView:self.view refreshBlock:^{
+            @strongify(self)
+            [self.viewModel refreshData];
+            [WHHud showActivityView];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [WHHud hideActivityView];
+            });
+        }];
+    }];
+
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTheArticleList:) name:MFYNotificationPublishImageSuccess object:nil];
 }
@@ -294,6 +311,7 @@
     MFYCoreFlowCategroyVC * flowVC = [[MFYCoreFlowCategroyVC alloc]init];
     flowVC.tagImageArray = @[flowTag];
     flowVC.tagAudioArray = @[flowTag];
+    flowVC.selectIndex = 0;
     [self.navigationController pushViewController:flowVC animated:YES];
     
 }

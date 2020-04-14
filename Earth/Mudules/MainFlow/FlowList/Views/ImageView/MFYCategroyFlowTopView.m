@@ -50,7 +50,7 @@
 - (void)setFlowTag:(MFYCoreflowTag *)flowTag {
     if (flowTag) {
         _flowTag = flowTag;
-        self.topLabel.text = FORMAT(@"23141人喜欢【%@】",flowTag.value);
+        self.topLabel.text = FORMAT(@"%ld人喜欢【%@】",flowTag.count,flowTag.value);
         self.tipsLabel.WH_text(FORMAT(@"发布动态，寻找喜欢%@的朋友",flowTag.value));
     }
 }

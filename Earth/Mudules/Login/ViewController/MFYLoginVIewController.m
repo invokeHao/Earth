@@ -174,7 +174,6 @@ typedef enum : NSUInteger {
 - (void)bindEvents {
     @weakify(self)
     [[self.dismissBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        @strongify(self)
         [MFYLoginManager jumpToMainVC];
     }];
     

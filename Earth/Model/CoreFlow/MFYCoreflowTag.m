@@ -10,6 +10,7 @@
 
 NSString *const kMFYCoreflowTagIdField = @"id";
 NSString *const kMFYCoreflowTagValue = @"value";
+NSString *const kRootClassCount = @"count";
 
 @interface MFYCoreflowTag ()
 @end
@@ -25,6 +26,9 @@ NSString *const kMFYCoreflowTagValue = @"value";
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
     self = [super init];
+    if(![dictionary[kRootClassCount] isKindOfClass:[NSNull class]]){
+        self.count = [dictionary[kRootClassCount] integerValue];
+    }
     if(![dictionary[kMFYCoreflowTagIdField] isKindOfClass:[NSNull class]]){
         self.idField = dictionary[kMFYCoreflowTagIdField];
     }
@@ -41,6 +45,7 @@ NSString *const kMFYCoreflowTagValue = @"value";
 -(NSDictionary *)toDictionary
 {
     NSMutableDictionary * dictionary = [NSMutableDictionary dictionary];
+    dictionary[kRootClassCount] = @(self.count);
     if(self.idField != nil){
         dictionary[kMFYCoreflowTagIdField] = self.idField;
     }
@@ -59,6 +64,7 @@ NSString *const kMFYCoreflowTagValue = @"value";
  */
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
+    [aCoder encodeObject:@(self.count) forKey:kRootClassCount];
     if(self.idField != nil){
         [aCoder encodeObject:self.idField forKey:kMFYCoreflowTagIdField];
     }
@@ -74,6 +80,7 @@ NSString *const kMFYCoreflowTagValue = @"value";
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super init];
+    self.count = [[aDecoder decodeObjectForKey:kRootClassCount] integerValue];
     self.idField = [aDecoder decodeObjectForKey:kMFYCoreflowTagIdField];
     self.value = [aDecoder decodeObjectForKey:kMFYCoreflowTagValue];
     return self;
@@ -89,7 +96,7 @@ NSString *const kMFYCoreflowTagValue = @"value";
 
     copy.idField = [self.idField copy];
     copy.value = [self.value copy];
-
+    copy.count = self.count;
     return copy;
 }
 @end

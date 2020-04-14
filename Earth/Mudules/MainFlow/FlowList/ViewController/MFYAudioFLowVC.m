@@ -18,6 +18,7 @@
 
 #import "MFYCategroyFlowTopView.h"
 
+
 @interface MFYAudioFLowVC ()<JXCategoryViewDelegate>
 
 @property (nonatomic, strong) MFYCategoryTitleView * myCategoryView;
@@ -153,6 +154,7 @@
     MFYCoreFlowCategroyVC * flowVC = [[MFYCoreFlowCategroyVC alloc]init];
     flowVC.tagImageArray = @[flowTag];
     flowVC.tagAudioArray = @[flowTag];
+    flowVC.selectIndex = 1;
     [self.navigationController pushViewController:flowVC animated:YES];
 }
 
