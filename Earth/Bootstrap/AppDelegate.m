@@ -20,6 +20,7 @@
     [self showLaunchScreen];
     [self loadCustomViewControllers];
     [self initJGIMWithLaunchOptions:launchOptions];
+    [MFYVersionManager mfy_checkTheVerionShowTheVersion:NO];
     return YES;
 }
 
@@ -39,11 +40,7 @@
 }
 
 - (void)showLaunchScreen {
-    NSString *adImageJPGPath = [[NSBundle mainBundle] pathForResource:@"launchImg@3x" ofType:@"png"];
-    DHLaunchAdPageHUD *launchAd = [[DHLaunchAdPageHUD alloc] initWithFrame:CGRectMake(0, 0,VERTICAL_SCREEN_WIDTH , VERTICAL_SCREEN_HEIGHT) aDduration:3.0 aDImageUrl:adImageJPGPath hideSkipButton:NO launchAdClickBlock:^{
-        NSLog(@"[AppDelegate]:点了广告图片");
-    } Completion:^{
-    }];
+    [DHLaunchAdPageHUD mfy_showTheLaunchImage];
 }
 
 #pragma mark- JMSGDBMigrateDelegate

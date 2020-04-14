@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MFYAudioListVM : NSObject
 
-@property (nonatomic, strong,readonly) NSMutableArray<MFYArticle *> * dataList;
+@property (nonatomic, strong,readonly) NSArray<MFYArticle *> * dataList;
 
 @property (nonatomic, assign, readonly) NSInteger NewDataCount;
 

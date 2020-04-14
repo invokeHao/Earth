@@ -59,6 +59,8 @@
 		6755709A241B4F4A008D6614 /* MFYPayCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67557099241B4F4A008D6614 /* MFYPayCardView.m */; };
 		6757D56A24404F43009482D5 /* MFYProfessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6757D56924404F43009482D5 /* MFYProfessView.m */; };
 		6757D56E244067D8009482D5 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6757D56D244067D8009482D5 /* UITextView+Placeholder.m */; };
+		6757D57224445A9A009482D5 /* MFYVersionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6757D57124445A9A009482D5 /* MFYVersionModel.m */; };
+		6757D57624445C9A009482D5 /* MFYVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6757D57524445C9A009482D5 /* MFYVersionManager.m */; };
 		6763D79023CEEE5B003D9E20 /* MFYHTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D78F23CEEE5B003D9E20 /* MFYHTTPManager.m */; };
 		6763D79323CEEFE1003D9E20 /* MFYResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D79223CEEFE1003D9E20 /* MFYResponseObject.m */; };
 		6763D79623CEF400003D9E20 /* MFYServiceURLConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D79523CEF400003D9E20 /* MFYServiceURLConfig.m */; };
@@ -300,8 +302,6 @@
 		67FDF505242DC22C00579549 /* DHGifImageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FDF4FF242DC22C00579549 /* DHGifImageOperation.m */; };
 		67FDF506242DC22C00579549 /* DHRegularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FDF503242DC22C00579549 /* DHRegularExpression.m */; };
 		67FDF507242DC22C00579549 /* DHLaunchAdPageHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FDF504242DC22C00579549 /* DHLaunchAdPageHUD.m */; };
-		67FDF50A242DC37B00579549 /* launchImg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67FDF508242DC37B00579549 /* launchImg@2x.png */; };
-		67FDF50B242DC37B00579549 /* launchImg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67FDF509242DC37B00579549 /* launchImg@3x.png */; };
 		67FDF50D242DCAD500579549 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67FDF50C242DCAD500579549 /* LaunchScreen.storyboard */; };
 		7AD7DC2B60CCB2CD828A85F5 /* libPods-EarthUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EABE641716F8167C445E2C55 /* libPods-EarthUITests.a */; };
 /* End PBXBuildFile section */
@@ -417,6 +417,10 @@
 		6757D56924404F43009482D5 /* MFYProfessView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYProfessView.m; sourceTree = "<group>"; };
 		6757D56C244067D8009482D5 /* UITextView+Placeholder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
 		6757D56D244067D8009482D5 /* UITextView+Placeholder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
+		6757D57024445A9A009482D5 /* MFYVersionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYVersionModel.h; sourceTree = "<group>"; };
+		6757D57124445A9A009482D5 /* MFYVersionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYVersionModel.m; sourceTree = "<group>"; };
+		6757D57424445C9A009482D5 /* MFYVersionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYVersionManager.h; sourceTree = "<group>"; };
+		6757D57524445C9A009482D5 /* MFYVersionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYVersionManager.m; sourceTree = "<group>"; };
 		6763D78E23CEEE5B003D9E20 /* MFYHTTPManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYHTTPManager.h; sourceTree = "<group>"; };
 		6763D78F23CEEE5B003D9E20 /* MFYHTTPManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYHTTPManager.m; sourceTree = "<group>"; };
 		6763D79123CEEFE1003D9E20 /* MFYResponseObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYResponseObject.h; sourceTree = "<group>"; };
@@ -889,8 +893,6 @@
 		67FDF502242DC22C00579549 /* DHGifImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHGifImageOperation.h; sourceTree = "<group>"; };
 		67FDF503242DC22C00579549 /* DHRegularExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHRegularExpression.m; sourceTree = "<group>"; };
 		67FDF504242DC22C00579549 /* DHLaunchAdPageHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHLaunchAdPageHUD.m; sourceTree = "<group>"; };
-		67FDF508242DC37B00579549 /* launchImg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launchImg@2x.png"; sourceTree = "<group>"; };
-		67FDF509242DC37B00579549 /* launchImg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launchImg@3x.png"; sourceTree = "<group>"; };
 		67FDF50C242DCAD500579549 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7670937B80E0D3ECA54F5B0F /* Pods-EarthTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EarthTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EarthTests/Pods-EarthTests.release.xcconfig"; sourceTree = "<group>"; };
 		8077943148965DD1B7C6BA34 /* libPods-EarthTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EarthTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1284,6 +1286,24 @@
 				6757D56D244067D8009482D5 /* UITextView+Placeholder.m */,
 			);
 			path = UITextView;
+			sourceTree = "<group>";
+		};
+		6757D56F24445A7B009482D5 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				6757D57024445A9A009482D5 /* MFYVersionModel.h */,
+				6757D57124445A9A009482D5 /* MFYVersionModel.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		6757D57324445C77009482D5 /* VersionControl */ = {
+			isa = PBXGroup;
+			children = (
+				6757D57424445C9A009482D5 /* MFYVersionManager.h */,
+				6757D57524445C9A009482D5 /* MFYVersionManager.m */,
+			);
+			path = VersionControl;
 			sourceTree = "<group>";
 		};
 		6763D78D23CEEE17003D9E20 /* Network */ = {
@@ -2467,6 +2487,7 @@
 		67F097F323A78D56001DCEB4 /* ContentView */ = {
 			isa = PBXGroup;
 			children = (
+				6757D57324445C77009482D5 /* VersionControl */,
 				67FB42D92420A36A00F2817D /* UIButton */,
 				67FB42D524209CFC00F2817D /* thirdShare */,
 				67FB42C6241F61E400F2817D /* Recharge */,
@@ -2482,6 +2503,7 @@
 		67F097F423A78D56001DCEB4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6757D56F24445A7B009482D5 /* Common */,
 				67FB42CE241F67E400F2817D /* Recharge */,
 				6755706F24188BA5008D6614 /* Chat */,
 				67CC316323FCE911002E6E2B /* Mine */,
@@ -2515,8 +2537,6 @@
 			isa = PBXGroup;
 			children = (
 				67B966EF2434BBC10020C564 /* audio_playing.gif */,
-				67FDF508242DC37B00579549 /* launchImg@2x.png */,
-				67FDF509242DC37B00579549 /* launchImg@3x.png */,
 				67F097F723A78D56001DCEB4 /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -2791,7 +2811,6 @@
 				67C435D22424CDE60081C477 /* SRFlash_lamp_icon@3x.png in Resources */,
 				67C435CC2424CDE60081C477 /* SR_touch_focus_not@3x.png in Resources */,
 				67C435D32424CDE60081C477 /* SR_Camera_Cancel@3x.png in Resources */,
-				67FDF50A242DC37B00579549 /* launchImg@2x.png in Resources */,
 				67C435632424C2590081C477 /* SRAlbumGroupViewController.xib in Resources */,
 				67C435C92424CDE60081C477 /* SRCamera_icon@3x.png in Resources */,
 				67C435912424C4C00081C477 /* SRBrowseCollectionViewCell.xib in Resources */,
@@ -2807,7 +2826,6 @@
 				67C435CA2424CDE60081C477 /* SRCamera_icon@2x.png in Resources */,
 				67F097FE23A78D56001DCEB4 /* Assets.xcassets in Resources */,
 				67C4358C2424C4C00081C477 /* ImageCollectionViewCell.xib in Resources */,
-				67FDF50B242DC37B00579549 /* launchImg@3x.png in Resources */,
 				67C435582424C2590081C477 /* SREidtViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2991,6 +3009,7 @@
 				67FB42B8241F30C600F2817D /* MFYGlobalConfigService.m in Sources */,
 				6725042023D6E5F900716842 /* MFYPrivacyOptionCell.m in Sources */,
 				679A02D623F107620041A012 /* UIColor+MOKit.m in Sources */,
+				6757D57624445C9A009482D5 /* MFYVersionManager.m in Sources */,
 				67CC324A240D194B002E6E2B /* SDWebImagePrefetcher.m in Sources */,
 				67EFC32423C300C500F5BDB3 /* KSPhotoBrowser.m in Sources */,
 				67D28B8623D1B2B400543D22 /* MFYCoreflowService.m in Sources */,
@@ -3132,6 +3151,7 @@
 				67D28B7823D1902D00543D22 /* MFYMedia.m in Sources */,
 				67EFC33523C3136800F5BDB3 /* WHAlertTool.m in Sources */,
 				67CC3247240D194B002E6E2B /* UIImage+GIF.m in Sources */,
+				6757D57224445A9A009482D5 /* MFYVersionModel.m in Sources */,
 				67CC31C62408BFD9002E6E2B /* JCHATFileManager.m in Sources */,
 				6755706424125C1B008D6614 /* MFYChatSearchView.m in Sources */,
 				67CC313D23F92E0B002E6E2B /* MFYAudioListVM.m in Sources */,
@@ -3336,7 +3356,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Earth/Earth.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = MYYDS5WA57;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3370,7 +3390,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Earth/Earth.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = MYYDS5WA57;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (

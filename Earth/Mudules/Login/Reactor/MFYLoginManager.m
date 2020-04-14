@@ -81,7 +81,6 @@ NSString *const kUserTabelName = @"userModel";
 
 #pragma mark-一键登录
 + (void)umengPhoneVerifyLogin {
-    
     [MFYLoginManager jumpToLoginWithCompletion:^{}];
     return;
     //设置秘钥

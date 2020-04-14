@@ -71,12 +71,12 @@ static CGFloat ratio ;
     
     model.navColor = UIColor.clearColor;
     model.navTitle = [[NSAttributedString alloc] initWithString:@"" attributes:@{NSForegroundColorAttributeName : UIColor.whiteColor,NSFontAttributeName : [UIFont systemFontOfSize:20.0]}];
-    model.navIsHidden = YES;
-    model.navBackImage = [UIImage imageNamed:@"icon_nav_back_light"];
+//    model.navIsHidden = YES;
+    model.navBackImage = [UIImage imageNamed:@"login_back"];
     //model.hideNavBackItem = NO;
-    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-    [rightBtn setTitle:@"更多" forState:UIControlStateNormal];
-    model.navMoreView = rightBtn;
+//    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+//    [rightBtn setTitle:@"更多" forState:UIControlStateNormal];
+//    model.navMoreView = rightBtn;
     
     model.privacyNavColor = UIColor.orangeColor;
     model.privacyNavBackImage = [UIImage imageNamed:@"icon_nav_back_light"];
@@ -101,9 +101,9 @@ static CGFloat ratio ;
     model.privacyOperatorPreText = @"《";
     model.privacyOperatorSufText = @"》";
     model.checkBoxIsChecked = YES;
-model.checkBoxIsHidden = YES;
+    model.checkBoxIsHidden = YES;
     model.checkBoxWH = 17.0;
-    model.changeBtnTitle = [[NSAttributedString alloc] initWithString:@"切换到其他方式" attributes:@{NSForegroundColorAttributeName : wh_colorWithHexString(@"#FF6CA0"),NSFontAttributeName : [UIFont systemFontOfSize:14.0]}];
+    model.changeBtnTitle = [[NSAttributedString alloc] initWithString:@"" attributes:@{NSForegroundColorAttributeName : wh_colorWithHexString(@"#FF6CA0"),NSFontAttributeName : [UIFont systemFontOfSize:14.0]}];
     model.changeBtnIsHidden = YES;
     //model.prefersStatusBarHidden = NO;
     model.preferredStatusBarStyle = UIStatusBarStyleLightContent;
@@ -128,7 +128,7 @@ model.checkBoxIsHidden = YES;
         if ([self isHorizontal:screenSize]) {
             return CGRectZero; //横屏时模拟隐藏该控件
         } else {
-            return CGRectMake(0, 100, superViewSize.width, frame.size.height);
+            return CGRectMake(0, 20, superViewSize.width, frame.size.height);
         }
     };
     model.numberFrameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
@@ -143,13 +143,13 @@ model.checkBoxIsHidden = YES;
         }
         return frame;
     };
-    model.changeBtnFrameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
-        if ([self isHorizontal:screenSize]) {
-            return CGRectZero; //横屏时模拟隐藏该控件
-        } else {
-            return CGRectMake(10, frame.origin.y - 20, superViewSize.width - 20, 30);
-        }
-    };
+//    model.changeBtnFrameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
+//        if ([self isHorizontal:screenSize]) {
+//            return CGRectZero; //横屏时模拟隐藏该控件
+//        } else {
+//            return CGRectMake(10, frame.origin.y - 20, superViewSize.width - 20, 30);
+//        }
+//    };
     
     //添加自定义控件并对自定义控件进行布局
     __block UILabel *customLabel = UILabel.label;

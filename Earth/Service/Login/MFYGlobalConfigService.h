@@ -7,12 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MFYVersionModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MFYGlobalConfigService : NSObject
 
+#pragma mark- 获取全局数据
 + (void)getTheGlobalConfigCompletion:(void(^)(MFYGlobalModel * model, NSError * error))completion;
+
+#pragma mark- 查看版本更新
++ (void)versionUpDateCheckCompletion:(void(^)(MFYVersionModel * model, NSError * error))completion;
 
 @end
 

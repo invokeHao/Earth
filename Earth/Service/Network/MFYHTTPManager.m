@@ -201,6 +201,8 @@ static dispatch_once_t onceToken;
     [[self requestSerializer] setValue:[MFYLoginManager deviceID] forHTTPHeaderField:@"x-app-id"];
     [[self requestSerializer] setValue:@"colr.ios.phone" forHTTPHeaderField:@"x-site-code"];
     [[self requestSerializer] setValue:@"appstore" forHTTPHeaderField:@"x-channel"];
+    NSString *appBuildString = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+    [[self requestSerializer] setValue:appBuildString forHTTPHeaderField:@"x-app-ver"];
 }
 
 

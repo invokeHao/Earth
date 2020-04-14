@@ -59,7 +59,7 @@
             self.NewDataCount = aritlceList.count;
             if (aritlceList.count > 0) {
                 self.currentPage = page;
-                self.dataList = [aritlceList arrayByAddingObjectsFromArray:aritlceList];
+                self.dataList = [self.dataList arrayByAddingObjectsFromArray:aritlceList];
             }
         }
     }];

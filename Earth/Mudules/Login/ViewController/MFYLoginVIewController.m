@@ -54,9 +54,10 @@ typedef enum : NSUInteger {
 }
 
 - (void)setupViews {
+    self.navBar.hidden = YES;
     UIView * topView = [[UIView alloc]initWithFrame:CGRectMake(0, STATUS_BAR_HEIGHT + 32, VERTICAL_SCREEN_WIDTH, 150)];
     [self.view addSubview:topView];
-//    [self.view addSubview:self.dismissBtn];
+    [self.view addSubview:self.dismissBtn];
     [self.view addSubview:self.mainScroll];
     [self.view addSubview:self.confirmBtn];
     
@@ -75,11 +76,11 @@ typedef enum : NSUInteger {
     [codeView addSubview:self.codeField];
     
     
-//    [self.dismissBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.mas_equalTo(STATUS_BAR_HEIGHT + 10);
-//        make.left.mas_equalTo(15);
-//        make.size.mas_equalTo(CGSizeMake(22, 22));
-//    }];
+    [self.dismissBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(STATUS_BAR_HEIGHT + 10);
+        make.left.mas_equalTo(15);
+        make.size.mas_equalTo(CGSizeMake(22, 22));
+    }];
     [self.slognLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(10);
         make.centerX.mas_equalTo(topView);
@@ -174,7 +175,7 @@ typedef enum : NSUInteger {
     @weakify(self)
     [[self.dismissBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self)
-        [self dismissViewControllerAnimated:YES completion:NULL];
+        [MFYLoginManager jumpToMainVC];
     }];
     
     [[self.PhoneField rac_signalForControlEvents:UIControlEventEditingChanged] subscribeNext:^(UITextField * x) {
@@ -322,7 +323,7 @@ typedef enum : NSUInteger {
 - (UIButton *)dismissBtn {
     if (!_dismissBtn) {
         _dismissBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _dismissBtn.WH_setImage_forState(WHImageNamed(@"login_close"),UIControlStateNormal);
+        _dismissBtn.WH_setImage_forState(WHImageNamed(@"login_back"),UIControlStateNormal);
     }
     return _dismissBtn;
 }

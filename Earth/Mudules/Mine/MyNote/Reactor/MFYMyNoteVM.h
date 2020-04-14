@@ -13,11 +13,13 @@ NS_ASSUME_NONNULL_BEGIN
 @class MFYArticle;
 @interface MFYMyNoteVM : NSObject
 
-@property (nonatomic, strong,readonly) NSMutableArray<MFYArticle *> * dataList;
+@property (nonatomic, strong,readonly) NSArray<MFYArticle *> * dataList;
 
 @property (nonatomic, strong,readonly) NSMutableArray * tagList;
 
 @property (nonatomic, assign, readonly) NSInteger NewDataCount;
+
+- (void)loadMoreData;
 
 -(void)refreshData;
 

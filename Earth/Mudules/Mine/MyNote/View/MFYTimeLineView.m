@@ -38,6 +38,9 @@ const CGFloat itemWidth = 54;
     return self;
 }
 
+- (NSInteger)numberOfSections {
+    return 1;
+}
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.articleArr.count;
@@ -73,8 +76,11 @@ const CGFloat itemWidth = 54;
 #pragma mark- public
 - (void)setArticleArr:(NSArray<MFYArticle *> *)articleArr {
     if (articleArr.count > 0) {
+        if (_articleArr.count < 1) {
+            _currentIndex = 0;
+        }
         _articleArr = articleArr;
-        _currentIndex = 0;
+
         [self reloadData];
         [self layoutIfNeeded];
         dispatch_async(dispatch_get_main_queue(),^{

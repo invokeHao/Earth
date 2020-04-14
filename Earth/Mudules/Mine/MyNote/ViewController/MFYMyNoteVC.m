@@ -90,7 +90,7 @@
     [self.idLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.timelineView.mas_bottom).offset(35);
         make.left.mas_equalTo(10);
-        make.height.mas_equalTo(15);
+        make.right.mas_equalTo(-10);
     }];
 }
 
@@ -103,6 +103,7 @@
     
     [self.displayView setScrollBlock:^(NSInteger index) {
        @strongify(self)
+        WHLog(@"滑到的下标%ld",index);
         [self.timelineView mfy_didScrollToItem:index];
     }];
     
@@ -133,6 +134,7 @@
         return self.viewModel.dataList.count > 0;
     }] deliverOnMainThread] subscribeNext:^(id x) {
         @strongify(self)
+        self.displayView.requesting = NO;
         [self.displayView reloadDataWithArray:self.viewModel.dataList];
         [self.timelineView setArticleArr:self.viewModel.dataList];
     }];
@@ -146,6 +148,11 @@
         NSMutableArray * arr = [NSMutableArray arrayWithArray:self.viewModel.tagList];
         [arr addObject:MFYTagAddSingal];
         [self.tagView setTags:[arr copy]];
+    }];
+    
+    [self.displayView setOnFooterRefresh:^{
+       @strongify(self)
+        [self.viewModel loadMoreData];
     }];
 }
 
@@ -231,8 +238,9 @@
 - (UILabel *)idLabel {
     if (!_idLabel) {
         _idLabel = UILabel.label.WH_font(WHFont(14)).WH_textColor(wh_colorWithHexString(@"#939399"));
+        _idLabel.numberOfLines = 0;
         _idLabel.userInteractionEnabled = YES;
-        _idLabel.WH_text(FORMAT(@"我的朋友ID：%@",self.profile.userId));
+        _idLabel.WH_text(FORMAT(@"朋友ID：%@",self.profile.userId));
     }
     return _idLabel;;
 }

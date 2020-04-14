@@ -16,6 +16,7 @@
 #import "MFYGlobalManager.h"
 #import "MFYRechargeManager.h"
 #import "MFYShareManager.h"
+#import "MFYVersionManager.h"
 
 #import "MFYThirdPartyConstant.h"
 

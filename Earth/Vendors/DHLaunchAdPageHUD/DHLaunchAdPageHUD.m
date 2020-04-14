@@ -17,6 +17,8 @@
 @property (nonatomic, assign) BOOL              aDhideSkipButton;   /**< 是否影藏'倒计时/跳过'按钮 */
 @property (nonatomic, strong) UIImageView       *launchImageView;   /**< APP启动图片 */
 @property (nonatomic, strong) UIImageView       *adImageView;       /**< APP广告图片 */
+@property (nonatomic, strong) UIImageView       *topImageView;
+@property (nonatomic, strong) UIImageView       *bottomImageView;
 @property (nonatomic, strong) UIButton          *skipButton;        /**< 跳过按钮 */
 @property (nonatomic, strong) dispatch_source_t timer;              /**< 设置定时器 */
 @end
@@ -32,6 +34,7 @@
         self.frame = [[UIScreen mainScreen] bounds];
         [self addSubview:self.setUpLaunchImageView];
         [self addSubview:self.setUpAdImageView];
+        [self setupViews];
         [self addSubview:self.setUpSkipButton];
         [self launchAdPageStart];
         [self launchAdPageEnd];
@@ -41,6 +44,32 @@
         self.launchEndBlock = completion;
     }
     return self;
+}
+
++ (void)mfy_showTheLaunchImage {
+    DHLaunchAdPageHUD *launchAd = [[DHLaunchAdPageHUD alloc] initWithFrame:CGRectMake(0, 0,VERTICAL_SCREEN_WIDTH , VERTICAL_SCREEN_HEIGHT) aDduration:3.0 aDImageUrl:nil hideSkipButton:NO launchAdClickBlock:^{
+        NSLog(@"[AppDelegate]:点了广告图片");
+    } Completion:^{
+    }];
+    launchAd.backgroundColor = UIColor.whiteColor;
+}
+
+- (void)setupViews {
+    [self addSubview:self.topImageView];
+    [self addSubview:self.bottomImageView];
+    CGFloat topHeight = 570 * VERTICAL_SCREEN_WIDTH / 375;
+    CGFloat bottomHeight = 97 * VERTICAL_SCREEN_WIDTH / 375;
+    [self.topImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.mas_equalTo(0);
+        make.height.mas_equalTo(topHeight);
+    }];
+    
+    [self.bottomImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.mas_equalTo(0);
+        make.height.mas_equalTo(bottomHeight);
+    }];
+    [self.topImageView setImage:WHImageNamed(@"launchImg_top")];
+    [self.bottomImageView setImage:WHImageNamed(@"launchImg_bottom")];
 }
 
 #pragma mark - 设置启动图片
@@ -196,6 +225,22 @@
             [[[UIApplication sharedApplication].delegate window] addSubview:self];
         });
     }];
+}
+
+- (UIImageView *)topImageView {
+    if (!_topImageView) {
+        _topImageView = [[UIImageView alloc]init];
+        _topImageView.contentMode = UIViewContentModeScaleAspectFill;
+    }
+    return _topImageView;
+}
+
+- (UIImageView *)bottomImageView {
+    if (!_bottomImageView) {
+        _bottomImageView = [[UIImageView alloc]init];
+        _bottomImageView.contentMode = UIViewContentModeScaleAspectFill;
+    }
+    return _bottomImageView;
 }
 
 - (void)dealloc {

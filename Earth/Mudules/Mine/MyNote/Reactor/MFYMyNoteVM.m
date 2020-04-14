@@ -13,7 +13,7 @@
 
 @interface MFYMyNoteVM ()
 
-@property (nonatomic, strong) NSMutableArray<MFYArticle *> * dataList;
+@property (nonatomic, strong) NSArray<MFYArticle *> * dataList;
 
 @property (nonatomic, strong) NSMutableArray * tagList;
 
@@ -28,6 +28,7 @@
 -(instancetype)init {
     self = [super init];
     if (self) {
+        _currentPage = 1;
         [self setupData];
         [self bindData];
     }
@@ -70,12 +71,17 @@
     }];
 }
 
-- (NSMutableArray<MFYArticle *> *)dataList {
-    if (!_dataList) {
-        _dataList = [NSMutableArray arrayWithCapacity:0];
-    }
-    return _dataList;
+-(void)loadMoreData {
+    @weakify(self)
+    NSInteger page = self.currentPage + 1;
+    [MFYCoreflowService getMyPostCardListWithPage:page completion:^(NSArray<MFYArticle *> * _Nonnull aritlceList, NSError * _Nonnull error) {
+        @strongify(self)
+        self.NewDataCount = aritlceList.count;
+         if (aritlceList.count > 0) {
+             self.currentPage = page;
+             self.dataList = [self.dataList arrayByAddingObjectsFromArray:aritlceList];
+         }
+    }];
 }
-
 
 @end

@@ -10,7 +10,7 @@
 
 @interface MFYAudioListVM()
 
-@property (nonatomic, strong) NSMutableArray<MFYArticle *> * dataList;
+@property (nonatomic, strong) NSArray<MFYArticle *> * dataList;
 
 @property (nonatomic, assign) NSInteger NewDataCount;
 
@@ -44,16 +44,14 @@
         @strongify(self)
         self.NewDataCount = articleList.count;
          if (articleList.count > 0) {
-             self.dataList = [articleList copy];
+             if (self.dataList.count > 0) {
+                self.dataList = [self.dataList arrayByAddingObjectsFromArray:articleList];
+             }else {
+                 self.dataList = [articleList copy];
+             }
          }
     }];
 }
 
-- (NSMutableArray<MFYArticle *> *)dataList {
-    if (!_dataList) {
-        _dataList = [NSMutableArray arrayWithCapacity:0];
-    }
-    return _dataList;
-}
 
 @end

@@ -29,4 +29,7 @@ typedef void(^DDLaunchEndBlock)(void);
  *  @return DHLaunchAdPageHUD对象
  */
 - (instancetype)initWithFrame:(CGRect)frame aDduration:(NSInteger)duration aDImageUrl:(NSString *)imageUrl hideSkipButton:(BOOL)hideSkip launchAdClickBlock:(DDLaunchAdClickBlock)aDClickBlock Completion:(DDLaunchEndBlock)completion;
+
++ (void)mfy_showTheLaunchImage;
+
 @end

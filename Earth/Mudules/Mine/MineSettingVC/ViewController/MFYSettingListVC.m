@@ -135,7 +135,7 @@
     }];
     
     [self.checkVersionCell setSelectB:^(BOOL isTap) {
-        @strongify(self)
+        [MFYVersionManager mfy_checkTheVerionShowTheVersion:YES];
     }];
     
     [[self.singOutBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
@@ -196,7 +196,10 @@
     if (!_checkVersionCell) {
         _checkVersionCell = [[MFYHomeItemView alloc]initWithType:MFYHomeItemInfoType];
         _checkVersionCell.titleLabel.text = @"版本更新";
-        _checkVersionCell.subtitleLabel.text = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];;
+        NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+        NSString *appBuildString = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+
+        _checkVersionCell.subtitleLabel.text = FORMAT(@"Version %@(%@)",appVersion, appBuildString);
     }
     return _checkVersionCell;
 }

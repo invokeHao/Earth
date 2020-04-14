@@ -50,15 +50,4 @@
     }];
 }
 
-- (void)getMoreData {
-    @weakify(self)
-    [MFYCoreflowService getTheImageCardWithTopicId:self.topicId completion:^(NSArray<MFYArticle *> * _Nonnull articleList, NSError * _Nonnull error) {
-        @strongify(self)
-        self.NewDataCount = articleList.count;
-         if (articleList.count > 0) {
-             self.dataList = [self.dataList arrayByAddingObjectsFromArray:[articleList copy]];
-         }
-    }];
-}
-
 @end

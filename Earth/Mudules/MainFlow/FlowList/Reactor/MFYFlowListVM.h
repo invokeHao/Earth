@@ -19,8 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithTopicId:(NSString *)topicId;
 
-- (void)getMoreData;
-
 - (void)refreshData;
 
 @end
