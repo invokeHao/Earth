@@ -8,12 +8,15 @@
 
 #import "MFYAudioPublishView.h"
 #import "MFYRecorderView.h"
+#import "JCHATSendMsgManager.h"
+#import "MFYChatService.h"
 
 @interface MFYAudioPublishView()
 
 @property (nonatomic, strong)UIView * disPlayView;
 @property (nonatomic, strong)UILabel * titleLabel;
 @property (nonatomic, strong)MFYRecorderView * recordView;
+@property (nonatomic, strong)MFYArticle * article;
 
 @property (nonatomic, assign) CGRect oldFrame;
 
@@ -88,6 +91,36 @@
      }];
     
     [self.recordView updateCirclePercent:0];
+}
+
++ (void)professToSB:(MFYArticle *)article{
+    MFYAudioPublishView * publishView = [[MFYAudioPublishView alloc]initWithFrame:CGRectMake(0, 0, VERTICAL_SCREEN_WIDTH, VERTICAL_SCREEN_HEIGHT)];;
+    publishView.article = article;
+    @weakify(publishView)
+    publishView.recordView.sendChatB = ^(NSString *audioPath, NSString *audioDuration) {
+        [WHHud showActivityView];
+        [JMSGConversation createSingleConversationWithUsername:article.profile.imId completionHandler:^(id resultObject, NSError *error) {
+            if (!error) {
+                JMSGConversation * conversation = resultObject;
+                [JCHATSendMsgManager sendMessageWithVoice:audioPath voiceDuration:audioDuration withConversation:conversation];
+                [MFYChatService postProfessSB:article.profile.userId Completion:^(BOOL isSuccess, NSError * _Nonnull error) {
+                    [WHHud hideActivityView];
+                    @strongify(publishView)
+                    if (isSuccess) {
+                        [WHHud showString:@"表白成功"];
+                        [JMSGConversation deleteSingleConversationWithUsername:article.profile.imId];
+                    }else{
+                        [WHHud showString:error.descriptionFromServer];
+                    }
+                    [publishView dismiss];
+                }];
+            }else {
+                [WHHud hideActivityView];
+                [WHHud showString:@"表白失败"];
+            }
+        }];
+    };
+    [publishView showInView];
 }
 
 - (void)dismiss {

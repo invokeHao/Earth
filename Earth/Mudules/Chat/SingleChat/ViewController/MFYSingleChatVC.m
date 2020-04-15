@@ -1369,9 +1369,9 @@ NSInteger sortMessageType(id object1,id object2,void *cha) {
   
   if ([voiceDuration integerValue]<0.5 || [voiceDuration integerValue]>60) {
     if ([voiceDuration integerValue]<0.5) {
-      WHLog(@"录音时长小于 0.5s");
+        [WHHud showString:@"录音时长小于 0.5s"];
     } else {
-      WHLog(@"录音时长大于 60s");
+        [WHHud showString:@"录音时长大于 60s"];
     }
     return;
   }

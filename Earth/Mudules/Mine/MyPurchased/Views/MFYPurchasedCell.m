@@ -30,6 +30,7 @@
     self.contentView.layer.cornerRadius = 6;
     self.contentView.clipsToBounds = YES;
     [self.contentView addSubview:self.coverImageView];
+    [self.contentView addSubview:self.playView];
 }
 
 - (void)layoutSubviews {
@@ -45,7 +46,7 @@
 
 }
 
-- (void)setArticle:(MFYArticle *)article {
+- (void)setArticle:(MFYItem *)article {
     if (article) {
         _article = article;
         self.playView.hidden = article.media.mediaType < 3 ;

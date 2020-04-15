@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MFYPurchasedCell : MFYBaseCollectionViewCell
 
-@property (nonatomic, strong)MFYArticle * article;
+@property (nonatomic, strong)MFYItem * article;
 
 @end
 

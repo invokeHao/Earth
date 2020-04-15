@@ -12,11 +12,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MFYPurchasedVM : NSObject
 
-@property (nonatomic, strong,readonly) NSMutableArray<MFYArticle *> * dataList;
+@property (nonatomic, strong,readonly) NSArray<MFYItem *> * dataList;
 
 @property (nonatomic, assign, readonly) NSInteger NewDataCount;
 
 -(void)refreshData;
+
+-(void)loadMoreData;
 
 @end
 

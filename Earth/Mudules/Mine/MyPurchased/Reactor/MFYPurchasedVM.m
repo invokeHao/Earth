@@ -11,7 +11,7 @@
 
 @interface MFYPurchasedVM ()
 
-@property (nonatomic, strong) NSMutableArray<MFYArticle *> * dataList;
+@property (nonatomic, strong) NSArray<MFYItem *> * dataList;
 
 @property (nonatomic, assign) NSInteger NewDataCount;
 
@@ -24,6 +24,7 @@
 -(instancetype)init {
     self = [super init];
     if (self) {
+        _currentPage = 1;
         [self setupData];
     }
     return self;
@@ -35,21 +36,35 @@
 
 -(void)setupData {
     @weakify(self)
-    [MFYCoreflowService getMyPurchasedCardListWithPage:self.currentPage completion:^(NSArray<MFYArticle *> * _Nonnull aritlceList, NSError * _Nonnull error) {
+    [WHHud showActivityView];
+    [MFYCoreflowService getMyPurchasedCardListWithPage:self.currentPage completion:^(NSArray<MFYItem *> * _Nonnull aritlceList, NSError * _Nonnull error) {
+        [WHHud hideActivityView];
         @strongify(self)
-        self.NewDataCount = aritlceList.count;
-         if (aritlceList.count > 0) {
-             self.dataList = [aritlceList copy];
-         }
+        if (!error) {
+            self.NewDataCount = aritlceList.count;
+             if (aritlceList.count > 0) {
+                 self.dataList = [aritlceList copy];
+             }
+        }
     }];
 }
 
-- (NSMutableArray<MFYArticle *> *)dataList {
-    if (!_dataList) {
-        _dataList = [NSMutableArray arrayWithCapacity:0];
-    }
-    return _dataList;
+-(void)loadMoreData {
+    @weakify(self)
+    NSInteger page = self.currentPage + 1;
+    [MFYCoreflowService getMyPurchasedCardListWithPage:page completion:^(NSArray<MFYItem *> * _Nonnull aritlceList, NSError * _Nonnull error) {
+        if (!error) {
+            @strongify(self)
+            self.NewDataCount = aritlceList.count;
+            if (aritlceList.count > 0) {
+                self.currentPage = page;
+                self.dataList = [self.dataList arrayByAddingObjectsFromArray:aritlceList];
+            }
+        }
+    }];
 }
+
+
 
 
 @end

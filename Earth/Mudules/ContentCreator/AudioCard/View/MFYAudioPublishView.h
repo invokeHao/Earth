@@ -12,7 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MFYAudioPublishView : UIView
 
+#pragma mark- 发语音贴
 - (void)showInView;
+
+#pragma mark- 表白
++ (void)professToSB:(MFYArticle *)article;
 
 @end
 

@@ -14,6 +14,8 @@
 #import "MFYArticleService.h"
 #import "MFYShareView.h"
 #import "MFYProfessView.h"
+#import "MFYAudioPublishView.h"
+
 
 @interface MFYAudioPlayCell ()<AVAudioPlayerDelegate>
 
@@ -280,8 +282,7 @@
                     return;
                 }
                 MFYArticle * article = self.model;
-                [MFYProfessView showTheProfessView:article Price:price Completion:^(BOOL success) {
-                }];
+                [MFYAudioPublishView professToSB:article];
             }else{
                [WHHud showString:error.descriptionFromServer];
             }

@@ -136,7 +136,7 @@
        }];
 }
 
-+ (void)getMyPurchasedCardListWithPage:(NSInteger)page completion:(void (^)(NSArray<MFYArticle *> *, NSError * ))completion {
++ (void)getMyPurchasedCardListWithPage:(NSInteger)page completion:(void (^)(NSArray<MFYItem *> *, NSError * ))completion {
     NSMutableDictionary * dic = [[NSMutableDictionary alloc]initWithCapacity:0];
        dic[@"page"] = @(page);
        dic[@"size"] = @(20);
@@ -146,7 +146,7 @@
                NSMutableArray * ArticleArr = [NSMutableArray arrayWithCapacity:0];
                NSArray * arr = resp.result[@"rows"];
                [arr enumerateObjectsUsingBlock:^(NSDictionary * obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                   MFYArticle * article = [[MFYArticle alloc]initWithDictionary:obj];
+                   MFYItem * article = [[MFYItem alloc]initWithDictionary:obj];
                    [ArticleArr addObject:article];
                }];
                completion(ArticleArr.copy,nil);

@@ -70,5 +70,23 @@
     [conversation sendMessage:message];
 }
 
++ (void)sendMessageWithVoice:(NSString *)voicePath voiceDuration:(NSString *)voiceDuration withConversation:(JMSGConversation *)conversation {
+    if ([voiceDuration integerValue]<0.5 || [voiceDuration integerValue]>60) {
+      if ([voiceDuration integerValue]<0.5) {
+          [WHHud showString:@"录音时长小于 0.5s"];
+      } else {
+          [WHHud showString:@"录音时长大于 60s"];
+      }
+      return;
+    }
+    
+    JMSGMessage *voiceMessage = nil;
+    JMSGVoiceContent *voiceContent = [[JMSGVoiceContent alloc] initWithVoiceData:[NSData dataWithContentsOfFile:voicePath]
+                                                                   voiceDuration:[NSNumber numberWithInteger:[voiceDuration integerValue]]];
+    
+    voiceMessage = [conversation createMessageWithContent:voiceContent];
+    [conversation sendMessage:voiceMessage];
+    [JCHATFileManager deleteFile:voicePath];
+}
 
 @end

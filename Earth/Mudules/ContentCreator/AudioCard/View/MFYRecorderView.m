@@ -149,9 +149,10 @@ CGFloat const INTER_TIME = 0.1;
     
     [[self.finishBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
        @strongify(self)
-        [self publishTheAudio];
         if (self.sendChatB) {
             self.sendChatB(self.audioPath, FORMAT(@"%.0f",self.recordTime));
+        }else {
+            [self publishTheAudio];
         }
     }];
 }

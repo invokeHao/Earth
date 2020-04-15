@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)sendMessage:(NSString *)messageStr withConversation:(JMSGConversation *)conversation;
 
++ (void)sendMessageWithVoice:(NSString *)voicePath voiceDuration:(NSString*)voiceDuration withConversation:(JMSGConversation *)conversation;
+
 
 NS_ASSUME_NONNULL_END
 @end

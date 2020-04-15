@@ -28,6 +28,7 @@
     [super viewDidLoad];
     [self setupViews];
     [self bindEvents];
+    [self bindingData];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -43,6 +44,16 @@
 }
 
 - (void)bindEvents {
+    @weakify(self)
+    [self.MainCollection setFooterRefreshingBlock:^{
+        @strongify(self)
+        [self.viewModel loadMoreData];
+    }];
+    
+    [self.MainCollection setHeaderRefreshingBlock:^{
+        @strongify(self)
+        [self.viewModel refreshData];
+    }];
     
 }
 
@@ -56,9 +67,21 @@
         return self.viewModel.dataList.count > 0;
     }] deliverOnMainThread] subscribeNext:^(id x) {
         @strongify(self)
+        [self.MainCollection.mj_header endRefreshing];
+        [self.MainCollection.mj_footer endRefreshing];
+
         [self.MainCollection reloadData];
     }];
-
+    
+    [[RACObserve(self, viewModel.NewDataCount) skip:1] subscribeNext:^(NSNumber *countNumber) {
+        @strongify(self);
+        NSInteger count = [countNumber integerValue];
+        if (count == 0) {
+            [self.MainCollection.mj_footer endRefreshingWithNoMoreData];
+        }else {
+            [self.MainCollection.mj_footer endRefreshing];
+        }
+    }];
 }
 
 - (MFYBaseCollectionView *)MainCollection {
@@ -87,21 +110,21 @@
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     MFYPurchasedCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:[MFYPurchasedCell reuseID] forIndexPath:indexPath];
-    MFYArticle * article = self.viewModel.dataList[indexPath.item];
+    MFYItem * article = self.viewModel.dataList[indexPath.item];
     [cell setArticle:article];
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     //点击图片到图片详情
-    MFYArticle * article = self.viewModel.dataList[indexPath.item];
-    if ([article MFYmediaType] == MFYMediaPictureType) {
+    MFYItem * article = self.viewModel.dataList[indexPath.item];
+    if ([article mediaType] == MFYMediaPictureType) {
         MFYImageDetailVC * detailVC = [[MFYImageDetailVC alloc]init];
         detailVC.itemModel = (MFYItem *)article;
         [[WHAlertTool WHTopViewController].navigationController pushViewController:detailVC animated:YES];
     }
     //点击视频到视频详情
-    if ([article MFYmediaType] == MFYMediavideoType) {
+    if ([article mediaType] == MFYMediavideoType) {
         MFYVideoDetailVC * videoVC = [[MFYVideoDetailVC alloc]init];
         videoVC.itemModel = (MFYItem *)article;
         [[WHAlertTool WHTopViewController].navigationController pushViewController:videoVC animated:YES];

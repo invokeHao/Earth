@@ -22,7 +22,7 @@ typedef NS_ENUM(NSUInteger, MFYRecoderDisplayType) {
 
 typedef void(^publishBlock)(BOOL isSuccess);
 
-typedef void(^sendChatBlock)(NSString * _Nullable audioPath, NSString * _Nullable audioDuration);
+typedef void(^sendChatBlock)(NSString * audioPath, NSString * audioDuration);
 
 NS_ASSUME_NONNULL_BEGIN
 
