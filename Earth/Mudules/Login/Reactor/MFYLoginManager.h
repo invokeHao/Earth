@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MFYLoginManager : NSObject
 
+@property (nonatomic, assign)BOOL isShow;
+
 + (instancetype)sharedManager;
 
 + (NSString *)token;
@@ -29,6 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)umengPhoneVerifyLogin;
 
 + (void)saveTheLoginModel:(MFYLoginModel*)model completion:(void(^)(BOOL isSuccess))completion;
+
++ (void)deleteTheLoginModel;
 
 @end
 

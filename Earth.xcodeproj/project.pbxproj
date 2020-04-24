@@ -272,6 +272,7 @@
 		67D28B7F23D1908300543D22 /* MFYProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B7E23D1908300543D22 /* MFYProfile.m */; };
 		67D28B8223D191EF00543D22 /* MFYGender.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B8123D191EF00543D22 /* MFYGender.m */; };
 		67D28B8623D1B2B400543D22 /* MFYCoreflowService.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D28B8523D1B2B400543D22 /* MFYCoreflowService.m */; };
+		67E229AF244D496200FCFE16 /* MFYThirdLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E229AE244D496200FCFE16 /* MFYThirdLoginManager.m */; };
 		67EFC32023C300C500F5BDB3 /* KSPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EFC31623C300C400F5BDB3 /* KSPhotoView.m */; };
 		67EFC32123C300C500F5BDB3 /* KSYYImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EFC31723C300C400F5BDB3 /* KSYYImageManager.m */; };
 		67EFC32223C300C500F5BDB3 /* KSProgressLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EFC31823C300C400F5BDB3 /* KSProgressLayer.m */; };
@@ -830,6 +831,8 @@
 		67D28B8123D191EF00543D22 /* MFYGender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYGender.m; sourceTree = "<group>"; };
 		67D28B8423D1B2B400543D22 /* MFYCoreflowService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYCoreflowService.h; sourceTree = "<group>"; };
 		67D28B8523D1B2B400543D22 /* MFYCoreflowService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYCoreflowService.m; sourceTree = "<group>"; };
+		67E229AD244D496200FCFE16 /* MFYThirdLoginManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYThirdLoginManager.h; sourceTree = "<group>"; };
+		67E229AE244D496200FCFE16 /* MFYThirdLoginManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYThirdLoginManager.m; sourceTree = "<group>"; };
 		67EFC31523C300C400F5BDB3 /* KSImageManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSImageManagerProtocol.h; sourceTree = "<group>"; };
 		67EFC31623C300C400F5BDB3 /* KSPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPhotoView.m; sourceTree = "<group>"; };
 		67EFC31723C300C400F5BDB3 /* KSYYImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYYImageManager.m; sourceTree = "<group>"; };
@@ -2364,6 +2367,15 @@
 			path = coreflow;
 			sourceTree = "<group>";
 		};
+		67E229AC244D493B00FCFE16 /* ThirdLogin */ = {
+			isa = PBXGroup;
+			children = (
+				67E229AD244D496200FCFE16 /* MFYThirdLoginManager.h */,
+				67E229AE244D496200FCFE16 /* MFYThirdLoginManager.m */,
+			);
+			path = ThirdLogin;
+			sourceTree = "<group>";
+		};
 		67EFC31423C300C400F5BDB3 /* KSPhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
@@ -2500,6 +2512,7 @@
 		67F097F323A78D56001DCEB4 /* ContentView */ = {
 			isa = PBXGroup;
 			children = (
+				67E229AC244D493B00FCFE16 /* ThirdLogin */,
 				6757D57324445C77009482D5 /* VersionControl */,
 				67FB42D92420A36A00F2817D /* UIButton */,
 				67FB42D524209CFC00F2817D /* thirdShare */,
@@ -3039,6 +3052,7 @@
 				6717AC8124236DA70072BBFE /* MFYMyPurchasedVC.m in Sources */,
 				67FB42D1241F67F700F2817D /* MFYWXOrderModel.m in Sources */,
 				67CC311B23F4FB19002E6E2B /* MFYRedPacketView.m in Sources */,
+				67E229AF244D496200FCFE16 /* MFYThirdLoginManager.m in Sources */,
 				67CC310A23F39D56002E6E2B /* MFYTopicTagService.m in Sources */,
 				671A72DA2445B63000BB10EA /* MFYEmptyView.m in Sources */,
 				67CC31C22408BCA4002E6E2B /* AppDelegate+MFYJGIM.m in Sources */,
@@ -3370,7 +3384,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Earth/Earth.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = MYYDS5WA57;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3404,7 +3418,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Earth/Earth.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = MYYDS5WA57;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (

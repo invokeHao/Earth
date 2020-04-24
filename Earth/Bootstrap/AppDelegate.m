@@ -61,6 +61,7 @@
     BOOL result = NO;
     result = [[MFYRechargeManager sharedManager] WXHandleUrl:url];
     result = [[MFYShareManager sharedManager] mfy_thirdPatyHandleTheUrl:url];
+    result = [[MFYThirdLoginManager sharedManager] mfy_thirdPatyHandleTheUrl:url];
     return result;
 }
 
@@ -68,6 +69,7 @@
     BOOL result = NO;
     result = [[MFYRechargeManager sharedManager] WXHandleUrl:url];
     result = [[MFYShareManager sharedManager] mfy_thirdPatyHandleTheUrl:url];
+    result = [[MFYThirdLoginManager sharedManager] mfy_thirdPatyHandleTheUrl:url];
     return result;
 }
 
@@ -75,6 +77,7 @@
     BOOL result = NO;
     result = [[MFYRechargeManager sharedManager] WXhandleOpenUniversalLink:userActivity];
     result = [[MFYShareManager sharedManager] mfy_handleOpenUniversalLink:userActivity];
+    result = [[MFYThirdLoginManager sharedManager] mfy_handleOpenUniversalLink:userActivity];
     return result;
 }
 

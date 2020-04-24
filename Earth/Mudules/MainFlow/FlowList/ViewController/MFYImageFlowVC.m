@@ -81,6 +81,10 @@
     self.topView.hidden = self.type == MFYImageFlowMainType;
     self.myCategoryView.hidden = self.type != MFYImageFlowMainType;
     [self.topView setFlowTag:[self.imageTagArray firstObject]];
+    
+    [WHAlertTool showActionSheetWithTitle:@"微信授权" withActionBlock:^(UIAlertAction * _Nonnull action) {
+        [MFYThirdLoginManager sendWXAuthReq];
+    }];
 
 }
 

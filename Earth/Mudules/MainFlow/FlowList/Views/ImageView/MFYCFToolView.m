@@ -40,10 +40,13 @@
     }];
     
     [[self.publicBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        [MFYMineService getSelfDetailInfoCompletion:^(MFYProfile * _Nonnull profile, NSError * _Nonnull error) {}];
-        UIViewController * vc = [WHAlertTool WHTopViewController];
-        MFYBaseNavigationController * Nav = [[MFYBaseNavigationController alloc]initWithRootViewController:[MFYPublicImageCardVC new]];
-        [vc presentViewController:Nav animated:YES completion:NULL];
+        if ([MFYLoginManager token]) {
+            UIViewController * vc = [WHAlertTool WHTopViewController];
+            MFYBaseNavigationController * Nav = [[MFYBaseNavigationController alloc]initWithRootViewController:[MFYPublicImageCardVC new]];
+            [vc presentViewController:Nav animated:YES completion:NULL];
+        }else {
+            [MFYLoginManager umengPhoneVerifyLogin];
+        }
     }];
     
     [[self.likeBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {

@@ -180,5 +180,4 @@
     return (viewController.isViewLoaded && viewController.view.window);
 }
 
-
 @end

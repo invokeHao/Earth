@@ -20,6 +20,10 @@ NSString *const kUserTabelName = @"userModel";
 
 @implementation MFYLoginManager
 
+{
+    BOOL _isShow;
+}
+
 + (instancetype)sharedManager {
     static MFYLoginManager *manager = nil;
     static dispatch_once_t onceToken;
@@ -57,6 +61,7 @@ NSString *const kUserTabelName = @"userModel";
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:kuserName];
             [JMSGUser logout:^(id resultObject, NSError *error) {}];
             [MFYLoginManager umengPhoneVerifyLogin];
+            [MFYLoginManager deleteTheLoginModel];
             if (completion) {
                 completion();
             }
@@ -66,6 +71,7 @@ NSString *const kUserTabelName = @"userModel";
     }];
 }
 + (void)jumpToMainVC {
+    [MFYLoginManager sharedManager].isShow = NO;
     UIViewController *viewController = [UIApplication sharedApplication].keyWindow.rootViewController;
     
     if (viewController.presentedViewController) {
@@ -81,17 +87,22 @@ NSString *const kUserTabelName = @"userModel";
 
 #pragma mark-一键登录
 + (void)umengPhoneVerifyLogin {
-    [MFYLoginManager jumpToLoginWithCompletion:^{}];
-    return;
+    MFYLoginManager * manager = [MFYLoginManager sharedManager];
+//    判断当前页面如果是login页面，则不再弹窗
+    if (manager.isShow) {
+        WHLog(@"当前页面是登录页");
+        return;
+    }
+    manager.isShow = YES;
     //设置秘钥
     NSString *info = @"sNpLSdXjarJOabWFvS/q1LOFGs4yYRj7wFJYUJQsNQrRkTMGsGYWJBtytNEsXA82CGGtFTUblYIwFsVQr3sduNLH4SbeZf1Kv4WCrxCs83ZCaKRG68IBsXSi4ltftndsx7rYW9B4aRpH6rwTNHWjv/pzLFDr67RC6Pxxx3mQUzd4/RkeIj6RfYx0/C3wzxptTcE2qW0HXBSqA4lzuPFGnS4rn8QEvnRwnSxVsnntXWs=";
-    @weakify(self)
     [UMCommonHandler setVerifySDKInfo:info complete:^(NSDictionary * _Nonnull resultDic) {
         WHLog(@"%@",resultDic);
         if ([PNSCodeSuccess isEqualToString:[resultDic objectForKey:@"resultCode"]]) {
             //设置密钥成功
             [[MFYLoginManager sharedManager] checkTheVerify];
         }else {
+            [MFYLoginManager sharedManager].isShow = NO;
             [MFYLoginManager jumpToLoginWithCompletion:^{}];
         }
     }];
@@ -104,6 +115,7 @@ NSString *const kUserTabelName = @"userModel";
         if ([PNSCodeSuccess isEqualToString:[resultDic objectForKey:@"resultCode"]] == NO) {
             [WHHud showString:@"check 接口检查失败，环境不满足"];
             [MFYLoginManager jumpToLoginWithCompletion:^{}];
+            [MFYLoginManager sharedManager].isShow = NO;
             return;
         }
         //2. 调用预取号接口，加速授权页的弹起
@@ -111,6 +123,7 @@ NSString *const kUserTabelName = @"userModel";
             if ([PNSCodeSuccess isEqualToString:[resultDic objectForKey:@"resultCode"]] == NO) {
                 [WHHud showString:@"取号，加速授权页弹起失败"];
                 [MFYLoginManager jumpToLoginWithCompletion:^{}];
+                [MFYLoginManager sharedManager].isShow = NO;
                 return ;
             }
             //3. 调用获取登录Token接口，可以立马弹起授权页
@@ -118,6 +131,7 @@ NSString *const kUserTabelName = @"userModel";
             UMCustomModel *model = [self buildCustomModel];
             model.supportedInterfaceOrientations = UIInterfaceOrientationMaskAllButUpsideDown;
             [UMCommonHandler getLoginTokenWithTimeout:3.0 controller:[WHAlertTool WHTopViewController] model:model complete:^(NSDictionary * _Nonnull resultDic) {
+                [MFYLoginManager sharedManager].isShow = NO;
                      NSString *code = [resultDic objectForKey:@"resultCode"];
                      if ([PNSCodeLoginControllerPresentSuccess isEqualToString:code]) {
 //                        [WHHud showString:@"弹起授权页成功"];
@@ -146,6 +160,7 @@ NSString *const kUserTabelName = @"userModel";
                          //拿Token去服务器换手机号
                          [self umengLoginWithToken:token];
                      }else {
+                         [MFYLoginManager sharedManager].isShow = NO;
                          [WHHud showString:@"获取token失败"];
                      }
             }];
@@ -162,10 +177,12 @@ NSString *const kUserTabelName = @"userModel";
             [MFYLoginManager saveTheLoginModel:loginModel completion:^(BOOL isSuccess) {
                 if (isSuccess) {
                     //登录IM
+                    [MFYLoginManager sharedManager].isShow = NO;
                     [self loginJChatIM:loginModel];
                 }
             }];
         }else {
+            [MFYLoginManager sharedManager].isShow = NO;
             [WHHud showString:error.descriptionFromServer];
             [WHHud hideActivityView];
             [MFYLoginManager jumpToLoginWithCompletion:^{}];
@@ -219,6 +236,12 @@ NSString *const kUserTabelName = @"userModel";
     }];
 }
 
++ (void)deleteTheLoginModel{
+    [MFYLoginModel bg_clearAsync:kUserTabelName complete:^(BOOL isSuccess) {
+    
+    }];
+}
+
 + (MFYLoginModel *)getTheLoginMode {
     return [MFYLoginModel bg_firstObjet:kUserTabelName];
 }
@@ -232,5 +255,6 @@ NSString *const kUserTabelName = @"userModel";
     WHLog(@"%@",[UDIDWithKeyChain getUUID]);
     return [UDIDWithKeyChain getUUID];
 }
+
 
 @end
