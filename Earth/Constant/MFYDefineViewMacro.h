@@ -18,6 +18,7 @@
 #import "MFYShareManager.h"
 #import "MFYVersionManager.h"
 #import "MFYThirdLoginManager.h"
+#import "MFYThirdLoginView.h"
 
 #import "MFYThirdPartyConstant.h"
 

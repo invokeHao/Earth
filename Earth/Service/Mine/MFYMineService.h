@@ -47,6 +47,9 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark- 设置微信提现目的信息
 + (void)postWXWithDrawCode:(NSString *)code Completion:(void(^)(BOOL isSuccess, NSError * error))completion;
 
+#pragma mark- 设置支付宝提现目的信息
++ (void)postAliWithDrawInfo:(NSDictionary *)infoDic Completion:(void(^)(BOOL isSuccess, NSError * error))completion;
+
 @end
 
 NS_ASSUME_NONNULL_END

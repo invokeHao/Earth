@@ -62,6 +62,7 @@
 		6757D56E244067D8009482D5 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6757D56D244067D8009482D5 /* UITextView+Placeholder.m */; };
 		6757D57224445A9A009482D5 /* MFYVersionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6757D57124445A9A009482D5 /* MFYVersionModel.m */; };
 		6757D57624445C9A009482D5 /* MFYVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6757D57524445C9A009482D5 /* MFYVersionManager.m */; };
+		675C7D4A2463D5A200E9955C /* MFYBindZFBView.m in Sources */ = {isa = PBXBuildFile; fileRef = 675C7D492463D5A200E9955C /* MFYBindZFBView.m */; };
 		6763D79023CEEE5B003D9E20 /* MFYHTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D78F23CEEE5B003D9E20 /* MFYHTTPManager.m */; };
 		6763D79323CEEFE1003D9E20 /* MFYResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D79223CEEFE1003D9E20 /* MFYResponseObject.m */; };
 		6763D79623CEF400003D9E20 /* MFYServiceURLConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D79523CEF400003D9E20 /* MFYServiceURLConfig.m */; };
@@ -74,6 +75,7 @@
 		6763D7B323D07B84003D9E20 /* MFYLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6763D7B223D07B84003D9E20 /* MFYLoginModel.m */; };
 		6779376723B0C29700D1B822 /* MFYCoreFlowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6779376623B0C29700D1B822 /* MFYCoreFlowVC.m */; };
 		678420BE23A7ABB3000F5BCE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 678420BD23A7ABB3000F5BCE /* AppDelegate.m */; };
+		679444382452E090007A6F19 /* MFYThirdLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 679444372452E090007A6F19 /* MFYThirdLoginView.m */; };
 		679A029323F104520041A012 /* MFYPublicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 679A029223F104520041A012 /* MFYPublicManager.m */; };
 		679A02D523F107620041A012 /* UIView+MOHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 679A029823F107620041A012 /* UIView+MOHud.m */; };
 		679A02D623F107620041A012 /* UIColor+MOKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 679A029A23F107620041A012 /* UIColor+MOKit.m */; };
@@ -425,6 +427,8 @@
 		6757D57124445A9A009482D5 /* MFYVersionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYVersionModel.m; sourceTree = "<group>"; };
 		6757D57424445C9A009482D5 /* MFYVersionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYVersionManager.h; sourceTree = "<group>"; };
 		6757D57524445C9A009482D5 /* MFYVersionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYVersionManager.m; sourceTree = "<group>"; };
+		675C7D482463D5A200E9955C /* MFYBindZFBView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYBindZFBView.h; sourceTree = "<group>"; };
+		675C7D492463D5A200E9955C /* MFYBindZFBView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYBindZFBView.m; sourceTree = "<group>"; };
 		6763D78E23CEEE5B003D9E20 /* MFYHTTPManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYHTTPManager.h; sourceTree = "<group>"; };
 		6763D78F23CEEE5B003D9E20 /* MFYHTTPManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYHTTPManager.m; sourceTree = "<group>"; };
 		6763D79123CEEFE1003D9E20 /* MFYResponseObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYResponseObject.h; sourceTree = "<group>"; };
@@ -454,6 +458,8 @@
 		678420BC23A7ABB3000F5BCE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		678420BD23A7ABB3000F5BCE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		678420C423A87ACB000F5BCE /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
+		679444362452E090007A6F19 /* MFYThirdLoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYThirdLoginView.h; sourceTree = "<group>"; };
+		679444372452E090007A6F19 /* MFYThirdLoginView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYThirdLoginView.m; sourceTree = "<group>"; };
 		679A029123F104520041A012 /* MFYPublicManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFYPublicManager.h; sourceTree = "<group>"; };
 		679A029223F104520041A012 /* MFYPublicManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFYPublicManager.m; sourceTree = "<group>"; };
 		679A029723F107620041A012 /* UIColor+MOKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MOKit.h"; sourceTree = "<group>"; };
@@ -2372,6 +2378,10 @@
 			children = (
 				67E229AD244D496200FCFE16 /* MFYThirdLoginManager.h */,
 				67E229AE244D496200FCFE16 /* MFYThirdLoginManager.m */,
+				679444362452E090007A6F19 /* MFYThirdLoginView.h */,
+				679444372452E090007A6F19 /* MFYThirdLoginView.m */,
+				675C7D482463D5A200E9955C /* MFYBindZFBView.h */,
+				675C7D492463D5A200E9955C /* MFYBindZFBView.m */,
 			);
 			path = ThirdLogin;
 			sourceTree = "<group>";
@@ -3190,6 +3200,7 @@
 				67CC3241240D194B002E6E2B /* MKAnnotationView+WebCache.m in Sources */,
 				67C435D92424D8610081C477 /* MFYTakePhotoCell.m in Sources */,
 				67C435B12424C6FE0081C477 /* UIImage+JPExtension.m in Sources */,
+				679444382452E090007A6F19 /* MFYThirdLoginView.m in Sources */,
 				6755706A241781B2008D6614 /* MFYChatListVM.m in Sources */,
 				679A02FD23F12A1C0041A012 /* WHHud.m in Sources */,
 				67CC30FB23F1605E002E6E2B /* MFYPublishItemModel.m in Sources */,
@@ -3224,6 +3235,7 @@
 				67C435902424C4C00081C477 /* SRBrowseCollectionViewCell.m in Sources */,
 				67CC3246240D194B002E6E2B /* SDWebImageDownloader.m in Sources */,
 				679A02DC23F107620041A012 /* MOAssetDownloadManager.m in Sources */,
+				675C7D4A2463D5A200E9955C /* MFYBindZFBView.m in Sources */,
 				67CC314723F9534E002E6E2B /* MFYTagDisplayLayout.m in Sources */,
 				67CC30F223F14D2E002E6E2B /* UIImage+WHCompress.m in Sources */,
 				67CC3208240D07EE002E6E2B /* JCHATShowTimeCell.m in Sources */,

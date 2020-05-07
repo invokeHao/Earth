@@ -244,6 +244,7 @@
 -(YYAnimatedImageView *)userIcon {
     if (!_userIcon) {
         _userIcon = [[YYAnimatedImageView alloc]init];
+        _userIcon.contentMode = UIViewContentModeScaleAspectFill;
         _userIcon.layer.cornerRadius = 30;
         _userIcon.layer.borderColor = UIColor.whiteColor.CGColor;
         _userIcon.layer.borderWidth = 3;

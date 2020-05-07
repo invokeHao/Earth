@@ -171,4 +171,17 @@
     }];
 }
 
++ (void)postAliWithDrawInfo:(NSDictionary *)infoDic Completion:(void (^)(BOOL, NSError * ))completion {
+    [[MFYHTTPManager sharedManager] POST:@"/api/self/withdraw/target/alipay/set" parameters:infoDic success:^(NSURLSessionDataTask * _Nonnull task, MFYResponseObject * _Nonnull responseObject) {
+        if (responseObject.code ==  1) {
+            completion(YES,nil);
+        }else{
+            completion(NO,[NSError errorWithCode:responseObject.code desc:responseObject.errorDesc]);
+        }
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        completion(NO,error);
+    }];
+
+}
+
 @end

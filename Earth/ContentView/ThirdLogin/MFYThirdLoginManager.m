@@ -33,8 +33,22 @@
     [WXApi registerApp:MFYWeChatAppKey universalLink:MFYUniversalLink];
 }
 
-+ (void)sendWXAuthReq{
-     MFYThirdLoginManager * manager = [MFYThirdLoginManager sharedManager];
++ (void)sendALiInfo:(NSDictionary *)userInfo Coompletion:(void (^)(BOOL))completion {
+    MFYThirdLoginManager * manager = [MFYThirdLoginManager sharedManager];
+    manager.ALiAuthBlock = completion;
+    [MFYMineService postAliWithDrawInfo:userInfo Completion:^(BOOL isSuccess, NSError * _Nonnull error) {
+        manager.ALiAuthBlock(isSuccess);
+        if (isSuccess) {
+            [WHHud showString:@"支付宝绑定成功"];
+        }else {
+            [WHHud showString:@"支付宝绑定失败"];
+        }
+    }];
+}
+
++ (void)sendWXAuthReqCoompletion:(void (^)(BOOL))completion{
+    MFYThirdLoginManager * manager = [MFYThirdLoginManager sharedManager];
+    manager.WXAuthBlock = completion;
     
     if([WXApi isWXAppInstalled]){//判断用户是否已安装微信App
         
@@ -47,6 +61,7 @@
         }];
     }else{
         [WHAlertTool showActionSheetWithTitle:@"未安装微信应用或版本过低" withActionBlock:^(UIAlertAction * _Nonnull action) {
+            manager.WXAuthBlock(NO);
         }];
     }
 }
@@ -60,6 +75,7 @@
         if (aresp.errCode != 0 ) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [WHHud showString:@"微信授权失败"];
+                self.WXAuthBlock(NO);
             });
             return;
         }
@@ -68,6 +84,7 @@
         [MFYMineService postWXWithDrawCode:code Completion:^(BOOL isSuccess, NSError * _Nonnull error) {
             if (isSuccess) {
                 [WHHud showString:@"微信绑定成功"];
+                self.WXAuthBlock(YES);
             }
         }];
     }

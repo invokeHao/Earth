@@ -12,9 +12,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MFYThirdLoginManager : NSObject<WXApiDelegate>
 
+@property (nonatomic, copy)void(^WXAuthBlock)(BOOL isSuccess);
+@property (nonatomic, copy)void(^ALiAuthBlock)(BOOL isSuccess);
+
 + (instancetype)sharedManager;
 
-+ (void)sendWXAuthReq;
++ (void)sendWXAuthReqCoompletion:(void(^)(BOOL isSuccess))completion;
+
++ (void)sendALiInfo:(NSDictionary *)userInfo Coompletion:(void(^)(BOOL isSuccess))completion;
 
 - (BOOL)mfy_thirdPatyHandleTheUrl:(NSURL*)url;
 - (BOOL)mfy_handleOpenUniversalLink:(NSUserActivity*)userActivity;
