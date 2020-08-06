@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString * expireDate;
 @property (nonatomic, assign) BOOL profileUpdated;
 @property (nonatomic, strong) NSString * token;
+@property (nonatomic, strong) NSString * imId;
+@property (nonatomic, strong) NSString * imPwd;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

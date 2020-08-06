@@ -8,6 +8,13 @@
 
 #import "JXCategoryTitleCellModel.h"
 
+
+typedef NS_ENUM(NSInteger, MFYTittleCellType) {
+    MFYTittleCellRoundType = 0,
+    MFYTittleCellNavLeftType,
+    MFYTittleCellNavRIghtType
+};
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MFYCategoryBackgoundTitleCellModel : JXCategoryTitleCellModel
@@ -21,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat backgroundWidth;
 @property (nonatomic, assign) CGFloat backgroundHeight;
 
+@property (nonatomic, assign) MFYTittleCellType MfyCellType;
 
 @end
 

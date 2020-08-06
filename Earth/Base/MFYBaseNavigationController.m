@@ -24,8 +24,12 @@
     if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.interactivePopGestureRecognizer.delegate = weakSelf;
     }
-    
 }
+
+- (UIModalPresentationStyle)modalPresentationStyle{
+    return UIModalPresentationFullScreen;
+}
+
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     viewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];

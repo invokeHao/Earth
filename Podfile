@@ -24,6 +24,19 @@ def shared_pods
     pod 'ReactiveCocoa', :git => 'https://github.com/zhao0/ReactiveCocoa.git', :tag => '2.5.2'
     pod 'YHDragContainer'
     pod 'JXCategoryView'
+    pod 'BGFMDB'
+    pod 'Qiniu'
+    pod 'JPVideoPlayer'
+    pod 'JPNavigationController', '~> 2.1.3'
+    pod 'KTVHTTPCache', '~> 1.1.5'
+    pod 'IQKeyboardManager'
+    pod 'UMCCommon'
+    pod 'UMCPush'
+    pod 'UMCSecurityPlugins'
+    pod 'UMCAnalytics'
+    pod 'JMessage'
+    pod 'WechatOpenSDK'
+    pod 'Weibo_SDK', :git => 'https://github.com/sinaweibosdk/weibo_ios_sdk.git'
 
     post_install do |installer|
     installer.pods_project.targets.each do |target|

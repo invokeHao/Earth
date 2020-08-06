@@ -22,9 +22,14 @@
     [self _bindEvents];
 }
 
+- (UIModalPresentationStyle)modalPresentationStyle{
+    return UIModalPresentationFullScreen;
+}
+
+
 - (void)_bindEvents {
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backButton setImage:[UIImage imageNamed:@"ico_back"] forState:UIControlStateNormal];
+    [backButton setImage:[UIImage imageNamed:@"ico_arrow_back"] forState:UIControlStateNormal];
     [backButton addTarget:self action:@selector(backButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     self.navBar.leftButton = backButton;
 }

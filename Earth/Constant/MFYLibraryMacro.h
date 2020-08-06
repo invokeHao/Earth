@@ -15,11 +15,19 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <YYModel/YYModel.h>
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
-#import <MJRefresh.h>
+#import <MJRefresh/MJRefresh.h>
 #import <YHDragCardContainer.h>
 #import <JXCategoryView.h>
+#import <BGFMDB.h>
+#import <IQKeyboardManager.h>
+#import <UMCommon/UMCommon.h>
+#import <JMessage/JMessage.h>
+#import <WXApi.h>
 
 #import "whKit.h"
 #import "KSPhotoBrowser.h"
+#import "JCHATFileManager.h"
+#import "MJPhoto.h"
+#import "MJPhotoBrowser.h"
 
 #endif /* MFYLibraryMacro_h */

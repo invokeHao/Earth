@@ -10,36 +10,45 @@
 
 @interface MFYFlowListVM()
 
-@property (nonatomic, strong) NSMutableArray<MFYRow *> * dataList;
+@property (nonatomic, strong) NSArray<MFYArticle *> * dataList;
+
+@property (nonatomic, assign) NSInteger NewDataCount;
+
+@property (nonatomic, strong) NSString * topicId;
 
 @end
 
 @implementation MFYFlowListVM
 
--(instancetype)init {
+-(instancetype)initWithTopicId:(NSString *)topicId {
     self = [super init];
     if (self) {
+        _topicId = topicId;
+        _NewDataCount = -1;
         [self setupData];
+        [self bindData];
     }
     return self;
 }
 
--(void)setupData {
-    NSBundle *bundle = [NSBundle mainBundle];
-    NSString *path = [bundle pathForResource:@"coreFlowList" ofType:@"plist"];
-    NSDictionary * dic  = [NSDictionary dictionaryWithContentsOfFile:path];
-    NSArray * resultArr = dic[@"rows"];
-    for (NSDictionary * dic in resultArr) {
-        MFYRow * row = [[MFYRow alloc]initWithDictionary:dic];
-        [self.dataList addObject:row];
-    }
+- (void)bindData {
+    
 }
 
-- (NSMutableArray<MFYRow *> *)dataList {
-    if (!_dataList) {
-        _dataList = [NSMutableArray arrayWithCapacity:0];
-    }
-    return _dataList;
+- (void)refreshData {
+    [self setupData];
+}
+
+
+-(void)setupData {
+    @weakify(self)
+    [MFYCoreflowService getTheImageCardWithTopicId:self.topicId completion:^(NSArray<MFYArticle *> * _Nonnull articleList, NSError * _Nonnull error) {
+        @strongify(self)
+        self.NewDataCount = articleList.count;
+         if (articleList.count > 0) {
+             self.dataList = [articleList copy];
+         }
+    }];
 }
 
 @end

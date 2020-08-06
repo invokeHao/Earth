@@ -26,13 +26,13 @@ NSString *NSErrorDesc = @"NSLocalizedDescription";
 + (instancetype)errorWithCode:(NSInteger)code desc:(NSString *)desc {
     NSError *error = [NSError errorWithDomain:MFYDomain
                                          code:code
-                                     userInfo:@{MFYErrorDesc: desc ? desc : @"no desc"}];
+                                     userInfo:@{MFYErrorDesc: desc ? desc : @""}];
     return error;
 }
 
 - (NSString *)descriptionFromServer {
     NSString *descriptionString = [self.userInfo valueForKey:MFYErrorDesc];
-    if (!descriptionString || [descriptionString isEqualToString:@""]) {
+    if (!descriptionString) {
         if ([self.userInfo valueForKey:NSErrorDesc]) {
             descriptionString = [self.userInfo valueForKey:NSErrorDesc];
         }else{

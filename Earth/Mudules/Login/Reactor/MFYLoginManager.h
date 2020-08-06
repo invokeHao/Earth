@@ -7,17 +7,32 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MFYLoginModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MFYLoginManager : NSObject
 
+@property (nonatomic, assign)BOOL isShow;
+
 + (instancetype)sharedManager;
 
 + (NSString *)token;
 
++ (NSString *)deviceID;
 
-+ (void)jumpToLoginWithCompletion:(void (^)(void))completion ;
+
++ (void)jumpToLoginWithCompletion:(void (^)(void))completion;
+
++ (void)logoutWithCompletion:(void(^)(void))completion;
+
++ (void)jumpToMainVC;
+
++ (void)umengPhoneVerifyLogin;
+
++ (void)saveTheLoginModel:(MFYLoginModel*)model completion:(void(^)(BOOL isSuccess))completion;
+
++ (void)deleteTheLoginModel;
 
 @end
 

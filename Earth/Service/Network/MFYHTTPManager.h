@@ -20,8 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSURLSessionDataTask *)GET:(NSString *)URLString
                    parameters:(id )parameters
-                      success:(void (^)(NSURLSessionDataTask * _Nonnull task, MFYResponseObject * _Nonnull cmsResponse))success
-                      failure:(void (^)(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error))failure;
+                      success:(void (^)(NSURLSessionDataTask *  task, MFYResponseObject *  cmsResponse))success
+                      failure:(void (^)(NSURLSessionDataTask *  task, NSError *  error))failure;
 
 - (NSURLSessionDataTask *)POST:(NSString *)URLString
                     parameters:(id)parameters

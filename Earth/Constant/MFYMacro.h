@@ -9,6 +9,8 @@
 #ifndef MFYMacro_h
 #define MFYMacro_h
 
+#import <Foundation/Foundation.h>
+
 #define VERTICAL_SCREEN_HEIGHT MAX([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)
 #define VERTICAL_SCREEN_WIDTH  MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)
 #define WINTH_SCALE VERTICAL_SCREEN_WIDTH / 375.0
@@ -21,7 +23,12 @@
 
 
 // 判断是否是iPhone X
-#define IS_IPHONEX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+#define IS_IPHONEX \
+({BOOL isPhoneX = NO;\
+if (@available(iOS 11.0, *)) {\
+isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0.0;\
+}\
+(isPhoneX);})
 
 // 判断是否时iPad
 #define IS_IPAD ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
@@ -48,5 +55,64 @@
 #define WHLog(fmt, ...) NSLog((@"🍺 " fmt), ##__VA_ARGS__)
 #define WHLogError(fmt, ...) NSLog((@"❌ " fmt), ##__VA_ARGS__)
 #define WHLogSuccess(fmt, ...) NSLog((@"🚀 " fmt), ##__VA_ARGS__)
+
+// GCD related
+#define wh_dispatch_time(seconds) dispatch_time(DISPATCH_TIME_NOW, (int64_t)((seconds) * NSEC_PER_SEC))
+
+#define wh_dispatch_after(seconds, block) do { \
+dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((seconds) * NSEC_PER_SEC)), dispatch_get_main_queue(), block);\
+} while(0)
+
+#define wh_dispatch_main_async(block) do { \
+dispatch_async(dispatch_get_main_queue(), block); \
+} while(0)
+
+#define wh_dispath_background_async(block) do { \
+dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), block); \
+} while(0)
+
+
+#define MFYNotificationPublishImageSuccess @"MFYNotificationPublishImageSuccess" //发帖颜值贴成功
+#define MFYNotificationPublishAudioSuccess @"MFYNotificationPublishAudioSuccess" //发帖声控贴成功
+
+#define MFYTagAddSingal @"MFYTAGADDSINGAL"  //判断为添加按钮
+
+//JChat相关
+
+//生产环境
+//#define JMESSAGE_APPKEY @"e4d5daa38a8022d73d435949"
+
+//测试环境
+#define JMESSAGE_APPKEY @"523bc28832ea519679af3884"
+
+#define kuserName @"userName"
+#define klastLoginUserName @"lastUserName"
+#define kBADGE @"badge"
+
+#define kPassword @"password"
+#define kLogin_NotifiCation @"loginNotification"
+#define kFirstLogin @"firstLogin"
+#define kHaveLogin @"haveLogin"
+
+#define JCHATMAINTHREAD(block) dispatch_async(dispatch_get_main_queue(), block)
+
+#define kimgKey @"imgKey"
+#define kmessageKey @"messageKey"
+#define kupdateUserInfo @"updateUserInfo"
+#define KNull @"(null)"
+#define KApnsNotification @"apnsNotification"
+
+#define kDBMigrateStartNotification @"DBMigrateStartNotification"
+#define kDBMigrateFinishNotification @"DBMigrateFinishNotification"
+
+#define kAlertToSendImage @"AlertToSendImage"
+#define kDeleteMessage @"DeleteMessage"
+#define kDeleteAllMessage  @"deleteAllMessage"
+
+#define upLoadImgWidth   720
+
+
+static NSString * const st_receiveUnknowMessageDes = @"收到新消息类型无法解析的数据，请升级查看";
+static NSString * const st_receiveErrorMessageDes = @"接收消息错误";
 
 #endif /* MFYMacro_h */

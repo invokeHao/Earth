@@ -7,14 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MFYRow.h"
+#import "MFYCoreflowService.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MFYFlowListVM : NSObject
 
-@property (nonatomic, strong,readonly) NSMutableArray<MFYRow *> * dataList;
+@property (nonatomic, strong,readonly) NSArray<MFYArticle *> * dataList;
 
+@property (nonatomic, assign, readonly) NSInteger NewDataCount;
+
+- (instancetype)initWithTopicId:(NSString *)topicId;
+
+- (void)refreshData;
 
 @end
 

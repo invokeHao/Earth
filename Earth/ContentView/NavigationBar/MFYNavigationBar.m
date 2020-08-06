@@ -8,7 +8,7 @@
 
 #import "MFYNavigationBar.h"
 
-const CGFloat navButtonWidth = 60.0f;
+CGFloat const navButtonWidth = 40.0f;
 
 @interface MFYNavigationBar ()
 
@@ -48,9 +48,9 @@ const CGFloat navButtonWidth = 60.0f;
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(navButtonWidth, 0, self.bounds.size.width - 2 * navButtonWidth, 44)];
-        _titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleLabel.textAlignment = NSTextAlignmentLeft;
         _titleLabel.textColor = [UIColor whiteColor];
-        [_titleLabel setFont:[UIFont systemFontOfSize:16]];
+        [_titleLabel setFont:[UIFont boldSystemFontOfSize:18.0]];
     }
     return _titleLabel;
 }

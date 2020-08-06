@@ -9,6 +9,7 @@
 #import "MFYLoginVIewController.h"
 #import "MFYTimerButton.h"
 #import "MFYLoginService.h"
+#import "MFYMineService.h"
 
 typedef enum : NSUInteger {
     PhoneNumType,
@@ -49,10 +50,11 @@ typedef enum : NSUInteger {
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupViews];
-    [self bindEvents];
+    [self bindEvents];    
 }
 
 - (void)setupViews {
+    self.navBar.hidden = YES;
     UIView * topView = [[UIView alloc]initWithFrame:CGRectMake(0, STATUS_BAR_HEIGHT + 32, VERTICAL_SCREEN_WIDTH, 150)];
     [self.view addSubview:topView];
     [self.view addSubview:self.dismissBtn];
@@ -62,15 +64,15 @@ typedef enum : NSUInteger {
     [topView addSubview:self.slognLabel];
     [topView addSubview:self.tipsLabel];
     
-    UIView * phoneView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, VERTICAL_SCREEN_WIDTH, 180)];
-    UIView * codeView = [[UIView alloc]initWithFrame:CGRectMake(VERTICAL_SCREEN_WIDTH, 0, VERTICAL_SCREEN_WIDTH, 180)];
+    UIView * phoneView = [[UIView alloc]init];
+    UIView * codeView = [[UIView alloc]init];
     
     [self.mainScroll addSubview:phoneView];
     [self.mainScroll addSubview:codeView];
     
-    [phoneView addSubview:self.phoneLabel];
+    [self.mainScroll addSubview:self.phoneLabel];
     [phoneView addSubview:self.PhoneField];
-    [codeView addSubview:self.codeLabel];
+    [self.mainScroll addSubview:self.codeLabel];
     [codeView addSubview:self.codeField];
     
     
@@ -93,28 +95,27 @@ typedef enum : NSUInteger {
     
     [self.phoneLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(10);
-        make.centerX.mas_equalTo(phoneView);
+        make.centerX.mas_equalTo(self.mainScroll);
         make.height.mas_equalTo(25);
     }];
     
-    [self.PhoneField mas_makeConstraints:^(MASConstraintMaker *make) {
+    [phoneView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.phoneLabel.mas_bottom).offset(H_SCALE(30));
         make.left.mas_equalTo(W_SCALE(45));
-        make.right.mas_equalTo(W_SCALE(-45));
-        make.height.mas_equalTo(56);
+        make.size.mas_equalTo(CGSizeMake(VERTICAL_SCREEN_WIDTH - W_SCALE(90), 56));
     }];
     
     [self.codeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(10);
-        make.centerX.mas_equalTo(codeView);
+        make.left.mas_equalTo(phoneView.mas_right).offset(W_SCALE(90));
+        make.width.mas_equalTo(VERTICAL_SCREEN_WIDTH - W_SCALE(90));
         make.height.mas_equalTo(25);
     }];
     
-    [self.codeField mas_makeConstraints:^(MASConstraintMaker *make) {
+    [codeView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.codeLabel.mas_bottom).offset(H_SCALE(30));
-        make.left.mas_equalTo(W_SCALE(45));
-        make.right.mas_equalTo(W_SCALE(-45));
-        make.height.mas_equalTo(56);
+        make.left.equalTo(self.codeLabel);
+        make.size.mas_equalTo(phoneView);
     }];
     
     [self.confirmBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -123,14 +124,57 @@ typedef enum : NSUInteger {
         make.right.mas_equalTo(W_SCALE(-45));
         make.height.mas_equalTo(56);
     }];
+    
+    //因为ios13的左右视图的bug，导致要这么写，蛋疼
+    
+    UIView * PhoneLeftView = [self setupLeftViewWithType:PhoneNumType];
+    UIView * codeLeftView = [self setupLeftViewWithType:verifyCodeType];
+    UIView * codeRightView = [self setupCodeFieldRightView];
+    [self layoutTheView:phoneView];
+    [self layoutTheView:codeView];
+    [phoneView addSubview:PhoneLeftView];
+    [codeView addSubview:codeLeftView];
+    [codeView addSubview:codeRightView];
+
+    
+    [PhoneLeftView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.mas_equalTo(0);
+        make.centerY.mas_equalTo(phoneView);
+        make.size.mas_equalTo(CGSizeMake(70, 56));
+    }];
+    [self.PhoneField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(PhoneLeftView);
+        make.left.equalTo(PhoneLeftView.mas_right).offset(2);
+        make.right.mas_equalTo(0);
+        make.height.mas_equalTo(56);
+    }];
+    
+    [codeLeftView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.mas_equalTo(0);
+        make.centerY.mas_equalTo(codeView);
+        make.size.mas_equalTo(CGSizeMake(25, 56));
+    }];
+    
+    [codeRightView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(codeView);
+        make.right.mas_equalTo(0);
+        make.size.mas_equalTo(CGSizeMake(100, 26));
+    }];
+
+    
+    [self.codeField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(codeLeftView);
+        make.left.mas_equalTo(codeLeftView.mas_right).offset(1);
+        make.right.mas_equalTo(codeRightView.mas_left).offset(-1);
+        make.height.equalTo(codeView);
+    }];
 }
 
 
 - (void)bindEvents {
     @weakify(self)
     [[self.dismissBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        @strongify(self)
-        [self dismissViewControllerAnimated:YES completion:NULL];
+        [MFYLoginManager jumpToMainVC];
     }];
     
     [[self.PhoneField rac_signalForControlEvents:UIControlEventEditingChanged] subscribeNext:^(UITextField * x) {
@@ -156,8 +200,12 @@ typedef enum : NSUInteger {
     
     [[self.sendCodeBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self)
+        if (self.PhoneField.text.length != 11) {
+            [self.view showString:@"手机号格式不正确"];
+            return;
+        }
+        [self sendVerifyCode];
         [self.sendCodeBtn startTimer];
-        
     }];
     
     [[self.confirmBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
@@ -169,18 +217,75 @@ typedef enum : NSUInteger {
             [self.view showString:@"请检查验证码格式"];
         }
     }];
+    
+    RACSignal * dataObserve = RACObserve(self, mainScroll.contentOffset);
+    
+    [[[dataObserve skipUntilBlock:^BOOL(id x) {
+        @strongify(self)
+        return self.mainScroll.contentOffset.x >= VERTICAL_SCREEN_WIDTH;
+    }] deliverOnMainThread] subscribeNext:^(id x) {
+        @strongify(self)
+        [self sendVerifyCode];
+        [self.sendCodeBtn startTimer];
+    }];
+
 
 }
+
+- (void)sendVerifyCode {
+    [MFYLoginService getVerifyCode:self.PhoneField.text completion:^(BOOL success, NSError * _Nonnull error) {
+        if (!success) {
+            [WHHud showString:error.descriptionFromServer];
+        }
+    }];
+}
+
 
 #pragma mark- 验证码登录
 - (void)loginWithPhoneNum:(NSString*)num code:(NSString*)code {
     [self.view showActivityView];
     [MFYLoginService loginWithPhoneNum:num verifyCode:code completion:^(MFYLoginModel * _Nonnull loginModel, NSError * _Nonnull error) {
+        if (!error) {
+            [MFYLoginManager saveTheLoginModel:loginModel completion:^(BOOL isSuccess) {
+                if (isSuccess) {
+                    //登录IM
+                    [self loginJChatIM:loginModel];
+                }
+            }];
+        }else {
+            [WHHud showString:error.descriptionFromServer];
+            [self.view hideActivityView];
+        }
+    }];
+}
+
+#pragma mark- 登录IM
+- (void)loginJChatIM:(MFYLoginModel *)loginModel {
+    //先获取用户IM信息
+    [MFYMineService getSelfDetailInfoCompletion:^(MFYProfile * _Nonnull profile, NSError * _Nonnull error) {
         [self.view hideActivityView];
-        [self dismissViewControllerAnimated:YES completion:^{
-            [[WHAlertTool WHTopViewController].view showString:@"登录成功"];
-        }];
-        WHLogSuccess(@"%@",loginModel.token);
+        if (!error) {
+            //IM登录
+            [JMSGUser loginWithUsername:profile.imId
+                               password:profile.imPwd
+                      completionHandler:^(id resultObject, NSError *error) {
+                if (!error) {
+                    loginModel.imId = profile.imId;
+                    loginModel.imPwd = profile.imPwd;
+                    [MFYLoginManager saveTheLoginModel:loginModel completion:^(BOOL isSuccess) {}];
+                
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kupdateUserInfo object:nil];
+                    [MFYLoginManager jumpToMainVC];
+
+                }else {
+                    [WHHud showString:@"登录聊天系统失败"];
+                    WHLogError(@"%@",error);
+                }
+            }];
+
+        }else {
+            [WHHud showString:error.descriptionFromServer];
+        }
     }];
 }
 
@@ -206,11 +311,18 @@ typedef enum : NSUInteger {
     return NO;
 }
 
+- (void)layoutTheView:(UIView*)view {
+    view.layer.borderColor = wh_colorWithHexString(@"333333").CGColor;
+    view.layer.borderWidth = 2;
+    view.layer.cornerRadius = 28;
+    view.layer.masksToBounds = YES;
+}
+
 
 - (UIButton *)dismissBtn {
     if (!_dismissBtn) {
         _dismissBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _dismissBtn.WH_setImage_forState(WHImageNamed(@"login_close"),UIControlStateNormal);
+        _dismissBtn.WH_setImage_forState(WHImageNamed(@"login_back"),UIControlStateNormal);
     }
     return _dismissBtn;
 }
@@ -256,20 +368,12 @@ typedef enum : NSUInteger {
         NSFontAttributeName:WHFont(20)
         }];
         _PhoneField.attributedPlaceholder = attrString;
-        _PhoneField.leftViewMode = UITextFieldViewModeAlways;
-        _PhoneField.leftView = [self setupLeftViewWithType:PhoneNumType];
         _PhoneField.keyboardType = UIKeyboardTypePhonePad;
         _PhoneField.font = WHFont(20);
         _PhoneField.textColor = wh_colorWithHexString(@"333333");
         _PhoneField.tintColor = wh_colorWithHexString(@"333333");
-        
+        _PhoneField.leftViewMode = UITextFieldViewModeAlways;
         _PhoneField.delegate = self;
-        
-        _PhoneField.layer.borderColor = wh_colorWithHexString(@"333333").CGColor;
-        _PhoneField.layer.borderWidth = 2;
-        _PhoneField.layer.cornerRadius = 28;
-        _PhoneField.layer.masksToBounds = YES;
-
     }
     return _PhoneField;
 }
@@ -278,7 +382,7 @@ typedef enum : NSUInteger {
     UIView * leftView = [[UIView alloc]init];
     leftView.backgroundColor = [UIColor clearColor];
     if (type == PhoneNumType) {
-        [leftView setFrame:CGRectMake(0, 0, 70,  50)];
+        [leftView setFrame:CGRectMake(0, 0, 70,  56)];
         UILabel * areaLabel = UILabel.label.WH_text(@"+86").WH_textColor(wh_colorWithHexString(@"333333")).WH_font(WHFont(20));
         UIView * lineView = [[UIView alloc]init];
         lineView.backgroundColor = wh_colorWithHexString(@"999999");
@@ -295,7 +399,7 @@ typedef enum : NSUInteger {
         }];
     }
     if (type == verifyCodeType) {
-        [leftView setFrame:CGRectMake(0, 0, 25, 50)];
+        [leftView setFrame:CGRectMake(0, 0, 25, 56)];
     }
     return leftView;
 }
@@ -315,20 +419,12 @@ typedef enum : NSUInteger {
                }];
         _codeField.attributedPlaceholder = attrString;
         _codeField.rightViewMode = UITextFieldViewModeAlways;
-        _codeField.rightView = [self setupCodeFieldRightView];
         _codeField.leftViewMode = UITextFieldViewModeAlways;
-        _codeField.leftView = [self setupLeftViewWithType:verifyCodeType];
         _codeField.keyboardType = UIKeyboardTypePhonePad;
         _codeField.font = WHFont(20);
         _codeField.textColor = wh_colorWithHexString(@"333333");
         _codeField.tintColor = wh_colorWithHexString(@"333333");
-       
         _codeField.delegate = self;
-       
-        _codeField.layer.borderColor = wh_colorWithHexString(@"333333").CGColor;
-        _codeField.layer.borderWidth = 2;
-        _codeField.layer.cornerRadius = 28;
-        _codeField.layer.masksToBounds = YES;
     }
     return _codeField;
 }

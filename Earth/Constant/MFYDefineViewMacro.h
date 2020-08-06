@@ -12,6 +12,15 @@
 #import "WHAlertTool.h"
 #import "MFYLoginManager.h"
 #import "MFYHTTPManager.h"
+#import "WHHud.h"
+#import "MFYGlobalManager.h"
+#import "MFYRechargeManager.h"
+#import "MFYShareManager.h"
+#import "MFYVersionManager.h"
+#import "MFYThirdLoginManager.h"
+#import "MFYThirdLoginView.h"
+
+#import "MFYThirdPartyConstant.h"
 
 
 #endif /* MFYDefineViewMacro_h */
