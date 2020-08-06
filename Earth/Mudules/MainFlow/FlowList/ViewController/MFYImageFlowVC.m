@@ -7,6 +7,8 @@
 //
 
 #import "MFYImageFlowVC.h"
+#import "MFYBaseNavigationController.h"
+#import "MFYPublicImageCardVC.h"
 #import "MFYFlowListVM.h"
 #import "MFYFlowCardView.h"
 #import "MFYCFToolView.h"
@@ -208,6 +210,13 @@
                 [WHHud showString:error.descriptionFromServer];
             }
         }];
+    }];
+    
+    [self.toolView setTapPublishBlock:^(BOOL tap) {
+        UIViewController * vc = [WHAlertTool WHTopViewController];
+         MFYPublicImageCardVC * imagePubVC = [[MFYPublicImageCardVC alloc]init];
+         MFYBaseNavigationController * Nav = [[MFYBaseNavigationController alloc]initWithRootViewController:imagePubVC];
+         [vc presentViewController:Nav animated:YES completion:NULL];
     }];
 
 }

@@ -70,7 +70,7 @@ typedef enum : NSUInteger {
         [self.view showString:@"图片不能为空"];
         return;
     }
-    self.itemModel.priceAmount = [self.redField.text floatValue];
+    self.itemModel.priceAmount = [self.redField.text integerValue] * 100;
     self.itemModel.fileDesc = self.descField.text;
     if (self.viewType == MFYCardPrivacyType && self.itemModel.priceAmount <= 0) {
         [self.view showString:@"设置为隐私后，别忘记设置金额呦"];

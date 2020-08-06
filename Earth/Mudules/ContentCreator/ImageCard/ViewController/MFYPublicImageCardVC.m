@@ -53,8 +53,6 @@ typedef NS_ENUM(NSUInteger, MFYImageViewType) {
     [self setupViews];
     [self setupConstraint];
     [self bindEvents];
-    
-    self.topicId = @"abcdefg";
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

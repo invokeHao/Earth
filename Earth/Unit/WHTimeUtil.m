@@ -61,6 +61,7 @@ NSTimeInterval const OneWeek = 604800;
     return dateString;
 }
 
+
 + (NSString *)getHourDateByTimeStamp:(NSTimeInterval)timeStamp {
     NSTimeInterval inputStamp = timeStamp / 1000;
     NSDate * date = [NSDate dateWithTimeIntervalSince1970:inputStamp];

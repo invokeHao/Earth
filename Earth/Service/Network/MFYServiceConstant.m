@@ -8,7 +8,8 @@
 
 #import "MFYServiceConstant.h"
 
-NSString * const MFYServiceDomainDevelop = @"http://friends.0act.com/";
+//NSString * const MFYServiceDomainDevelop = @"http://friends.0act.com/";
+NSString * const MFYServiceDomainDevelop = @"https://tinder-0act-showx.moboo.ly/";
 NSString * const MFYServiceDomainAlpha = @"http://alphaapi01.gomoboo.com/";
 NSString * const MFYServiceDomainBeta = @"http://betaapi01.gomoboo.com/";
 NSString * const MFYServiceDomainLive = @"http://api01.0act.com/";

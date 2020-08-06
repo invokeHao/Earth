@@ -7,8 +7,6 @@
 //
 
 #import "MFYCFToolView.h"
-#import "MFYBaseNavigationController.h"
-#import "MFYPublicImageCardVC.h"
 #import "MFYMineService.h"
 
 @implementation MFYCFToolView
@@ -41,9 +39,9 @@
     
     [[self.publicBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         if ([MFYLoginManager token]) {
-            UIViewController * vc = [WHAlertTool WHTopViewController];
-            MFYBaseNavigationController * Nav = [[MFYBaseNavigationController alloc]initWithRootViewController:[MFYPublicImageCardVC new]];
-            [vc presentViewController:Nav animated:YES completion:NULL];
+            if (self.tapPublishBlock) {
+                self.tapPublishBlock(YES);
+            }
         }else {
             [MFYLoginManager umengPhoneVerifyLogin];
         }

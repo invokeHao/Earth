@@ -26,7 +26,7 @@
 }
 
 - (void)refreshData {
-    [MFYMineService getSelfDetailInfoCompletion:^(MFYProfile * _Nonnull profile, NSError * _Nonnull error) {
+    [MFYMineService getSelfDetailInfoCompletion:^(MFYProfile * _Nonnull profile, NSError *  error) {
         if (profile) {
             self.profile = profile;
         }

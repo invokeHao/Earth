@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (assign, nonatomic)NSInteger fileType;
 
-@property (assign, nonatomic)float priceAmount;
+@property (assign, nonatomic)NSInteger priceAmount;
 
 @property (strong, nonatomic)MFYAssetModel * assetModel;
 

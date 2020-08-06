@@ -119,6 +119,7 @@
         make.left.right.height.mas_equalTo(self.myLikeCell);
         make.top.mas_equalTo(self.myOldCell.mas_bottom).offset(25);
     }];
+    
 }
 
 - (void)bindingData {

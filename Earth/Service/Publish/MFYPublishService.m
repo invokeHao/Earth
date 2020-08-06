@@ -11,7 +11,7 @@
 @implementation MFYPublishService
 
 + (void)publishTheArticleParam:(NSDictionary *)dic completion:(nonnull void (^)(MFYArticle * , NSError * ))completion {
-    [[MFYHTTPManager sharedManager] POST:@"/api/article/image/post" HTTPBody:dic success:^(NSURLSessionDataTask * _Nonnull task, MFYResponseObject * _Nonnull responseObject) {
+    [[MFYHTTPManager sharedManager] POST:@"api/article/image/post" HTTPBody:dic success:^(NSURLSessionDataTask * _Nonnull task, MFYResponseObject * _Nonnull responseObject) {
         if (responseObject.code == 1) {
             MFYArticle * article = [MFYArticle yy_modelWithDictionary:responseObject.result];
             completion(article, nil);
